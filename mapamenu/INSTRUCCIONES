@@ -1,1 +1,3 @@
 En este proyecto esta creado el menu y la carga del mapa tmx, al ejecutarlo desde la terminal puedes navegar por el mapa en la ventana y en la consola aparece el documento cargado.
+
+El menu guarda como variables la dificultad 0 facil 1 normal 2 dificil, el numero de niveles que se van a jugar y el numero de jugadores para saber el modo de juego

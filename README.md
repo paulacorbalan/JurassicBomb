@@ -1,2 +1,2 @@
 # JurassicBomb
-Jurassic Bomb by  dgfdsgfsdgsd Boombasaurus
+Jurassic Bomb by  Boombasaurus

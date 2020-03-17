@@ -6,7 +6,7 @@ project(MiJuego)
 #Habitualmente cada subdirectorio determinará una libreria 
 add_library(libModulos STATIC)
 add_subdirectory(ej_modulos)
-add_subdirectory(ejemplo2)
+add_subdirectory(mapa)
 add_subdirectory(tinyxml-master)
 add_subdirectory(menu)
 

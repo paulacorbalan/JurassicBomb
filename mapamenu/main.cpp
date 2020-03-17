@@ -2,14 +2,13 @@
 #include <iostream>
 #include "include/config.h"
 #include "ej_modulos/Tile.h"
-#include "ejemplo2/Map.h"
+#include "mapa/Map.h"
 #include "menu/menu.h"
 
 #define kVel 5
 
 int main() {
   Map *mod2 = new Map("resources/mapa1.tmx");
-
   Menu menu;
   //Creamos una ventana
   sf::RenderWindow window(sf::VideoMode(width, height), "P0. Fundamentos de los Videojuegos. DCCIA");
@@ -25,17 +24,18 @@ int main() {
             tileimage.setTextureRect(sf::IntRect(0, 0, 32, 32));
             tileimage.setPosition(width-64, height-64);  
 
-          Tile *tile=new Tile(2,1,1,1);
-*/
 
+*/
+          Tile *tile=new Tile();
+            
   //Bucle del juego
   while (window.isOpen()) {
     //Bucle de obtención de eventos
     sf::Event event;
+    tile->Update();
     while (window.pollEvent(event)) {
       //MENU UPDATE
       menu.Update(event,window);
-      
           switch (event.type) {
           //Si se recibe el evento de cerrar la ventana la cierro
           case sf::Event::Closed:
@@ -62,7 +62,7 @@ int main() {
     //dibujar
     mod2->draw(window);
     //window.draw(tileimage);
-    //tile->Draw(window);
+    tile->draw(window);
     //menu.Draw(window);
 
 //display

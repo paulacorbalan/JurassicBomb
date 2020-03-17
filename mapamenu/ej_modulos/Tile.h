@@ -7,19 +7,31 @@ class Tile{
    
     public:
     Tile();
-    Tile(int gid,int layer,int x, int y);
-    void Draw(sf::RenderWindow &window);
+    void Cargarecursos();
+    void Update();
+    void draw(sf::RenderWindow &window);
+private:
 
-    int layer;
-    int posx;
-    int posy;
-    int gid;
-    int tamano=32;
-    int heigth=480;
-    int width=640;
-    
-    sf::Texture tiletex;
-    sf::Sprite tileimage;     
+    sf::Sprite vida1;
+    sf::Sprite vida2;
+    sf::Sprite vida3;
+    sf::Texture texvida;
+    sf::Sprite letranumero;
+    sf::Texture texletranumero;
+    sf::Sprite contador;
+    sf::Texture texcontador;
+    sf::Clock temporizador;
+    int segundero;
+    std::vector<sf::Sprite> sprites;
+
+
+    sf::Font fuente;
+    sf::String cadena;
+    sf::Text texto;
+    int vidas=3;
+    bool terminada=false;
+    int min=0;
+    int seg=12;
 
 
 

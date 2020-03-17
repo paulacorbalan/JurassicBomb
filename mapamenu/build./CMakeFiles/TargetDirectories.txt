@@ -1,0 +1,12 @@
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/MiJuego.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./ej_modulos/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./ej_modulos/CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mapa/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mapa/CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/CMakeFiles/rebuild_cache.dir

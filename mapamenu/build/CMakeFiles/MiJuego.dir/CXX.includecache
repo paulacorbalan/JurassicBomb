@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../ej_modulos/Tile.h
+SFML/Graphics.hpp
+-
+
 ../tinyxml-master/tinystr.h
 assert.h
 -
@@ -32,31 +36,35 @@ sstream
 tinystr.h
 ../tinyxml-master/tinystr.h
 
-/home/fv2/Desktop/todo/ej_modulos/mimodulo.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ej_modulos/Tile.h
+SFML/Graphics.hpp
+-
 
-/home/fv2/Desktop/todo/ejemplo2/mimodulo2.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2/Map.h
 tinyxml.h
-/home/fv2/Desktop/todo/ejemplo2/tinyxml.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2/tinyxml.h
+Tile.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2/Tile.h
 string
 -
 
-/home/fv2/Desktop/todo/include/config.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/include/config.h
 
-/home/fv2/Desktop/todo/main.cpp
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/main.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 include/config.h
-/home/fv2/Desktop/todo/include/config.h
-ej_modulos/mimodulo.h
-/home/fv2/Desktop/todo/ej_modulos/mimodulo.h
-ejemplo2/mimodulo2.h
-/home/fv2/Desktop/todo/ejemplo2/mimodulo2.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/include/config.h
+ej_modulos/Tile.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ej_modulos/Tile.h
+ejemplo2/Map.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2/Map.h
 menu/menu.h
-/home/fv2/Desktop/todo/menu/menu.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/menu/menu.h
 
-/home/fv2/Desktop/todo/menu/menu.h
+/home/fv2/Desktop/JurassicBomb-david/mapamenu/menu/menu.h
 string
 -
 iostream

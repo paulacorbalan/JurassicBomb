@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fv2/Desktop/todo
+CMAKE_SOURCE_DIR = /home/fv2/Desktop/JurassicBomb-david/mapamenu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fv2/Desktop/todo/build
+CMAKE_BINARY_DIR = /home/fv2/Desktop/JurassicBomb-david/mapamenu/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/todo/build/CMakeFiles /home/fv2/Desktop/todo/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/JurassicBomb-david/mapamenu/build/CMakeFiles /home/fv2/Desktop/JurassicBomb-david/mapamenu/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/todo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/JurassicBomb-david/mapamenu/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -136,59 +136,59 @@ libModulos/fast:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/build
 .PHONY : libModulos/fast
 
-ej_modulos/mimodulo.o: ej_modulos/mimodulo.cpp.o
+ej_modulos/Tile.o: ej_modulos/Tile.cpp.o
 
-.PHONY : ej_modulos/mimodulo.o
-
-# target to build an object file
-ej_modulos/mimodulo.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o
-.PHONY : ej_modulos/mimodulo.cpp.o
-
-ej_modulos/mimodulo.i: ej_modulos/mimodulo.cpp.i
-
-.PHONY : ej_modulos/mimodulo.i
-
-# target to preprocess a source file
-ej_modulos/mimodulo.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i
-.PHONY : ej_modulos/mimodulo.cpp.i
-
-ej_modulos/mimodulo.s: ej_modulos/mimodulo.cpp.s
-
-.PHONY : ej_modulos/mimodulo.s
-
-# target to generate assembly for a file
-ej_modulos/mimodulo.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s
-.PHONY : ej_modulos/mimodulo.cpp.s
-
-ejemplo2/mimodulo2.o: ejemplo2/mimodulo2.cpp.o
-
-.PHONY : ejemplo2/mimodulo2.o
+.PHONY : ej_modulos/Tile.o
 
 # target to build an object file
-ejemplo2/mimodulo2.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/mimodulo2.cpp.o
-.PHONY : ejemplo2/mimodulo2.cpp.o
+ej_modulos/Tile.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o
+.PHONY : ej_modulos/Tile.cpp.o
 
-ejemplo2/mimodulo2.i: ejemplo2/mimodulo2.cpp.i
+ej_modulos/Tile.i: ej_modulos/Tile.cpp.i
 
-.PHONY : ejemplo2/mimodulo2.i
+.PHONY : ej_modulos/Tile.i
 
 # target to preprocess a source file
-ejemplo2/mimodulo2.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/mimodulo2.cpp.i
-.PHONY : ejemplo2/mimodulo2.cpp.i
+ej_modulos/Tile.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.i
+.PHONY : ej_modulos/Tile.cpp.i
 
-ejemplo2/mimodulo2.s: ejemplo2/mimodulo2.cpp.s
+ej_modulos/Tile.s: ej_modulos/Tile.cpp.s
 
-.PHONY : ejemplo2/mimodulo2.s
+.PHONY : ej_modulos/Tile.s
 
 # target to generate assembly for a file
-ejemplo2/mimodulo2.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/mimodulo2.cpp.s
-.PHONY : ejemplo2/mimodulo2.cpp.s
+ej_modulos/Tile.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.s
+.PHONY : ej_modulos/Tile.cpp.s
+
+ejemplo2/Map.o: ejemplo2/Map.cpp.o
+
+.PHONY : ejemplo2/Map.o
+
+# target to build an object file
+ejemplo2/Map.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/Map.cpp.o
+.PHONY : ejemplo2/Map.cpp.o
+
+ejemplo2/Map.i: ejemplo2/Map.cpp.i
+
+.PHONY : ejemplo2/Map.i
+
+# target to preprocess a source file
+ejemplo2/Map.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/Map.cpp.i
+.PHONY : ejemplo2/Map.cpp.i
+
+ejemplo2/Map.s: ejemplo2/Map.cpp.s
+
+.PHONY : ejemplo2/Map.s
+
+# target to generate assembly for a file
+ejemplo2/Map.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ejemplo2/Map.cpp.s
+.PHONY : ejemplo2/Map.cpp.s
 
 main.o: main.cpp.o
 
@@ -362,12 +362,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... MiJuego"
 	@echo "... libModulos"
-	@echo "... ej_modulos/mimodulo.o"
-	@echo "... ej_modulos/mimodulo.i"
-	@echo "... ej_modulos/mimodulo.s"
-	@echo "... ejemplo2/mimodulo2.o"
-	@echo "... ejemplo2/mimodulo2.i"
-	@echo "... ejemplo2/mimodulo2.s"
+	@echo "... ej_modulos/Tile.o"
+	@echo "... ej_modulos/Tile.i"
+	@echo "... ej_modulos/Tile.s"
+	@echo "... ejemplo2/Map.o"
+	@echo "... ejemplo2/Map.i"
+	@echo "... ejemplo2/Map.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

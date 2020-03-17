@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/todo/ej_modulos
+# Install script for directory: /home/fv2/Desktop/JurassicBomb-david/mapamenu/ej_modulos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++1y -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fv2/Desktop/todo/ej_modulos -I/home/fv2/Desktop/todo/ejemplo2 -I/home/fv2/Desktop/todo/tinyxml-master -I/home/fv2/Desktop/todo/menu 
+CXX_INCLUDES = -I/home/fv2/Desktop/JurassicBomb-david/mapamenu/ej_modulos -I/home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2 -I/home/fv2/Desktop/JurassicBomb-david/mapamenu/tinyxml-master -I/home/fv2/Desktop/JurassicBomb-david/mapamenu/menu 
 

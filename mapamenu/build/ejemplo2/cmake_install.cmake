@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/todo/ejemplo2
+# Install script for directory: /home/fv2/Desktop/JurassicBomb-david/mapamenu/ejemplo2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -193,17 +193,13 @@ void Menu::Cargarecursos(){
             backgroundImage.setTexture( background );
 
           //Cargo la imagen donde reside la textura del sprite
-            
-         
-             
-             //Y creo el spritesheet a partir de la imagen anterior
+           //Y creo el spritesheet a partir de la imagen anterior
               sf::Texture tex;
               if (!tex.loadFromFile("resources/sprites.png")) {
                 std::cerr << "Error cargando la imagen sprites.png";
               }
 
             sf::Sprite aux(tex);
-
             //Le pongo el centroide donde corresponde
             aux.setOrigin(75 / 2, 75 / 2);
             //Cojo el sprite que me interesa por defecto del sheet
@@ -215,14 +211,13 @@ void Menu::Cargarecursos(){
             sprite=aux;
 
                   //pausa
-
-
                   if ( !pausa.loadFromFile( "resources/pausa.png" ) )
                   std::cout << "Error: Could not display pausa image" << std::endl;
 
                   pausaImage.setTexture( pausa );
                   pausaImage.setOrigin(pausa.getSize().x*0.5, pausa.getSize().y*0.5);
                   pausaImage.setPosition(width*1/2, height*2/6);  
+
                   //play
                   if ( !play.loadFromFile( "resources/play.png" ) )
                   std::cout << "Error: Could not display play image" << std::endl;
@@ -249,8 +244,6 @@ void Menu::Cargarecursos(){
                   nivelesImage.setOrigin(niveles.getSize().x*0.5, niveles.getSize().y*0.5);
                   nivelesImage.setPosition(width*6/8, height*2/6);
                   //menos
-
-
                   if ( !menos.loadFromFile( "resources/menos.png" ) )
                   std::cout << "Error: Could not display menos image" << std::endl;
 
@@ -258,8 +251,6 @@ void Menu::Cargarecursos(){
                   menosImage.setOrigin(menos.getSize().x*0.5, menos.getSize().y*0.5);
                   menosImage.setPosition(width*5/8, height*3/6);
                   //mas
-
-
                   if ( !plus.loadFromFile( "resources/plus.png" ) )
                   std::cout << "Error: Could not display plus image" << std::endl;
 
@@ -290,13 +281,10 @@ void Menu::Cargarecursos(){
             texto.setCharacterSize(75);
             // Posición del texto
             texto.setPosition(-15+(plusImage.getPosition().x+menosImage.getPosition().x)/2,-50+(plusImage.getPosition().y+menosImage.getPosition().y)/2);
-
             texto.setColor(sf::Color::Red);
 
 
                   //facil
-
-
                   if ( !facil.loadFromFile( "resources/facil.png" ) )
                   std::cout << "Error: Could not display facil image" << std::endl;
 

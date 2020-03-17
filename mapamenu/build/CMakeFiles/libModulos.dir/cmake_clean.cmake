@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o"
-  "CMakeFiles/libModulos.dir/ejemplo2/mimodulo2.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o"
+  "CMakeFiles/libModulos.dir/ejemplo2/Map.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o"

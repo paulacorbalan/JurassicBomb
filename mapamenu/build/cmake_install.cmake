@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/todo
+# Install script for directory: /home/fv2/Desktop/JurassicBomb-david/mapamenu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,10 +34,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/fv2/Desktop/todo/build/ej_modulos/cmake_install.cmake")
-  include("/home/fv2/Desktop/todo/build/ejemplo2/cmake_install.cmake")
-  include("/home/fv2/Desktop/todo/build/tinyxml-master/cmake_install.cmake")
-  include("/home/fv2/Desktop/todo/build/menu/cmake_install.cmake")
+  include("/home/fv2/Desktop/JurassicBomb-david/mapamenu/build/ej_modulos/cmake_install.cmake")
+  include("/home/fv2/Desktop/JurassicBomb-david/mapamenu/build/ejemplo2/cmake_install.cmake")
+  include("/home/fv2/Desktop/JurassicBomb-david/mapamenu/build/tinyxml-master/cmake_install.cmake")
+  include("/home/fv2/Desktop/JurassicBomb-david/mapamenu/build/menu/cmake_install.cmake")
 
 endif()
 
@@ -49,5 +49,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/fv2/Desktop/todo/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/fv2/Desktop/JurassicBomb-david/mapamenu/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

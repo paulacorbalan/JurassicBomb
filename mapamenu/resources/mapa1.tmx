@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="tilebase" tilewidth="16" tileheight="16" tilecount="2">
   <image source="tilebase.png" width="32" height="16"/>
  </tileset>
- <layer name="Tile Layer 1" width="13" height="11">
+ <layer name="1" width="13" height="11">
   <data>
    <tile gid="1"/>
    <tile gid="1"/>

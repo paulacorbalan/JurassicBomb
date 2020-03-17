@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/todo/tinyxml-master
+# Install script for directory: /home/fv2/Desktop/JurassicBomb-david/mapamenu/tinyxml-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

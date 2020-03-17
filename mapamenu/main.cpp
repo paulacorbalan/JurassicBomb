@@ -1,22 +1,33 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
 #include "include/config.h"
-#include "ej_modulos/mimodulo.h"
-#include "ejemplo2/mimodulo2.h"
+#include "ej_modulos/Tile.h"
+#include "ejemplo2/Map.h"
 #include "menu/menu.h"
 
 #define kVel 5
 
 int main() {
+  Map *mod2 = new Map("resources/mapa1.tmx");
 
-  MiModulo *mod = new MiModulo();
-    MiModulo2 *mod2 = new MiModulo2("resources/mapa1.tmx");
-
-   Menu menu;
+  Menu menu;
   //Creamos una ventana
-  sf::RenderWindow window(sf::VideoMode(640, 480), "P0. Fundamentos de los Videojuegos. DCCIA");
- 
+  sf::RenderWindow window(sf::VideoMode(width, height), "P0. Fundamentos de los Videojuegos. DCCIA");
+
+   /* //////////PRUEBA IMAGE
+            sf::Texture tiletex;
+            sf::Sprite tileimage; 
+        if ( !tiletex.loadFromFile( "resources/tilebase.png" ) )
+            std::cout << "Error: Could not display pausa image" << std::endl;
+
+            tileimage.setTexture( tiletex );
+            tileimage.setOrigin(tiletex.getSize().x*0.25, tiletex.getSize().y*0.5);
+            tileimage.setTextureRect(sf::IntRect(0, 0, 32, 32));
+            tileimage.setPosition(width-64, height-64);  
+
+          Tile *tile=new Tile(2,1,1,1);
+*/
+
   //Bucle del juego
   while (window.isOpen()) {
     //Bucle de obtención de eventos
@@ -45,9 +56,16 @@ int main() {
             }
           }
     }
-
+//limpieza
     window.clear();
-    menu.Draw(window);
+
+    //dibujar
+    mod2->draw(window);
+    //window.draw(tileimage);
+    //tile->Draw(window);
+    //menu.Draw(window);
+
+//display
     window.display();
   }
 

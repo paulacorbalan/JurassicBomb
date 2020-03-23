@@ -1,9 +1,17 @@
 #include "menu.h"
 #include <iostream>
 
+Menu* Menu::pinstance=0;
+
+Menu* Menu::Instance() {
+  if(pinstance==0){
+    pinstance=new Menu;
+  }
+  return pinstance;
+}
 
 Menu::Menu() {
-Cargarecursos();
+  Cargarecursos();
 }
 
 //

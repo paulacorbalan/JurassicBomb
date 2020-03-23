@@ -56,7 +56,6 @@ _tilesettexture.loadFromFile("resources/tilebase.png");
 
 std::cout<<"layers"<<endl;
 
-data=data->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
 //reservando memoria para mapa
 _tilemap=new int**[_numlayers];
 for(int i=0;i<_numlayers;i++){
@@ -82,45 +81,65 @@ for(int i=0;i<_numlayers;i++){
 }
 std::cout<<"reservado"<<endl;
 //cargando los gids
-for(int l=0; l<_numlayers;l++){
-  for(int y=0; y<_height;y++){
-    for(int x=0; x<_width;x++){
-      data->QueryIntAttribute("gid", &_tilemap[l][y][x]);
-      //siguiente tile
-      data=data->NextSiblingElement("tile");
+TiXmlElement *aux;
 
-    }
-  }
-}
-int cont=0;
-std::cout<<"gids"<<endl;
-  //arraysprites
   for(int l=0; l<_numlayers;l++){
-    for(int y=0; y<_height;y++){
-      for(int x=0; x<_width;x++){
-        int gid=_tilemap [l][y][x]-1;
-          _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0+(gid*32),32,32});
-          _tilemapSprite[l][y][x]->setPosition(112+(x*_tilewidth),64+(y*_tileheigh));
-          cont++;
-        
-      }
+  aux=data->FirstChildElement("layer");
+ 
+    for(int x=0; x<l;x++){
+      aux=aux->NextSiblingElement("layer");
+      std::cout<<"entra"<<endl;
     }
+      std::cout<<l<<endl;
+      aux=aux->FirstChildElement("data")->FirstChildElement("tile");
+      for(int y=0; y<_height;y++){
+        for(int x=0; x<_width;x++){
+          aux->QueryIntAttribute("gid", &_tilemap[l][y][x]);
+          //siguiente tile
+          aux=aux->NextSiblingElement("tile");
+        }
+      }
+
   }
-  std::cout<< cont<<endl;
-std::cout<<"arraysprites"<<endl;
-}
-void Map::setactivelayer(int layer){
-  _activelayer=layer;
-}
-
-void Map::draw(sf::RenderWindow& window){
-
-    for(int y=0; y<_height;y++){
-      for(int x=0; x<_width;x++){
-        if(_tilemapSprite[_activelayer][y][x]!=NULL){
-          window.draw(*(_tilemapSprite[_activelayer][y][x]));
+    int cont=0;
+    std::cout<<"gids"<<endl;
+    //arraysprites
+    for(int l=0; l<_numlayers;l++){
+            std::cout<<"guarda capas"<<endl;
+      for(int y=0; y<_height;y++){
+        for(int x=0; x<_width;x++){
+          int gid=_tilemap [l][y][x]-1;
+          if(gid>-1){
+            _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0+(gid*32),32,32});
+            _tilemapSprite[l][y][x]->setPosition(112+(x*_tilewidth),64+(y*_tileheigh));
+            cont++;
+         }
         }
       }
     }
+    std::cout<< cont<<endl;
+    std::cout<<"arraysprites"<<endl;
+  }
+/*TiXmlElement *cambio(int l, TiXmlElement *layer){
+    for(int i=0;i<l;i++){
+      layer=layer->NextSiblingElement("layer");
+    }
+  return layer;
+}*/
+
+void Map::draw(sf::RenderWindow& window){
+ for(int l=0; l<_numlayers;l++){
+    for(int y=0; y<_height;y++){
+      for(int x=0; x<_width;x++){
+       // if(_tilemapSprite[_activelayer][y][x]!=NULL){
+          window.draw(*(_tilemapSprite[l][y][x]));
+        //}
+      }
+    }
+  }
   window.draw(texto);
+}
+
+void Map::setactivelayer(int layer){
+  _activelayer=layer;
 }

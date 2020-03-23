@@ -9,10 +9,8 @@ using namespace std;
 
 class Menu {
   private:
-
   sf::Texture background;
   sf::Sprite backgroundImage;
-
   sf::Texture pausa;
   sf::Sprite pausaImage;
   sf::Sprite playImage;
@@ -21,27 +19,26 @@ class Menu {
   sf::Texture atras;
   sf::Sprite nivelesImage;
   sf::Texture niveles;
-                    sf::Texture menos;
-                  sf::Sprite menosImage;
-                                    sf::Texture plus;
-                  sf::Sprite plusImage;
-                  sf::Font fuente;
-                  sf::String cadena;
-                  sf::Text texto;
-                                    sf::Texture facil;
-                  sf::Sprite facilImage;
-                                    sf::Texture normal;
-                  sf::Sprite normalImage;
-                                    sf::Texture dificil;
-                  sf::Sprite dificilImage;
-                                    sf::Texture splayer;
-                  sf::Sprite splayerImage;
-                                        sf::Texture mplayer;
-                  sf::Sprite mplayerImage;
-                                        sf::Texture exit;
-                  sf::Sprite exitImage;
-                  
-                  sf::Sprite sprite;
+  sf::Texture menos;
+  sf::Sprite menosImage;
+  sf::Texture plus;
+  sf::Sprite plusImage;
+  sf::Font fuente;
+  sf::String cadena;
+  sf::Text texto;
+  sf::Texture facil;
+  sf::Sprite facilImage;
+  sf::Texture normal;
+  sf::Sprite normalImage;
+  sf::Texture dificil;
+  sf::Sprite dificilImage;
+  sf::Texture splayer;
+  sf::Sprite splayerImage;
+  sf::Texture mplayer;
+  sf::Sprite mplayerImage;
+  sf::Texture exit;
+  sf::Sprite exitImage;                
+  sf::Sprite sprite;
 
     bool gpause=false;
     bool jugando=false;
@@ -50,11 +47,16 @@ class Menu {
     int dificulty=0;//0 facil 1 normal 2 dificil
     int menus=0;//0 principal, 1 un jugador, 2 multijugador, 3 opciones
     
-  public:
+    static Menu* pinstance;
 
+  public:
     Menu();
-    void Cargarecursos();
+    static Menu* Instance();
     void Update(sf::Event event,sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
+
+  protected:
+    void Cargarecursos();
+
 
 };

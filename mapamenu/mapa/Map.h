@@ -10,6 +10,8 @@ public:
   Map(string s);
   void draw(sf::RenderWindow &window);
   void setactivelayer(int layer);
+  TiXmlElement* cambio(int l, TiXmlElement &d);
+
 private:
   int _width;
   int _height;
@@ -19,13 +21,10 @@ private:
   int ***_tilemap;
   int _activelayer;
   string _nombremapa;
-    sf::Font fuente;
-
-    sf::Text texto;
-
+  sf::Font fuente;
+  sf::Text texto;
   sf::VertexArray m_vertices;
   sf::Texture _tilesettexture;
-
   sf::Sprite ****_tilemapSprite;
 
 

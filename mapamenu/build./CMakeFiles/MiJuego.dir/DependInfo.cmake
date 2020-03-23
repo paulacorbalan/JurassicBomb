@@ -14,6 +14,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../mapa"
   "../tinyxml-master"
   "../menu"
+  "../game"
+  "../maquina"
   )
 
 # Targets to which this target links.

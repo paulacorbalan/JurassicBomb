@@ -163,6 +163,33 @@ ej_modulos/Tile.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.s
 .PHONY : ej_modulos/Tile.cpp.s
 
+game/game.o: game/game.cpp.o
+
+.PHONY : game/game.o
+
+# target to build an object file
+game/game.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/game/game.cpp.o
+.PHONY : game/game.cpp.o
+
+game/game.i: game/game.cpp.i
+
+.PHONY : game/game.i
+
+# target to preprocess a source file
+game/game.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/game/game.cpp.i
+.PHONY : game/game.cpp.i
+
+game/game.s: game/game.cpp.s
+
+.PHONY : game/game.s
+
+# target to generate assembly for a file
+game/game.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/game/game.cpp.s
+.PHONY : game/game.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -216,6 +243,60 @@ mapa/Map.s: mapa/Map.cpp.s
 mapa/Map.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/mapa/Map.cpp.s
 .PHONY : mapa/Map.cpp.s
+
+maquina/contexto.o: maquina/contexto.cpp.o
+
+.PHONY : maquina/contexto.o
+
+# target to build an object file
+maquina/contexto.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/contexto.cpp.o
+.PHONY : maquina/contexto.cpp.o
+
+maquina/contexto.i: maquina/contexto.cpp.i
+
+.PHONY : maquina/contexto.i
+
+# target to preprocess a source file
+maquina/contexto.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/contexto.cpp.i
+.PHONY : maquina/contexto.cpp.i
+
+maquina/contexto.s: maquina/contexto.cpp.s
+
+.PHONY : maquina/contexto.s
+
+# target to generate assembly for a file
+maquina/contexto.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/contexto.cpp.s
+.PHONY : maquina/contexto.cpp.s
+
+maquina/states.o: maquina/states.cpp.o
+
+.PHONY : maquina/states.o
+
+# target to build an object file
+maquina/states.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.o
+.PHONY : maquina/states.cpp.o
+
+maquina/states.i: maquina/states.cpp.i
+
+.PHONY : maquina/states.i
+
+# target to preprocess a source file
+maquina/states.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.i
+.PHONY : maquina/states.cpp.i
+
+maquina/states.s: maquina/states.cpp.s
+
+.PHONY : maquina/states.s
+
+# target to generate assembly for a file
+maquina/states.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.s
+.PHONY : maquina/states.cpp.s
 
 menu/menu.o: menu/menu.cpp.o
 
@@ -365,12 +446,21 @@ help:
 	@echo "... ej_modulos/Tile.o"
 	@echo "... ej_modulos/Tile.i"
 	@echo "... ej_modulos/Tile.s"
+	@echo "... game/game.o"
+	@echo "... game/game.i"
+	@echo "... game/game.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... mapa/Map.o"
 	@echo "... mapa/Map.i"
 	@echo "... mapa/Map.s"
+	@echo "... maquina/contexto.o"
+	@echo "... maquina/contexto.i"
+	@echo "... maquina/contexto.s"
+	@echo "... maquina/states.o"
+	@echo "... maquina/states.i"
+	@echo "... maquina/states.s"
 	@echo "... menu/menu.o"
 	@echo "... menu/menu.i"
 	@echo "... menu/menu.s"

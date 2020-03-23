@@ -13,7 +13,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "../cmake_modules/FindSFML.cmake"
   "../ej_modulos/CMakeLists.txt"
+  "../game/CMakeLists.txt"
   "../mapa/CMakeLists.txt"
+  "../maquina/CMakeLists.txt"
   "../menu/CMakeLists.txt"
   "../tinyxml-master/CMakeLists.txt"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
@@ -46,6 +48,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "mapa/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tinyxml-master/CMakeFiles/CMakeDirectoryInformation.cmake"
   "menu/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "game/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "maquina/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

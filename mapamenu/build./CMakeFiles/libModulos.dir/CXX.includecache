@@ -42,6 +42,16 @@ iostream
 SFML/Graphics.hpp
 -
 
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/game/game.cpp
+game.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/game/game.h
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/game/game.h
+string
+-
+SFML/Graphics.hpp
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/game/SFML/Graphics.hpp
+
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/Map.cpp
 Map.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/Map.h
@@ -55,6 +65,22 @@ string
 -
 SFML/Graphics.hpp
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/SFML/Graphics.hpp
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.cpp
+contexto.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+states.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
+contexto.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+string
+-
+SFML/Graphics.hpp
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/SFML/Graphics.hpp
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.cpp
 menu.h

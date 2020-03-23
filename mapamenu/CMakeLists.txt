@@ -9,6 +9,8 @@ add_subdirectory(ej_modulos)
 add_subdirectory(mapa)
 add_subdirectory(tinyxml-master)
 add_subdirectory(menu)
+add_subdirectory(game)
+add_subdirectory(maquina)
 
 
 

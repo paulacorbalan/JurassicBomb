@@ -1,3 +1,5 @@
+#ifndef MAPA_H
+#define MAPA_H
 #pragma once
 #include "tinyxml.h"
 #include <string>
@@ -31,3 +33,5 @@ private:
 
 
 };
+
+#endif

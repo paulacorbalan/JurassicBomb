@@ -1,5 +1,9 @@
+#ifndef STATES_H
+#define STATES_H
+
 #pragma once
 #include "contexto.h"
+#include <iostream>
 #include <string>
 #include "SFML/Graphics.hpp"
 
@@ -17,8 +21,9 @@ public:
 	virtual void Draw(Contexto* game) = 0;
 
 
-	/*void cambio(Contexto* game, States* state) {
-		game->
-	}*/
+	void ChangeState(Contexto* game, States* state) {
+		game->ChangeState(state);
+	}
 };
 
+#endif

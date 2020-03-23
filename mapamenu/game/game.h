@@ -1,3 +1,5 @@
+#ifndef GAME_H
+#define GAME_H
 #pragma once
 #include <string>
 #include "SFML/Graphics.hpp"
@@ -21,3 +23,5 @@ private:
 
 
 };
+
+#endif

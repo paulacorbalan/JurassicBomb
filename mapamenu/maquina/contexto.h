@@ -1,5 +1,9 @@
+#ifndef CONTEXTO_H
+#define CONTEXTO_H
+
 #pragma once
 #include "states.h"
+#include <iostream>
 
 class Contexto{
 
@@ -24,3 +28,5 @@ private:
 
   bool m_running;
 };
+
+#endif

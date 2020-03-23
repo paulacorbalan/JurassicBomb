@@ -1,3 +1,6 @@
+#ifndef MENU_H
+#define MENU_H
+
 #pragma once
 #include <string>
 #include <iostream>
@@ -60,3 +63,5 @@ class Menu {
 
 
 };
+
+#endif

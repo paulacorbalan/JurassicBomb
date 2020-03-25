@@ -7,13 +7,9 @@ project(MiJuego)
 add_library(libModulos STATIC)
 add_subdirectory(ej_modulos)
 add_subdirectory(mapa)
-add_subdirectory(tinyxml-master)
-add_subdirectory(menu)
-add_subdirectory(game)
 add_subdirectory(maquina)
-
-
-
+add_subdirectory(menu)
+add_subdirectory(tinyxml-master)
 
 #Opciones a pasar al compilador de C++
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra")

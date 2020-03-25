@@ -12,10 +12,9 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../ej_modulos"
   "../mapa"
-  "../tinyxml-master"
-  "../menu"
-  "../game"
   "../maquina"
+  "../menu"
+  "../tinyxml-master"
   )
 
 # Targets to which this target links.

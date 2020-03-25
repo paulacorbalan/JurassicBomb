@@ -4,9 +4,6 @@
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.h
 
-CMakeFiles/libModulos.dir/game/game.cpp.o: ../game/game.cpp
-CMakeFiles/libModulos.dir/game/game.cpp.o: ../game/game.h
-
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../tinyxml-master/tinystr.h
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../mapa/Map.cpp
@@ -16,7 +13,8 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.cpp
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/states.h
 
-
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/contexto.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/states.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.cpp
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.h
 

@@ -4,13 +4,14 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include "states.h"
+
 #define kVel 5
 using namespace std;
 #define width 640
 #define height 480
 
-class Menu {
+class Menu : public States {
   private:
   sf::Texture background;
   sf::Sprite backgroundImage;
@@ -53,10 +54,14 @@ class Menu {
     static Menu* pinstance;
 
   public:
-    Menu();
+    void Init();
     static Menu* Instance();
     void Update(sf::Event event,sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
+
+	void Update();
+	void Draw();
+
 
   protected:
     void Cargarecursos();

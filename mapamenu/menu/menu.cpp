@@ -10,12 +10,11 @@ Menu* Menu::Instance() {
   return pinstance;
 }
 
-Menu::Menu() {
+void Menu::Init() {
   Cargarecursos();
-  
 }
 
-//
+
 void Menu::Update(sf::Event event,sf::RenderWindow &window) {
 
     switch (event.type) {
@@ -343,3 +342,8 @@ void Menu::Cargarecursos(){
 
 
 }
+
+
+
+
+

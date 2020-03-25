@@ -17,16 +17,14 @@ class Contexto{
 
   public:
     
-    void Init();
-    void Cleanup();
+    void Inicializar();
 
     void ChangeState(States* state);
     void PushState(States* state);
     void PopState();
 
-    void HandleEvents();
-    void Update();
-    void Draw();
+    void Update(sf::Event event,sf::RenderWindow &window);
+    void Draw(sf::RenderWindow &window);
 
     bool Running() { return m_running; }
     void Quit() { m_running = false; }

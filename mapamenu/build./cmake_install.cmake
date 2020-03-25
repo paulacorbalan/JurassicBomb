@@ -36,10 +36,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./ej_modulos/cmake_install.cmake")
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mapa/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./game/cmake_install.cmake")
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./maquina/cmake_install.cmake")
+  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/cmake_install.cmake")
+  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
 
 endif()
 

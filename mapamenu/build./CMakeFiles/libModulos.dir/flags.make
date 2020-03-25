@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++1y -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/menu -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/game -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina 
+CXX_INCLUDES = -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/menu -I/home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master 
 

@@ -14,14 +14,13 @@ class Contexto{
     std::vector<States*> states;
 
     bool m_running;
-
+  static Contexto* pinstance;
   public:
     
+    static Contexto* Instance();
     void Inicializar();
 
     void ChangeState(States* state);
-    void PushState(States* state);
-    void PopState();
 
     void Update(sf::Event event,sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);

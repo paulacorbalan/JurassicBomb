@@ -3,15 +3,16 @@
 
 Menu* Menu::pinstance=0;
 
-Menu* Menu::Instance() {
-  if(pinstance==0){
-    pinstance=new Menu;
+  Menu* Menu::Instance() {
+    if(pinstance==0){
+      pinstance=new Menu;
+    }
+    return pinstance;
   }
-  return pinstance;
-}
 
 void Menu::Init() {
   Cargarecursos();
+  
 }
 
 
@@ -49,7 +50,7 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
                           }
 
               }else if(menus==1 && !jugando){
-
+                                                                                  //ChangeState(Contexto::Instance(),Menu::Instance()); CAMBIAR ESTADOS
                     //comprobacion encima de que sprite esta          
                           if(facilImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
                           dificulty=0;

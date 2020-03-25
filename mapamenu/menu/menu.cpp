@@ -1,5 +1,5 @@
 #include "menu.h"
-#include <iostream>
+
 
 Menu* Menu::pinstance=0;
 
@@ -12,6 +12,7 @@ Menu* Menu::Instance() {
 
 Menu::Menu() {
   Cargarecursos();
+  
 }
 
 //

@@ -7,7 +7,6 @@
 #include <string>
 #include "SFML/Graphics.hpp"
 
-using namespace std;
 class States {
 public:
 	virtual void Init() = 0;

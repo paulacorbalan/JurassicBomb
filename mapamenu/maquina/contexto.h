@@ -2,31 +2,35 @@
 #define CONTEXTO_H
 
 #pragma once
-#include "states.h"
+#include "SFML/Graphics.hpp"
 #include <iostream>
+
+class States;
 
 class Contexto{
 
-public:
-  void Init();
-  void Cleanup();
+  private:
+    // the stack of states
+    std::vector<States*> states;
 
-  void ChangeState(States* state);
-  void PushState(States* state);
-  void PopState();
+    bool m_running;
 
-  void HandleEvents();
-  void Update();
-  void Draw();
+  public:
+    
+    void Init();
+    void Cleanup();
 
-  bool Running() { return m_running; }
-  void Quit() { m_running = false; }
+    void ChangeState(States* state);
+    void PushState(States* state);
+    void PopState();
 
-private:
-  // the stack of states
-  vector<States*> states;
+    void HandleEvents();
+    void Update();
+    void Draw();
 
-  bool m_running;
+    bool Running() { return m_running; }
+    void Quit() { m_running = false; }
+
 };
 
 #endif

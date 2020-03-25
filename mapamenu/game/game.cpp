@@ -11,10 +11,12 @@ Game* Game::Instance() {
 }
 
 Game::Game(){
+  
 }
 
 
 void Game::draw(sf::RenderWindow &window) {
+
 }
 
 void Game::update() {

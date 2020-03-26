@@ -11,9 +11,6 @@
 #define kVel 5
 
 int main() {
-  /*Map *mod2 = new Map("resources/mapa1.tmx");
-  Menu *menu=Menu::Instance();
-  Tile *tile=new Tile();*/
 
   sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
 

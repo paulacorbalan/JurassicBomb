@@ -4,8 +4,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include <iostream>
-
-class States;
+#include "states.h"
 
 class Contexto{
 
@@ -15,6 +14,7 @@ class Contexto{
 
     bool m_running;
   static Contexto* pinstance;
+
   public:
     
     static Contexto* Instance();

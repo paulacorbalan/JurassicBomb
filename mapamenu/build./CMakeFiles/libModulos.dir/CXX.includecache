@@ -6,19 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../maquina/contexto.h
-SFML/Graphics.hpp
-../maquina/SFML/Graphics.hpp
-iostream
--
-
 ../maquina/states.h
-contexto.h
-../maquina/contexto.h
 iostream
 -
 string
 -
+SFML/Graphics.hpp
+../maquina/SFML/Graphics.hpp
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -81,14 +75,22 @@ SFML/Graphics.hpp
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/SFML/Graphics.hpp
 iostream
 -
+states.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
 
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.cpp
+states.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
 contexto.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
 iostream
 -
 string
 -
+SFML/Graphics.hpp
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/SFML/Graphics.hpp
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.cpp
 menu.h

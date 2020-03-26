@@ -13,8 +13,11 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.cpp
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
+CMakeFiles/libModulos.dir/maquina/states.cpp.o
+ /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+ /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.cpp
+ /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o
- ../maquina/contexto.h
  ../maquina/states.h
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.cpp
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.h

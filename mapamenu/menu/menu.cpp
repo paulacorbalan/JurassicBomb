@@ -10,9 +10,8 @@ Menu* Menu::pinstance=0;
     return pinstance;
   }
 
-void Menu::Init() {
-  Cargarecursos();
-  
+void Menu::Inicializar() {
+  Cargarecursos(); 
 }
 
 

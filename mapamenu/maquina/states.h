@@ -2,9 +2,11 @@
 #define STATES_H
 
 #pragma once
-#include "contexto.h"
 #include <iostream>
 #include <string>
+#include "SFML/Graphics.hpp"
+
+class Contexto;
 
 class States {
 public:
@@ -13,9 +15,7 @@ public:
 	 void Draw(sf::RenderWindow &window);
 
 
-	void ChangeState(Contexto* game, States* state) {
-		game->ChangeState(state);
-	}
+	void ChangeState(Contexto* game, States* state);
 };
 
 #endif

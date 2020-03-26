@@ -81,9 +81,6 @@ void Tile::draw(sf::RenderWindow &window){
   {
     /* GAMEOVER HABER ESTUDIAO */
   }
-  
-  
-
     window.draw(texto);
 }
 void Tile::Update(){

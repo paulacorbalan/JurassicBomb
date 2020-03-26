@@ -244,33 +244,6 @@ maquina/contexto.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/contexto.cpp.s
 .PHONY : maquina/contexto.cpp.s
 
-maquina/states.o: maquina/states.cpp.o
-
-.PHONY : maquina/states.o
-
-# target to build an object file
-maquina/states.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.o
-.PHONY : maquina/states.cpp.o
-
-maquina/states.i: maquina/states.cpp.i
-
-.PHONY : maquina/states.i
-
-# target to preprocess a source file
-maquina/states.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.i
-.PHONY : maquina/states.cpp.i
-
-maquina/states.s: maquina/states.cpp.s
-
-.PHONY : maquina/states.s
-
-# target to generate assembly for a file
-maquina/states.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/maquina/states.cpp.s
-.PHONY : maquina/states.cpp.s
-
 menu/menu.o: menu/menu.cpp.o
 
 .PHONY : menu/menu.o
@@ -428,9 +401,6 @@ help:
 	@echo "... maquina/contexto.o"
 	@echo "... maquina/contexto.i"
 	@echo "... maquina/contexto.s"
-	@echo "... maquina/states.o"
-	@echo "... maquina/states.i"
-	@echo "... maquina/states.s"
 	@echo "... menu/menu.o"
 	@echo "... menu/menu.i"
 	@echo "... menu/menu.s"

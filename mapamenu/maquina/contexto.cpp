@@ -12,7 +12,8 @@
   	}
 
 	void Contexto::Inicializar(){
-		m_running=true;
+		this->m_running=true;
+		    std::cout<<"contextoinicia";
 	}
 
 	void Contexto::ChangeState(States* state){ //guarda en nuevo estado
@@ -23,13 +24,21 @@
 		}*/
 
 		// store and init the new state
+	
+
+		std::cout<<states.size();
+
 		states.push_back(state);
+		std::cout<<"changestate";
 		states.back()->Inicializar();
+	
+		std::cout<<states.size()<<"\n";
+
 	}
 
 	void Contexto::Update(sf::Event event,sf::RenderWindow &window){
 		// let the state update the game
-
+	  std::cout<<"contextoupdate\n";
       states.back()->Update(event,window);
 
 

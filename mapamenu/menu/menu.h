@@ -58,11 +58,6 @@ class Menu : public States {
     static Menu* Instance();
     void Update(sf::Event event,sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
-
-	void Update();
-	void Draw();
-
-
   protected:
     void Cargarecursos();
 

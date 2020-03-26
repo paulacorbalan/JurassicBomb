@@ -6,17 +6,20 @@ Menu* Menu::pinstance=0;
   Menu* Menu::Instance() {
     if(pinstance==0){
       pinstance=new Menu;
+        std::cout<<"menuinstance"; 
     }
     return pinstance;
   }
 
 void Menu::Inicializar() {
+  std::cout<<"menuiniciado\n";
   Cargarecursos(); 
 }
 
 
 void Menu::Update(sf::Event event,sf::RenderWindow &window) {
 
+  std::cout<<"menuupdate\n";
     switch (event.type) {
     ///////////////Scroll
           case sf::Event::MouseWheelScrolled:
@@ -140,11 +143,6 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
               }
                 break;
 
-              //Tecla ESC para salir
-              case sf::Keyboard::Escape:
-                window.close();
-                break;
-            
             //PAUSA
             case sf::Keyboard::Return:
             if(gpause && jugando){
@@ -166,6 +164,7 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
 }
 
 void Menu::Draw(sf::RenderWindow &window) {
+
     //dibujar cosas
       if (jugando && !gpause){
               window.draw(sprite);
@@ -189,6 +188,8 @@ void Menu::Draw(sf::RenderWindow &window) {
               window.draw(splayerImage);
               window.draw(mplayerImage);
               window.draw(exitImage);
+
+  //std::cout<<"menudraw\n";
         }
 
 }
@@ -196,6 +197,7 @@ void Menu::Draw(sf::RenderWindow &window) {
 
 void Menu::Cargarecursos(){
    //background
+   std::cout<<"menucargados";
             if ( !background.loadFromFile( "resources/background.jpg" ) )
               std::cout << "Error: Could not display background image" << std::endl;
             backgroundImage.setTexture( background );

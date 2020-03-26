@@ -5,17 +5,19 @@
 #include <iostream>
 #include <string>
 #include "SFML/Graphics.hpp"
+#include "contexto.h"
 
-class Contexto;
 
 class States {
 public:
-	 void Inicializar();
-	 void Update(sf::Event event,sf::RenderWindow &window) ;
-	 void Draw(sf::RenderWindow &window);
+	 virtual void Inicializar()=0;
+	 virtual void Update(sf::Event event,sf::RenderWindow &window)=0 ;
+	 virtual void Draw(sf::RenderWindow &window)=0;
 
 
-	void ChangeState(Contexto* game, States* state);
+	void ChangeState(Contexto* game, States* state) {
+		game->ChangeState(state);
+	}
 };
 
 #endif

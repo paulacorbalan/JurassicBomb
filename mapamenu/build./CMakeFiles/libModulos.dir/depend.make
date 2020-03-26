@@ -13,10 +13,7 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.cpp
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/states.h
 
-CMakeFiles/libModulos.dir/maquina/states.cpp.o: ../maquina/contexto.h
-CMakeFiles/libModulos.dir/maquina/states.cpp.o: ../maquina/states.cpp
-CMakeFiles/libModulos.dir/maquina/states.cpp.o: ../maquina/states.h
-
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/states.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.cpp
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.h

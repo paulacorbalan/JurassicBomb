@@ -4,7 +4,9 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include <iostream>
-#include "states.h"
+
+
+class States;
 
 class Contexto{
 

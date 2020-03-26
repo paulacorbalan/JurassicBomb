@@ -55,8 +55,9 @@ int main() {
                             timeStartUpdate = clock.getElapsedTime();
 
                           }
+                window.clear();
                 game.Draw(window);
-              }
+                window.display();              }
             }
       
     return 0;

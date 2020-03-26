@@ -71,7 +71,8 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
                             std::cout << "atras" << std::endl;
                           }
                           if(playImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            jugando=true;
+                            //jugando=true; juego stado             CAMBIAR ESTADO
+                            //this->ChangeState(Contexto::Instance(),Menu::Instance());
                             std::cout << "jugar" << std::endl;
                           }
                           if(menosImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
@@ -91,69 +92,13 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
                                 texto.setString(cadena);
                           }
 
-              }else if(jugando && gpause){
-                          if(pausaImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                          gpause=false;
-                            std::cout << "quita pausa" << std::endl;
-                          }
-                          if(exitImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            window.close();
-                            std::cout << "exit" << std::endl;
-                          }
-              }
+              } 
                   std::cout << "clic izq" << std::endl;
             }
           //////////Se pulsó una tecla, imprimo su codigo
           case sf::Event::KeyPressed:
-
             ///Verifico si se pulsa alguna tecla de movimiento
             switch (event.key.code) {
-
-            //Mapeo del cursor
-          
-              case sf::Keyboard::Right:
-              if(!gpause && jugando){
-                sprite.setTextureRect(sf::IntRect(0 * 75, 2 * 75, 75, 75));
-                //Escala por defecto
-                sprite.setScale(1, 1);
-                sprite.move(kVel, 0);
-              }
-                break;
-
-              case sf::Keyboard::Left:
-              if(!gpause && jugando){
-                sprite.setTextureRect(sf::IntRect(0 * 75, 2 * 75, 75, 75));
-                //Reflejo vertical
-                sprite.setScale(-1, 1);
-                sprite.move(-kVel, 0);
-              }
-                break;
-
-              case sf::Keyboard::Up:
-              if(!gpause && jugando){
-                sprite.setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
-                sprite.move(0, -kVel);           
-                }
-                break;
-
-              case sf::Keyboard::Down:
-              if(!gpause && jugando){
-                sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
-                sprite.move(0, kVel);
-              }
-                break;
-
-            //PAUSA
-            case sf::Keyboard::Return:
-            if(gpause && jugando){
-              std::cout << "quita pausa" << std::endl;
-              gpause=false;
-              }else if(!gpause && jugando){
-                std::cout << "pon pausa" << std::endl;
-              gpause=true;
-              }
-              break;
-
             //Cualquier tecla desconocida se imprime por pantalla su código
             default:
               std::cout << " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;

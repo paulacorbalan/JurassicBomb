@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "juego.h"
 
 
 Menu* Menu::pinstance=0;
@@ -20,14 +21,18 @@ void Menu::Inicializar() {
 void Menu::Update(sf::Event event,sf::RenderWindow &window) {
 
   std::cout<<"menuupdate\n";
+    while (window.pollEvent(event)) {   
+       
     switch (event.type) {
+      case sf::Event::Closed:
+                                            window.close();
+                                            break;
     ///////////////Scroll
           case sf::Event::MouseWheelScrolled:
             std::cout << event.mouseWheelScroll.delta << std::endl;
           break;
               //////////////Clic del raton
           case sf::Event::MouseButtonPressed:
-
 
             if(sf::Mouse::Left == event.key.code){
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
@@ -72,12 +77,12 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
                           }
                           if(playImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
                             //jugando=true; juego stado             CAMBIAR ESTADO
-                            //this->ChangeState(Contexto::Instance(),Menu::Instance());
-                            std::cout << "jugar" << std::endl;
+                          std::cout << "jugar" << std::endl;
+                          ChangeState(Contexto::Instance(),Juego::Instance());
                           }
                           if(menosImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
                             if(lvls<10 && lvls>1){
-                            lvls--;
+                              lvls--;
                             }
                             std::cout << "-1 " << lvls << std::endl;
                               cadena = std::to_string(lvls);
@@ -99,13 +104,15 @@ void Menu::Update(sf::Event event,sf::RenderWindow &window) {
           case sf::Event::KeyPressed:
             ///Verifico si se pulsa alguna tecla de movimiento
             switch (event.key.code) {
+
+              
             //Cualquier tecla desconocida se imprime por pantalla su código
             default:
               std::cout << " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
               break;
             }
           }
-
+    }
 }
 
 void Menu::Draw(sf::RenderWindow &window) {
@@ -134,9 +141,8 @@ void Menu::Draw(sf::RenderWindow &window) {
               window.draw(mplayerImage);
               window.draw(exitImage);
 
-  //std::cout<<"menudraw\n";
+  
         }
-
 }
 
 
@@ -227,7 +233,7 @@ void Menu::Cargarecursos(){
             // Creamos un objeto String
             
             // Damos un valor a la cadena
-            cadena = std::to_string(3);
+            cadena = std::to_string(1);
             // Asignamos la cadena al texto
             texto.setString(cadena);
             // Asignamos la fuente que hemos cargado al texto
@@ -290,6 +296,13 @@ void Menu::Cargarecursos(){
 
 }
 
+int Menu::GetLvls(){
+  return lvls;
+}
+
+int Menu::GetDif(){
+  return dificulty;
+}
 
 
 

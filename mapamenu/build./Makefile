@@ -163,6 +163,33 @@ ej_modulos/Tile.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.s
 .PHONY : ej_modulos/Tile.cpp.s
 
+juego/juego.o: juego/juego.cpp.o
+
+.PHONY : juego/juego.o
+
+# target to build an object file
+juego/juego.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/juego/juego.cpp.o
+.PHONY : juego/juego.cpp.o
+
+juego/juego.i: juego/juego.cpp.i
+
+.PHONY : juego/juego.i
+
+# target to preprocess a source file
+juego/juego.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/juego/juego.cpp.i
+.PHONY : juego/juego.cpp.i
+
+juego/juego.s: juego/juego.cpp.s
+
+.PHONY : juego/juego.s
+
+# target to generate assembly for a file
+juego/juego.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/juego/juego.cpp.s
+.PHONY : juego/juego.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -270,6 +297,33 @@ menu/menu.s: menu/menu.cpp.s
 menu/menu.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/menu/menu.cpp.s
 .PHONY : menu/menu.cpp.s
+
+mundo/mundo.o: mundo/mundo.cpp.o
+
+.PHONY : mundo/mundo.o
+
+# target to build an object file
+mundo/mundo.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/mundo/mundo.cpp.o
+.PHONY : mundo/mundo.cpp.o
+
+mundo/mundo.i: mundo/mundo.cpp.i
+
+.PHONY : mundo/mundo.i
+
+# target to preprocess a source file
+mundo/mundo.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/mundo/mundo.cpp.i
+.PHONY : mundo/mundo.cpp.i
+
+mundo/mundo.s: mundo/mundo.cpp.s
+
+.PHONY : mundo/mundo.s
+
+# target to generate assembly for a file
+mundo/mundo.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/mundo/mundo.cpp.s
+.PHONY : mundo/mundo.cpp.s
 
 tinyxml-master/tinystr.o: tinyxml-master/tinystr.cpp.o
 
@@ -392,6 +446,9 @@ help:
 	@echo "... ej_modulos/Tile.o"
 	@echo "... ej_modulos/Tile.i"
 	@echo "... ej_modulos/Tile.s"
+	@echo "... juego/juego.o"
+	@echo "... juego/juego.i"
+	@echo "... juego/juego.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -404,6 +461,9 @@ help:
 	@echo "... menu/menu.o"
 	@echo "... menu/menu.i"
 	@echo "... menu/menu.s"
+	@echo "... mundo/mundo.o"
+	@echo "... mundo/mundo.i"
+	@echo "... mundo/mundo.s"
 	@echo "... tinyxml-master/tinystr.o"
 	@echo "... tinyxml-master/tinystr.i"
 	@echo "... tinyxml-master/tinystr.s"

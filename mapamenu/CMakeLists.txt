@@ -9,6 +9,8 @@ add_subdirectory(ej_modulos)
 add_subdirectory(mapa)
 add_subdirectory(maquina)
 add_subdirectory(menu)
+add_subdirectory(mundo)
+add_subdirectory(juego)
 add_subdirectory(tinyxml-master)
 
 #Opciones a pasar al compilador de C++

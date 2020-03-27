@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/mapa/Map.cpp.o"
   "CMakeFiles/libModulos.dir/maquina/contexto.cpp.o"
   "CMakeFiles/libModulos.dir/menu/menu.cpp.o"
+  "CMakeFiles/libModulos.dir/mundo/mundo.cpp.o"
+  "CMakeFiles/libModulos.dir/juego/juego.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o"

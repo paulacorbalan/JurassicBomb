@@ -4,6 +4,17 @@
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.h
 
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../ej_modulos/Tile.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../mapa/Map.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../maquina/contexto.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../maquina/states.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../menu/menu.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../mundo/mundo.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../tinyxml-master/tinyxml.h
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../juego/juego.cpp
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../juego/juego.h
+
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../tinyxml-master/tinystr.h
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o: ../mapa/Map.cpp
@@ -13,10 +24,26 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.cpp
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/states.h
 
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../ej_modulos/Tile.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../juego/juego.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../mapa/Map.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../maquina/states.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../mundo/mundo.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.cpp
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.h
+
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../ej_modulos/Tile.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../mapa/Map.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../maquina/contexto.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../maquina/states.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../menu/menu.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../tinyxml-master/tinyxml.h
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../mundo/mundo.cpp
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../mundo/mundo.h
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o: ../tinyxml-master/tinystr.cpp
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o: ../tinyxml-master/tinystr.h

@@ -1,0 +1,37 @@
+#ifndef MUNDO_H
+#define MUNDO_H
+
+#pragma once
+#include <string>
+#include <iostream>
+#include "states.h"
+#include "Map.h"
+#include "menu.h"
+#include "Tile.h"
+//#include "jugador.h"
+//#include "bombas.h"
+//#include "enemigo.h"
+
+using namespace std;
+
+class Mundo : public States {
+  private:    
+    static Mundo* jinstance;
+    int dif=0;
+    int lvls=0;
+    int lvlactual=0;
+    std::vector<Map*> mapas;
+    Tile* hud;
+
+  public:
+    void Inicializar();
+    static Mundo* Instance();
+    void Update(sf::Event event,sf::RenderWindow &window);
+    void Draw(sf::RenderWindow &window);
+  protected:
+    void Cargarecursos();
+
+
+};
+
+#endif

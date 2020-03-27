@@ -13,9 +13,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "../cmake_modules/FindSFML.cmake"
   "../ej_modulos/CMakeLists.txt"
+  "../juego/CMakeLists.txt"
   "../mapa/CMakeLists.txt"
   "../maquina/CMakeLists.txt"
   "../menu/CMakeLists.txt"
+  "../mundo/CMakeLists.txt"
   "../tinyxml-master/CMakeLists.txt"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
@@ -47,6 +49,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "mapa/CMakeFiles/CMakeDirectoryInformation.cmake"
   "maquina/CMakeFiles/CMakeDirectoryInformation.cmake"
   "menu/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mundo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "juego/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tinyxml-master/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

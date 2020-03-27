@@ -47,7 +47,7 @@ class Menu : public States {
     bool gpause=false;
     bool jugando=false;
     int players=0;
-    int lvls=3;
+    int lvls=1;
     int dificulty=0;//0 facil 1 normal 2 dificil
     int menus=0;//0 principal, 1 un jugador, 2 multijugador, 3 opciones
     
@@ -58,6 +58,8 @@ class Menu : public States {
     static Menu* Instance();
     void Update(sf::Event event,sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
+    int GetLvls();
+    int GetDif();
   protected:
     void Cargarecursos();
 

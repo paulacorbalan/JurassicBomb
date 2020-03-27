@@ -18,6 +18,7 @@ public:
 	void ChangeState(Contexto* game, States* state) {
 		game->ChangeState(state);
 	}
+	
 };
 
 #endif

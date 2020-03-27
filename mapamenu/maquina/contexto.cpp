@@ -16,30 +16,26 @@
 		    std::cout<<"contextoinicia";
 	}
 
-	void Contexto::ChangeState(States* state){ //guarda en nuevo estado
-		// cleanup the current state
-		/*if ( !states.empty() ) {
-			states.back()->Cleanup();
-			states.pop_back();
-		}*/
+	void Contexto::ChangeState(States* s){ //guarda en nuevo estado
+
+
 
 		// store and init the new state
-	
 
-		std::cout<<states.size();
-
-		states.push_back(state);
+		std::cout<<this->states.size();
+		
+		this->states.push_back(s);
 		std::cout<<"changestate";
-		states.back()->Inicializar();
+		this->states.back()->Inicializar();
 	
-		std::cout<<states.size()<<"\n";
+		std::cout<<this->states.size()<<"\n";
 
 	}
 
 	void Contexto::Update(sf::Event event,sf::RenderWindow &window){
 		// let the state update the game
-	  std::cout<<"contextoupdate\n";
-      states.back()->Update(event,window);
+
+      this->states.back()->Update(event,window);
 
 
 	}

@@ -14,6 +14,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../mapa"
   "../maquina"
   "../menu"
+  "../mundo"
+  "../juego"
   "../tinyxml-master"
   )
 

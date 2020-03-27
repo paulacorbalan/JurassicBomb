@@ -13,7 +13,6 @@ class Contexto{
   private:
     // the stack of states
     std::vector<States*> states;
-
     bool m_running;
   static Contexto* pinstance;
 

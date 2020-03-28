@@ -152,7 +152,7 @@ void Menu::Draw(sf::RenderWindow &window) {
 }
 
 void Menu::reinicio(){
-lvls=0;
+lvls=1;
 menus=0;
 dificulty=0;
 }

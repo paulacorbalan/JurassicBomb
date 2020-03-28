@@ -91,7 +91,8 @@ void Mundo::Update(sf::RenderWindow &window) {
    dif=0;
    lvls=0;
    lvlactual=0;
-        //vacias mapas
+        //vaciar mapas TARREGLAR
+        mapas.clear();
          std::cout<<dif<<lvls<<lvlactual<<"\n";
  }
 

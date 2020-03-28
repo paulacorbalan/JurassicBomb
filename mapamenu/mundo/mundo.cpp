@@ -27,14 +27,11 @@ void Mundo::Inicializar() {
       for(int a=0;a<lvls;a++){
         string s="resources/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
-
         std::cout<<"premap";
         Map* m=new Map(s);
         std::cout<<"prepush";
         mapas.push_back(m);
-
         std::cout<<"postpush";
-
       }
 
     }
@@ -53,7 +50,9 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){
               ///Verifico si se pulsa alguna tecla de movimiento
           switch (event.key.code) {
             case 60:
+              if(lvlactual<mapas.size()){
                   mapas[lvlactual]->terminar();
+              }
                 //Cualquier tecla desconocida se imprime por pantalla su código
           default:
             std::cout << " code " << event.key.code << std::endl;
@@ -65,14 +64,35 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){
 }
 
 void Mundo::Update(sf::RenderWindow &window) {
+
+
    if (mapas[lvlactual]->fin())
     {
-        std::cout<<"cambiar mapa\n";
+      std::cout<<"cambiar mapa\n";
+
       lvlactual++;
+      if (!(lvlactual<mapas.size()))
+      {
+        //RENICIAR MUNDO
+        this->renicio();
+        //MENU INICIAL
+        Menu::Instance()->reinicio();
+       ChangeState(Contexto::Instance(),Menu::Instance());
+      }
+      
       //Reiniciar contador
       hud->reiniciocrono();
     }
-    hud->Update();
+    hud->Update(); 
+ }
+
+ void Mundo::renicio(){
+         std::cout<<dif<<lvls<<lvlactual<<"\n";
+   dif=0;
+   lvls=0;
+   lvlactual=0;
+        //vacias mapas
+         std::cout<<dif<<lvls<<lvlactual<<"\n";
  }
 
  void Mundo::Draw(sf::RenderWindow &window){

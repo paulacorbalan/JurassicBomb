@@ -55,6 +55,7 @@ class Menu : public States {
 
   public:
     void Inicializar();
+    void reinicio();
     static Menu* Instance();
     void Event(sf::Event event,sf::RenderWindow &window);
     void Update(sf::RenderWindow &window);

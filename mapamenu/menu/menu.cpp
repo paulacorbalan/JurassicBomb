@@ -28,6 +28,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window){
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
+          window.close();
         break;
       ///////////////Scroll
             case sf::Event::MouseWheelScrolled:
@@ -80,6 +81,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window){
                             if(playImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
                               //jugando=true; juego stado             CAMBIAR ESTADO
                             std::cout << "jugar" << std::endl;
+                           
                             ChangeState(Contexto::Instance(),Juego::Instance());
                             }
                             if(menosImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
@@ -149,6 +151,11 @@ void Menu::Draw(sf::RenderWindow &window) {
         }
 }
 
+void Menu::reinicio(){
+lvls=0;
+menus=0;
+dificulty=0;
+}
 
 void Menu::Cargarecursos(){
    //background

@@ -10,6 +10,7 @@ class Tile{
     void Cargarecursos();
     void Update();
     void draw(sf::RenderWindow &window);
+    void reiniciocrono(){min=0;seg=15;}
 private:
 
     sf::Sprite vida1;

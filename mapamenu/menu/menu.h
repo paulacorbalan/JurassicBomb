@@ -56,7 +56,8 @@ class Menu : public States {
   public:
     void Inicializar();
     static Menu* Instance();
-    void Update(sf::Event event,sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window);
+    void Update(sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
     int GetLvls();
     int GetDif();

@@ -26,7 +26,8 @@ class Mundo : public States {
   public:
     void Inicializar();
     static Mundo* Instance();
-    void Update(sf::Event event,sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window);
+    void Update(sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
   protected:
     void Cargarecursos();

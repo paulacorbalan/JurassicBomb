@@ -14,7 +14,7 @@ class Contexto{
     // the stack of states
     std::vector<States*> states;
     bool m_running;
-  static Contexto* pinstance;
+    static Contexto* pinstance;
 
   public:
     
@@ -23,7 +23,8 @@ class Contexto{
 
     void ChangeState(States* state);
 
-    void Update(sf::Event event,sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window);
+    void Update(sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
 
     bool Running() { return m_running; }

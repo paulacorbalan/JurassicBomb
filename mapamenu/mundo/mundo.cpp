@@ -41,14 +41,38 @@ void Mundo::Inicializar() {
     
 }
 
-void Mundo::Update(sf::Event event,sf::RenderWindow &window) {
-   /* if (mapas[lvlactual]->fin())
+void Mundo::Event(sf::Event event,sf::RenderWindow &window){
+      switch (event.type) {
+        case sf::Event::Closed:
+          Contexto::Instance()->Quit();
+          window.close();
+        break;
+        //case sf::Event::MouseButtonPressed:
+
+        case sf::Event::KeyPressed:
+              ///Verifico si se pulsa alguna tecla de movimiento
+          switch (event.key.code) {
+            case 60:
+                  mapas[lvlactual]->terminar();
+                //Cualquier tecla desconocida se imprime por pantalla su código
+          default:
+            std::cout << " code " << event.key.code << std::endl;
+          break;
+
+        }
+      }
+  //COSAS DEL MUNDO CUANDO PULSAS ALGO
+}
+
+void Mundo::Update(sf::RenderWindow &window) {
+   if (mapas[lvlactual]->fin())
     {
-        std::cout<<"fin\n";
+        std::cout<<"cambiar mapa\n";
       lvlactual++;
       //Reiniciar contador
-    }*/
-  hud->Update();
+      hud->reiniciocrono();
+    }
+    hud->Update();
  }
 
  void Mundo::Draw(sf::RenderWindow &window){

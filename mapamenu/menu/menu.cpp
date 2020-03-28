@@ -18,103 +18,107 @@ void Menu::Inicializar() {
 }
 
 
-void Menu::Update(sf::Event event,sf::RenderWindow &window) {
+void Menu::Update(sf::RenderWindow &window) {
 
-  std::cout<<"menuupdate\n";
-    while (window.pollEvent(event)) {   
-       
-    switch (event.type) {
-      case sf::Event::Closed:
-                                            window.close();
-                                            break;
-    ///////////////Scroll
-          case sf::Event::MouseWheelScrolled:
-            std::cout << event.mouseWheelScroll.delta << std::endl;
-          break;
-              //////////////Clic del raton
-          case sf::Event::MouseButtonPressed:
 
-            if(sf::Mouse::Left == event.key.code){
-                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-
-              if(menus==0 && !jugando){
-                //posicion raton respecto ventana
-
-                    //comprobacion encima de que sprite esta          
-                          if(splayerImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            menus=1;
-                            players=1;
-                            std::cout << "un jugador" << std::endl;
-                          }
-                          if(mplayerImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            menus=1;
-                            players=2;
-                            std::cout << "players=2;" << std::endl;
-                          }
-                          if(exitImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            window.close();
-                            std::cout << "exit" << std::endl;
-                          }
-
-              }else if(menus==1 && !jugando){
-                                                                                  //ChangeState(Contexto::Instance(),Menu::Instance()); CAMBIAR ESTADOS
-                    //comprobacion encima de que sprite esta          
-                          if(facilImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                          dificulty=0;
-                            std::cout << "facil" << std::endl;
-                          }
-                          if(normalImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            dificulty=1;
-                            std::cout << "normal" << std::endl;
-                          }
-                          if(dificilImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            dificulty=2;
-                            std::cout << "dificil" << std::endl;
-                          }
-                          if(atrasImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            menus=0;
-                            std::cout << "atras" << std::endl;
-                          }
-                          if(playImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            //jugando=true; juego stado             CAMBIAR ESTADO
-                          std::cout << "jugar" << std::endl;
-                          ChangeState(Contexto::Instance(),Juego::Instance());
-                          }
-                          if(menosImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            if(lvls<10 && lvls>1){
-                              lvls--;
-                            }
-                            std::cout << "-1 " << lvls << std::endl;
-                              cadena = std::to_string(lvls);
-                                texto.setString(cadena);
-                          }
-                          if(plusImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                            if(lvls<9 && lvls>0){
-                            lvls++;
-                            }
-                            std::cout << "+1 "<< lvls << std::endl;
-                              cadena = std::to_string(lvls);
-                                texto.setString(cadena);
-                          }
-
-              } 
-                  std::cout << "clic izq" << std::endl;
-            }
-          //////////Se pulsó una tecla, imprimo su codigo
-          case sf::Event::KeyPressed:
-            ///Verifico si se pulsa alguna tecla de movimiento
-            switch (event.key.code) {
-
-              
-            //Cualquier tecla desconocida se imprime por pantalla su código
-            default:
-              std::cout << " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
-              break;
-            }
-          }
-    }
+    
 }
+void Menu::Event(sf::Event event,sf::RenderWindow &window){
+        
+      switch (event.type) {
+        case sf::Event::Closed:
+          Contexto::Instance()->Quit();
+        break;
+      ///////////////Scroll
+            case sf::Event::MouseWheelScrolled:
+              std::cout << event.mouseWheelScroll.delta << std::endl;
+            break;
+                //////////////Clic del raton
+            case sf::Event::MouseButtonPressed:
 
+              if(sf::Mouse::Left == event.key.code){
+                      sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                if(menus==0 && !jugando){
+                  //posicion raton respecto ventana
+
+                      //comprobacion encima de que sprite esta          
+                            if(splayerImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              menus=1;
+                              players=1;
+                              std::cout << "un jugador" << std::endl;
+                            }
+                            if(mplayerImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              menus=1;
+                              players=2;
+                              std::cout << "players=2;" << std::endl;
+                            }
+                            if(exitImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              window.close();
+                              std::cout << "exit" << std::endl;
+                            }
+
+                }else if(menus==1 && !jugando){
+                                                                                    //ChangeState(Contexto::Instance(),Menu::Instance()); CAMBIAR ESTADOS
+                      //comprobacion encima de que sprite esta          
+                            if(facilImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                            dificulty=0;
+                              std::cout << "facil" << std::endl;
+                            }
+                            if(normalImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              dificulty=1;
+                              std::cout << "normal" << std::endl;
+                            }
+                            if(dificilImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              dificulty=2;
+                              std::cout << "dificil" << std::endl;
+                            }
+                            if(atrasImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              menus=0;
+                              std::cout << "atras" << std::endl;
+                            }
+                            if(playImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              //jugando=true; juego stado             CAMBIAR ESTADO
+                            std::cout << "jugar" << std::endl;
+                            ChangeState(Contexto::Instance(),Juego::Instance());
+                            }
+                            if(menosImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              if(lvls<10 && lvls>1){
+                                lvls--;
+                              }
+                              std::cout << "-1 " << lvls << std::endl;
+                                cadena = std::to_string(lvls);
+                                  texto.setString(cadena);
+                            }
+                            if(plusImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
+                              if(lvls<9 && lvls>0){
+                              lvls++;
+                              }
+                              std::cout << "+1 "<< lvls << std::endl;
+                                cadena = std::to_string(lvls);
+                                  texto.setString(cadena);
+                            }
+
+                } 
+                    std::cout << "clic izq" << std::endl;
+              }
+            //////////Se pulsó una tecla, imprimo su codigo
+            case sf::Event::KeyPressed:
+              ///Verifico si se pulsa alguna tecla de movimiento
+              switch (event.key.code) {
+
+                
+              //Cualquier tecla desconocida se imprime por pantalla su código
+              default:
+                std::cout << " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
+                break;
+              }
+            }
+      
+
+
+
+}
 void Menu::Draw(sf::RenderWindow &window) {
 
     //dibujar cosas

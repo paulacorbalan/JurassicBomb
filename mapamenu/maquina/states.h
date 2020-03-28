@@ -11,7 +11,8 @@
 class States {
 public:
 	 virtual void Inicializar()=0;
-	 virtual void Update(sf::Event event,sf::RenderWindow &window)=0 ;
+	 virtual void Event(sf::Event event,sf::RenderWindow &window)=0 ;
+	 virtual void Update(sf::RenderWindow &window)=0 ;
 	 virtual void Draw(sf::RenderWindow &window)=0;
 
 

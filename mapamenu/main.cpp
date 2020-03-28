@@ -12,8 +12,8 @@
 
 int main() {
 
-  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
 
+  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
   //Creamos una ventana
     std::cout<<"window";
     Contexto* game=Contexto::Instance();
@@ -29,12 +29,22 @@ int main() {
       while (window.isOpen()) {
           while (game->Running()) {
                       sf::Event event;
-                      game->Update(event,window);  
-                      window.clear();
+                        while(window.pollEvent(event)){
+                          game->Event(event,window);
+                        }
+                      game->Update(window);  
+
+
+
+
+
+
                       game->Draw(window);
-                      window.display();
-            if(!window.isOpen())game->Quit();}
-          }
-      
+                   
+
+            if(!window.isOpen())game->Quit();
+            }
+          
+      }
     return 0;
 }

@@ -20,6 +20,7 @@ class Mundo : public States {
     int dif=0;
     int lvls=0;
     int lvlactual=0;
+    int play=0;
     std::vector<Map*> mapas;
     Tile* hud;
 

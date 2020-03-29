@@ -62,6 +62,7 @@ class Menu : public States {
     void Draw(sf::RenderWindow &window);
     int GetLvls();
     int GetDif();
+    int GetPlayers(){return players;}
   protected:
     void Cargarecursos();
 

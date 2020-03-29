@@ -15,30 +15,27 @@ Mundo* Mundo::jinstance=0;
 void Mundo::Inicializar() {
   std::cout<<"mundoiniciado\n";
   //crear mundo
-    int dif=Menu::Instance()->GetDif();
-    int lvls=Menu::Instance()->GetLvls();
+     dif=Menu::Instance()->GetDif(); //dificultad
+     lvls=Menu::Instance()->GetLvls(); //numero de niveles
+    play=Menu::Instance()->GetPlayers();//numero de jugadores
     hud=new Tile();
-    if(dif==0){
 
-    }else if(dif==1){
-
-    }else
-    {
-      for(int a=0;a<lvls;a++){
-        string s="resources/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
+      for(int a=0;a<lvls;a++){//cargar los mapas dependiendo del nombre
+        string s="resources/mapas/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
         std::cout<<"premap";
         Map* m=new Map(s);
         std::cout<<"prepush";
-        mapas.push_back(m);
+        mapas.push_back(m);//meter los mapas en el vector de mapas
         std::cout<<"postpush";
       }
 
-    }
+    
     
 }
 
-void Mundo::Event(sf::Event event,sf::RenderWindow &window){
+void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
+ 
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
@@ -60,10 +57,10 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){
 
         }
       }
-  //COSAS DEL MUNDO CUANDO PULSAS ALGO
+  
 }
 
-void Mundo::Update(sf::RenderWindow &window) {
+void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
 
 
    if (mapas[lvlactual]->fin())
@@ -86,18 +83,21 @@ void Mundo::Update(sf::RenderWindow &window) {
     hud->Update(); 
  }
 
- void Mundo::renicio(){
+ void Mundo::renicio(){ //reiniciar el mundo
          std::cout<<dif<<lvls<<lvlactual<<"\n";
    dif=0;
    lvls=0;
    lvlactual=0;
+   play=0;
         //vaciar mapas TARREGLAR
         mapas.clear();
          std::cout<<dif<<lvls<<lvlactual<<"\n";
  }
 
- void Mundo::Draw(sf::RenderWindow &window){
-  mapas[lvlactual]->draw(window);
-  hud->draw(window);
-  
+ void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
+    if(lvlactual<mapas.size()){
+      mapas[lvlactual]->draw(window);
+    
+      hud->draw(window);
+    }
  }

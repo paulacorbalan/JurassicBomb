@@ -14,12 +14,9 @@ public:
 	 virtual void Event(sf::Event event,sf::RenderWindow &window)=0 ;
 	 virtual void Update(sf::RenderWindow &window)=0 ;
 	 virtual void Draw(sf::RenderWindow &window)=0;
-
-
 	void ChangeState(Contexto* game, States* state) {
 		game->ChangeState(state);
 	}
-	
 };
 
 #endif

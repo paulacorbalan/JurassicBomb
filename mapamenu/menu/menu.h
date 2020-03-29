@@ -63,6 +63,7 @@ class Menu : public States {
     int GetLvls();
     int GetDif();
     int GetPlayers(){return players;}
+    void lvltxt();
   protected:
     void Cargarecursos();
 

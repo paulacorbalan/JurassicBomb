@@ -61,29 +61,9 @@ Map::Map(string s) {
 
   std::cout<<"layers"<<endl;
 
-  //reservando memoria para mapa
-  _tilemap=new int**[_numlayers];
-  for(int i=0;i<_numlayers;i++){
-    _tilemap[i]=new int*[_height];
-  }
-  for(int l=0;l<_numlayers;l++){
-    for (int y= 0; y < _height; y++){
-    _tilemap[l][y]=new int[_width];
-    }
-  }
-  //reserva memoria Sprites
-  _tilemapSprite=new sf::Sprite***[_numlayers];
-  for(int i=0;i<_numlayers;i++){
-    _tilemapSprite[i]=new sf::Sprite**[_height];
-  }
-  for(int i=0;i<_numlayers;i++){
-    for(int y=0;y<_height;y++){
-      _tilemapSprite[i][y]=new sf::Sprite*[_width];
-      for(int x=0;x<_width;x++){
-        _tilemapSprite[i][y][x]=new sf::Sprite();
-      }
-    }
-  }
+  //reserva memoria
+  reservarMemoria(_numlayers);
+
   std::cout<<"reservado"<<endl;
   //cargando los gids
   TiXmlElement *aux;
@@ -106,6 +86,7 @@ Map::Map(string s) {
         }
 
     }
+
       int cont=0;
       std::cout<<"gids"<<endl;
       //arraysprites
@@ -118,20 +99,22 @@ Map::Map(string s) {
               _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0+(gid*32),32,32});
               _tilemapSprite[l][y][x]->setPosition(112+(x*_tilewidth),64+(y*_tileheigh));
               cont++;
-          }
+            }
           }
         }
       }
       std::cout<< cont<<endl;
       std::cout<<"arraysprites"<<endl;
   }
-/*TiXmlElement *cambio(int l, TiXmlElement *layer){
-    for(int i=0;i<l;i++){
-      layer=layer->NextSiblingElement("layer");
-    }
-  return layer;
-}*/
+  /*TiXmlElement *cambio(int l, TiXmlElement *layer){
+      for(int i=0;i<l;i++){
+        layer=layer->NextSiblingElement("layer");
+      }
+    return layer;
+  }*/
 
+
+Map::~Map(){}
 void Map::draw(sf::RenderWindow& window){
  for(int l=0; l<_numlayers;l++){
     for(int y=0; y<_height;y++){
@@ -144,7 +127,6 @@ void Map::draw(sf::RenderWindow& window){
   }
   window.draw(texto);
 }
-
 void Map::setactivelayer(int layer){
   _activelayer=layer;
 }
@@ -164,4 +146,29 @@ void Map::Update(sf::Event event,sf::RenderWindow &window){
               }
   }
 
+}
+void Map::reservarMemoria(int _numlayers){
+    //reservando memoria para mapa
+  _tilemap=new int**[_numlayers];
+  for(int i=0;i<_numlayers;i++){
+    _tilemap[i]=new int*[_height];
+  }
+  for(int l=0;l<_numlayers;l++){
+    for (int y= 0; y < _height; y++){
+    _tilemap[l][y]=new int[_width];
+    }
+  }
+  //reserva memoria Sprites
+  _tilemapSprite=new sf::Sprite***[_numlayers];
+  for(int i=0;i<_numlayers;i++){
+    _tilemapSprite[i]=new sf::Sprite**[_height];
+  }
+  for(int i=0;i<_numlayers;i++){
+    for(int y=0;y<_height;y++){
+      _tilemapSprite[i][y]=new sf::Sprite*[_width];
+      for(int x=0;x<_width;x++){
+        _tilemapSprite[i][y][x]=new sf::Sprite();
+      }
+    }
+  }
 }

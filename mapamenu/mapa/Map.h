@@ -10,6 +10,7 @@ class Map {
 
 public:
   Map(string s);
+  ~Map();
   void Update(sf::Event event,sf::RenderWindow &window);
   void draw(sf::RenderWindow &window);
   void setactivelayer(int layer);
@@ -17,6 +18,7 @@ public:
   bool fin(){return finalizado;};
   void terminar(){ std::cout<<"terminado";finalizado=true;};
   void Update();
+  void reservarMemoria(int num);
 
 private:
   bool finalizado;
@@ -33,9 +35,6 @@ private:
   sf::VertexArray m_vertices;
   sf::Texture _tilesettexture;
   sf::Sprite ****_tilemapSprite;
-
-
-
 
 };
 

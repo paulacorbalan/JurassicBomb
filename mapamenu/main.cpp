@@ -14,12 +14,14 @@ int main() {
 
 
   sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
+  window.setFramerateLimit(60);
   //Creamos una ventana
     std::cout<<"window";
     Contexto* game=Contexto::Instance();
     std::cout<<"game";
     game->Inicializar();
-    game->ChangeState(Menu::Instance());      
+    game->ChangeState(Menu::Instance());   
+
     sf::Clock clock;
     std::cout<<"clock";
     sf::Time timeStartUpdate=clock.getElapsedTime();
@@ -27,21 +29,13 @@ int main() {
      
     //Bucle del juego
       while (window.isOpen()) {
-          while (game->Running()) {
+          while (game->Running()){
                       sf::Event event;
                         while(window.pollEvent(event)){
                           game->Event(event,window);
                         }
                       game->Update(window);  
-
-
-
-
-
-
-                      game->Draw(window);
-                   
-
+                      game->Draw(window);              
             if(!window.isOpen())game->Quit();
             }
           

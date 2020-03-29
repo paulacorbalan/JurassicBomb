@@ -10,13 +10,11 @@
 		}
 		return pinstance;
   	}
-
 	void Contexto::Inicializar(){
 		this->m_running=true;
 		
 		    std::cout<<"contextoinicia";
 	}
-
 	void Contexto::ChangeState(States* s){ //guarda en nuevo estado
 
 		// store and init the new state

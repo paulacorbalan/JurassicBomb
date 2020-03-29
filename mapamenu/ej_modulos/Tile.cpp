@@ -77,7 +77,7 @@ void Tile::draw(sf::RenderWindow &window){
     window.draw(vida1);
     window.draw(vida2);
     window.draw(vida3);
-  }else
+  }else if(vidas==0)
   {
     /* GAMEOVER HABER ESTUDIAO */
   }

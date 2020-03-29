@@ -31,6 +31,7 @@ class Mundo : public States {
     void Update(sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
     void renicio();
+    void finjuego();
   protected:
     void Cargarecursos();
 

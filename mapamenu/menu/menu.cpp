@@ -150,11 +150,25 @@ void Menu::Draw(sf::RenderWindow &window) {
   
         }
 }
-
+void Menu::lvltxt(){
+            // Damos un valor a la cadena
+            cadena = std::to_string(1);
+            // Asignamos la cadena al texto
+            texto.setString(cadena);
+            // Asignamos la fuente que hemos cargado al texto
+            texto.setFont(fuente);
+            // Tamaño de la fuente
+            texto.setCharacterSize(75);
+            // Posición del texto
+            texto.setPosition(-15+(plusImage.getPosition().x+menosImage.getPosition().x)/2,-50+(plusImage.getPosition().y+menosImage.getPosition().y)/2);
+            texto.setColor(sf::Color::Red);
+}
 void Menu::reinicio(){
 lvls=1;
 menus=0;
 dificulty=0;
+
+lvltxt();
 }
 
 void Menu::Cargarecursos(){
@@ -239,23 +253,7 @@ void Menu::Cargarecursos(){
               
                   std::cout << "Error: Could not display font" << std::endl;
             }
-            // Creamos un objeto texto
-            
-            // Creamos un objeto String
-            
-            // Damos un valor a la cadena
-            cadena = std::to_string(1);
-            // Asignamos la cadena al texto
-            texto.setString(cadena);
-            // Asignamos la fuente que hemos cargado al texto
-            texto.setFont(fuente);
-            // Tamaño de la fuente
-            texto.setCharacterSize(75);
-            // Posición del texto
-            texto.setPosition(-15+(plusImage.getPosition().x+menosImage.getPosition().x)/2,-50+(plusImage.getPosition().y+menosImage.getPosition().y)/2);
-            texto.setColor(sf::Color::Red);
-
-
+lvltxt();
                   //facil
                   if ( !facil.loadFromFile( "resources/facil.png" ) )
                   std::cout << "Error: Could not display facil image" << std::endl;

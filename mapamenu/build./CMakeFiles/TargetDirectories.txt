@@ -14,5 +14,9 @@
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mundo/CMakeFiles/rebuild_cache.dir
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./juego/CMakeFiles/edit_cache.dir
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./juego/CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./bomba/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./bomba/CMakeFiles/rebuild_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./dinosaurio/CMakeFiles/edit_cache.dir
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./dinosaurio/CMakeFiles/rebuild_cache.dir
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/CMakeFiles/edit_cache.dir
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/CMakeFiles/rebuild_cache.dir

@@ -40,6 +40,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/cmake_install.cmake")
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mundo/cmake_install.cmake")
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./juego/cmake_install.cmake")
+  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./bomba/cmake_install.cmake")
+  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./dinosaurio/cmake_install.cmake")
   include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
 
 endif()

@@ -11,6 +11,7 @@
 //#include "jugador.h"
 //#include "bombas.h"
 //#include "enemigo.h"
+//#include "dinosaurio.h"
 
 using namespace std;
 

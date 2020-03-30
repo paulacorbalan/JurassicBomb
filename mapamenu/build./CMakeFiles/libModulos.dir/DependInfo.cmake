@@ -4,6 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/bombas.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/bomba/bombas.cpp.o"
+  "/home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/colisiones.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o"
+  "/home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/jugador.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/bomba/jugador.cpp.o"
+  "/home/fv2/Desktop/git/JurassicBomb/mapamenu/dinosaurio/dinosaurio.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o"
   "/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o"
   "/home/fv2/Desktop/git/JurassicBomb/mapamenu/juego/juego.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/juego/juego.cpp.o"
   "/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/Map.cpp" "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/libModulos.dir/mapa/Map.cpp.o"
@@ -25,6 +29,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../menu"
   "../mundo"
   "../juego"
+  "../bomba"
+  "../dinosaurio"
   "../tinyxml-master"
   )
 

@@ -136,6 +136,114 @@ libModulos/fast:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/build
 .PHONY : libModulos/fast
 
+bomba/bombas.o: bomba/bombas.cpp.o
+
+.PHONY : bomba/bombas.o
+
+# target to build an object file
+bomba/bombas.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/bombas.cpp.o
+.PHONY : bomba/bombas.cpp.o
+
+bomba/bombas.i: bomba/bombas.cpp.i
+
+.PHONY : bomba/bombas.i
+
+# target to preprocess a source file
+bomba/bombas.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/bombas.cpp.i
+.PHONY : bomba/bombas.cpp.i
+
+bomba/bombas.s: bomba/bombas.cpp.s
+
+.PHONY : bomba/bombas.s
+
+# target to generate assembly for a file
+bomba/bombas.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/bombas.cpp.s
+.PHONY : bomba/bombas.cpp.s
+
+bomba/colisiones.o: bomba/colisiones.cpp.o
+
+.PHONY : bomba/colisiones.o
+
+# target to build an object file
+bomba/colisiones.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o
+.PHONY : bomba/colisiones.cpp.o
+
+bomba/colisiones.i: bomba/colisiones.cpp.i
+
+.PHONY : bomba/colisiones.i
+
+# target to preprocess a source file
+bomba/colisiones.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/colisiones.cpp.i
+.PHONY : bomba/colisiones.cpp.i
+
+bomba/colisiones.s: bomba/colisiones.cpp.s
+
+.PHONY : bomba/colisiones.s
+
+# target to generate assembly for a file
+bomba/colisiones.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/colisiones.cpp.s
+.PHONY : bomba/colisiones.cpp.s
+
+bomba/jugador.o: bomba/jugador.cpp.o
+
+.PHONY : bomba/jugador.o
+
+# target to build an object file
+bomba/jugador.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/jugador.cpp.o
+.PHONY : bomba/jugador.cpp.o
+
+bomba/jugador.i: bomba/jugador.cpp.i
+
+.PHONY : bomba/jugador.i
+
+# target to preprocess a source file
+bomba/jugador.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/jugador.cpp.i
+.PHONY : bomba/jugador.cpp.i
+
+bomba/jugador.s: bomba/jugador.cpp.s
+
+.PHONY : bomba/jugador.s
+
+# target to generate assembly for a file
+bomba/jugador.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/bomba/jugador.cpp.s
+.PHONY : bomba/jugador.cpp.s
+
+dinosaurio/dinosaurio.o: dinosaurio/dinosaurio.cpp.o
+
+.PHONY : dinosaurio/dinosaurio.o
+
+# target to build an object file
+dinosaurio/dinosaurio.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o
+.PHONY : dinosaurio/dinosaurio.cpp.o
+
+dinosaurio/dinosaurio.i: dinosaurio/dinosaurio.cpp.i
+
+.PHONY : dinosaurio/dinosaurio.i
+
+# target to preprocess a source file
+dinosaurio/dinosaurio.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.i
+.PHONY : dinosaurio/dinosaurio.cpp.i
+
+dinosaurio/dinosaurio.s: dinosaurio/dinosaurio.cpp.s
+
+.PHONY : dinosaurio/dinosaurio.s
+
+# target to generate assembly for a file
+dinosaurio/dinosaurio.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.s
+.PHONY : dinosaurio/dinosaurio.cpp.s
+
 ej_modulos/Tile.o: ej_modulos/Tile.cpp.o
 
 .PHONY : ej_modulos/Tile.o
@@ -443,6 +551,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... MiJuego"
 	@echo "... libModulos"
+	@echo "... bomba/bombas.o"
+	@echo "... bomba/bombas.i"
+	@echo "... bomba/bombas.s"
+	@echo "... bomba/colisiones.o"
+	@echo "... bomba/colisiones.i"
+	@echo "... bomba/colisiones.s"
+	@echo "... bomba/jugador.o"
+	@echo "... bomba/jugador.i"
+	@echo "... bomba/jugador.s"
+	@echo "... dinosaurio/dinosaurio.o"
+	@echo "... dinosaurio/dinosaurio.i"
+	@echo "... dinosaurio/dinosaurio.s"
 	@echo "... ej_modulos/Tile.o"
 	@echo "... ej_modulos/Tile.i"
 	@echo "... ej_modulos/Tile.s"

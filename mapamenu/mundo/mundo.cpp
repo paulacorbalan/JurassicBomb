@@ -33,6 +33,7 @@ void Mundo::Inicializar() {
 }
 
 void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
+
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
@@ -51,6 +52,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
           break;
         }
       }
+
 }
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
@@ -70,7 +72,10 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       hud->reiniciocrono();
     }
     hud->Update(); 
+
  }
+
+ 
 void Mundo::finjuego(){
         //RENICIAR MUNDO
         this->renicio();

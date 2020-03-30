@@ -18,7 +18,9 @@ void Mundo::Inicializar() {
       dif=Menu::Instance()->GetDif(); //dificultad
       lvls=Menu::Instance()->GetLvls(); //numero de niveles
       play=Menu::Instance()->GetPlayers();//numero de jugadores
+      
       hud=new Tile();
+
       for(int a=0;a<lvls;a++){//cargar los mapas dependiendo del nombre
         string s="resources/mapas/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
@@ -30,6 +32,8 @@ void Mundo::Inicializar() {
         std::cout<< mapas.size()<<endl;
         std::cout<<"postpush"<<endl;
       }
+      //CREAR JUGADORES
+      //CREAR DINOSAURIOS O QUIZA EN MAPA JUSTO ARRIBA
 }
 
 void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO CUANDO PULSAS ALGO

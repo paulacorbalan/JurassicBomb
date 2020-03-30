@@ -18,6 +18,10 @@ CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.cpp
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.h
 CMakeFiles/libModulos.dir/juego/juego.cpp.o
+ ../bomba/bombas.h
+ ../bomba/colisiones.h
+ ../bomba/jugador.h
+ ../dinosaurio/dinosaurio.h
  ../ej_modulos/Tile.h
  ../mapa/Map.h
  ../maquina/contexto.h
@@ -38,6 +42,10 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/states.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o
+ ../bomba/bombas.h
+ ../bomba/colisiones.h
+ ../bomba/jugador.h
+ ../dinosaurio/dinosaurio.h
  ../ej_modulos/Tile.h
  ../juego/juego.h
  ../mapa/Map.h
@@ -49,6 +57,10 @@ CMakeFiles/libModulos.dir/menu/menu.cpp.o
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.cpp
  /home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.h
 CMakeFiles/libModulos.dir/mundo/mundo.cpp.o
+ ../bomba/bombas.h
+ ../bomba/colisiones.h
+ ../bomba/jugador.h
+ ../dinosaurio/dinosaurio.h
  ../ej_modulos/Tile.h
  ../mapa/Map.h
  ../maquina/contexto.h

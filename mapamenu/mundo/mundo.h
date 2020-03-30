@@ -8,14 +8,15 @@
 #include "Map.h"
 #include "menu.h"
 #include "Tile.h"
-//#include "jugador.h"
-//#include "bombas.h"
-//#include "enemigo.h"
-//#include "dinosaurio.h"
+#include "jugador.h"
+#include "bombas.h"
+#include "dinosaurio.h"
+#include "colisiones.h"
 
 using namespace std;
 
 class Mundo : public States {
+
   private:    
     static Mundo* jinstance;
     int dif=0;
@@ -33,8 +34,7 @@ class Mundo : public States {
     void Draw(sf::RenderWindow &window);
     void renicio();
     void finjuego();
-  protected:
-    void Cargarecursos();
+
 
 
 };

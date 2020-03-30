@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+../bomba/bombas.h
+SFML/Graphics.hpp
+-
+
+../bomba/colisiones.h
+SFML/Graphics.hpp
+-
+bombas.h
+../bomba/bombas.h
+
+../bomba/jugador.h
+SFML/Graphics.hpp
+-
+
+../dinosaurio/dinosaurio.h
+
 ../ej_modulos/Tile.h
 SFML/Graphics.hpp
 -
@@ -65,6 +81,14 @@ menu.h
 ../mundo/menu.h
 Tile.h
 ../mundo/Tile.h
+jugador.h
+../mundo/jugador.h
+bombas.h
+../mundo/bombas.h
+dinosaurio.h
+../mundo/dinosaurio.h
+colisiones.h
+../mundo/colisiones.h
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -225,6 +249,14 @@ menu.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/menu.h
 Tile.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/Tile.h
+jugador.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/jugador.h
+bombas.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/bombas.h
+dinosaurio.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/dinosaurio.h
+colisiones.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/colisiones.h
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
 tinystr.h

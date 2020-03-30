@@ -1,6 +1,7 @@
 #include "bombas.h"
 #include <iostream>
 
+//Esto es un comentariazo.
 Bomba::Bomba(float x, float y)
 {
     coordenadaX = x;

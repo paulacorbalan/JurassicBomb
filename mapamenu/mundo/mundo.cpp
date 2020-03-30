@@ -4,20 +4,23 @@
 
 Mundo* Mundo::jinstance=0;
 
-  Mundo* Mundo::Instance() {
+Mundo* Mundo::Instance() {
     if(jinstance==0){
       jinstance=new Mundo;
         std::cout<<"mundooinstance"; 
     }
     return jinstance;
-  }
+}
 
 void Mundo::Inicializar() {
+      nueva=true;
       std::cout<<"mundoiniciado\n";
       //crear mundo
       dif=Menu::Instance()->GetDif(); //dificultad
       lvls=Menu::Instance()->GetLvls(); //numero de niveles
       play=Menu::Instance()->GetPlayers();//numero de jugadores
+      
+      std::cout<<dif<<lvls<<lvlactual<<"\n";
       
       hud=new Tile();
 
@@ -61,6 +64,11 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
 
+  if(hud->getTerminada()){
+
+    std::cout<<"terminado el tiempo"<<endl;
+
+  }
    if (mapas[lvlactual]->fin())
     {
       std::cout<<"cambiar mapa\n";
@@ -81,13 +89,16 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
 
  
 void Mundo::finjuego(){
+        std::cout<<"fin"<<endl;
         //RENICIAR MUNDO
         this->renicio();
         //MENU INICIAL
         Menu::Instance()->reinicio();
-       ChangeState(Contexto::Instance(),Menu::Instance());
+        ChangeState(Contexto::Instance(),Menu::Instance());
+
 }
  void Mundo::renicio(){ //reiniciar el mundo
+      nueva=false;
       std::cout<<dif<<lvls<<lvlactual<<"\n";
       dif=0;
       lvls=0;
@@ -95,9 +106,15 @@ void Mundo::finjuego(){
       play=0;
       //vaciar mapas TARREGLAR
       std::cout<< mapas.size()<<endl;
+      for(int i=0;i<mapas.size();i++){
+        mapas[i]=NULL;
+        delete mapas[i];
+      }
       mapas.clear();
       std::cout<< mapas.size()<<endl;
+
       std::cout<<dif<<lvls<<lvlactual<<"\n";
+
  }
 
  void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud

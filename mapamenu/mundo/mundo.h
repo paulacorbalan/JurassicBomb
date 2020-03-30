@@ -25,6 +25,7 @@ class Mundo : public States {
     int play=0;
     std::vector<Map*> mapas;
     Tile* hud;
+    bool nueva=false;
 
   public:
     void Inicializar();

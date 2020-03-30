@@ -15,10 +15,16 @@ public:
   void draw(sf::RenderWindow &window);
   void setactivelayer(int layer);
   TiXmlElement* cambio(int l, TiXmlElement &d);
-  bool fin(){return finalizado;};
-  void terminar(){ std::cout<<"terminado";finalizado=true;};
+  bool fin(){
+    return finalizado;
+  };
+  void terminar(){
+     std::cout<<"terminado";
+     finalizado=true;
+  };
   void Update();
   void reservarMemoria(int num);
+  void liberar();
 
 private:
   bool finalizado;

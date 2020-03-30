@@ -103,6 +103,5 @@ void Tile::Update(){
                 seg=59;
             }
         }
-    }else{std::cout<<"haber estudiao"<<"\n";}
-
+    }
 }

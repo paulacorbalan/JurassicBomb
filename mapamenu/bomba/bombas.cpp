@@ -1,7 +1,8 @@
 #include "bombas.h"
 #include <iostream>
 
-//Esto es un comentariazo.
+//Arriba esa fiesta
+//Y todo eso
 Bomba::Bomba(float x, float y)
 {
     coordenadaX = x;

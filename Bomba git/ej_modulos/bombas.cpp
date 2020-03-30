@@ -5,6 +5,7 @@ Bomba::Bomba(float x, float y)
 {
     coordenadaX = x;
     coordenadaY = y;
+    activarColision = false;
 
     //Cargo la textura de las explosiones para usarlas posteriormente.
     texplosiones = new sf::Texture();
@@ -84,6 +85,18 @@ std::vector<sf::Sprite> Bomba::GenerarExplosion()
     return sprites;
 }
 
+//GETTERS
+
+sf::Sprite Bomba::getBomba()
+{
+    return sbomba;
+}
+
+bool Bomba::getColision()
+{
+  return activarColision;
+}
+
 float Bomba::getCoordenadaX()
 {
     return coordenadaX;
@@ -94,9 +107,16 @@ float Bomba::getCoordenadaY()
     return coordenadaY;
 }
 
-sf::Sprite Bomba::getBomba()
+int Bomba::getPropietario()
 {
-    return sbomba;
+    return propietario;
+}
+
+//SETTERS
+
+bool Bomba::setColision()
+{
+  return activarColision = true;
 }
 
 void Bomba::setExplosion(std::vector<sf::Sprite> exp)
@@ -106,3 +126,9 @@ void Bomba::setExplosion(std::vector<sf::Sprite> exp)
         explosiones.push_back(exp[i]);
     }
 }
+
+void Bomba::setPropietario(int identificador)
+{
+    propietario = identificador;
+}
+

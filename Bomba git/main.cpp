@@ -2,11 +2,13 @@
 #include <iostream>
 #include "bombas.h"
 #include "colisiones.h"
+#include "jugador.h"
 
 #include "include/config.h"
 
 #define kVel 5
-#define tiempoBomba 2
+#define tiempoBomba 5
+#define numJugadores 1
 
 
 int main() {
@@ -25,17 +27,8 @@ int main() {
   std::vector<float> tiemposBomba;
   std::vector<float> tiemposExplosiones;
 
-  sf::Texture tex;
-  if (!tex.loadFromFile("resources/sprites.png")) {
-    std::cerr << "Error cargando la imagen sprites.png";
-    exit(0);
-  }
-
-  sf::Sprite sprite(tex);
-  sprite.setOrigin(75 / 2, 75 / 2);
-  sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
-  sprite.setScale(0.5,0.5);
-  sprite.setPosition(320, 240);
+  Jugador jugador(numJugadores);
+  sf::Sprite sprite = jugador.getSprite();
 
   //Bucle del juego
   while (window.isOpen()) {
@@ -92,6 +85,7 @@ int main() {
           sprite.setScale(0.5, 0.5);
           sprite.move(kVel, 0);
           colisiones.crearColisiones(sprite,totalExplosiones,0,kVel);
+          colisiones.colisionesBombas(sprite,totalBombas,0,kVel);
           break;
 
         case sf::Keyboard::Left:
@@ -100,18 +94,21 @@ int main() {
           sprite.setScale(-0.5, 0.5);
           sprite.move(-kVel, 0);
           colisiones.crearColisiones(sprite,totalExplosiones,1,kVel);
+          colisiones.colisionesBombas(sprite,totalBombas,1,kVel);
           break;
 
         case sf::Keyboard::Up:
           sprite.setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
           sprite.move(0, -kVel);
           colisiones.crearColisiones(sprite,totalExplosiones,2,kVel);
+          colisiones.colisionesBombas(sprite,totalBombas,2,kVel);
           break;
 
         case sf::Keyboard::Down:
           sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
           sprite.move(0, kVel);
           colisiones.crearColisiones(sprite,totalExplosiones,3,kVel);
+          colisiones.colisionesBombas(sprite,totalBombas,3,kVel);
           break;
 
         case sf::Keyboard::Space:
@@ -120,6 +117,7 @@ int main() {
             tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
             //Creamos una instancia de bomba.
             Bomba bomba(sprite.getPosition().x, sprite.getPosition().y);
+            bomba.setPropietario(1);
             //Lo añadimos al vector de bombas.
             totalBombas.push_back(bomba);
             

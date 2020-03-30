@@ -10,12 +10,18 @@ class Bomba{
 	float getCoordenadaY();
 	sf::Sprite getBomba();
 	void setExplosion(std::vector<sf::Sprite>);
+	int getPropietario();
+	bool getColision();
+	bool setColision();
+	void setPropietario(int identificador);
 
  private:
 	sf::Texture* tbomba;
 	sf::Texture* texplosiones;
 	sf::Sprite sbomba;
 	std::vector<sf::Sprite> explosiones;
+	bool activarColision;
+	int propietario;
 	float coordenadaX;
 	float coordenadaY;	
 	

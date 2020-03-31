@@ -2,12 +2,16 @@
 #include <iostream>
 #include "dinosaurio.h"
 
-// Velocidades
-float velocidad_normal = 0.1;
-float velocidad_trex = velocidad_normal - (velocidad_normal*0.15); // -15% de la velocidad normal
-float velocidad_velociraptor = velocidad_normal + (velocidad_normal*0.15); // +15% de la velocidad normal 
-
 Dinosaurio::Dinosaurio(){ // Constructor por defecto
+    _Tipodino = 1;
+    _Vida = 2;
+    _Speed = (int) 0.1*0.85;
+}
+
+Dinosaurio::Dinosaurio(int tipo, int vida, int velocidad){ // Constructor por defecto
+    _Tipodino = tipo;
+    _Vida = vida;
+    _Speed = velocidad;
 }
 
 Dinosaurio::~Dinosaurio(){ // Destructor
@@ -19,14 +23,7 @@ Dinosaurio::Dinosaurio(sf::Texture& textura_dino){ // Constructor con textura
     _Sprite.setOrigin(75 / 2, 75 / 2);
 
     // Cojo el sprite que me interesa por defecto del sheet
-    _Sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75)); // SPrite concreto
-}
-
-void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
-    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
-
-    setSpeed(); // Poner velocidad del dinosaurio
-    setVida(); // Poner vida del dinosaurio
+    _Sprite.setTextureRect(sf::IntRect(1 * 75, 0 * 75, 75, 75)); // SPrite concreto
 }
 
 void Dinosaurio::modifyVida(){ // Quitar un punto de vida si toca la bomba
@@ -39,59 +36,46 @@ int Dinosaurio::getTipodino(){ // Devuelve tipo de dinosaurio
     return _Tipodino;
 }
 
-sf::Sprite Dinosaurio::getSprite() const{ // Devuelve el sprite
-    return _Sprite;
+int generaRandom(int max){
+    unsigned long j;
+    srand( (unsigned)time(NULL) );
+
+    int miRandom = (rand() % max) + 1;
+    return miRandom;
 }
 
-void Dinosaurio::setSpeed(){ // Cambiar la velocidad
-    if(_Tipodino == 0){ // T-rex
-        _Speed = velocidad_trex;
+int Dinosaurio::movimiento(){
+    int direccion = 0;
+    int contador = 0;
+    int duracionMov = 2500;
+
+    if(contador >= duracionMov){
+        direccion = generaRandom(5);
+        contador = 0;
     }
-    if(_Tipodino == 1){ // Velociraptor
-        _Speed = velocidad_velociraptor; 
+
+    if(direccion == 1){ // arriba
+        _Sprite.setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
+        _Sprite.move(0, -(_Speed));
     }
-    if(_Tipodino == 2 || _Tipodino == 3){ // Resto de dinosaurios
-        _Speed = velocidad_normal; 
+    else if(direccion == 2){ // abajo
+        _Sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
+         _Sprite.move(0, _Speed);
     }
-}
-
-// Funciones de movimiento
-int Dinosaurio::marriba(){ // Movimiento arriba
-    _Sprite.setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
-    _Sprite.move(0, -(_Speed));
-    return 0; // Posicion arriba
-}
-
-int Dinosaurio::mabajo(){ // Movimiento abajo
-    _Sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
-    _Sprite.move(0, _Speed);
-    return 1; // Posicion abajo
-}
-
-
-int Dinosaurio::mderecha(){ // Movimiento derecha
-    _Sprite.setScale(1,1);  // Sprite original
-    _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
-    _Sprite.move(_Speed, 0);
-    return 2; // Posicion derecha
-}
-
-
-int Dinosaurio::mizquierda(){ // Movimiento izquierda
-    _Sprite.setScale(-1,1); // Sprite invertido  
-    _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
-    _Sprite.move(-(_Speed),0);
-    
-    return 3; // Posicion izquierda
-}
-
-void Dinosaurio::setVida(){ // Cambiar vida
-    if(_Tipodino == 0){ // T-rex tiene 2 de vida
-        _Vida = 2; 
+    else if(direccion == 3){ // derecha
+        _Sprite.setScale(1,1);  // Sprite original
+        _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
+        _Sprite.move(_Speed, 0);
     }
-    else{ // El resto de dinosaurios tiene 1 de vida
-        _Vida = 1;
+    else if(direccion == 4){ // izquierda
+        _Sprite.setScale(-1,1); // Sprite invertido  
+        _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
+        _Sprite.move(-(_Speed),0);
     }
+    else { // no se mueve
+    }
+
+    contador ++;
 }
 
 int Dinosaurio::getVida(){ // Devolver vida

@@ -26,6 +26,7 @@ class Mundo : public States {
     std::vector<Map*> mapas;
     Tile* hud;
     bool nueva=false;
+    std::vector<sf::Sprite*> adns;
 
 
 

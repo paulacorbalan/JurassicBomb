@@ -71,7 +71,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
 
   }
 
-  /*if(mapas[lvlactual]->getpuntos()==JUGADORPUNTOS){
+  /*if(mapas[lvlactual]->getpuntos()==JUGADORPUNTOS){ ///SI LOS PUNTOS DEL MAPA SON IGUALES A LOS DEL JUGADOR HA TERMINADO EL MAPA 
 
        mapas[lvlactual]->terminar();
 
@@ -112,13 +112,17 @@ void Mundo::finjuego(){
       lvls=0;
       lvlactual=0;
       play=0;
-      //vaciar mapas TARREGLAR
       std::cout<< mapas.size()<<endl;
-      for(int i=0;i<mapas.size();i++){
+      for(unsigned int i=0;i<mapas.size();i++){
         mapas[i]=NULL;
         delete mapas[i];
       }
       mapas.clear();
+      for(unsigned int i=0;i<adns.size();i++){
+        adns[i]=NULL;
+        delete adns[i];
+      }
+      adns.clear();
       std::cout<< mapas.size()<<endl;
 
       std::cout<<dif<<lvls<<lvlactual<<"\n";
@@ -128,18 +132,14 @@ void Mundo::finjuego(){
  void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
     if(lvlactual<mapas.size()){
       mapas[lvlactual]->draw(window);
-
-
-
-
-
-
-
-
       hud->draw(window);
     }
- }
 
+    //ARRAY DE ADNS  se recorre y se dibuja 
+    for(unsigned int l=0; l<adns.size();l++){
+      window.draw(*(adns[l]));
+    }
+ }
 
  bool Mundo::saleADN(){
   int ***_tilemap=mapas[lvlactual]->gettilemap();
@@ -147,9 +147,9 @@ void Mundo::finjuego(){
   int _height=mapas[lvlactual]->getnumlayers();
   int _width=mapas[lvlactual]->getnumlayers();
   int cont=0;
-      for(int l=0; l<_numlayers;l++){
-        for(int y=0; y<_height;y++){
-          for(int x=0; x<_width;x++){
+      for(unsigned int l=0; l<_numlayers;l++){
+        for( unsigned int y=0; y<_height;y++){
+          for(unsigned int x=0; x<_width;x++){
             int gid=_tilemap [l][y][x]-1;
             if(gid==2){//GID = PIEDRAS
               cont++;

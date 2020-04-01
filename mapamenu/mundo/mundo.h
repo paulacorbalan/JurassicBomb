@@ -27,6 +27,8 @@ class Mundo : public States {
     Tile* hud;
     bool nueva=false;
 
+
+
   public:
     void Inicializar();
     static Mundo* Instance();
@@ -35,6 +37,7 @@ class Mundo : public States {
     void Draw(sf::RenderWindow &window);
     void renicio();
     void finjuego();
+    bool saleADN();
 
 
 

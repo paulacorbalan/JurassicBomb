@@ -2,8 +2,9 @@
 #include <iostream>
 
 
-Map::Map(string s) {
+Map::Map(string s,int puntos) {
   finalizado=false;
+  puntosfin=puntos;
   //PARA EL MAPA
   std::cout << "Creando mi Map..."<< endl ;
   TiXmlDocument mapa(s);

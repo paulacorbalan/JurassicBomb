@@ -28,7 +28,7 @@ void Mundo::Inicializar() {
         string s="resources/mapas/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
         std::cout<<"premap";
-        Map* m=new Map(s);
+        Map* m=new Map(s,dif+3);//NUMERO A AJUSTAR POR DIFICULTAD
         std::cout<<"prepush"<<endl;
         std::cout<< mapas.size()<<endl;
         mapas.push_back(m);//meter los mapas en el vector de mapas
@@ -67,8 +67,16 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
   if(hud->getTerminada()){
 
     std::cout<<"terminado el tiempo"<<endl;
+    //HAS PERDIDO
 
   }
+
+  /*if(mapas[lvlactual]->getpuntos()==JUGADORPUNTOS){
+
+       mapas[lvlactual]->terminar();
+
+  }*/
+
    if (mapas[lvlactual]->fin())
     {
       std::cout<<"cambiar mapa\n";
@@ -120,6 +128,37 @@ void Mundo::finjuego(){
  void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
     if(lvlactual<mapas.size()){
       mapas[lvlactual]->draw(window);
+
+
+
+
+
+
+
+
       hud->draw(window);
     }
+ }
+
+
+ bool Mundo::saleADN(){
+  int ***_tilemap=mapas[lvlactual]->gettilemap();
+  int _numlayers=mapas[lvlactual]->getnumlayers();
+  int _height=mapas[lvlactual]->getnumlayers();
+  int _width=mapas[lvlactual]->getnumlayers();
+  int cont=0;
+      for(int l=0; l<_numlayers;l++){
+        for(int y=0; y<_height;y++){
+          for(int x=0; x<_width;x++){
+            int gid=_tilemap [l][y][x]-1;
+            if(gid==2){//GID = PIEDRAS
+              cont++;
+            }
+          }
+        }
+      }
+   if(cont==(mapas[lvlactual]->getpuntos()-0/*PUNTOSDELJUGADOR*/)){
+     return true;
+   }
+  return false;
  }

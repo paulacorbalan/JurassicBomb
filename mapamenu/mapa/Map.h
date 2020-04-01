@@ -9,7 +9,7 @@ using namespace std;
 class Map {
 
 public:
-  Map(string s);
+  Map(string s, int puntos);
   ~Map();
   void Update(sf::Event event,sf::RenderWindow &window);
   void draw(sf::RenderWindow &window);
@@ -22,11 +22,27 @@ public:
      std::cout<<"terminado";
      finalizado=true;
   };
+  int getpuntos(){
+    return puntosfin;
+  };
+  int*** gettilemap(){
+    return _tilemap;
+  }; 
+  int getnumlayers(){
+    return _numlayers;
+  };
+  int getheight(){
+    return _height;
+  };
+  int getwidth(){
+    return _width;
+  };
   void Update();
   void reservarMemoria(int num);
   void liberar();
 
 private:
+  int puntosfin;
   bool finalizado;
   int _width;
   int _height;

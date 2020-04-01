@@ -5,19 +5,13 @@ class Dinosaurio
 {
     public:
       Dinosaurio(); // Constructor por defecto
+      Dinosaurio(int tipo, int vida, int velocidad); // Constructor con parametros
       Dinosaurio(sf::Texture&); // Constructor con textura
       ~Dinosaurio(); // Destructor
 
       // Movimiento
-      int marriba();
-      int mabajo();
-      int mderecha();
-      int mizquierda();
-
+      int movimiento();
       void salto(int pos_mirando);
-
-      // Cambiar velocidad
-      void setSpeed();
 
       // Devolver sprite
       sf::Sprite getSprite() const;
@@ -34,20 +28,19 @@ class Dinosaurio
       // Devolver hitbox
       sf::FloatRect getHitbox();
 
-      // Establecer tipo dinosaurio
-      void setTipodino(int tipodino);
-
       // Devolver tipo dinosaurio
       int getTipodino();
 
       // Modificar vida del dinosaurio en el caso de que toque la bomba
       void modifyVida();
 
+      int generaRandom(int max);
+
     private:
       float _Speed; // Velocidad
       sf::Sprite _Sprite; // Sprite
       int _Vida; // Vida del dino
-      int _Tipodino; // Indica el tipo de dinosaurio. 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
+      int _Tipodino; // Indica el tipo de dinosaurio. 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
 };
 
 #endif

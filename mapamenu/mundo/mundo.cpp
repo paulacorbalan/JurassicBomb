@@ -16,6 +16,7 @@ void Mundo::Inicializar() {
       nueva=true;
       std::cout<<"mundoiniciado\n";
       //crear mundo
+      //modo=Menu::Instance()->GetModo();
       dif=Menu::Instance()->GetDif(); //dificultad
       lvls=Menu::Instance()->GetLvls(); //numero de niveles
       play=Menu::Instance()->GetPlayers();//numero de jugadores
@@ -146,6 +147,7 @@ void Mundo::finjuego(){
   int _numlayers=mapas[lvlactual]->getnumlayers();
   int _height=mapas[lvlactual]->getnumlayers();
   int _width=mapas[lvlactual]->getnumlayers();
+
   int cont=0;
       for(unsigned int l=0; l<_numlayers;l++){
         for( unsigned int y=0; y<_height;y++){

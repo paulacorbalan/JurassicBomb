@@ -19,14 +19,15 @@ class Mundo : public States {
 
   private:    
     static Mundo* jinstance;
-    int dif=0;
-    int lvls=0;
-    int lvlactual=0;
-    int play=0;
-    std::vector<Map*> mapas;
-    Tile* hud;
-    bool nueva=false;
-    std::vector<sf::Sprite*> adns;
+    int dif=0;//dificultad
+    int lvls=0;//numero de niveles
+    int lvlactual=0;//nivel en el que estamos
+    int play=0;//numero de jugadores
+    int modo=0;//modo de juego
+    std::vector<Map*> mapas;//vector de mapas para jugar
+    Tile* hud;//el hud
+    bool nueva=false;//controla la nueva partida
+    std::vector<sf::Sprite*> adns;//array de sprites para adn(seguramente modificcable)
 
 
 

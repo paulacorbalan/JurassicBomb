@@ -22,9 +22,21 @@ void Mundo::Inicializar() {
       play=Menu::Instance()->GetPlayers();//numero de jugadores
       
       std::cout<<dif<<lvls<<lvlactual<<"\n";
+      if(play==1){
+      hud1=new Tile();
+      //j1=new Jugador();
+      }else if(play==2)
+      {
+        //j1=new Jugador();
+        hud1=new Tile();
+        //j2=new Jugador();
+        hud2=new Tile(); 
+      }else
+      {
+        std::cout<<"numero de jugadores mal"<<endl;
+      }
       
-      hud=new Tile();
-
+      
       for(int a=0;a<lvls;a++){//cargar los mapas dependiendo del nombre
         string s="resources/mapas/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
@@ -65,7 +77,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
 
-  if(hud->getTerminada()){
+  if(hud1->getTerminada()){
 
     std::cout<<"terminado el tiempo"<<endl;
     //HAS PERDIDO
@@ -90,11 +102,19 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       }
       
       //Reiniciar contador
-      hud->reiniciocrono();
+      hud1->reiniciocrono();
+      hud2->reiniciocrono();
     }
-    hud->Update(); 
+    if(play==1){
+      hud1->Update(); 
+    }else if(play==2)
+    {
+      hud1->Update(); 
+      hud2->Update(); 
+    }
+    
 
- }
+}
 
  
 void Mundo::finjuego(){
@@ -106,7 +126,8 @@ void Mundo::finjuego(){
         ChangeState(Contexto::Instance(),Menu::Instance());
 
 }
- void Mundo::renicio(){ //reiniciar el mundo
+
+void Mundo::renicio(){ //reiniciar el mundo
       nueva=false;
       std::cout<<dif<<lvls<<lvlactual<<"\n";
       dif=0;
@@ -126,23 +147,37 @@ void Mundo::finjuego(){
       adns.clear();
       std::cout<< mapas.size()<<endl;
 
+      hud1=NULL;
+      delete hud1;
+
+      hud2=NULL;
+      delete hud2;
+
       std::cout<<dif<<lvls<<lvlactual<<"\n";
 
- }
+}
 
- void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
+void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
     if(lvlactual<mapas.size()){
       mapas[lvlactual]->draw(window);
-      hud->draw(window);
+      if(play==1){
+        hud1->draw(window);
+      }else if(play==2)
+      {
+       hud1->draw(window);
+       hud2->draw(window);
+      }
+      
+      
     }
 
     //ARRAY DE ADNS  se recorre y se dibuja 
     for(unsigned int l=0; l<adns.size();l++){
       window.draw(*(adns[l]));
     }
- }
+}
 
- bool Mundo::saleADN(){
+bool Mundo::saleADN(){
   int ***_tilemap=mapas[lvlactual]->gettilemap();
   int _numlayers=mapas[lvlactual]->getnumlayers();
   int _height=mapas[lvlactual]->getnumlayers();
@@ -163,4 +198,4 @@ void Mundo::finjuego(){
      return true;
    }
   return false;
- }
+}

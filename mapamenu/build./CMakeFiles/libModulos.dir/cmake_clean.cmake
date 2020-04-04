@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/bomba/bombas.cpp.o"
   "CMakeFiles/libModulos.dir/bomba/jugador.cpp.o"
   "CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o"
+  "CMakeFiles/libModulos.dir/adn/adn.cpp.o"
   "CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"

@@ -273,9 +273,33 @@ CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o.provides: CMakeFiles/libModulos
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o.provides.build: CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o
 
 
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../adn/adn.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libModulos.dir/adn/adn.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/adn/adn.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.cpp
+
+CMakeFiles/libModulos.dir/adn/adn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/adn/adn.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.cpp > CMakeFiles/libModulos.dir/adn/adn.cpp.i
+
+CMakeFiles/libModulos.dir/adn/adn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/adn/adn.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.cpp -o CMakeFiles/libModulos.dir/adn/adn.cpp.s
+
+CMakeFiles/libModulos.dir/adn/adn.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/adn/adn.cpp.o.requires
+
+CMakeFiles/libModulos.dir/adn/adn.cpp.o.provides: CMakeFiles/libModulos.dir/adn/adn.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/adn/adn.cpp.o.provides
+
+CMakeFiles/libModulos.dir/adn/adn.cpp.o.provides.build: CMakeFiles/libModulos.dir/adn/adn.cpp.o
+
+
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../dinosaurio/dinosaurio.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/dinosaurio/dinosaurio.cpp
 
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.i: cmake_force
@@ -299,7 +323,7 @@ CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o: ../tinyxml-master/tinyxml.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinyxml.cpp
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.i: cmake_force
@@ -323,7 +347,7 @@ CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o: ../tinyxml-master/tinyxmlerror.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinyxmlerror.cpp
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.i: cmake_force
@@ -347,7 +371,7 @@ CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o.provides.build: CMak
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o: ../tinyxml-master/tinyxmlparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinyxmlparser.cpp
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.i: cmake_force
@@ -371,7 +395,7 @@ CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o.provides.build: CMa
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o: ../tinyxml-master/tinystr.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o -c /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
 
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.i: cmake_force
@@ -404,6 +428,7 @@ libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/bomba/bombas.cpp.o" \
 "CMakeFiles/libModulos.dir/bomba/jugador.cpp.o" \
 "CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o" \
+"CMakeFiles/libModulos.dir/adn/adn.cpp.o" \
 "CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o" \
 "CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o" \
 "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o" \
@@ -422,6 +447,7 @@ liblibModulos.a: CMakeFiles/libModulos.dir/juego/juego.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/bomba/bombas.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/bomba/jugador.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/adn/adn.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o
@@ -429,7 +455,7 @@ liblibModulos.a: CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/build.make
 liblibModulos.a: CMakeFiles/libModulos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library liblibModulos.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library liblibModulos.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/libModulos.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libModulos.dir/link.txt --verbose=$(VERBOSE)
 
@@ -447,6 +473,7 @@ CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/juego/juego.cpp.o.
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/bomba/bombas.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/bomba/jugador.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/adn/adn.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o.requires

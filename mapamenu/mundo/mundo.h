@@ -25,9 +25,13 @@ class Mundo : public States {
     int play=0;//numero de jugadores
     int modo=0;//modo de juego
     std::vector<Map*> mapas;//vector de mapas para jugar
-    Tile* hud;//el hud
+    Tile* hud1;//el hud
+    Tile* hud2;//el hud
+    //JUGADOR1 j1
+    //JUGADOR2 j2
     bool nueva=false;//controla la nueva partida
     std::vector<sf::Sprite*> adns;//array de sprites para adn(seguramente modificcable)
+
 
 
 

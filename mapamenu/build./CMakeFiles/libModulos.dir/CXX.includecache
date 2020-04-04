@@ -116,6 +116,20 @@ sstream
 tinystr.h
 ../tinyxml-master/tinystr.h
 
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.cpp
+adn.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.h
+iostream
+-
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.h
+tinyxml.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/tinyxml.h
+string
+-
+SFML/Graphics.hpp
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/SFML/Graphics.hpp
+
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/bombas.cpp
 bombas.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/bombas.h

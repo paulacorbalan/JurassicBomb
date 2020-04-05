@@ -4,13 +4,13 @@
 
 Menu* Menu::pinstance=0;
 
-  Menu* Menu::Instance() {
+Menu* Menu::Instance() {
     if(pinstance==0){
       pinstance=new Menu;
         std::cout<<"menuinstance"; 
     }
     return pinstance;
-  }
+}
 
 void Menu::Inicializar() {
   std::cout<<"menuiniciado\n";
@@ -20,8 +20,6 @@ void Menu::Inicializar() {
 
 void Menu::Update(sf::RenderWindow &window) {
 
-
-    
 }
 void Menu::Event(sf::Event event,sf::RenderWindow &window){
         
@@ -169,7 +167,8 @@ void Menu::reinicio(){
   lvls=1;
   menus=0;
   dificulty=0;
-
+  players=1;
+  lvltxt();
 }
 
 void Menu::Cargarecursos(){
@@ -250,7 +249,8 @@ void Menu::Cargarecursos(){
               
                   std::cout << "Error: Could not display font" << std::endl;
             }
-            lvltxt();
+
+            std::cout<<"traslvl"<<endl;
                   //facil
                   if ( !facil.loadFromFile( "resources/facil.png" ) )
                   std::cout << "Error: Could not display facil image" << std::endl;
@@ -298,8 +298,8 @@ void Menu::Cargarecursos(){
                   exitImage.setTexture( exit );
                   exitImage.setOrigin(exit.getSize().x*0.5, exit.getSize().y*0.5);
                   exitImage.setPosition(width/2, height*4/6);
-
-
+                  lvltxt();
+                  std::cout<<"salecrearmenu"<<endl;
 }
 
 int Menu::GetLvls(){

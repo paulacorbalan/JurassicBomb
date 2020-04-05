@@ -12,6 +12,7 @@
 #include "bombas.h"
 #include "dinosaurio.h"
 #include "colisiones.h"
+#include "adn.h"
 
 using namespace std;
 
@@ -30,10 +31,11 @@ class Mundo : public States {
     //JUGADOR1 j1
     //JUGADOR2 j2
     bool nueva=false;//controla la nueva partida
-    std::vector<sf::Sprite*> adns;//array de sprites para adn(seguramente modificcable)
+    std::vector<Adn*> adns;//array de adns(seguramente modificcable)
 
 
-
+    bool adnscreados=false;
+   
 
   public:
     void Inicializar();
@@ -43,8 +45,16 @@ class Mundo : public States {
     void Draw(sf::RenderWindow &window);
     void renicio();
     void finjuego();
-    bool saleADN();
-
+    bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
+    void crearAdns(Map* m,int tot);
+    void borraradns(){
+        for(unsigned int i=0;i<adns.size();i++){
+          std::cout<<"adn delete"<<endl;
+          
+          delete adns[i];
+        }
+        adns.clear();//futuro delete adns 
+    }
 
 
 };

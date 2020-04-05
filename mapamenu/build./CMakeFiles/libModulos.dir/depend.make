@@ -22,6 +22,7 @@ CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../dinosaurio/dinosaurio.
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.h
 
+CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../adn/adn.h
 CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../bomba/colisiones.h
 CMakeFiles/libModulos.dir/juego/juego.cpp.o: ../bomba/jugador.h
@@ -46,6 +47,7 @@ CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.cpp
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/contexto.h
 CMakeFiles/libModulos.dir/maquina/contexto.cpp.o: ../maquina/states.h
 
+CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../adn/adn.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../bomba/colisiones.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../bomba/jugador.h
@@ -61,6 +63,7 @@ CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.cpp
 CMakeFiles/libModulos.dir/menu/menu.cpp.o: ../menu/menu.h
 
+CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../adn/adn.h
 CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../bomba/colisiones.h
 CMakeFiles/libModulos.dir/mundo/mundo.cpp.o: ../bomba/jugador.h

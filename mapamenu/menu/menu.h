@@ -28,8 +28,8 @@ class Menu : public States {
   sf::Texture plus;
   sf::Sprite plusImage;
   sf::Font fuente;
-  sf::String cadena;
-  sf::Text texto;
+    sf::String cadena;
+    sf::Text texto;
   sf::Texture facil;
   sf::Sprite facilImage;
   sf::Texture normal;

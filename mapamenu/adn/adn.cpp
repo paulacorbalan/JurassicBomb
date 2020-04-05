@@ -2,21 +2,30 @@
 #include <iostream>
 
 
-Adn::Adn(int p) {
- 
-puntos=p;
-
+Adn::Adn(int p,int x, int y) {
+  adnsprite=new sf::Sprite;//reservando memoria para el puntero sprite
+  puntos=p;
+  visible=true;//comenzaria en falso
+  posx=x;
+  posy=y;
+  if ( !adntext.loadFromFile( "resources/adn.png" ) )
+  std::cout << "Error: Could not display adn image" << std::endl;
+  adnsprite->setTexture( adntext );
+  adnsprite->setPosition(112+(x*32),64+(y*32));
 }
 
 
 Adn::~Adn(){
-
- // delete[] adnsprite; NOCE
-
+  visible=false;
+  std::cout<<"eliminar sprite"<<endl;
+  delete adnsprite; 
+  std::cout<<"tras eliminar sprite"<<endl;
 }
 
 void Adn::draw(sf::RenderWindow& window){
- window.draw(*(adnsprite));
+  if(visible){
+    window.draw(*(adnsprite));
+  }
 }
 
 void Adn::Update(sf::Event event,sf::RenderWindow &window){

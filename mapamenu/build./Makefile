@@ -136,6 +136,33 @@ libModulos/fast:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/build
 .PHONY : libModulos/fast
 
+IA/ia.o: IA/ia.cpp.o
+
+.PHONY : IA/ia.o
+
+# target to build an object file
+IA/ia.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.o
+.PHONY : IA/ia.cpp.o
+
+IA/ia.i: IA/ia.cpp.i
+
+.PHONY : IA/ia.i
+
+# target to preprocess a source file
+IA/ia.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.i
+.PHONY : IA/ia.cpp.i
+
+IA/ia.s: IA/ia.cpp.s
+
+.PHONY : IA/ia.s
+
+# target to generate assembly for a file
+IA/ia.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.s
+.PHONY : IA/ia.cpp.s
+
 bomba/bombas.o: bomba/bombas.cpp.o
 
 .PHONY : bomba/bombas.o
@@ -551,6 +578,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... MiJuego"
 	@echo "... libModulos"
+	@echo "... IA/ia.o"
+	@echo "... IA/ia.i"
+	@echo "... IA/ia.s"
 	@echo "... bomba/bombas.o"
 	@echo "... bomba/bombas.i"
 	@echo "... bomba/bombas.s"

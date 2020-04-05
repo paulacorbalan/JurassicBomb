@@ -19,6 +19,7 @@ public:
   void terminar(){ std::cout<<"terminado";finalizado=true;};
   void Update();
   void reservarMemoria(int num);
+  void anadirVector(std::vector<sf::Sprite*> &vectorS);
 
 private:
   bool finalizado;

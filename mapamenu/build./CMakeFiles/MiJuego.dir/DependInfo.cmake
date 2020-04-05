@@ -18,6 +18,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../juego"
   "../bomba"
   "../dinosaurio"
+  "../IA"
   "../tinyxml-master"
   )
 

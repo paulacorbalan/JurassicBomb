@@ -59,10 +59,14 @@ SFML/Graphics.hpp
 -
 bombas.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
+../dinosaurio/dinosaurio.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/jugador.h
 SFML/Graphics.hpp
 -
+
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/ej_modulos/Tile.h
 SFML/Graphics.hpp

@@ -1,3 +1,0 @@
-/home/gabriel/Escritorio/Colisiones/Colisiones/CMakeFiles/edit_cache.dir
-/home/gabriel/Escritorio/Colisiones/Colisiones/CMakeFiles/rebuild_cache.dir
-/home/gabriel/Escritorio/Colisiones/Colisiones/CMakeFiles/prueba.dir

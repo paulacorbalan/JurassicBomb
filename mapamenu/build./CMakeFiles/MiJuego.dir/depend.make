@@ -8,6 +8,7 @@ CMakeFiles/MiJuego.dir/main.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../bomba/bombas.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../bomba/colisiones.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../bomba/jugador.h
+CMakeFiles/MiJuego.dir/main.cpp.o: ../dinosaurio/dinosaurio.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../ej_modulos/Tile.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../include/config.h
 CMakeFiles/MiJuego.dir/main.cpp.o: ../main.cpp

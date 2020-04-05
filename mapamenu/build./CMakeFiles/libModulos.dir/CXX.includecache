@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+../IA/ia.h
+string
+-
+iostream
+-
+states.h
+../IA/states.h
+Map.h
+../IA/Map.h
+menu.h
+../IA/menu.h
+Tile.h
+../IA/Tile.h
+jugador.h
+../IA/jugador.h
+bombas.h
+../IA/bombas.h
+dinosaurio.h
+../IA/dinosaurio.h
+colisiones.h
+../IA/colisiones.h
+
 ../bomba/bombas.h
 SFML/Graphics.hpp
 -
@@ -17,6 +39,8 @@ SFML/Graphics.hpp
 -
 bombas.h
 ../bomba/bombas.h
+../dinosaurio/dinosaurio.h
+../dinosaurio/dinosaurio.h
 
 ../bomba/jugador.h
 SFML/Graphics.hpp
@@ -91,6 +115,8 @@ dinosaurio.h
 ../mundo/dinosaurio.h
 colisiones.h
 ../mundo/colisiones.h
+../IA/ia.h
+../IA/ia.h
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -118,6 +144,36 @@ sstream
 tinystr.h
 ../tinyxml-master/tinystr.h
 
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.cpp
+iostream
+-
+ia.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
+colisiones.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/colisiones.h
+
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
+string
+-
+iostream
+-
+states.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/states.h
+Map.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/Map.h
+menu.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/menu.h
+Tile.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/Tile.h
+jugador.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/jugador.h
+bombas.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/bombas.h
+dinosaurio.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/dinosaurio.h
+colisiones.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/colisiones.h
+
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.cpp
 bombas.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
@@ -141,6 +197,8 @@ SFML/Graphics.hpp
 -
 bombas.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
+../dinosaurio/dinosaurio.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/jugador.cpp
 jugador.h
@@ -261,6 +319,8 @@ dinosaurio.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/mundo/dinosaurio.h
 colisiones.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/mundo/colisiones.h
+../IA/ia.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
 tinystr.h

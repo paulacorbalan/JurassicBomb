@@ -90,7 +90,7 @@ std::vector<sf::Sprite> Bomba::GenerarExplosion()
 void Bomba::update(sf::Clock &temporizador,Jugador &jugador,std::vector<Bomba> &totalBombas,std::vector<sf::Sprite> &totalExplosiones,std::vector<float> &tiemposBomba,std::vector<float> &tiemposExplosiones)
 {
     //Detectamos si ya ha pasado la cantidad de tiempo suficiente para que explote una bomba.
-    if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[0] >= 2)
+    if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[0] >= 3)
     {
       //Nos guardamos las explosiones generadas por la bomba que lleva mas tiempo puesta.
       std::vector<sf::Sprite> aux = totalBombas[0].GenerarExplosion();

@@ -12,6 +12,7 @@
 #include "bombas.h"
 #include "dinosaurio.h"
 #include "colisiones.h"
+#include "../IA/ia.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ class Mundo : public States {
     int play=0;
     int numjugadores = 1;
     std::vector<Map*> mapas;
+    std::vector<Dinosaurio*> dinosaurios;
     Tile* hud;
     sf::Clock temporizador;
     //Jugador//
@@ -34,6 +36,10 @@ class Mundo : public States {
     std::vector<sf::Sprite> totalExplosiones;
     std::vector<float> tiemposBomba;
     std::vector<float> tiemposExplosiones;
+    //Vector que almacena todos los sprites para comprobar las colisiones.
+    std::vector<sf::Sprite*> todoSprites;
+
+    int _cont = 0; // Contador de iteraciones del juego
 
 
   public:
@@ -44,6 +50,7 @@ class Mundo : public States {
     void Draw(sf::RenderWindow &window);
     void renicio();
     void finjuego();
+    void move_dinos();
 
 
 

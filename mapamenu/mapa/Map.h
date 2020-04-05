@@ -40,7 +40,7 @@ public:
   void Update();
   void reservarMemoria(int num);
   void liberar();
-
+  void anadirVector(std::vector<sf::Sprite*> &vectorS);
 private:
   int puntosfin;
   bool finalizado;

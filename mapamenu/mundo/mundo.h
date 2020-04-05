@@ -13,6 +13,7 @@
 #include "dinosaurio.h"
 #include "colisiones.h"
 #include "adn.h"
+#include "ia.h"
 
 using namespace std;
 
@@ -28,15 +29,25 @@ class Mundo : public States {
     std::vector<Map*> mapas;//vector de mapas para jugar
     Tile* hud1;//el hud
     Tile* hud2;//el hud
-    //JUGADOR1 j1
-    //JUGADOR2 j2
+
     bool nueva=false;//controla la nueva partida
     std::vector<Adn*> adns;//array de adns(seguramente modificcable)
-
-
     bool adnscreados=false;
-   
+    std::vector<Dinosaurio*> dinosaurios;
+    bool dinoscreados=false;
+    sf::Clock temporizador;
+    //Jugador//
+    Jugador* jugador1;
+    Jugador* jugador2;
+    /////Control de las bombas y explosiones/////
+    std::vector<Bomba> totalBombas;
+    std::vector<sf::Sprite> totalExplosiones;
+    std::vector<float> tiemposBomba;
+    std::vector<float> tiemposExplosiones;
+    //Vector que almacena todos los sprites para comprobar las colisiones.
+    std::vector<sf::Sprite*> todoSprites;
 
+    int _cont = 0; // Contador de iteraciones del juego
   public:
     void Inicializar();
     static Mundo* Instance();
@@ -47,6 +58,7 @@ class Mundo : public States {
     void finjuego();
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
+    void crearDinos(Map* m,int tot);
     void borraradns(){
         for(unsigned int i=0;i<adns.size();i++){
           std::cout<<"adn delete"<<endl;
@@ -54,6 +66,14 @@ class Mundo : public States {
           adns[i]=NULL;
         }
         adns.clear();
+    }
+    void borrardinos(){
+        for(unsigned int i=0;i<dinosaurios.size();i++){
+          std::cout<<"adn delete"<<endl;
+          delete dinosaurios[i];
+          dinosaurios[i]=NULL;
+        }
+        dinosaurios.clear();
     }
     void borrarmapas(){
       for(unsigned int i=0;i<mapas.size();i++){

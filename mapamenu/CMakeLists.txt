@@ -13,6 +13,7 @@ add_subdirectory(mundo)
 add_subdirectory(juego)
 add_subdirectory(bomba)
 add_subdirectory(adn)
+add_subdirectory(IA)
 add_subdirectory(dinosaurio)
 add_subdirectory(tinyxml-master)
 

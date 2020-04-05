@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../bomba/jugador.h
+SFML/Graphics.hpp
+-
+
 ../maquina/contexto.h
 SFML/Graphics.hpp
 ../maquina/SFML/Graphics.hpp
@@ -51,6 +55,8 @@ tinystr.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.h
 SFML/Graphics.hpp
 -
+jugador.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/jugador.h
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/include/config.h
 

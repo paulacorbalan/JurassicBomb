@@ -6,7 +6,6 @@
 #include <iostream>
 #include "states.h"
 
-#define kVel 5
 using namespace std;
 #define width 640
 #define height 480

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "jugador.h"
 
 class Bomba{
     
@@ -14,6 +15,9 @@ class Bomba{
 	bool getColision();
 	bool setColision();
 	void setPropietario(int identificador);
+
+	void draw(sf::RenderWindow &window);
+	static void update(sf::Clock &clock,Jugador &jugador,std::vector<Bomba> &bomb,std::vector<sf::Sprite> &explo,std::vector<float> &tbomb,std::vector<float> &texplo);
 
  private:
 	sf::Texture* tbomba;

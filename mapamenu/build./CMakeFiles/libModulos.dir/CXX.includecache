@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+../IA/ia.h
+string
+-
+iostream
+-
+states.h
+../IA/states.h
+Map.h
+../IA/Map.h
+menu.h
+../IA/menu.h
+Tile.h
+../IA/Tile.h
+jugador.h
+../IA/jugador.h
+bombas.h
+../IA/bombas.h
+dinosaurio.h
+../IA/dinosaurio.h
+colisiones.h
+../IA/colisiones.h
+
 ../adn/adn.h
 tinyxml.h
 ../adn/tinyxml.h
@@ -17,6 +39,8 @@ SFML/Graphics.hpp
 ../bomba/bombas.h
 SFML/Graphics.hpp
 -
+jugador.h
+../bomba/jugador.h
 
 ../bomba/colisiones.h
 SFML/Graphics.hpp
@@ -33,6 +57,8 @@ SFML/Graphics.hpp
 ../ej_modulos/Tile.h
 SFML/Graphics.hpp
 -
+jugador.h
+../ej_modulos/jugador.h
 
 ../juego/juego.h
 string
@@ -99,6 +125,8 @@ colisiones.h
 ../mundo/colisiones.h
 adn.h
 ../mundo/adn.h
+ia.h
+../mundo/ia.h
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -126,6 +154,36 @@ sstream
 tinystr.h
 ../tinyxml-master/tinystr.h
 
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/ia.cpp
+iostream
+-
+ia.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/ia.h
+colisiones.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/colisiones.h
+
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/ia.h
+string
+-
+iostream
+-
+states.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/states.h
+Map.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/Map.h
+menu.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/menu.h
+Tile.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/Tile.h
+jugador.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/jugador.h
+bombas.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/bombas.h
+dinosaurio.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/dinosaurio.h
+colisiones.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/IA/colisiones.h
+
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.cpp
 adn.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/adn/adn.h
@@ -149,6 +207,8 @@ iostream
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/bombas.h
 SFML/Graphics.hpp
 -
+jugador.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/jugador.h
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba/colisiones.cpp
 colisiones.h
@@ -191,6 +251,8 @@ iostream
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.h
 SFML/Graphics.hpp
 -
+jugador.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/jugador.h
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/juego/juego.cpp
 juego.h
@@ -285,6 +347,8 @@ colisiones.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/colisiones.h
 adn.h
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/adn.h
+ia.h
+/home/fv2/Desktop/git/JurassicBomb/mapamenu/mundo/ia.h
 
 /home/fv2/Desktop/git/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
 tinystr.h

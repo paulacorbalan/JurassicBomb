@@ -1,12 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "bombas.h"
+#include "../dinosaurio/dinosaurio.h"
 
 class Colisiones {
 
 public:
   Colisiones(){};
-  void crearColisiones(sf::Sprite &jugador,std::vector<sf::Sprite> objetos,int direccion, int velocidad);
-  void colisionesBombas(sf::Sprite &jugador,std::vector<Bomba> &bombas,int direccion, int velocidad);
-
+  static void crearColisiones(sf::Sprite &jugador,std::vector<sf::Sprite*> objetos,int direccion,int velocidad);
+  static void colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas,int direccion);
+  static void update(std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones);
 };

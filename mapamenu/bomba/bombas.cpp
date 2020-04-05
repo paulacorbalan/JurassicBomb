@@ -28,7 +28,7 @@ Bomba::Bomba(float x, float y)
     sbomba.setTextureRect(sf::IntRect(0, 0, 410, 370));
     sbomba.setOrigin(410/2,370/2);
     sbomba.setPosition(x,y);
-    sbomba.scale(0.15,0.15);
+    sbomba.scale(0.10,0.10);
 }
 
 std::vector<sf::Sprite> Bomba::GenerarExplosion()
@@ -37,9 +37,9 @@ std::vector<sf::Sprite> Bomba::GenerarExplosion()
     float x = getCoordenadaX();
     float y = getCoordenadaY();
     //Escala.
-    float sc = 0.05;
+    float sc = 0.035;
     //Distancia separacion entre explosiones.
-    int dsExp = 45;
+    int dsExp = 32;
 
     //Explosion central.
     sf::Sprite explosionCen(*texplosiones);
@@ -87,6 +87,41 @@ std::vector<sf::Sprite> Bomba::GenerarExplosion()
     return sprites;
 }
 
+void Bomba::update(sf::Clock &temporizador,Jugador &jugador,std::vector<Bomba> &totalBombas,std::vector<sf::Sprite> &totalExplosiones,std::vector<float> &tiemposBomba,std::vector<float> &tiemposExplosiones)
+{
+    //Detectamos si ya ha pasado la cantidad de tiempo suficiente para que explote una bomba.
+    if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[0] >= 3)
+    {
+      //Nos guardamos las explosiones generadas por la bomba que lleva mas tiempo puesta.
+      std::vector<sf::Sprite> aux = totalBombas[0].GenerarExplosion();
+      for(unsigned int i = 0;i < aux.size();i++)
+      {
+        totalExplosiones.push_back(aux[i]);
+      }
+
+      //Nos guardamos el tiempo en el que ha producido la explosion.
+      tiemposExplosiones.push_back(temporizador.getElapsedTime().asSeconds());
+      //Si la bomba que se va a borrar es del jugador actual, le habilitamos para pueda volver a poner una bomba.
+      if(totalBombas[0].getPropietario() == jugador.getIdentificador())
+      {
+        jugador.setPuesta(false);
+      }
+      //Borramos la bomba que lleva mas tiempo puesta.
+      totalBombas.erase(totalBombas.begin());
+      //Borramos el tiempo que controla la primera bomba.
+      tiemposBomba.erase(tiemposBomba.begin());
+    }
+
+    
+    //Ha pasado un segundo desde que se activa la explosion.
+    if(tiemposExplosiones.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposExplosiones[0] >= 1)
+    {
+      //Borramos explosion mas antigua y su tiempo.
+      totalExplosiones.erase(totalExplosiones.begin(),totalExplosiones.begin()+5);
+      tiemposExplosiones.erase(tiemposExplosiones.begin());
+    }
+}
+
 //GETTERS
 
 sf::Sprite Bomba::getBomba()
@@ -132,5 +167,10 @@ void Bomba::setExplosion(std::vector<sf::Sprite> exp)
 void Bomba::setPropietario(int identificador)
 {
     propietario = identificador;
+}
+
+void Bomba::draw(sf::RenderWindow &window)
+{
+    window.draw(sbomba);
 }
 

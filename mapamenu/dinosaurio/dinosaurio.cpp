@@ -2,28 +2,62 @@
 #include <iostream>
 #include "dinosaurio.h"
 
-Dinosaurio::Dinosaurio(){ // Constructor por defecto
-    _Tipodino = 1;
-    _Vida = 2;
-    _Speed = (int) 0.1*0.85;
-}
+// Velocidades
+float velocidad_normal = 20;
+float velocidad_trex = 10;
+float velocidad_velociraptor = 30;
 
-Dinosaurio::Dinosaurio(int tipo, int vida, int velocidad){ // Constructor por defecto
-    _Tipodino = tipo;
-    _Vida = vida;
-    _Speed = velocidad;
+
+
+Dinosaurio::Dinosaurio(){ // Constructor por defecto
+    // Texturas de todos los movimientos del dinosaurio.
+    // Se crean aqui porque asi, nada mas llamar al constructor, estan dentro de la clase 
+    sf::Texture dino_abajo, dino_derecha, dino_izquierda, dino_arriba;
+    _Sprite->setScale(0.5,0.5);
+    
+    if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
+        std::cerr << "Error cargando dino_abajo.png";
+        exit(0);
+    }
+    if(!dino_derecha.loadFromFile("resources/dino_derecha.png")){
+        std::cerr << "Error cargando dino_derecha.png";
+        exit(0);
+    }
+    if(!dino_izquierda.loadFromFile("resources/dino_izquierda.png")){
+        std::cerr << "Error cargando dino_izquierda.png";
+        exit(0);
+    }     
+    if(!dino_arriba.loadFromFile("resources/dino_arriba.png")){
+        std::cerr << "Error cargando dino_arriba.png";
+        exit(0);
+    }        
+
+    _dino_texture_abajo=dino_abajo;
+    _dino_texture_arriba=dino_arriba;
+    _dino_texture_derecha=dino_derecha;
+    _dino_texture_izquierda=dino_izquierda;     
+    _posdino = 1; // Posicion inicial por defecto hacia abajo  
 }
 
 Dinosaurio::~Dinosaurio(){ // Destructor
 }
 
-Dinosaurio::Dinosaurio(sf::Texture& textura_dino){ // Constructor con textura
-    _Sprite.setTexture(textura_dino);
-    _Sprite.setPosition(320, 240);
-    _Sprite.setOrigin(75 / 2, 75 / 2);
+Dinosaurio::Dinosaurio(sf::Texture& textura_dino){ // Constructor con textura (no se usa)
+    _Sprite->setTexture(textura_dino);
+    _Sprite->setScale(0.5,0.5);
+    _Sprite->setPosition(320, 320);
+}
 
-    // Cojo el sprite que me interesa por defecto del sheet
-    _Sprite.setTextureRect(sf::IntRect(1 * 75, 0 * 75, 75, 75)); // SPrite concreto
+void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
+    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
+
+    setSpeed(); // Poner velocidad del dinosaurio
+    setVida(); // Poner vida del dinosaurio
+}
+
+void Dinosaurio::modifyTexture(sf::Texture& textura){ // Establecer textura del dinosaurio
+    _Sprite->setTexture(textura);
+    
 }
 
 void Dinosaurio::modifyVida(){ // Quitar un punto de vida si toca la bomba
@@ -36,46 +70,49 @@ int Dinosaurio::getTipodino(){ // Devuelve tipo de dinosaurio
     return _Tipodino;
 }
 
-int generaRandom(int max){
-    unsigned long j;
-    srand( (unsigned)time(NULL) );
-
-    int miRandom = (rand() % max) + 1;
-    return miRandom;
+sf::Sprite* Dinosaurio::getSprite() { // Devuelve el sprite
+    /* En caso de que el Sprite visible se haya perdido, se reestablece usando la posion
+     * a la que mira el dinosaurio. Aunque se haya perdido, sus propiedades siguen 
+     * estando ahi.
+     */
+    if(_posdino==0){
+        _Sprite->setTexture(_dino_texture_arriba);
+    }
+    if(_posdino==1){
+        _Sprite->setTexture(_dino_texture_abajo);
+    }   
+    if(_posdino==2){
+        _Sprite->setTexture(_dino_texture_derecha);
+    }
+    if(_posdino==3){
+        _Sprite->setTexture(_dino_texture_izquierda);
+    }
+    return _Sprite;
 }
 
-int Dinosaurio::movimiento(){
-    int direccion = 0;
-    int contador = 0;
-    int duracionMov = 2500;
+void Dinosaurio::modifyPosition(int x, int y){ // Cambiar posicion del dinosaurio
+    _Sprite->setPosition(x, y);
+}
 
-    if(contador >= duracionMov){
-        direccion = generaRandom(5);
-        contador = 0;
+void Dinosaurio::setSpeed(){ // Cambiar la velocidad
+    if(_Tipodino == 0){ // T-rex
+        _Speed = velocidad_trex;
     }
+    if(_Tipodino == 1){ // Velociraptor
+        _Speed = velocidad_velociraptor; 
+    }
+    if(_Tipodino == 2 || _Tipodino == 3){ // Resto de dinosaurios
+        _Speed = velocidad_normal; 
+    }
+}
 
-    if(direccion == 1){ // arriba
-        _Sprite.setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
-        _Sprite.move(0, -(_Speed));
+void Dinosaurio::setVida(){ // Cambiar vida
+    if(_Tipodino == 0){ // T-rex tiene 2 de vida
+        _Vida = 2; 
     }
-    else if(direccion == 2){ // abajo
-        _Sprite.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
-         _Sprite.move(0, _Speed);
+    else{ // El resto de dinosaurios tiene 1 de vida
+        _Vida = 1;
     }
-    else if(direccion == 3){ // derecha
-        _Sprite.setScale(1,1);  // Sprite original
-        _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
-        _Sprite.move(_Speed, 0);
-    }
-    else if(direccion == 4){ // izquierda
-        _Sprite.setScale(-1,1); // Sprite invertido  
-        _Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
-        _Sprite.move(-(_Speed),0);
-    }
-    else { // no se mueve
-    }
-
-    contador ++;
 }
 
 int Dinosaurio::getVida(){ // Devolver vida
@@ -86,27 +123,59 @@ int Dinosaurio::getSpeed(){ // Devolver velocidad
     return _Speed;
 }
 
+sf::FloatRect Dinosaurio::getHitbox(){ // FloatRect devuelve coordenada superior izq
+    return _Sprite->getGlobalBounds(); // Coordenadas de entorno de Sprite
+}
+
+// Funciones de movimiento (salto y movimientos)
+int Dinosaurio::marriba(){ // Movimiento arriba
+    _Sprite->setTexture(_dino_texture_arriba);
+    _Sprite->move(0, -(_Speed));
+    _posdino = 0;
+    return 0; // Posicion arriba
+}
+
+int Dinosaurio::mabajo(){ // Movimiento abajo
+    _Sprite->setTexture(_dino_texture_abajo);
+    _Sprite->move(0, _Speed);
+    _posdino = 1;
+    return 1; // Posicion abajo
+}
+
+int Dinosaurio::mderecha(){ // Movimiento derecha
+    //_Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
+    _Sprite->move(_Speed, 0);
+    _posdino = 2;
+    return 2; // Posicion derecha
+}
+
+int Dinosaurio::mizquierda(){ // Movimiento izquierda
+    _Sprite->move(-(_Speed),0);
+    _posdino = 3;
+    return 3; // Posicion izquierda
+}
+
+
 // Hacer que el dinosaurio salte
 void Dinosaurio::salto(int pos_mirando){
     if(_Tipodino == 2){ // Solo puede saltar el pterodactilo
         switch (pos_mirando){
         case 0: // Mirando arriba
-            _Sprite.move(0, -(_Speed)*800);
+            _Sprite->move(0, -(_Speed)*800);
             break;
         case 1: // Mirando abajo
-            _Sprite.move(0, (_Speed)*800);
+            _Sprite->move(0, (_Speed)*800);
             break;
         case 2: // Mirando derecha
-            _Sprite.move((_Speed)*800,0);
+            _Sprite->move((_Speed)*800,0);
             break;
         case 3: // Mirando izquierda
-            _Sprite.move((-_Speed)*800,0);
+            _Sprite->move((-_Speed)*800,0);
         default:
             break;
         }
     }
 }
 
-sf::FloatRect Dinosaurio::getHitbox(){ // FloatRect devuelve coordenada superior izq
-    return _Sprite.getGlobalBounds(); // Coordenadas de entorno de SPrite
-}
+
+

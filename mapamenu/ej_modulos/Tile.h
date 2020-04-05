@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "jugador.h"
 
 class Tile{
 
@@ -8,7 +8,7 @@ class Tile{
     public:
     Tile();
     void Cargarecursos();
-    void Update();
+    void Update(Jugador* j);
     void draw(sf::RenderWindow &window);
     void reiniciocrono(){min=5;seg=59;terminada=false;}
     bool getTerminada(){return terminada;}

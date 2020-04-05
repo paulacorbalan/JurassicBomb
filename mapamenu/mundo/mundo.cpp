@@ -25,12 +25,14 @@ void Mundo::Inicializar() {
       std::cout<<dif<<lvls<<lvlactual<<"\n";
       if(play==1){
       hud1=new Tile();
-      //j1=new Jugador();
+      jugador1=new Jugador(1);
+      jugador1->quitarVidas();
       }else if(play==2)
       {
-        //j1=new Jugador();
+        jugador1=new Jugador(1);
         hud1=new Tile();
-        //j2=new Jugador();
+        jugador2=new Jugador(2);
+        
         hud2=new Tile(); 
       }else
       {
@@ -76,6 +78,37 @@ void Mundo::crearAdns(Map* m,int tot){
      }   
 }
 
+void Mundo::crearDinos(Map* m,int tot){
+
+      //CREAR DINOSAURIOS O QUIZA EN MAPA JUSTO ARRIBA
+      // Textura por defecto del dinosaurio
+      sf::Texture dino_abajo;
+      if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
+        std::cerr << "Error cargando dino_abajo.png";
+        exit(0);
+      }
+
+      /* Generacion de los dos dinosaurios del nivel.
+       * Se pueden generar mas en funcion del nivel, pero hay dos para este nivel
+       * El tipo de dinosario es: 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
+       */
+
+      Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
+      dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
+      dino1->setTipodino(0); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+      dino1->modifyPosition(225,132); // Punto de spawn. Debe estar dentro del mapa
+      dinosaurios.push_back(dino1); // Guardar en el vector de dinosaurios
+      todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
+
+      Dinosaurio *dino2 = new Dinosaurio(); // Constructor del dinosaurio
+      dino2->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
+      dino2->setTipodino(1); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+      dino2->modifyPosition(218,232); // Punto de spawn. Debe estar dentro del mapa
+      dinosaurios.push_back(dino2); // Guardar en el vector de dinosaurios
+      todoSprites.push_back(dino2->getSprite()); //Lo añadimos al vector de colisiones.
+
+}
+
 bool Mundo::saleADN(int *** _tilemap,int _numlayers, int _height,int  _width){
   int cont=0;
       for(unsigned int l=0; l<_numlayers;l++){
@@ -104,11 +137,59 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
         //case sf::Event::MouseButtonPressed:
         case sf::Event::KeyPressed:
               ///Verifico si se pulsa alguna tecla de movimiento
+
           switch (event.key.code) {
-            case 60:
+            case -1:
+            {
               if(lvlactual<mapas.size()){
                   mapas[lvlactual]->terminar();
-              }//Cualquier tecla desconocida se imprime por pantalla su código
+              }
+            }
+
+              //Colocacion de una bomba pulsando tecla ESPACIO.
+            case 57:
+            {
+              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+              if(jugador1->getPuesta() == false)
+              {
+                //Nos guardamos el segundo exacto en el que se pone la bomba.
+                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                //Creamos una instancia de bomba.
+                Bomba bomba(jugador1->getSprite()->getPosition().x, jugador1->getSprite()->getPosition().y);
+                bomba.setPropietario(jugador1->getIdentificador());
+                //Lo añadimos al vector de bombas.
+                totalBombas.push_back(bomba);
+
+                jugador1->setPuesta(true);
+              }
+              break;
+            }
+            //Arriba
+            case 73:
+              jugador1->mover(0);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,0);
+              break;
+            //Abajo
+            case 74:
+              jugador1->mover(1);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,1);
+              break;
+            //Derecha
+            case 72:
+              jugador1->mover(2);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,2);
+              break;
+            //Izquierda
+            case 71:
+              jugador1->mover(3);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,3);
+              break;
+
+          //Cualquier tecla desconocida se imprime por pantalla su código
           default:
             std::cout << " code " << event.key.code << std::endl;
           break;
@@ -127,7 +208,9 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
    if (mapas[lvlactual]->fin()){
       std::cout<<"cambiar mapa\n";
       adnscreados=false;//DESTRuiR ADNS/////////////////////////////////////
+      dinoscreados=false;
       borraradns();
+      borrardinos();
       lvlactual++;
       //Reiniciar contador
       hud1->reiniciocrono();
@@ -141,14 +224,31 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             crearAdns(mapas[lvlactual],2);
             adnscreados=true;
           }
+          if(!dinoscreados){//CREAR ADNS ESTO PUEDE DAR LAS PROBLEMAS
+            crearDinos(mapas[lvlactual],2);
+            dinoscreados=true;
+          }
         }
-    if(play==1){
-      hud1->Update(); 
+    if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS Y SUS HUDS
+      hud1->Update(jugador1); 
+      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes"<<endl;}
     }else if(play==2)
     {
-      hud1->Update(); 
-      hud2->Update(); 
+      hud1->Update(jugador1); 
+      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes1"<<endl;}
+      hud2->Update(jugador2); 
+      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes2"<<endl;}
     }
+
+    Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
+    // Mover los dinosaurios con la IA
+    IA ia; // Genera una ia con cada iteracion
+    ia.movimientoDinos(dinosaurios, _cont,todoSprites); // Permite mover a los dinosaurios
+      _cont++; // Contador de iteraciones del programa
+    
+    //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
+    //Colisiones::update(dinosaurios,*jugador,totalExplosiones); //EN DESARROLLO
+
 }
 
  
@@ -178,17 +278,36 @@ void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
       mapas[lvlactual]->draw(window);
       if(play==1){
         hud1->draw(window);
+        jugador1->draw(window);  
       }else if(play==2)
       {
-       hud1->draw(window);
-       hud2->draw(window);
+        jugador1->draw(window);  
+        hud1->draw(window);
+        jugador2->draw(window);  
+        hud2->draw(window);
       }
     //ARRAY DE ADNS  se recorre y se dibuja 
     for(unsigned int l=0; l<adns.size();l++){
       if(adns[l]!=NULL){
         if(adns[l]->getvisible())adns[l]->draw(window);
       }
-    }     
+    }  
+    //DIBUJAR BOMBAS
+      for(unsigned int i = 0;i < totalBombas.size();i++)
+      {
+        totalBombas[i].draw(window);
+      }
+      //DIBUJAR EXPLOSIONES
+      for(unsigned int i = 0;i < totalExplosiones.size();i++)
+      {
+        window.draw(totalExplosiones[i]);
+      }
+      //DIBUJAR DINOSAURIOS
+      for(unsigned int i=0; i < dinosaurios.size(); i++)
+      {
+        window.draw(*dinosaurios[i]->getSprite());
+      }
+       
   }
 
 

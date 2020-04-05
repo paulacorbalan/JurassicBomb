@@ -83,7 +83,8 @@ void Tile::draw(sf::RenderWindow &window){
   }
     window.draw(texto);
 }
-void Tile::Update(){
+void Tile::Update(Jugador* j){
+    vidas=j->getVidas();
     if(!terminada){
         int s2=segundero;
         segundero=temporizador.getElapsedTime().asSeconds();

@@ -50,11 +50,20 @@ class Mundo : public States {
     void borraradns(){
         for(unsigned int i=0;i<adns.size();i++){
           std::cout<<"adn delete"<<endl;
-          
           delete adns[i];
+          adns[i]=NULL;
         }
-        adns.clear();//futuro delete adns 
+        adns.clear();
     }
+    void borrarmapas(){
+      for(unsigned int i=0;i<mapas.size();i++){
+        delete mapas[i];
+        mapas[i]=NULL;
+      }
+      mapas.clear();
+    }
+
+
 
 
 };

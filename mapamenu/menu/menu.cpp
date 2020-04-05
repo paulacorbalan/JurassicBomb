@@ -14,7 +14,7 @@ Menu* Menu::Instance() {
 
 void Menu::Inicializar() {
   std::cout<<"menuiniciado\n";
-  Cargarecursos(); 
+  if(!iniciado)Cargarecursos(); 
 }
 
 
@@ -173,6 +173,7 @@ void Menu::reinicio(){
 
 void Menu::Cargarecursos(){
   //background
+  iniciado=true;
   std::cout<<"menucargados";
             /*if ( !background.loadFromFile( "resources/background.jpg" ) )
               std::cout << "Error: Could not display background image" << std::endl;

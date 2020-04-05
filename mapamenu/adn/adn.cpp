@@ -18,6 +18,7 @@ Adn::Adn(int p,int x, int y) {
 Adn::~Adn(){
   visible=false;
   std::cout<<"eliminar sprite"<<endl;
+  adnsprite=NULL;
   delete adnsprite; 
   std::cout<<"tras eliminar sprite"<<endl;
 }

@@ -54,39 +54,26 @@ void Mundo::Inicializar() {
 }
 
 void Mundo::crearAdns(Map* m,int tot){
-
-  int ***_tilemap=m->gettilemap();
-  int _numlayers=m->getnumlayers();
-  int _height=m->getheight();
-  int _width=m->getwidth();
-
+  int v1=1;
   int cont=0;
   bool todos=false;
-  std::cout<<_numlayers<<_height<<_width<<endl;
-    for(unsigned int l=0; l<_numlayers && !todos;l++){
-        for( unsigned int y=0; y<_height && !todos;y++){
-          for(unsigned int x=0; x<_width && !todos;x++){
-            int gid=_tilemap [l][y][x]-1;
-            int v1 = rand() % 999;
-              std::cout<<_numlayers<<_height<<_width<<" "<<v1<<endl;
-            if(gid==2 && v1<400){//GID = PIEDRAS
+  std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<endl;
+    for(unsigned int l=0; l<m->getnumlayers() && !todos;l++){
+        for( unsigned int y=0; y<m->getheight() && !todos;y++){
+          for(unsigned int x=0; x<m->getwidth() && !todos;x++){
+            int gid=m->gettilemap()[l][y][x]-1;
+              v1 = rand() % 999;
+              std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<" "<<v1<<endl;
+            if(gid==2 && (v1<180 || saleADN(m->gettilemap(),m->getnumlayers(),m->getheight(),m->getwidth()))){//GID = PIEDRAS
               std::cout<<v1<<endl;
               Adn* prueba=new Adn(1,x,y);
               adns.push_back(prueba);
               cont++;
-              if (tot==cont) { todos=true; }
+              if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
             }
           }
         }
      }   
-  for(int l=0;l<_numlayers;l++){
-    for (int y= 0; y < _height; y++){
-
-      delete[] _tilemap[l][y];
-    }
-    delete[] _tilemap[l];
-  }
-  delete[] _tilemap;
 }
 
 bool Mundo::saleADN(int *** _tilemap,int _numlayers, int _height,int  _width){
@@ -101,15 +88,6 @@ bool Mundo::saleADN(int *** _tilemap,int _numlayers, int _height,int  _width){
           }
         }
       }
-      for(unsigned int l=0;l<_numlayers;l++){
-        for (unsigned int y= 0; y < _height; y++){
-
-          delete[] _tilemap[l][y];
-        }
-        delete[] _tilemap[l];
-      }
-      delete[] _tilemap;
-
   if(cont==(mapas[lvlactual]->getpuntos()-0/*PUNTOSDELJUGADOR*/)){
     return true;
   }
@@ -151,18 +129,19 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       adnscreados=false;//DESTRuiR ADNS/////////////////////////////////////
       borraradns();
       lvlactual++;
-      if (!(lvlactual<mapas.size())){//TERMINAR Y VOLVER A MENU FIN DEL JUEGO   
-        finjuego();
-      }
       //Reiniciar contador
       hud1->reiniciocrono();
       hud2->reiniciocrono();
-     
-    }
-    if(!adnscreados){//CREAR ADNS ESTO DA LAS PROBLEMAS
-      crearAdns(mapas[lvlactual],2);
-      adnscreados=true;
-    }
+      }
+      if(!(lvlactual<mapas.size())){//TERMINAR Y VOLVER A MENU FIN DEL JUEGO   
+          finjuego();
+          std::cout<<"tras findejuego"<<endl;
+        }else{
+          if(!adnscreados){//CREAR ADNS ESTO PUEDE DAR LAS PROBLEMAS
+            crearAdns(mapas[lvlactual],2);
+            adnscreados=true;
+          }
+        }
     if(play==1){
       hud1->Update(); 
     }else if(play==2)
@@ -190,19 +169,12 @@ void Mundo::renicio(){ //reiniciar el mundo
       lvlactual=0;
       play=0;
       std::cout<< mapas.size()<<endl;
-      for(unsigned int i=0;i<mapas.size();i++){
-        mapas[i]=NULL;
-        delete mapas[i];
-      }
-      mapas.clear();
-      borraradns();
-      std::cout<< mapas.size()<<"mapassize"<<endl;
-
+      borrarmapas();
       std::cout<<"reiniciofin"<<dif<<lvls<<lvlactual<<"\n";
 }
 
 void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
-    if(lvlactual<mapas.size()){
+  if(lvlactual<mapas.size()){
       mapas[lvlactual]->draw(window);
       if(play==1){
         hud1->draw(window);
@@ -210,17 +182,15 @@ void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
       {
        hud1->draw(window);
        hud2->draw(window);
-      }     
-    }
+      }
     //ARRAY DE ADNS  se recorre y se dibuja 
     for(unsigned int l=0; l<adns.size();l++){
-      if(adns[l]!=NULL)adns[l]->draw(window);
-    }
-      /////////////SIMPLE PRUEBA
-    /*if(prueba!=NULL){
-      if(prueba->getvisible()){
-        prueba->draw(window);//DIBUJAR ADNS
+      if(adns[l]!=NULL){
+        if(adns[l]->getvisible())adns[l]->draw(window);
       }
-    }*/
+    }     
+  }
+
+
 }
 

@@ -50,7 +50,7 @@ class Menu : public States {
     int lvls=1;
     int dificulty=0;//0 facil 1 normal 2 dificil
     int menus=0;//0 principal, 1 un jugador, 2 multijugador, 3 opciones
-    
+    bool iniciado=false;
     static Menu* pinstance;
 
   public:

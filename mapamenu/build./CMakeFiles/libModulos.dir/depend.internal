@@ -20,6 +20,9 @@ CMakeFiles/libModulos.dir/bomba/bombas.cpp.o
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/jugador.h
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o
+ ../mapa/Map.h
+ ../tinyxml-master/tinystr.h
+ ../tinyxml-master/tinyxml.h
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/colisiones.cpp
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/colisiones.h

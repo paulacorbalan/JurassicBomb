@@ -39,6 +39,8 @@ SFML/Graphics.hpp
 -
 bombas.h
 ../bomba/bombas.h
+Map.h
+../bomba/Map.h
 ../dinosaurio/dinosaurio.h
 ../dinosaurio/dinosaurio.h
 
@@ -197,6 +199,8 @@ SFML/Graphics.hpp
 -
 bombas.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h
+Map.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/Map.h
 ../dinosaurio/dinosaurio.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
 

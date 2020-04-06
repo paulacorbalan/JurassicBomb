@@ -19,6 +19,9 @@ CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/bombas.cpp
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/jugador.h
 
+CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../mapa/Map.h
+CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/colisiones.cpp
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/colisiones.h

@@ -2,18 +2,21 @@
 #include <iostream>
 
 
-Map::Map(string s) {
+Map::Map(string s,int puntos) {
   finalizado=false;
+  puntosfin=puntos;
   //PARA EL MAPA
   std::cout << "Creando mi Map..."<< endl ;
   TiXmlDocument mapa(s);
   
-  std::cout << "tixmldocument.."<< endl ;
+
     bool loadOkay=mapa.LoadFile();
       std::cout << "load.."<< endl ;
     if (loadOkay)
     {
-      std::cout<<"cargado"<< endl;}else{std::cout<<"no cargado";
+      std::cout<<"cargado"<< endl;
+      }
+      else{std::cout<<"no cargado";
       }
   //datos
     TiXmlElement * data= mapa.FirstChildElement("map");
@@ -53,13 +56,16 @@ Map::Map(string s) {
   _tilesettexture.loadFromFile("resources/tilebase.png");
   //capas
     TiXmlElement *layer = data->FirstChildElement("layer");
+    _numlayers=0;
       while (layer)
       {
         _numlayers++;
         layer=layer->NextSiblingElement("layer");
+          std::cout<<_numlayers<<endl;
       }
 
-  std::cout<<"layers"<<endl;
+
+  std::cout<<"prereserva"<<endl;
 
   //reserva memoria
   reservarMemoria(_numlayers);
@@ -67,14 +73,11 @@ Map::Map(string s) {
   std::cout<<"reservado"<<endl;
   //cargando los gids
   TiXmlElement *aux;
-
     for(int l=0; l<_numlayers;l++){
-    aux=data->FirstChildElement("layer");
-  
-      for(int x=0; x<l;x++){
-        aux=aux->NextSiblingElement("layer");
-        std::cout<<"entra"<<endl;
-      }
+      aux=data->FirstChildElement("layer");
+        for(int x=0; x<l;x++){
+          aux=aux->NextSiblingElement("layer");
+        }
         std::cout<<l<<endl;
         aux=aux->FirstChildElement("data")->FirstChildElement("tile");
         for(int y=0; y<_height;y++){
@@ -84,12 +87,11 @@ Map::Map(string s) {
             aux=aux->NextSiblingElement("tile");
           }
         }
-
     }
 
       int cont=0;
-      std::cout<<"gids"<<endl;
-      //arraysprites
+      std::cout<<"gids";
+      //crear matriz sprites del mapa 
       for(int l=0; l<_numlayers;l++){
               std::cout<<"guarda capas"<<endl;
         for(int y=0; y<_height;y++){
@@ -103,8 +105,12 @@ Map::Map(string s) {
           }
         }
       }
-      std::cout<< cont<<endl;
+
+
+      std::cout<< cont;
       std::cout<<"arraysprites"<<endl;
+      
+
   }
   /*TiXmlElement *cambio(int l, TiXmlElement *layer){
       for(int i=0;i<l;i++){
@@ -113,8 +119,43 @@ Map::Map(string s) {
     return layer;
   }*/
 
+sf::Sprite Map::gettilemapSprite(int l, int y, int x){
+  return *_tilemapSprite[l][y][x];
+}
 
-Map::~Map(){}
+
+Map::~Map(){
+
+  std::cout<<"gids"<<endl;
+
+  for(int l=0;l<_numlayers;l++){
+    for (int y= 0; y < _height; y++){
+
+      delete[] _tilemap[l][y];
+    }
+    delete[] _tilemap[l];
+  }
+  delete[] _tilemap;
+
+  std::cout<<"sprites"<<endl;
+
+    for(int i=0;i<_numlayers;i++){
+      for(int y=0;y<_height;y++){
+        for(int x=0;x<_width;x++){
+          if(_tilemapSprite[i][y][x]!=NULL){
+          _tilemapSprite[i][y][x]=NULL;
+            delete[] _tilemapSprite[i][y][x];
+          }
+        }
+        delete[] _tilemapSprite[i][y];
+      }
+      delete[] _tilemapSprite[i];
+    }
+  delete[] _tilemapSprite;
+
+
+}
+
 void Map::draw(sf::RenderWindow& window){
  for(int l=0; l<_numlayers;l++){
     for(int y=0; y<_height;y++){
@@ -149,7 +190,10 @@ void Map::Update(sf::Event event,sf::RenderWindow &window){
 }
 void Map::reservarMemoria(int _numlayers){
     //reservando memoria para mapa
-  _tilemap=new int**[_numlayers];
+      std::cout<<"reserva ints";
+
+    _tilemap=new int**[_numlayers];
+
   for(int i=0;i<_numlayers;i++){
     _tilemap[i]=new int*[_height];
   }
@@ -158,8 +202,13 @@ void Map::reservarMemoria(int _numlayers){
     _tilemap[l][y]=new int[_width];
     }
   }
+  std::cout<<"reserva sprites";
   //reserva memoria Sprites
-  _tilemapSprite=new sf::Sprite***[_numlayers];
+  std::cout<<_numlayers<<endl;
+  _tilemapSprite=new sf::Sprite***[_numlayers];///////////////////terminate called after throwing an instance of 'std::bad_array_new_length'
+  //////////////////////////////      what():  std::bad_array_new_length                            Aborted (core dumped)
+
+  std::cout<<"AQUI NO LLEGA";
   for(int i=0;i<_numlayers;i++){
     _tilemapSprite[i]=new sf::Sprite**[_height];
   }
@@ -171,6 +220,12 @@ void Map::reservarMemoria(int _numlayers){
       }
     }
   }
+}
+
+void Map::liberar(){
+
+
+
 }
 
 void Map::anadirVector(std::vector<sf::Sprite*> &vectorS)

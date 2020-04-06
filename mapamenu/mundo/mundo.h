@@ -39,6 +39,8 @@ class Mundo : public States {
     //Vector que almacena todos los sprites para comprobar las colisiones.
     std::vector<sf::Sprite*> todoSprites;
 
+    std::vector<sf::Sprite*> adns;
+
     int _cont = 0; // Contador de iteraciones del juego
 
 
@@ -49,6 +51,7 @@ class Mundo : public States {
     void Update(sf::RenderWindow &window);
     void Draw(sf::RenderWindow &window);
     void renicio();
+    bool saleADN();
     void finjuego();
     void move_dinos();
 

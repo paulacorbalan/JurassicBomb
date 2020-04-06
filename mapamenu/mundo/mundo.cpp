@@ -29,7 +29,7 @@ void Mundo::Inicializar() {
         string s="resources/mapas/"+to_string(dif)+"mapa"+to_string(a)+".tmx";
         std::cout<<s<<endl;
         std::cout<<"premap";
-        Map* m=new Map(s);
+        Map* m=new Map(s,dif+3);
         //Anadimos piedras y paredes del mapa.
         m->anadirVector(todoSprites);
         std::cout<<"prepush"<<endl;
@@ -158,7 +158,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       _cont++; // Contador de iteraciones del programa
     
     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
-    Colisiones::update(temporizador,dinosaurios,*jugador,totalExplosiones); //EN DESARROLLO
+    Colisiones::update(temporizador,dinosaurios,*jugador,totalExplosiones,*mapas[lvlactual]);
 
  }
 
@@ -201,4 +201,26 @@ void Mundo::finjuego(){
       }
       jugador->draw(window);
     }
+ }
+
+ bool Mundo::saleADN(){
+  int ***_tilemap=mapas[lvlactual]->gettilemap();
+  int _numlayers=mapas[lvlactual]->getnumlayers();
+  int _height=mapas[lvlactual]->getnumlayers();
+  int _width=mapas[lvlactual]->getnumlayers();
+  int cont=0;
+      for(unsigned int l=0; l<_numlayers;l++){
+        for( unsigned int y=0; y<_height;y++){
+          for(unsigned int x=0; x<_width;x++){
+            int gid=_tilemap [l][y][x]-1;
+            if(gid==2){//GID = PIEDRAS
+              cont++;
+            }
+          }
+        }
+      }
+   if(cont==(mapas[lvlactual]->getpuntos()-0/*PUNTOSDELJUGADOR*/)){
+     return true;
+   }
+  return false;
  }

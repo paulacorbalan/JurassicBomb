@@ -10,11 +10,15 @@ class Jugador{
     bool getPuesta(){return bomba;};
     int getVelocidad(){return kVel;}
     int getVidas(){return vidas;}
+    float getInvencibilidad(){return invencibilidad;}
+    
     void setPuesta(bool estado){bomba = estado;}
     void setVelocidad(int velocidad){kVel = velocidad;}
-    void setVidas(int v);
+    void setVidas(int v){vidas = v;}
+    void setInvencibilidad(float f){invencibilidad = f;}
+
     void mover(int direccion);
-    void quitarVidas();
+    void quitarVidas(){if(vidas > 0)vidas--;}
 
     void draw(sf::RenderWindow &window);
 
@@ -25,4 +29,5 @@ class Jugador{
     bool bomba;
     int kVel;
     int vidas = 3;
+    float invencibilidad = -1;
 };

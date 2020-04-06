@@ -158,7 +158,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       _cont++; // Contador de iteraciones del programa
     
     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
-    //Colisiones::update(dinosaurios,*jugador,totalExplosiones); //EN DESARROLLO
+    Colisiones::update(temporizador,dinosaurios,*jugador,totalExplosiones); //EN DESARROLLO
 
  }
 

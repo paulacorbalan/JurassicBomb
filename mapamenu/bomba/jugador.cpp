@@ -56,16 +56,3 @@ void Jugador::mover(int direccion)
     }
 
 }
-
-void Jugador::setVidas(int v)
-{
-    vidas = v;
-}
-
-void Jugador::quitarVidas()
-{
-    if(vidas > 0)
-    {
-        vidas--;
-    }
-}

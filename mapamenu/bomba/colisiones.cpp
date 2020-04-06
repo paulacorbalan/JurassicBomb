@@ -78,7 +78,7 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
 }
 
 
-void Colisiones::update(std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones)
+void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones)
 {
   for(unsigned int i = 0;i < totalExplosiones.size();i++)
   {
@@ -87,18 +87,26 @@ void Colisiones::update(std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,s
       //Si el dinosaurio actual ha chocado con un explosion, debemos quitarle una vida.
       if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
       {
-        dinosaurios[j]->modifyVida();
-        if(dinosaurios[j]->getVida() == 0)
+        if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
         {
-          dinosaurios.erase(dinosaurios.begin() + j-1);
+          dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+          dinosaurios[j]->modifyVida();
+          if(dinosaurios[j]->getVida() == 0)
+          {
+            dinosaurios.erase(dinosaurios.begin() + j);
+          }
         }
       }
     }
     if(jugador.getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
     {
-      jugador.quitarVidas();
-      std::cout << jugador.getVidas() << std::endl;
-      
+      //El jugador tiene invencibilidad de un segundo cuando colisiona con una explosion.
+      if(jugador.getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - jugador.getInvencibilidad() > 1)
+      {
+        jugador.quitarVidas();
+        std::cout << jugador.getVidas() << std::endl;
+        jugador.setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+      }
     }
   }
 }

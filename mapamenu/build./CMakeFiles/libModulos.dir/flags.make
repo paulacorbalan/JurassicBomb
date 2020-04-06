@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++1y -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/ej_modulos -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/mapa -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/maquina -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/menu -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/mundo -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/juego -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/tinyxml-master 
+CXX_INCLUDES = -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/ej_modulos -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/mapa -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/maquina -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/menu -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/mundo -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/juego -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA -I/home/gabriel/Escritorio/JurassicBomb/mapamenu/tinyxml-master 
 

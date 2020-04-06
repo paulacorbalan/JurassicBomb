@@ -163,6 +163,33 @@ IA/ia.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.s
 .PHONY : IA/ia.cpp.s
 
+adn/adn.o: adn/adn.cpp.o
+
+.PHONY : adn/adn.o
+
+# target to build an object file
+adn/adn.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.o
+.PHONY : adn/adn.cpp.o
+
+adn/adn.i: adn/adn.cpp.i
+
+.PHONY : adn/adn.i
+
+# target to preprocess a source file
+adn/adn.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.i
+.PHONY : adn/adn.cpp.i
+
+adn/adn.s: adn/adn.cpp.s
+
+.PHONY : adn/adn.s
+
+# target to generate assembly for a file
+adn/adn.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.s
+.PHONY : adn/adn.cpp.s
+
 bomba/bombas.o: bomba/bombas.cpp.o
 
 .PHONY : bomba/bombas.o
@@ -581,6 +608,9 @@ help:
 	@echo "... IA/ia.o"
 	@echo "... IA/ia.i"
 	@echo "... IA/ia.s"
+	@echo "... adn/adn.o"
+	@echo "... adn/adn.i"
+	@echo "... adn/adn.s"
 	@echo "... bomba/bombas.o"
 	@echo "... bomba/bombas.i"
 	@echo "... bomba/bombas.s"

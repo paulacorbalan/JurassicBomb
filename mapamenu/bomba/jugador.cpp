@@ -14,7 +14,7 @@ Jugador::Jugador(int numero)
     sprite->setOrigin(75 / 2, 75 / 2);
     sprite->setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
     sprite->setScale(0.35,0.35);
-    sprite->setPosition(320, 240);
+    sprite->setPosition(160, 113);
     identificador = numero;
     kVel = 2;
 }

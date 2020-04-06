@@ -15,6 +15,11 @@ CMakeFiles/libModulos.dir/IA/ia.cpp.o
  ../tinyxml-master/tinyxml.h
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.cpp
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
+CMakeFiles/libModulos.dir/adn/adn.cpp.o
+ ../tinyxml-master/tinystr.h
+ ../tinyxml-master/tinyxml.h
+ /home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/adn.cpp
+ /home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/adn.h
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.cpp
  /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.h

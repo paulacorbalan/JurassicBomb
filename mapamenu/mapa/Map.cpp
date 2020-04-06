@@ -234,7 +234,7 @@ void Map::anadirVector(std::vector<sf::Sprite*> &vectorS)
         for( unsigned int y=0; y<_height;y++){
           for(unsigned int x=0; x<_width;x++){
             int gid=_tilemap [l][y][x]-1;
-            if(gid==0) //Si son piedras o paredes, lo metemos en el sprite de las colisiones.
+            if(gid == 0 || gid == 2) //Si son piedras o paredes, lo metemos en el sprite de las colisiones.
             {
               vectorS.push_back(_tilemapSprite[l][y][x]);
             }

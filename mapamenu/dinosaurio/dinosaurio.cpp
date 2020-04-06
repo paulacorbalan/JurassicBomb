@@ -3,9 +3,9 @@
 #include "dinosaurio.h"
 
 // Velocidades
-float velocidad_normal = 20;
-float velocidad_trex = 10;
-float velocidad_velociraptor = 30;
+float velocidad_normal = 0.0015;
+float velocidad_trex = 0.00075;
+float velocidad_velociraptor = 0.00225;
 
 
 
@@ -36,7 +36,9 @@ Dinosaurio::Dinosaurio(){ // Constructor por defecto
     _dino_texture_arriba=dino_arriba;
     _dino_texture_derecha=dino_derecha;
     _dino_texture_izquierda=dino_izquierda;     
-    _posdino = 1; // Posicion inicial por defecto hacia abajo  
+    srand (time(NULL));    
+    _posdino = rand() % 5; // Posicion inicial por defecto hacia abajo
+    _Direccion = _Tipodino;
 }
 
 Dinosaurio::~Dinosaurio(){ // Destructor
@@ -49,7 +51,8 @@ Dinosaurio::Dinosaurio(sf::Texture& textura_dino){ // Constructor con textura (n
 }
 
 void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
-    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
+    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
+    _Direccion = _Tipodino; 
 
     setSpeed(); // Poner velocidad del dinosaurio
     setVida(); // Poner vida del dinosaurio
@@ -128,33 +131,87 @@ sf::FloatRect Dinosaurio::getHitbox(){ // FloatRect devuelve coordenada superior
 }
 
 // Funciones de movimiento (salto y movimientos)
-int Dinosaurio::marriba(){ // Movimiento arriba
+int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo){ // Movimiento arriba
     _Sprite->setTexture(_dino_texture_arriba);
-    _Sprite->move(0, -(_Speed));
+    for(int i = 0; i < 160; i++){
+        for(unsigned int j = 0;j < todo.size();j++)
+        {
+            if(_Sprite->getGlobalBounds().intersects(todo[i]->getGlobalBounds()))
+            {
+                _posdino = 0;
+                return 0;
+            }
+        }
+        _Sprite->move(0, -(_Speed));
+    }
     _posdino = 0;
     return 0; // Posicion arriba
 }
 
-int Dinosaurio::mabajo(){ // Movimiento abajo
+int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo){ // Movimiento abajo
     _Sprite->setTexture(_dino_texture_abajo);
-    _Sprite->move(0, _Speed);
+    for(int i = 0; i < 160; i++){
+        for(unsigned int j = 0;j < todo.size();j++)
+        {
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            {
+                _posdino = 1;
+                return 1;
+            }
+        }
+        _Sprite->move(0, _Speed);
+    }
     _posdino = 1;
     return 1; // Posicion abajo
 }
 
-int Dinosaurio::mderecha(){ // Movimiento derecha
+int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo){ // Movimiento derecha
     //_Sprite.setTextureRect(sf::IntRect(1 * 75, 2 * 75, 75, 75));
-    _Sprite->move(_Speed, 0);
+    for(int i = 0; i < 160; i++){
+        for(unsigned int j = 0;j < todo.size();j++)
+        {
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            {
+                _posdino = 2;
+                return 2;
+            }
+        }
+        _Sprite->move(_Speed, 0);
+    }
     _posdino = 2;
     return 2; // Posicion derecha
 }
 
-int Dinosaurio::mizquierda(){ // Movimiento izquierda
-    _Sprite->move(-(_Speed),0);
+int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo){ // Movimiento izquierda
+    for(int i = 0; i < 160; i++){
+        for(unsigned int j = 0;j < todo.size();j++)
+        {
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            {
+                _posdino = 3;
+                return 3;
+            }
+        }
+        _Sprite->move(-(_Speed),0);
+    }
     _posdino = 3;
     return 3; // Posicion izquierda
 }
 
+void Dinosaurio::sumaPasos(){
+    int pasos;
+    for(int i = 0; i < 160; i++){
+        pasos++;
+    }
+};
+
+void Dinosaurio::setDireccion(int i){
+    _Direccion = i;
+}
+
+int Dinosaurio::getDireccion(){
+    return _Direccion;
+}
 
 // Hacer que el dinosaurio salte
 void Dinosaurio::salto(int pos_mirando){

@@ -15,6 +15,11 @@ CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../IA/ia.cpp
 CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../IA/ia.h
 
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../tinyxml-master/tinyxml.h
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../adn/adn.cpp
+CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../adn/adn.h
+
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/bombas.cpp
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/bombas.h
 CMakeFiles/libModulos.dir/bomba/bombas.cpp.o: ../bomba/jugador.h

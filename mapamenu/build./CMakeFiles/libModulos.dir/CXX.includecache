@@ -151,8 +151,6 @@ iostream
 -
 ia.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
-colisiones.h
-/home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/colisiones.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/ia.h
 string
@@ -175,6 +173,20 @@ dinosaurio.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/dinosaurio.h
 colisiones.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/IA/colisiones.h
+
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/adn.cpp
+adn.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/adn.h
+iostream
+-
+
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/adn.h
+tinyxml.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/tinyxml.h
+string
+-
+SFML/Graphics.hpp
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/adn/SFML/Graphics.hpp
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/bombas.cpp
 bombas.h

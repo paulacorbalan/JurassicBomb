@@ -42,6 +42,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./juego/cmake_install.cmake")
   include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./bomba/cmake_install.cmake")
   include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./dinosaurio/cmake_install.cmake")
+  include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./adn/cmake_install.cmake")
   include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./IA/cmake_install.cmake")
   include("/home/gabriel/Escritorio/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
 

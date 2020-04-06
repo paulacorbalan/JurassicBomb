@@ -4,11 +4,11 @@
 #include "ej_modulos/Tile.h"
 #include "mapa/Map.h"
 #include "menu/menu.h"
+#include "bomba/bombas.h"
+#include "bomba/colisiones.h"
 #include "maquina/contexto.h"
 #include "SFML/Graphics.hpp"
 #include <time.h>
-
-#define kVel 5
 
 int main() {
 

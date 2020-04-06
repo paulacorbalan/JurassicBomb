@@ -4,22 +4,24 @@
 
 Menu* Menu::pinstance=0;
 
-Menu* Menu::Instance() {
+  Menu* Menu::Instance() {
     if(pinstance==0){
       pinstance=new Menu;
         std::cout<<"menuinstance"; 
     }
     return pinstance;
-}
+  }
 
 void Menu::Inicializar() {
   std::cout<<"menuiniciado\n";
-  if(!iniciado)Cargarecursos(); 
+  Cargarecursos(); 
 }
 
 
 void Menu::Update(sf::RenderWindow &window) {
 
+
+    
 }
 void Menu::Event(sf::Event event,sf::RenderWindow &window){
         
@@ -149,7 +151,6 @@ void Menu::Draw(sf::RenderWindow &window) {
         }
 }
 void Menu::lvltxt(){
-  std::cout<<"lvltxt"<<endl;
             // Damos un valor a la cadena
             cadena = std::to_string(1);
             // Asignamos la cadena al texto
@@ -163,27 +164,27 @@ void Menu::lvltxt(){
             texto.setColor(sf::Color::Red);
 }
 void Menu::reinicio(){
-  std::cout<<"reiniciomenu"<<endl;
-  lvls=1;
-  menus=0;
-  dificulty=0;
-  players=1;
-  lvltxt();
+lvls=1;
+menus=0;
+dificulty=0;
+
+lvltxt();
 }
 
 void Menu::Cargarecursos(){
-  //background
-  iniciado=true;
-  std::cout<<"menucargados";
-            /*if ( !background.loadFromFile( "resources/background.jpg" ) )
+   //background
+   std::cout<<"menucargados";
+            if ( !background.loadFromFile( "resources/background.jpg" ) )
               std::cout << "Error: Could not display background image" << std::endl;
-            backgroundImage.setTexture( background );*/
+            backgroundImage.setTexture( background );
+
           //Cargo la imagen donde reside la textura del sprite
            //Y creo el spritesheet a partir de la imagen anterior
               sf::Texture tex;
               if (!tex.loadFromFile("resources/sprites.png")) {
                 std::cerr << "Error cargando la imagen sprites.png";
               }
+
             sf::Sprite aux(tex);
             //Le pongo el centroide donde corresponde
             aux.setOrigin(75 / 2, 75 / 2);
@@ -220,6 +221,8 @@ void Menu::Cargarecursos(){
                   atrasImage.setPosition(width/2, height*5/6);
                   //niveles
                   
+                  
+
                   if ( !niveles.loadFromFile( "resources/niveles.png" ) )
                   std::cout << "Error: Could not display niveles image" << std::endl;
 
@@ -250,8 +253,7 @@ void Menu::Cargarecursos(){
               
                   std::cout << "Error: Could not display font" << std::endl;
             }
-
-            std::cout<<"traslvl"<<endl;
+lvltxt();
                   //facil
                   if ( !facil.loadFromFile( "resources/facil.png" ) )
                   std::cout << "Error: Could not display facil image" << std::endl;
@@ -299,8 +301,8 @@ void Menu::Cargarecursos(){
                   exitImage.setTexture( exit );
                   exitImage.setOrigin(exit.getSize().x*0.5, exit.getSize().y*0.5);
                   exitImage.setPosition(width/2, height*4/6);
-                  lvltxt();
-                  std::cout<<"salecrearmenu"<<endl;
+
+
 }
 
 int Menu::GetLvls(){

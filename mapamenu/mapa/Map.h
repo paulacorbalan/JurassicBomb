@@ -27,7 +27,10 @@ public:
   };
   int*** gettilemap(){
     return _tilemap;
-  }; 
+  };
+  sf::Sprite**** gettilemapSprite(){
+    return _tilemapSprite;
+  };
   int getnumlayers(){
     return _numlayers;
   };
@@ -37,10 +40,22 @@ public:
   int getwidth(){
     return _width;
   };
+  void setTileMapa(int l,int y,int z,int valor)
+  {
+    _tilemap[l][y][z] = valor;
+  }
+
+  sf::Sprite gettilemapSprite(int l, int y, int x); // Get sprite de los til
+  sf::Sprite spawnDino(int pos_dino, int l, int y, int x);
+  void anadirVector(std::vector<sf::Sprite*> &vectorS);
+  void moveRightDino();
+  void moveLeftDino();
+  void moveUpDino();
+  void moveDownDino();
   void Update();
   void reservarMemoria(int num);
   void liberar();
-  void anadirVector(std::vector<sf::Sprite*> &vectorS);
+
 private:
   int puntosfin;
   bool finalizado;
@@ -56,7 +71,9 @@ private:
   sf::Text texto;
   sf::VertexArray m_vertices;
   sf::Texture _tilesettexture;
+  
   sf::Sprite ****_tilemapSprite;
+
 
 };
 

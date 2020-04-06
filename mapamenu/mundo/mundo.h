@@ -12,8 +12,8 @@
 #include "bombas.h"
 #include "dinosaurio.h"
 #include "colisiones.h"
-#include "adn.h"
 #include "ia.h"
+#include "adn.h"
 
 using namespace std;
 
@@ -31,10 +31,11 @@ class Mundo : public States {
     Tile* hud2;//el hud
 
     bool nueva=false;//controla la nueva partida
-    std::vector<Adn*> adns;//array de adns(seguramente modificcable)
     bool adnscreados=false;
-    std::vector<Dinosaurio*> dinosaurios;
     bool dinoscreados=false;
+    bool colisiones=false;
+    std::vector<Dinosaurio*> dinosaurios;
+    std::vector<Adn*> adns;//array de adns(seguramente modificcable)
     sf::Clock temporizador;
     //Jugador//
     Jugador* jugador1;
@@ -59,6 +60,7 @@ class Mundo : public States {
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);
+
     void borraradns(){
         for(unsigned int i=0;i<adns.size();i++){
           std::cout<<"adn delete"<<endl;
@@ -75,6 +77,14 @@ class Mundo : public States {
         }
         dinosaurios.clear();
     }
+    void borrarcolisiones(){
+        for(unsigned int i=0;i<todoSprites.size();i++){
+          std::cout<<"colisiones delete"<<endl;
+          delete todoSprites[i];
+          todoSprites[i]=NULL;
+        }
+        todoSprites.clear();
+    }
     void borrarmapas(){
       for(unsigned int i=0;i<mapas.size();i++){
         delete mapas[i];
@@ -82,7 +92,7 @@ class Mundo : public States {
       }
       mapas.clear();
     }
-
+    void move_dinos();
 
 
 

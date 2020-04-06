@@ -78,27 +78,65 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
 }
 
 
-void Colisiones::update(std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones)
+void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones,Map &mapa,  std::vector<sf::Sprite*> &todoSprites)
 {
+  sf::Sprite**** mpSprite = mapa.gettilemapSprite();
+  int*** tilemap= mapa.gettilemap();
+  int lay=mapa.getnumlayers();
+  int hei=mapa.getheight();
+  int wid=mapa.getwidth();
+
   for(unsigned int i = 0;i < totalExplosiones.size();i++)
   {
+    //EXPLOSION DINOSAURIOS
     for(unsigned int j = 0;j < dinosaurios.size();j++)
     {
-      //Si el dinosaurio actual ha chocado con un explosion, debemos quitarle una vida.
       if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
       {
-        dinosaurios[j]->modifyVida();
-        if(dinosaurios[j]->getVida() == 0)
+        if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
         {
-          dinosaurios.erase(dinosaurios.begin() + j-1);
+          dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+          dinosaurios[j]->modifyVida();
+          if(dinosaurios[j]->getVida() == 0)
+          {
+            for(unsigned int a = 0;a < todoSprites.size();a++){
+              if(todoSprites[a]==dinosaurios[j]->getSprite()){
+                todoSprites.erase(todoSprites.begin() + a);
+              }
+            }
+            dinosaurios.erase(dinosaurios.begin() + j);
+          }
         }
       }
     }
+    //EXPLOSION JUGADOR
     if(jugador.getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
     {
-      jugador.quitarVidas();
-      std::cout << jugador.getVidas() << std::endl;
-      
+      //El jugador tiene invencibilidad de un segundo cuando colisiona con una explosion.
+      if(jugador.getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - jugador.getInvencibilidad() > 1)
+      {
+        jugador.quitarVidas();
+        std::cout << jugador.getVidas() << std::endl;
+        jugador.setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+      }
     }
+    //EXPLOSION CON ROCAS
+    for(unsigned int l=0; l<lay;l++){
+        for( unsigned int y=0; y<hei;y++){
+          for(unsigned int x=0; x<wid;x++){
+            int gid=tilemap [l][y][x]-1;
+            if(gid==2 && mpSprite[l][y][x]->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds())){//GID = PIEDRAS
+              std::cout << "Rompo una piedra" << std::endl;
+              mapa.setTileMapa(l,y,x,2);
+                  for(unsigned int a = 0;a < todoSprites.size();a++){
+                    if(todoSprites[a]==mpSprite[l][y][x]){
+                      todoSprites.erase(todoSprites.begin()+a);
+                    }
+                  }
+              mapa.gettilemapSprite()[l][y][x]->setTextureRect(sf::IntRect(32,32,32,32));
+            }
+          }
+        }
+      }
   }
 }

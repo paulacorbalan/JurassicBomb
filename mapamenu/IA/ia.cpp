@@ -1,32 +1,77 @@
 #include <iostream>
 #include "ia.h"
-#include "colisiones.h"
 
 /* Genera numeros aleatorios entre el 0 y el 4 para ver en que direccion se mueve.
  * Usa un contador de iteraciones del programa para que no dependa del tiempo
  */
 
-void IA::movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<sf::Sprite*> todosObjetos){
+void IA::movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<sf::Sprite*> &todoSprite){
     int tam_dinos = dinosaurios.size();
+
     if(_cont%50==0){ // Contador de iteraciones del programa
         for(int i=0; i < tam_dinos; i++){
-            int seed = rand()%5; // Numero entre 0 y 4 (el 4 no hace nada)
-            if(seed==0){ // Arriba
-                dinosaurios[i]->marriba();
-                Colisiones::crearColisiones(*dinosaurios[i]->getSprite(),todosObjetos,0,dinosaurios[i]->getSpeed());
+            int cosas [5] = { 0, 1, 2, 3, 4 };
+            int meh = cosas[i];
+            dinosaurios[i]->setDireccion(meh);
+            
+            srand (time(NULL));
+            int num1 = dinosaurios[i]->getDireccion();
+            int num2 = rand() % 5;
+            int dir = abs(num1 - num2);
+
+            if(dir == 0){
+                dinosaurios[i]->marriba(todoSprite);
+                dinosaurios[i]->marriba(todoSprite);
             }
-            if(seed==1){ // Abajo
-                dinosaurios[i]->mabajo();
-                Colisiones::crearColisiones(*dinosaurios[i]->getSprite(),todosObjetos,1,dinosaurios[i]->getSpeed()); 
+            if(dir == 1){
+                dinosaurios[i]->mabajo(todoSprite);
+                dinosaurios[i]->mabajo(todoSprite);
             }
-            if(seed==2){ // Derecha
-                dinosaurios[i]->mderecha();
-                Colisiones::crearColisiones(*dinosaurios[i]->getSprite(),todosObjetos,2,dinosaurios[i]->getSpeed()); 
+            if(dir == 2){
+                dinosaurios[i]->mderecha(todoSprite);
+                dinosaurios[i]->mderecha(todoSprite);
             }
-            if(seed==3){ // Izquierda
-                dinosaurios[i]->mizquierda();
-                Colisiones::crearColisiones(*dinosaurios[i]->getSprite(),todosObjetos,3,dinosaurios[i]->getSpeed());
-            }            
+            if(dir == 3){
+                dinosaurios[i]->mizquierda(todoSprite);
+                dinosaurios[i]->mizquierda(todoSprite);
+            }
+            else{
+                dinosaurios[i]->sumaPasos();
+                dinosaurios[i]->sumaPasos();
+            }
+        }
+    }
+    else{ // Contador de iteraciones del programa
+        for(int i=0; i < tam_dinos; i++){
+            int cosas [5] = { 0, 1, 2, 3, 4 };
+            int meh = cosas[i];
+            dinosaurios[i]->setDireccion(meh);
+            
+            srand (time(NULL));
+            int num1 = dinosaurios[i]->getDireccion();
+            int num2 = rand() % 5;
+            int dir = abs(num1 - num2);
+
+            if(dir == 0){
+                dinosaurios[i]->marriba(todoSprite);
+                dinosaurios[i]->marriba(todoSprite);
+            }
+            if(dir == 1){
+                dinosaurios[i]->mabajo(todoSprite);
+                dinosaurios[i]->mabajo(todoSprite);
+            }
+            if(dir == 2){
+                dinosaurios[i]->mderecha(todoSprite);
+                dinosaurios[i]->mderecha(todoSprite);
+            }
+            if(dir == 3){
+                dinosaurios[i]->mizquierda(todoSprite);
+                dinosaurios[i]->mizquierda(todoSprite);
+            }
+            else{
+                dinosaurios[i]->sumaPasos();
+                dinosaurios[i]->sumaPasos();
+            }
         }
     }
 }

@@ -71,7 +71,7 @@ class Mundo : public States {
     }
     void borrardinos(){
         for(unsigned int i=0;i<dinosaurios.size();i++){
-          std::cout<<"adn delete"<<endl;
+          std::cout<<"dino delete"<<endl;
           delete dinosaurios[i];
           dinosaurios[i]=NULL;
         }

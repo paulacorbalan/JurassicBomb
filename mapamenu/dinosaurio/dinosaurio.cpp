@@ -138,9 +138,11 @@ int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo){ // Movimiento arriba
     for(int i = 0; i < 160; i++){
         for(unsigned int j = 0;j < todo.size();j++)
         {
-            if(_Sprite->getGlobalBounds().intersects(todo[i]->getGlobalBounds()))
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
+                std::cout<<"dino no mueve arriba"<<std::endl;
                 _posdino = 0;
+                 _Sprite->move(0, _Speed);
                 return 0;
             }
         }
@@ -155,9 +157,11 @@ int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo){ // Movimiento abajo
     for(int i = 0; i < 160; i++){
         for(unsigned int j = 0;j < todo.size();j++)
         {
-            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
+                std::cout<<"dino no mueve abajo"<<std::endl;
                 _posdino = 1;
+                _Sprite->move(0, -(_Speed));
                 return 1;
             }
         }
@@ -172,9 +176,11 @@ int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo){ // Movimiento derecha
     for(int i = 0; i < 160; i++){
         for(unsigned int j = 0;j < todo.size();j++)
         {
-            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
+                std::cout<<"dino no mueve dre"<<std::endl;
                 _posdino = 2;
+                    _Sprite->move(-(_Speed),0);
                 return 2;
             }
         }
@@ -188,9 +194,11 @@ int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo){ // Movimiento izquie
     for(int i = 0; i < 160; i++){
         for(unsigned int j = 0;j < todo.size();j++)
         {
-            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()))
+            if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
+                std::cout<<"dino no mueve izq"<<std::endl;
                 _posdino = 3;
+                _Sprite->move(_Speed, 0);
                 return 3;
             }
         }

@@ -49,14 +49,6 @@ void Mundo::Inicializar() {
         std::cout<<"postpush"<<endl;
       }
 
-      //CREAR DINOSAURIOS O QUIZA EN MAPA JUSTO ARRIBA
-      // Textura por defecto del dinosaurio
-      sf::Texture dino_abajo;
-      if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
-        std::cerr << "Error cargando dino_abajo.png";
-        exit(0);
-      }
-
 
 }
 void Mundo::crearAdns(Map* m,int tot){
@@ -83,7 +75,6 @@ void Mundo::crearAdns(Map* m,int tot){
 }
 void Mundo::crearDinos(Map* m,int tot){
 
-      //CREAR DINOSAURIOS O QUIZA EN MAPA JUSTO ARRIBA
       // Textura por defecto del dinosaurio
       sf::Texture dino_abajo;
       if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
@@ -99,17 +90,16 @@ void Mundo::crearDinos(Map* m,int tot){
   bool todos=false;
   std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<endl;
     for(unsigned int l=0; l<m->getnumlayers() && !todos;l++){
-        for( unsigned int y=0; y<m->getheight() && !todos;y++){
-          for(unsigned int x=0; x<m->getwidth() && !todos;x++){
+        for( unsigned int y=2; y<m->getheight() && !todos;y++){
+          for(unsigned int x=2; x<m->getwidth() && !todos;x++){
             int gid=m->gettilemap()[l][y][x]-1;
               v1 = rand() % 999;
               std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<" "<<v1<<endl;
               if(gid==1 && v1<100){//GID = camino
-              std::cout<<v1<<" "<<y*32<<" "<<x*32<<"asdddddddddddddddddddddddddddddddddddddddddddddd"<<endl;
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
               dino1->setTipodino(cont%4); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
-              dino1->modifyPosition(122+(x*32),76+(y*32)); // Punto de spawn. Debe estar dentro del mapa
+              dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1); // Guardar en el vector de dinosaurios
               todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
               cont++;
@@ -225,7 +215,6 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             hud2->reiniciocrono();
             if(play==1){
               jugador1->setInicio();
-
             }else if(play==2){
               jugador1->setInicio();
               jugador2->setInicio();
@@ -239,7 +228,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             crearAdns(mapas[lvlactual],2);
             adnscreados=true;
           }
-          if(!dinoscreados){//CREAR ADNS ESTO PUEDE DAR LAS PROBLEMAS
+          if(!dinoscreados){//CREAR DINOS ESTO PUEDE DAR LAS PROBLEMAS
             crearDinos(mapas[lvlactual],2);
             dinoscreados=true;
           }
@@ -262,14 +251,13 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
       hud2->Update(jugador2);          
           Bomba::update(temporizador,*jugador2,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
           Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites);
-      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes2"<<endl;}
+      if(jugador2->getVidas()==0){finjuego();std::cout<<"pierdes2"<<endl;}
     }
     
     // Mover los dinosaurios con la IA
     IA ia; // Genera una ia con cada iteracion
     ia.movimientoDinos(dinosaurios, _cont,todoSprites); // Permite mover a los dinosaurios
       _cont++; // Contador de iteraciones del programa
-    
     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
 
 

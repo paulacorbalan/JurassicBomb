@@ -60,12 +60,13 @@ void Mundo::crearAdns(Map* m,int tot){
         for( unsigned int y=0; y<m->getheight() && !todos;y++){
           for(unsigned int x=0; x<m->getwidth() && !todos;x++){
             int gid=m->gettilemap()[l][y][x]-1;
-              v1 = rand() % 999;
+              v1 = rand() % 600;
               std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<" "<<v1<<endl;
-            if(gid==2 && v1<100){//GID = PIEDRAS
+            if(gid==2 && v1<150){//GID = PIEDRAS
               std::cout<<v1<<endl;
               Adn* prueba=new Adn(1,x,y);
               adns.push_back(prueba);
+              adnSprites.push_back(prueba->getSprite());
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
             }
@@ -112,23 +113,7 @@ void Mundo::crearDinos(Map* m,int tot){
           }
         } 
 }
-bool Mundo::saleADN(int *** _tilemap,int _numlayers, int _height,int  _width){
-  int cont=0;
-      for(unsigned int l=0; l<_numlayers;l++){
-        for( unsigned int y=0; y<_height;y++){
-          for(unsigned int x=0; x<_width;x++){
-            int gid=_tilemap [l][y][x]-1;
-            if(gid==2){//GID = PIEDRAS
-              cont++;
-            }
-          }
-        }
-      }
-  if(cont==(mapas[lvlactual]->getpuntos()-0/*PUNTOSDELJUGADOR*/)){
-    return true;
-  }
-  return false;
-}
+
 void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
       switch (event.type) {
         case sf::Event::Closed:
@@ -161,7 +146,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
               }
               break;
             }
-            case 15://p matar un sno
+            case 15://p matar un dino
                 if(dinosaurios.size()>0){
                     dinosaurios[0]->modifyVida();
                     if(dinosaurios[0]->getVida() == 0){
@@ -174,6 +159,16 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
                     //jugador1->sumaPuntos();
                     jugador1->setmatando(true);
                     }
+            }
+             case 14://eliminar un adn
+                if(adns.size()>0){
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();                    
             }
             //Arriba
             case 73:
@@ -211,12 +206,10 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
 
+
   if(hud1->getTerminada()){
     std::cout<<"terminado el tiempo"<<endl;//HAS PERDIDO
   }
-  /*if(mapas[lvlactual]->getpuntos()==JUGADORPUNTOS){ ///SI LOS PUNTOS DEL MAPA SON IGUALES A LOS DEL JUGADOR HA TERMINADO EL MAPA 
-       mapas[lvlactual]->terminar();
-  }*/
       if (mapas[lvlactual]->fin()){
             std::cout<<"cambiar mapa\n";
             adnscreados=false;//DESTRuiR ADNS//
@@ -253,27 +246,32 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             colisiones=true;
           }
         }
-  
+  if(adnSprites.size()==0){
+    std::cout<<"no quedan adns por recoger"<<std::endl;
+    if(lvlactual<mapas.size()){
+      mapas[lvlactual]->terminar();
+    }
+  }
   if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
   {
     std::cout<<"matao"<<std::endl;
-    todosno(0.015);
+    todosno(0.015);//METER TIME
     //todosno(time);
   }
     if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS Y SUS HUDS
       hud1->Update(jugador1);
           Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites); 
+          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
       if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes"<<endl;}
     }else if(play==2)
     {
       hud1->Update(jugador1);
           Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites); 
+          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
       if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes1"<<endl;}
       hud2->Update(jugador2);          
           Bomba::update(temporizador,*jugador2,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites);
+          Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites,adnSprites,adns);
       if(jugador2->getVidas()==0){finjuego();std::cout<<"pierdes2"<<endl;}
     }
     

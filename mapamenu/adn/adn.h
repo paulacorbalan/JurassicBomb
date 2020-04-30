@@ -17,6 +17,7 @@ public:
   int getpuntos(){return puntos;}
   bool getvisible(){return visible;}
   void hacervisible(){visible=true;}
+  sf::Sprite* getSprite(){return adnsprite;}
 
 private:
   int puntos;

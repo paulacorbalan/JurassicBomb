@@ -78,13 +78,28 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
 }
 
 
-void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones,Map &mapa,  std::vector<sf::Sprite*> &todoSprites)
+void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones,Map &mapa,  std::vector<sf::Sprite*> &todoSprites, std::vector<sf::Sprite*> &adnSprites,    std::vector<Adn*> &adns)
 {
   sf::Sprite**** mpSprite = mapa.gettilemapSprite();
   int*** tilemap= mapa.gettilemap();
   int lay=mapa.getnumlayers();
   int hei=mapa.getheight();
   int wid=mapa.getwidth();
+
+
+for(unsigned int i = 0;i < adns.size();i++)
+  {
+    if(jugador.getSprite()->getGlobalBounds().intersects(adns[i]->getSprite()->getGlobalBounds()))
+    {
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();                     
+    }
+  }
 
   for(unsigned int i = 0;i < totalExplosiones.size();i++)
   {

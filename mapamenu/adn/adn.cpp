@@ -12,6 +12,7 @@ Adn::Adn(int p,int x, int y) {
   std::cout << "Error: Could not display adn image" << std::endl;
   adnsprite->setTexture( adntext );
   adnsprite->setPosition(112+(x*32),64+(y*32));
+  adnsprite->setScale(0.8,0.8);
 }
 
 

@@ -51,6 +51,8 @@ Map.h
 ../bomba/Map.h
 ../dinosaurio/dinosaurio.h
 ../dinosaurio/dinosaurio.h
+adn.h
+../bomba/adn.h
 
 ../bomba/jugador.h
 SFML/Graphics.hpp
@@ -227,6 +229,8 @@ Map.h
 /home/fv2/JurassicBomb/mapamenu/bomba/Map.h
 ../dinosaurio/dinosaurio.h
 /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+adn.h
+/home/fv2/JurassicBomb/mapamenu/bomba/adn.h
 
 /home/fv2/JurassicBomb/mapamenu/bomba/jugador.cpp
 jugador.h

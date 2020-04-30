@@ -47,6 +47,8 @@ class Mundo : public States {
     std::vector<float> tiemposExplosiones;
     //Vector que almacena todos los sprites para comprobar las colisiones.
     std::vector<sf::Sprite*> todoSprites;
+    
+    std::vector<sf::Sprite*> adnSprites;//almacena sprites adns
 
     int _cont = 0; // Contador de iteraciones del juego
 
@@ -94,6 +96,14 @@ class Mundo : public States {
           adns[i]=NULL;
         }
         adns.clear();
+
+
+        for(unsigned int i=0;i<adnSprites.size();i++){
+          
+          delete adnSprites[i];
+          adnSprites[i]=NULL;
+        }
+        adnSprites.clear();
     }
     void borrardinos(){
       std::cout<<"dino delete"<<endl;

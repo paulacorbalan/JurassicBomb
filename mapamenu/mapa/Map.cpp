@@ -98,7 +98,7 @@ Map::Map(string s,int puntos) {
           for(int x=0; x<_width;x++){
             int gid=_tilemap [l][y][x]-1;
             if(gid>-1){
-              _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0+(gid*32),32,32});
+              _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0,32,32});
               _tilemapSprite[l][y][x]->setPosition(112+(x*_tilewidth),64+(y*_tileheigh));
               cont++;
             }

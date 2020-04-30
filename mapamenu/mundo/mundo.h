@@ -49,6 +49,9 @@ class Mundo : public States {
     std::vector<sf::Sprite*> todoSprites;
 
     int _cont = 0; // Contador de iteraciones del juego
+
+    float waiteo=3;
+    float control=0;
   public:
     void Inicializar();
     static Mundo* Instance();
@@ -60,7 +63,28 @@ class Mundo : public States {
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);
+    void todosno(float times){
+      int activados=0;
+      control+=times;
+      
+      for (unsigned int i = 0; i < dinosaurios.size(); i++)
+      {
+        std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
+          if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
+            dinosaurios[i]->setactivo(true);
+            control=0;
+          }
+          if(dinosaurios[i]->getactivo()){
+            activados++;
+          }
 
+          if(activados==2){
+            std::cout<<"matafalso";
+            jugador1->setmatando(false);
+            control=0;
+          }
+      } 
+    }
     void borraradns(){
         for(unsigned int i=0;i<adns.size();i++){
           std::cout<<"adn delete"<<endl;

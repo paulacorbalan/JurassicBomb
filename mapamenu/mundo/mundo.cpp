@@ -62,7 +62,7 @@ void Mundo::crearAdns(Map* m,int tot){
             int gid=m->gettilemap()[l][y][x]-1;
               v1 = rand() % 999;
               std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<" "<<v1<<endl;
-            if(gid==2 && v1<190){//GID = PIEDRAS
+            if(gid==2 && v1<100){//GID = PIEDRAS
               std::cout<<v1<<endl;
               Adn* prueba=new Adn(1,x,y);
               adns.push_back(prueba);
@@ -82,32 +82,35 @@ void Mundo::crearDinos(Map* m,int tot){
         exit(0);
       }
       /* Generacion de los dos dinosaurios del nivel.
-       * Se pueden generar mas en funcion del nivel, pero hay dos para este nivel
+       * Se pueden generar mas en funcion del nivel
        * El tipo de dinosario es: 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops 
        */
   int v1=1;
   int cont=0;
   bool todos=false;
   std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<endl;
-    for(unsigned int l=0; l<m->getnumlayers() && !todos;l++){
         for( unsigned int y=2; y<m->getheight() && !todos;y++){
           for(unsigned int x=2; x<m->getwidth() && !todos;x++){
-            int gid=m->gettilemap()[l][y][x]-1;
+            int gid=m->gettilemap()[0][y][x]-1;
+            int gid2=m->gettilemap()[1][y][x]-1;
               v1 = rand() % 999;
               std::cout<<m->getnumlayers()<<m->getheight()<<m->getwidth()<<" "<<v1<<endl;
-              if(gid==1 && v1<100){//GID = camino
+              if(gid==1 && gid2==-1 && v1<100){//GID = camino
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
               dino1->setTipodino(cont%4); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1); // Guardar en el vector de dinosaurios
               todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
+              if (cont<2)//los dos primeros snow bees los crea activos
+              {
+                dino1->setactivo(true);
+              }
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
             }
           }
-        }
-     }   
+        } 
 }
 bool Mundo::saleADN(int *** _tilemap,int _numlayers, int _height,int  _width){
   int cont=0;
@@ -158,7 +161,20 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
               }
               break;
             }
-            
+            case 15://p matar un sno
+                if(dinosaurios.size()>0){
+                    dinosaurios[0]->modifyVida();
+                    if(dinosaurios[0]->getVida() == 0){
+                      for(unsigned int a = 0;a < todoSprites.size();a++){
+                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
+                          todoSprites.erase(todoSprites.begin() + a);
+                        }
+                      }
+                    dinosaurios.erase(dinosaurios.begin() + 0);
+                    //jugador1->sumaPuntos();
+                    jugador1->setmatando(true);
+                    }
+            }
             //Arriba
             case 73:
               jugador1->mover(0);
@@ -194,6 +210,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 }
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
+        // matas todos los snowbees
 
   if(hud1->getTerminada()){
     std::cout<<"terminado el tiempo"<<endl;//HAS PERDIDO
@@ -229,7 +246,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             adnscreados=true;
           }
           if(!dinoscreados){//CREAR DINOS ESTO PUEDE DAR LAS PROBLEMAS
-            crearDinos(mapas[lvlactual],2);
+            crearDinos(mapas[lvlactual],5);
             dinoscreados=true;
           }
           if(!colisiones){
@@ -237,6 +254,13 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             colisiones=true;
           }
         }
+  
+  if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
+  {
+    std::cout<<"matao"<<std::endl;
+    todosno(0.015);
+    //todosno(time);
+  }
     if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS Y SUS HUDS
       hud1->Update(jugador1);
           Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
@@ -308,7 +332,7 @@ void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
       //DIBUJAR DINOSAURIOS
       for(unsigned int i=0; i < dinosaurios.size(); i++)
       {
-        window.draw(*dinosaurios[i]->getSprite());
+        if(dinosaurios[i]->getactivo())window.draw(*dinosaurios[i]->getSprite());
       }
        if(play==1){
         hud1->draw(window);

@@ -140,7 +140,7 @@ int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo){ // Movimiento arriba
         {
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
-                std::cout<<"dino no mueve arriba"<<std::endl;
+                //std::cout<<"dino no mueve arriba"<<std::endl;
                 _posdino = 0;
                  _Sprite->move(0, _Speed);
                 return 0;
@@ -159,7 +159,7 @@ int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo){ // Movimiento abajo
         {
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
-                std::cout<<"dino no mueve abajo"<<std::endl;
+                //std::cout<<"dino no mueve abajo"<<std::endl;
                 _posdino = 1;
                 _Sprite->move(0, -(_Speed));
                 return 1;
@@ -178,7 +178,7 @@ int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo){ // Movimiento derecha
         {
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
-                std::cout<<"dino no mueve dre"<<std::endl;
+                //std::cout<<"dino no mueve dre"<<std::endl;
                 _posdino = 2;
                     _Sprite->move(-(_Speed),0);
                 return 2;
@@ -196,7 +196,7 @@ int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo){ // Movimiento izquie
         {
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j])
             {
-                std::cout<<"dino no mueve izq"<<std::endl;
+                //std::cout<<"dino no mueve izq"<<std::endl;
                 _posdino = 3;
                 _Sprite->move(_Speed, 0);
                 return 3;

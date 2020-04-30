@@ -91,20 +91,23 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
     //EXPLOSION DINOSAURIOS
     for(unsigned int j = 0;j < dinosaurios.size();j++)
     {
-      if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
-      {
-        if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
+      if(dinosaurios[j]->getactivo()){
+        if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
         {
-          dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
-          dinosaurios[j]->modifyVida();
-          if(dinosaurios[j]->getVida() == 0)
+          if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
           {
-            for(unsigned int a = 0;a < todoSprites.size();a++){
-              if(todoSprites[a]==dinosaurios[j]->getSprite()){
-                todoSprites.erase(todoSprites.begin() + a);
+            dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+            dinosaurios[j]->modifyVida();
+            if(dinosaurios[j]->getVida() == 0)
+            {
+              for(unsigned int a = 0;a < todoSprites.size();a++){
+                if(todoSprites[a]==dinosaurios[j]->getSprite()){
+                  todoSprites.erase(todoSprites.begin() + a);
+                }
               }
+              dinosaurios.erase(dinosaurios.begin() + j);
+              jugador.setmatando(true);
             }
-            dinosaurios.erase(dinosaurios.begin() + j);
           }
         }
       }

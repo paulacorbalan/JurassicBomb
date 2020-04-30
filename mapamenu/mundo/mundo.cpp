@@ -160,7 +160,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
                     jugador1->setmatando(true);
                     }
             }
-             case 14://eliminar un adn
+             case 16:// q eliminar un adn
                 if(adns.size()>0){
                       for(unsigned int a = 0;a < adnSprites.size();a++){
                         if(adnSprites[a]==adns[0]->getSprite()){
@@ -246,7 +246,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             colisiones=true;
           }
         }
-  if(adnSprites.size()==0){
+  if(adns.size()==0){
     std::cout<<"no quedan adns por recoger"<<std::endl;
     if(lvlactual<mapas.size()){
       mapas[lvlactual]->terminar();

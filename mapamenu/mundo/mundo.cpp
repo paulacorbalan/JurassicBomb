@@ -101,10 +101,10 @@ void Mundo::crearDinos(Map* m,int tot){
               dino1->setTipodino(cont%4); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1); // Guardar en el vector de dinosaurios
-              todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
               if (cont<2)//los dos primeros snow bees los crea activos
               {
                 dino1->setactivo(true);
+                todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
               }
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
@@ -210,7 +210,6 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 }
 
 void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
-        // matas todos los snowbees
 
   if(hud1->getTerminada()){
     std::cout<<"terminado el tiempo"<<endl;//HAS PERDIDO
@@ -220,7 +219,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
   }*/
       if (mapas[lvlactual]->fin()){
             std::cout<<"cambiar mapa\n";
-            adnscreados=false;//DESTRuiR ADNS/////////////////////////////////////
+            adnscreados=false;//DESTRuiR ADNS//
             dinoscreados=false;
             colisiones=false;
             borrarcolisiones();

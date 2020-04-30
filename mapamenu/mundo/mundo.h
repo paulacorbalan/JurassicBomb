@@ -63,15 +63,16 @@ class Mundo : public States {
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);
+    void setControl(float a){control=a;}
     void todosno(float times){
       int activados=0;
       control+=times;
-      
       for (unsigned int i = 0; i < dinosaurios.size(); i++)
       {
         std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
           if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
             dinosaurios[i]->setactivo(true);
+            todoSprites.push_back(dinosaurios[i]->getSprite()); //Lo añadimos al vector de colisiones.
             control=0;
           }
           if(dinosaurios[i]->getactivo()){
@@ -83,33 +84,37 @@ class Mundo : public States {
             jugador1->setmatando(false);
             control=0;
           }
-      } 
+      }  
     }
     void borraradns(){
+      std::cout<<"adn delete"<<endl;
         for(unsigned int i=0;i<adns.size();i++){
-          std::cout<<"adn delete"<<endl;
+          
           delete adns[i];
           adns[i]=NULL;
         }
         adns.clear();
     }
     void borrardinos(){
+      std::cout<<"dino delete"<<endl;
         for(unsigned int i=0;i<dinosaurios.size();i++){
-          std::cout<<"dino delete"<<endl;
+          
           delete dinosaurios[i];
           dinosaurios[i]=NULL;
         }
         dinosaurios.clear();
     }
     void borrarcolisiones(){
+      std::cout<<"colisiones delete"<<endl;
         for(unsigned int i=0;i<todoSprites.size();i++){
-          std::cout<<"colisiones delete"<<endl;
+          
           delete todoSprites[i];
           todoSprites[i]=NULL;
         }
         todoSprites.clear();
     }
     void borrarmapas(){
+      std::cout<<"mapa delete"<<endl;
       for(unsigned int i=0;i<mapas.size();i++){
         delete mapas[i];
         mapas[i]=NULL;

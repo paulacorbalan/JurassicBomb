@@ -128,9 +128,9 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
         for( unsigned int y=0; y<hei;y++){
           for(unsigned int x=0; x<wid;x++){
             int gid=tilemap [l][y][x]-1;
-            if(gid==2 && mpSprite[l][y][x]->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds())){//GID = PIEDRAS
+            if(gid==2 && mpSprite[l][y][x]->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds())){//COMPRUEBA SI EL ID DE CADA POSICION DE LA MATRIZ = PIEDRAS
               std::cout << "Rompo una piedra" << std::endl;
-              mapa.setTileMapa(l,y,x,2);
+              mapa.setTileMapa(l,y,x,0);
                   for(unsigned int a = 0;a < todoSprites.size();a++){
                     if(todoSprites[a]==mpSprite[l][y][x]){
                       todoSprites.erase(todoSprites.begin()+a);

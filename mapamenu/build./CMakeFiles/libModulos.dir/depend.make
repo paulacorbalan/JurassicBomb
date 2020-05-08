@@ -15,6 +15,7 @@ CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../tinyxml-master/tinystr.h
 CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../IA/ia.cpp
 CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../IA/ia.h
+CMakeFiles/libModulos.dir/IA/ia.cpp.o: ../mapa/Map.h
 
 CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../tinyxml-master/tinystr.h
 CMakeFiles/libModulos.dir/adn/adn.cpp.o: ../tinyxml-master/tinyxml.h
@@ -34,12 +35,16 @@ CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/colisiones.cpp
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/colisiones.h
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../bomba/jugador.h
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../dinosaurio/dinosaurio.h
+CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o: ../mapa/Map.h
 
 CMakeFiles/libModulos.dir/bomba/jugador.cpp.o: ../bomba/jugador.cpp
 CMakeFiles/libModulos.dir/bomba/jugador.cpp.o: ../bomba/jugador.h
 
+CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../tinyxml-master/tinystr.h
+CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../tinyxml-master/tinyxml.h
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../dinosaurio/dinosaurio.cpp
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../dinosaurio/dinosaurio.h
+CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o: ../mapa/Map.h
 
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../bomba/jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Tile.cpp.o: ../ej_modulos/Tile.cpp

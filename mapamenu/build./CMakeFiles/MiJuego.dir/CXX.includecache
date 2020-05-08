@@ -87,6 +87,8 @@ adn.h
 /home/fv2/JurassicBomb/mapamenu/bomba/adn.h
 
 /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+../mapa/Map.h
+/home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 
 /home/fv2/JurassicBomb/mapamenu/ej_modulos/Tile.h
 SFML/Graphics.hpp

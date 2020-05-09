@@ -5,7 +5,7 @@
 Adn::Adn(int p,int x, int y) {
   adnsprite=new sf::Sprite;//reservando memoria para el puntero sprite
   puntos=p;
-  visible=true;//comenzaria en falso
+  visible=false;//comenzaria en falso
   posx=x;
   posy=y;
   if ( !adntext.loadFromFile( "resources/adn.png" ) )

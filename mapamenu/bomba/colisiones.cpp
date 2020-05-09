@@ -152,6 +152,13 @@ for(unsigned int i = 0;i < adns.size();i++)
                     }
                   }
               mapa.gettilemapSprite()[l][y][x]->setTextureRect(sf::IntRect(32,32,32,32));
+              for (unsigned int i = 0; i < adns.size(); i++)//HACER VISIBLE ADNS EN EL LUGAR DE LA PIEDRA
+              {
+                if(adns[i]->getposx()==x && adns[i]->getposy()==y){
+                  adns[i]->hacervisible();
+                }
+              }
+              
             }
           }
         }

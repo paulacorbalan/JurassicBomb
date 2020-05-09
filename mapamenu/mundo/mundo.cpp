@@ -85,7 +85,7 @@ void Mundo::crearDinos(Map* m,int tot){
               if(gid==1 && gid2==-1 && v1<400){//COMPRUEBO QUE LA POSICION SEA CORRECTA
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
-              dino1->setTipodino(2); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+              dino1->setTipodino(1); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1);
               std::cout<<"DINO METIDO"<<std::endl; // Guardar en el vector de dinosaurios
@@ -226,7 +226,6 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             adnscreados=true;
           }
           if(!dinoscreados){//CREAR DINOS 
-          std::cout<<"aquio"<<std::endl;
             crearDinos(mapas[lvlactual],10);
             dinoscreados=true;
           }

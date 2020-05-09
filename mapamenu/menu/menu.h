@@ -16,6 +16,8 @@ class Menu : public States {
   sf::Sprite backgroundImage;
   sf::Texture ganar;
   sf::Sprite ganarImage;
+  sf::Texture perder;
+  sf::Sprite perderImage;
   sf::Texture pausa;
   sf::Sprite pausaImage;
   sf::Sprite playImage;

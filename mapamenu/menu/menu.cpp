@@ -96,10 +96,9 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
                                 cadena = std::to_string(lvls);
                                   texto.setString(cadena);
                             }
-
-                }else if(menus==3 && !jugando){
+                }else if((menus==3 || menus==4 ) && !jugando){
                   //GANADO
-                  std::cout<<"has ganado"<<std::endl;
+                  std::cout<<"has terminado"<<std::endl;
                   menus=0;
                   lvls=1;
                 }
@@ -145,6 +144,9 @@ void Menu::Draw(sf::RenderWindow &window) {
       if(menus==3 && !jugando){
         window.draw(ganarImage);
       }
+      if(menus==4 && !jugando){
+        window.draw(perderImage);
+      }
       
 }
 void Menu::lvltxt(){
@@ -181,6 +183,11 @@ void Menu::Cargarecursos(){
                     ganarImage.setTexture( ganar );
                     ganarImage.setOrigin(ganar.getSize().x*0.5, ganar.getSize().y*0.5);
                     ganarImage.setPosition(width/2, height/2); 
+                    if ( !perder.loadFromFile( "resources/perder.png" ) )
+                    std::cout << "Error: Could not display ganar image" << std::endl;
+                    perderImage.setTexture( perder );
+                    perderImage.setOrigin(perder.getSize().x*0.5, perder.getSize().y*0.5);
+                    perderImage.setPosition(width/2, height/2); 
                   //Cargo la imagen donde reside la textura del sprite
                   //Y creo el spritesheet a partir de la imagen anterior
                       sf::Texture tex;

@@ -11,7 +11,8 @@ Adn::Adn(int p,int x, int y) {
   if ( !adntext.loadFromFile( "resources/adn.png" ) )
   std::cout << "Error: Could not display adn image" << std::endl;
   adnsprite->setTexture( adntext );
-  adnsprite->setPosition(112+(x*32),64+(y*32));
+  adnsprite->setOrigin( 16,16 );
+  adnsprite->setPosition(112+(x*32)+16,64+(y*32)+16);
   adnsprite->setScale(0.8,0.8);
 }
 

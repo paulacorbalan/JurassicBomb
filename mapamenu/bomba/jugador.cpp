@@ -22,10 +22,7 @@ Jugador::Jugador(int numero)
             sprite->setPosition(192, 177);
     }
 
-    setInicio();
-    
-    
-
+    setInicio(numero);
     identificador = numero;
     kVel = 2;
 }

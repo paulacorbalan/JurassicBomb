@@ -22,14 +22,14 @@ void Mundo::Inicializar() {
       //CREAR JUGADORES
       //Sustituir numJugadores por el id que le corresponde a este jugador.
       if(play==1){
-      hud1=new Tile();
+      hud1=new Tile(1);
       jugador1=new Jugador(1);
       }else if(play==2)//CREA JUGADORES SEGUN SEA MULTIJUGADOR O UN JUGADOR
       {
         jugador1=new Jugador(1);
-        hud1=new Tile();
+        hud1=new Tile(1);
         jugador2=new Jugador(2);
-        hud2=new Tile(); 
+        hud2=new Tile(2); 
       }else
       {
         std::cout<<"numero de jugadores mal"<<endl;
@@ -215,12 +215,12 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
             borrardinos();//DESTRUYE DINOS
             lvlactual++;//CAMBIA EL NIVEL
             if(play==1){
-              jugador1->setInicio();//COLOCAR EN CONDICIONES INICIALES
+              jugador1->setInicio(1);//COLOCAR EN CONDICIONES INICIALES
               hud1->reiniciocrono();//Reiniciar contador
             }else if(play==2){
-              jugador1->setInicio();
+              jugador1->setInicio(1);
               hud1->reiniciocrono();
-              jugador2->setInicio();
+              jugador2->setInicio(2);
               hud2->reiniciocrono();
             }       
       }
@@ -239,15 +239,14 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
           if(!colisiones){//CREAR COLISIONES
             mapas[lvlactual]->anadirVector(todoSprites);
             colisiones=true;
-          }
-        
-
-            if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
-            {
-              std::cout<<"matao"<<std::endl;
-              todosno(0.015);//METER TIME
-            }
-              if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
+          }   
+// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
+              if(play==1){
+                if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
+                {
+                  std::cout<<"matao"<<std::endl;
+                  todosno(0.015);//METER TIME
+                }
                 hud1->Update(jugador1);
                     Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
                     Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
@@ -275,12 +274,25 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 hud2->Update(jugador2);          
                     Bomba::update(temporizador,*jugador2,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
                     Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites,adnSprites,adns);
-                if(jugador1->getVidas()==0 || jugador2->getVidas()==0){finjuego(4);std::cout<<"perdeis"<<endl;}
+                if(jugador1->getVidas()==0 || jugador2->getVidas()==0){
+                  finjuego(4);std::cout<<"perdeis"<<endl;
+                }else{
+                    // Mover los dinosaurios con la IA
+                    IA ia; // Genera una ia con cada iteracion
+                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual]); // Permite mover a los dinosaurios
+                      _cont++; // Contador de iteraciones del programa
+                    //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
+                  if(adns.size()==0){//SI NO QUEDAN ADNS SE TERMINA EL NIVEL
+                    std::cout<<"no quedan adns por recoger"<<std::endl;
+                    if(lvlactual<mapas.size()){
+                      mapas[lvlactual]->terminar();
+                    }
+                  }
+                }
               }
-              
-
+                
+            }  
         }
-  }
 }
 
  

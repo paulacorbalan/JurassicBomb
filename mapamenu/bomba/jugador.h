@@ -16,9 +16,10 @@ class Jugador{
     void setVelocidad(int velocidad){kVel = velocidad;}
     void setVidas(int v){vidas = v;}
     void setInvencibilidad(float f){invencibilidad = f;}
-    void setInicio(){    
+    void setInicio(int a){    
        matando=false;
-       sprite->setPosition(160, 113); 
+       if(a==1){sprite->setPosition(160, 113); }else{sprite->setPosition(160+(32*10), 113+(32*8)); }
+       
    }
     void mover(int direccion);
     void quitarVidas(){if(vidas > 0)vidas--;}

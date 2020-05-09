@@ -1,11 +1,11 @@
 #include "Tile.h"
 #include <iostream>
 
-Tile::Tile() {
-Cargarecursos();
+Tile::Tile(int a) {
+Cargarecursos(a);
 }
 
-void Tile::Cargarecursos(){
+void Tile::Cargarecursos(int a){
 
   //Cargo la imagen donde reside la textura del sprite
 
@@ -61,11 +61,17 @@ void Tile::Cargarecursos(){
   vida1.setScale(2,2);
 
   // Lo dispongo en el centro de la panta
+if(a==1){
+  vida1.setPosition(30, 40);
+  vida2.setPosition(61, 40);
+  vida3.setPosition(92, 40);
+}else
+{
+  vida1.setPosition(30, 104);
+  vida2.setPosition(61, 104);
+  vida3.setPosition(92, 104);
+}
 
-  vida1.setPosition(40, 40);
-  vida2.setPosition(71, 40);
-  vida3.setPosition(102, 40);
- 
 }
 void Tile::draw(sf::RenderWindow &window){
   if(vidas==1){

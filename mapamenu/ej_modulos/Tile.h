@@ -6,8 +6,8 @@ class Tile{
 
    
     public:
-    Tile();
-    void Cargarecursos();
+    Tile(int a);
+    void Cargarecursos(int a);
     void Update(Jugador* j);
     void draw(sf::RenderWindow &window);
     void reiniciocrono(){min=5;seg=59;terminada=false;}

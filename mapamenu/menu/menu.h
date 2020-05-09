@@ -56,10 +56,10 @@ class Menu : public States {
 
   public:
     void Inicializar();
-    void reinicio();
+    void reinicio(int a);
     static Menu* Instance();
-    void Event(sf::Event event,sf::RenderWindow &window);
-    void Update(sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window, float time);
+    void Update(sf::RenderWindow &window, float time);
     void Draw(sf::RenderWindow &window);
     int GetLvls();
     int GetDif();

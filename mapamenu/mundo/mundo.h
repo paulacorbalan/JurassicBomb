@@ -58,11 +58,11 @@ class Mundo : public States {
   public:
     void Inicializar();
     static Mundo* Instance();
-    void Event(sf::Event event,sf::RenderWindow &window);
-    void Update(sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window, float time);
+    void Update(sf::RenderWindow &window, float time);
     void Draw(sf::RenderWindow &window);
     void renicio();
-    void finjuego();
+    void finjuego(int a);
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);

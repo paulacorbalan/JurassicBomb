@@ -4,13 +4,13 @@
 
 Mundo* Mundo::jinstance=0;
 
-  Mundo* Mundo::Instance() {
+Mundo* Mundo::Instance() {
     if(jinstance==0){
       jinstance=new Mundo;
         std::cout<<"mundooinstance"; 
     }
     return jinstance;
-  }
+}
 
 void Mundo::Inicializar() {
       std::cout<<"mundoiniciado\n";
@@ -108,7 +108,7 @@ void Mundo::crearDinos(Map* m,int tot){
         //if(!todos){crearDinos(m,tot-cont);} 
 }
 
-void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
+void Mundo::Event(sf::Event event,sf::RenderWindow &window, float time){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
@@ -198,12 +198,13 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window){ //COSAS DEL MUNDO C
 
 }
 
-void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
-
+void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
 
   if(hud1->getTerminada()){
     std::cout<<"terminado el tiempo"<<endl;//HAS PERDIDO
-  }
+    finjuego(4);
+  }else{
+
       if (mapas[lvlactual]->fin()){//CUANDO TERMINA EL MAPA
             std::cout<<"cambiar mapa\n";
             adnscreados=false;
@@ -224,7 +225,7 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
             }       
       }
       if(!(lvlactual<mapas.size())){//TERMINAR Y VOLVER A MENU FIN DEL JUEGO   
-          finjuego();
+          finjuego(3);
           std::cout<<"tras findejuego"<<endl;
         }else{
           if(!adnscreados){//CREAR ADNS 
@@ -241,50 +242,54 @@ void Mundo::Update(sf::RenderWindow &window) {//COSAS DEL MUNDO QUE SE ACTUALIZA
           }
         
 
-  if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
-  {
-    std::cout<<"matao"<<std::endl;
-    todosno(0.015);//METER TIME
-  }
-    if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
-      hud1->Update(jugador1);
-          Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
-      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes"<<endl;}//SI TIENES 0 VIDAS PIERDES 
-    }else if(play==2)
-    {
-      hud1->Update(jugador1);
-          Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
-      if(jugador1->getVidas()==0){finjuego();std::cout<<"pierdes1"<<endl;}
-      hud2->Update(jugador2);          
-          Bomba::update(temporizador,*jugador2,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
-          Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites,adnSprites,adns);
-      if(jugador2->getVidas()==0){finjuego();std::cout<<"pierdes2"<<endl;}
-    }
-    
-    // Mover los dinosaurios con la IA
-    IA ia; // Genera una ia con cada iteracion
-    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual]); // Permite mover a los dinosaurios
-      _cont++; // Contador de iteraciones del programa
-    //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
+            if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
+            {
+              std::cout<<"matao"<<std::endl;
+              todosno(0.015);//METER TIME
+            }
+              if(play==1){// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
+                hud1->Update(jugador1);
+                    Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
+                    Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
+                if(jugador1->getVidas()==0){//SI TIENES 0 VIDAS PIERDES 
+                  finjuego(4);std::cout<<"pierdes"<<endl;
+                }else{
+                    // Mover los dinosaurios con la IA
+                    IA ia; // Genera una ia con cada iteracion
+                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual]); // Permite mover a los dinosaurios
+                      _cont++; // Contador de iteraciones del programa
+                    //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
 
-  if(adns.size()==0){//SI NO QUEDAN ADNS SE TERMINA EL NIVEL
-    std::cout<<"no quedan adns por recoger"<<std::endl;
-    if(lvlactual<mapas.size()){
-      mapas[lvlactual]->terminar();
-    }
-  }
+                  if(adns.size()==0){//SI NO QUEDAN ADNS SE TERMINA EL NIVEL
+                    std::cout<<"no quedan adns por recoger"<<std::endl;
+                    if(lvlactual<mapas.size()){
+                      mapas[lvlactual]->terminar();
+                    }
+                  }
+                }
+              }else if(play==2)
+              {
+                hud1->Update(jugador1);
+                    Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
+                    Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
+                hud2->Update(jugador2);          
+                    Bomba::update(temporizador,*jugador2,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
+                    Colisiones::update(temporizador,dinosaurios,*jugador2,totalExplosiones,*mapas[lvlactual], todoSprites,adnSprites,adns);
+                if(jugador1->getVidas()==0 || jugador2->getVidas()==0){finjuego(4);std::cout<<"perdeis"<<endl;}
+              }
+              
+
         }
+  }
 }
 
  
-void Mundo::finjuego(){//CUANDO TERMINO PRIMERO REINICIO EL MUNDO Y LUEGO ME MUEVO AL MENU INICIAL
+void Mundo::finjuego(int a){//CUANDO TERMINO PRIMERO REINICIO EL MUNDO Y LUEGO ME MUEVO AL MENU INICIAL
         std::cout<<"fin"<<endl;
         //RENICIAR MUNDO
         this->renicio();
         //MENU INICIAL
-        Menu::Instance()->reinicio();
+        Menu::Instance()->reinicio(a);
         ChangeState(Contexto::Instance(),Menu::Instance());
 }
 

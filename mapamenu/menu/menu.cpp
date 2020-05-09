@@ -18,12 +18,12 @@ void Menu::Inicializar() {
 }
 
 
-void Menu::Update(sf::RenderWindow &window) {
+void Menu::Update(sf::RenderWindow &window, float time) {
 
 
     
 }
-void Menu::Event(sf::Event event,sf::RenderWindow &window){
+void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
         
       switch (event.type) {
         case sf::Event::Closed:
@@ -160,9 +160,9 @@ void Menu::lvltxt(){
             texto.setPosition(-15+(plusImage.getPosition().x+menosImage.getPosition().x)/2,-50+(plusImage.getPosition().y+menosImage.getPosition().y)/2);
             texto.setColor(sf::Color::Red);
 }
-void Menu::reinicio(){
+void Menu::reinicio(int a){
   lvls=1;
-  menus=3;//PONER EN 3 PARA LA PANTALLA DE VICTORIA
+  menus=a;//PONER EN 3 PARA LA PANTALLA DE VICTORIA 4 PARA LA DE DERROTA
   dificulty=0;
   lvltxt();
 }

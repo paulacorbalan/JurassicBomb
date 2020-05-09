@@ -51,7 +51,8 @@ class Mundo : public States {
     std::vector<sf::Sprite*> adnSprites;//almacena sprites adns
 
     int _cont = 0; // Contador de iteraciones del juego
-
+  sf::Texture background;
+  sf::Sprite backgroundImage;
     float waiteo=3;
     float control=0;
   public:

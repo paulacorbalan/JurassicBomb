@@ -41,6 +41,12 @@ void Mundo::Inicializar() {
         mapas.push_back(m);//meter los mapas en el vector de mapas
       }
 
+                    if ( !background.loadFromFile( "resources/fondo2.png" ) )
+                      std::cout << "Error: Could not display background image" << std::endl;
+                    backgroundImage.setTexture( background );
+                    backgroundImage.setOrigin(background.getSize().x*0.5, background.getSize().y*0.5);
+                    backgroundImage.setPosition(width/2, height/2); 
+
 
 }
 void Mundo::crearAdns(Map* m,int tot){//CREA LOS ADNS A RECOGER
@@ -294,6 +300,7 @@ void Mundo::renicio(){ //reiniciar el mundo, TODO A 0 Y BORRAR MAPAS
 }
 
 void Mundo::Draw(sf::RenderWindow &window){//dibujar mapa y hud
+  window.draw(backgroundImage);
   if(lvlactual<mapas.size()){
       mapas[lvlactual]->draw(window);//DIBUJO MAPA ACTUAL
       

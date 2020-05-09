@@ -4,17 +4,19 @@
 #include "ej_modulos/Tile.h"
 #include "mapa/Map.h"
 #include "menu/menu.h"
+#include "bomba/bombas.h"
+#include "motor/motor.h"
+#include "bomba/colisiones.h"
 #include "maquina/contexto.h"
 #include "SFML/Graphics.hpp"
 #include <time.h>
 
-#define kVel 5
-
 int main() {
 
+  Motor* m=Motor::Instance();
 
-  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
-  window.setFramerateLimit(60);
+  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundgos. DCCIA");
+  m->estableceFPS(window,60);
   //Creamos una ventana
     std::cout<<"window";
     Contexto* game=Contexto::Instance();
@@ -24,19 +26,19 @@ int main() {
 
     sf::Clock clock;
     std::cout<<"clock";
-    sf::Time timeStartUpdate=clock.getElapsedTime();
+    sf::Time timeStartUpdate=m->obtenerInstante(clock);
     std::cout<<"timestart\n";
      
     //Bucle del juego
-      while (window.isOpen()) {
+      while (m->compruebaVentana(window)) {
           while (game->Running()){
                       sf::Event event;
-                        while(window.pollEvent(event)){
+                        while(m->compruebaEvento(window,event)){
                           game->Event(event,window);
                         }
                       game->Update(window);  
                       game->Draw(window);              
-            if(!window.isOpen())game->Quit();
+            if(!m->compruebaVentana(window))game->Quit();
             }
           
       }

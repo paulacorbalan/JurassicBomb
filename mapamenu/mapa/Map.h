@@ -3,7 +3,8 @@
 #pragma once
 #include "tinyxml.h"
 #include <string>
-#include "SFML/Graphics.hpp"
+#include "sprite.h"
+#include "motor.h"
 
 using namespace std;
 class Map {
@@ -27,7 +28,10 @@ public:
   };
   int*** gettilemap(){
     return _tilemap;
-  }; 
+  };
+  Sprite**** gettilemapSprite(){
+    return _tilemapSprite;
+  };
   int getnumlayers(){
     return _numlayers;
   };
@@ -37,6 +41,18 @@ public:
   int getwidth(){
     return _width;
   };
+  void setTileMapa(int l,int y,int z,int valor)
+  {
+    _tilemap[l][y][z] = valor;
+  }
+
+  Sprite gettilemapSprite(int l, int y, int x); // Get sprite de los til
+  sf::Sprite spawnDino(int pos_dino, int l, int y, int x);
+  void anadirVector(std::vector<Sprite*> &vectorS);
+  void moveRightDino();
+  void moveLeftDino();
+  void moveUpDino();
+  void moveDownDino();
   void Update();
   void reservarMemoria(int num);
   void liberar();
@@ -56,7 +72,9 @@ private:
   sf::Text texto;
   sf::VertexArray m_vertices;
   sf::Texture _tilesettexture;
-  sf::Sprite ****_tilemapSprite;
+  
+  Sprite ****_tilemapSprite;
+
 
 };
 

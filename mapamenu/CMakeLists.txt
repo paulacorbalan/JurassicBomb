@@ -13,8 +13,10 @@ add_subdirectory(mundo)
 add_subdirectory(juego)
 add_subdirectory(bomba)
 add_subdirectory(dinosaurio)
-add_subdirectory(motor)
+add_subdirectory(adn)
+add_subdirectory(IA)
 add_subdirectory(sprite)
+add_subdirectory(motor)
 add_subdirectory(tinyxml-master)
 
 #Opciones a pasar al compilador de C++

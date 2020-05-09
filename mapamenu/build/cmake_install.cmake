@@ -1,4 +1,4 @@
-# Install script for directory: /home/damian/Escritorio/respositoriolocal/mapamenu
+# Install script for directory: /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,17 +34,19 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/ej_modulos/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/mapa/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/maquina/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/menu/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/mundo/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/juego/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/bomba/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/dinosaurio/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/motor/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/sprite/cmake_install.cmake")
-  include("/home/damian/Escritorio/respositoriolocal/mapamenu/build/tinyxml-master/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/ej_modulos/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/mapa/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/maquina/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/menu/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/mundo/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/juego/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/bomba/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/dinosaurio/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/adn/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/IA/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/sprite/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/motor/cmake_install.cmake")
+  include("/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/tinyxml-master/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/damian/Escritorio/respositoriolocal/mapamenu/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

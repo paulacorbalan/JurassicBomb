@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../bomba/jugador.h
+SFML/Graphics.hpp
+-
+
+../mapa/Map.h
+tinyxml.h
+../mapa/tinyxml.h
+string
+-
+SFML/Graphics.hpp
+../mapa/SFML/Graphics.hpp
+
 ../maquina/contexto.h
 SFML/Graphics.hpp
 ../maquina/SFML/Graphics.hpp
@@ -48,51 +60,75 @@ sstream
 tinystr.h
 ../tinyxml-master/tinystr.h
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.h
+/home/fv2/JurassicBomb/mapamenu/bomba/bombas.h
 SFML/Graphics.hpp
 -
+jugador.h
+/home/fv2/JurassicBomb/mapamenu/bomba/jugador.h
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/include/config.h
+/home/fv2/JurassicBomb/mapamenu/bomba/colisiones.h
+SFML/Graphics.hpp
+-
+bombas.h
+/home/fv2/JurassicBomb/mapamenu/bomba/bombas.h
+Map.h
+/home/fv2/JurassicBomb/mapamenu/bomba/Map.h
+../dinosaurio/dinosaurio.h
+/home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/main.cpp
+/home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+
+/home/fv2/JurassicBomb/mapamenu/ej_modulos/Tile.h
+SFML/Graphics.hpp
+-
+jugador.h
+/home/fv2/JurassicBomb/mapamenu/ej_modulos/jugador.h
+
+/home/fv2/JurassicBomb/mapamenu/include/config.h
+
+/home/fv2/JurassicBomb/mapamenu/main.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 include/config.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/include/config.h
+/home/fv2/JurassicBomb/mapamenu/include/config.h
 ej_modulos/Tile.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/ej_modulos/Tile.h
+/home/fv2/JurassicBomb/mapamenu/ej_modulos/Tile.h
 mapa/Map.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/Map.h
+/home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 menu/menu.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.h
+/home/fv2/JurassicBomb/mapamenu/menu/menu.h
+bomba/bombas.h
+/home/fv2/JurassicBomb/mapamenu/bomba/bombas.h
+bomba/colisiones.h
+/home/fv2/JurassicBomb/mapamenu/bomba/colisiones.h
 maquina/contexto.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+/home/fv2/JurassicBomb/mapamenu/maquina/contexto.h
 SFML/Graphics.hpp
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/SFML/Graphics.hpp
+/home/fv2/JurassicBomb/mapamenu/SFML/Graphics.hpp
 time.h
 -
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/Map.h
+/home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 tinyxml.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/tinyxml.h
+/home/fv2/JurassicBomb/mapamenu/mapa/tinyxml.h
 string
 -
 SFML/Graphics.hpp
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/mapa/SFML/Graphics.hpp
+/home/fv2/JurassicBomb/mapamenu/mapa/SFML/Graphics.hpp
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/contexto.h
+/home/fv2/JurassicBomb/mapamenu/maquina/contexto.h
 SFML/Graphics.hpp
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/maquina/SFML/Graphics.hpp
+/home/fv2/JurassicBomb/mapamenu/maquina/SFML/Graphics.hpp
 iostream
 -
 
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/menu.h
+/home/fv2/JurassicBomb/mapamenu/menu/menu.h
 string
 -
 iostream
 -
 states.h
-/home/fv2/Desktop/git/JurassicBomb/mapamenu/menu/states.h
+/home/fv2/JurassicBomb/mapamenu/menu/states.h
 

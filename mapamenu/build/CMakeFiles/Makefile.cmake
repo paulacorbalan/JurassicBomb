@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../IA/CMakeLists.txt"
+  "../adn/CMakeLists.txt"
   "../bomba/CMakeLists.txt"
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
@@ -60,8 +62,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "juego/CMakeFiles/CMakeDirectoryInformation.cmake"
   "bomba/CMakeFiles/CMakeDirectoryInformation.cmake"
   "dinosaurio/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "motor/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "adn/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "IA/CMakeFiles/CMakeDirectoryInformation.cmake"
   "sprite/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "motor/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tinyxml-master/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

@@ -5,8 +5,10 @@
 #include <string>
 #include <iostream>
 #include "states.h"
+#include "sprite.h"
 
-#define kVel 5
+//
+
 using namespace std;
 #define width 640
 #define height 480
@@ -14,35 +16,35 @@ using namespace std;
 class Menu : public States {
   private:
   sf::Texture background;
-  sf::Sprite backgroundImage;
+  Sprite* backgroundImage;
   sf::Texture pausa;
-  sf::Sprite pausaImage;
-  sf::Sprite playImage;
+  Sprite* pausaImage;
+  Sprite* playImage;
   sf::Texture play;
-  sf::Sprite atrasImage;
+  Sprite* atrasImage;
   sf::Texture atras;
-  sf::Sprite nivelesImage;
+  Sprite* nivelesImage;
   sf::Texture niveles;
   sf::Texture menos;
-  sf::Sprite menosImage;
+  Sprite* menosImage;
   sf::Texture plus;
-  sf::Sprite plusImage;
+  Sprite* plusImage;
   sf::Font fuente;
   sf::String cadena;
   sf::Text texto;
   sf::Texture facil;
-  sf::Sprite facilImage;
+  Sprite* facilImage;
   sf::Texture normal;
-  sf::Sprite normalImage;
+  Sprite* normalImage;
   sf::Texture dificil;
-  sf::Sprite dificilImage;
+  Sprite* dificilImage;
   sf::Texture splayer;
-  sf::Sprite splayerImage;
+  Sprite* splayerImage;
   sf::Texture mplayer;
-  sf::Sprite mplayerImage;
+  Sprite* mplayerImage;
   sf::Texture exit;
-  sf::Sprite exitImage;                
-  sf::Sprite sprite;
+  Sprite* exitImage;                
+  Sprite* sprite;
 
     bool gpause=false;
     bool jugando=false;

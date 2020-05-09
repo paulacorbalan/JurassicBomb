@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/git/JurassicBomb/mapamenu
+# Install script for directory: /home/fv2/JurassicBomb/mapamenu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,15 +34,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./ej_modulos/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mapa/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./maquina/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./menu/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./mundo/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./juego/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./bomba/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./dinosaurio/cmake_install.cmake")
-  include("/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./ej_modulos/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./mapa/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./maquina/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./menu/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./mundo/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./juego/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./bomba/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./dinosaurio/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./adn/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./IA/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build./tinyxml-master/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/fv2/Desktop/git/JurassicBomb/mapamenu/build./${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/fv2/JurassicBomb/mapamenu/build./${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

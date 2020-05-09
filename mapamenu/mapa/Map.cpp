@@ -2,6 +2,9 @@
 #include <iostream>
 
 
+Motor* mo=Motor::Instance();
+
+
 Map::Map(string s,int puntos) {
   finalizado=false;
   puntosfin=puntos;
@@ -14,7 +17,9 @@ Map::Map(string s,int puntos) {
       std::cout << "load.."<< endl ;
     if (loadOkay)
     {
-      std::cout<<"cargado"<< endl;}else{std::cout<<"no cargado";
+      std::cout<<"cargado"<< endl;
+      }
+      else{std::cout<<"no cargado";
       }
   //datos
     TiXmlElement * data= mapa.FirstChildElement("map");
@@ -30,21 +35,18 @@ Map::Map(string s,int puntos) {
   TiXmlElement *value=data->FirstChildElement("properties")->FirstChildElement("property");
     value->QueryStringAttribute("value",&_nombremapa);
           std::cout<<_nombremapa<<endl;
-
-              if (!fuente.loadFromFile("resources/arial.ttf"))
-              {              
-                    std::cout << "Error: Could not display font" << std::endl;
-              }    
+              mo->cargaFuente(fuente,"resources/arial.ttf");
+               
               // Asignamos la cadena al texto
-              texto.setString(_nombremapa);
+              mo->estableceCadena(texto,_nombremapa);  
               // Asignamos la fuente que hemos cargado al texto
-              texto.setFont(fuente);
+              mo->estableceFuente(texto,fuente);
               // Tamaño de la fuente
-              texto.setCharacterSize(20);
+              mo->escalaTamanyoLetra(texto,20);
               // Posición del texto
-              texto.setPosition(530,20);
-              texto.setColor(sf::Color::Red);
-              texto.setScale(1.5,1.5);
+              mo->posicionaTexto(texto,530,20);
+              mo->seleccionaColor(texto,sf::Color::Red);
+              mo->estableceEscala(texto,1.5,1.5);
   //image
   std::cout<<"img"<<endl;
   TiXmlElement *img=data->FirstChildElement("tileset")->FirstChildElement("image");
@@ -96,15 +98,20 @@ Map::Map(string s,int puntos) {
           for(int x=0; x<_width;x++){
             int gid=_tilemap [l][y][x]-1;
             if(gid>-1){
-              _tilemapSprite[l][y][x]=new sf::Sprite(_tilesettexture,{0+(gid*32),0+(gid*32),32,32});
-              _tilemapSprite[l][y][x]->setPosition(112+(x*_tilewidth),64+(y*_tileheigh));
+              _tilemapSprite[l][y][x]->estableceTextura(_tilesettexture);
+              _tilemapSprite[l][y][x]->recortaSprite(0+(gid*32),0+(gid*32),32,32);
+              _tilemapSprite[l][y][x]->posiciona(112+(x*_tilewidth),64+(y*_tileheigh));
               cont++;
             }
           }
         }
       }
+
+
       std::cout<< cont;
       std::cout<<"arraysprites"<<endl;
+      
+
   }
   /*TiXmlElement *cambio(int l, TiXmlElement *layer){
       for(int i=0;i<l;i++){
@@ -112,6 +119,10 @@ Map::Map(string s,int puntos) {
       }
     return layer;
   }*/
+
+Sprite Map::gettilemapSprite(int l, int y, int x){
+  return *_tilemapSprite[l][y][x];
+}
 
 
 Map::~Map(){
@@ -151,7 +162,8 @@ void Map::draw(sf::RenderWindow& window){
     for(int y=0; y<_height;y++){
       for(int x=0; x<_width;x++){
        // if(_tilemapSprite[_activelayer][y][x]!=NULL){
-          window.draw(*(_tilemapSprite[l][y][x]));
+         _tilemapSprite[l][y][x]->dibujaSprite(window);
+         // window.draw(*(_tilemapSprite[l][y][x]));
         //}
       }
     }
@@ -195,18 +207,18 @@ void Map::reservarMemoria(int _numlayers){
   std::cout<<"reserva sprites";
   //reserva memoria Sprites
   std::cout<<_numlayers<<endl;
-  _tilemapSprite=new sf::Sprite***[_numlayers];///////////////////terminate called after throwing an instance of 'std::bad_array_new_length'
+  _tilemapSprite=new Sprite***[_numlayers];///////////////////terminate called after throwing an instance of 'std::bad_array_new_length'
   //////////////////////////////      what():  std::bad_array_new_length                            Aborted (core dumped)
 
   std::cout<<"AQUI NO LLEGA";
   for(int i=0;i<_numlayers;i++){
-    _tilemapSprite[i]=new sf::Sprite**[_height];
+    _tilemapSprite[i]=new Sprite**[_height];
   }
   for(int i=0;i<_numlayers;i++){
     for(int y=0;y<_height;y++){
-      _tilemapSprite[i][y]=new sf::Sprite*[_width];
+      _tilemapSprite[i][y]=new Sprite*[_width];
       for(int x=0;x<_width;x++){
-        _tilemapSprite[i][y][x]=new sf::Sprite();
+        _tilemapSprite[i][y][x]=new Sprite("resources/tilebase.png");
       }
     }
   }
@@ -216,4 +228,19 @@ void Map::liberar(){
 
 
 
+}
+
+void Map::anadirVector(std::vector<Sprite*> &vectorS)
+{
+  for(unsigned int l=0; l<_numlayers;l++){
+        for( unsigned int y=0; y<_height;y++){
+          for(unsigned int x=0; x<_width;x++){
+            int gid=_tilemap [l][y][x]-1;
+            if(gid == 0 || gid == 2) //Si son piedras o paredes, lo metemos en el sprite de las colisiones.
+            {
+              vectorS.push_back(_tilemapSprite[l][y][x]);
+            }
+          }
+        }
+      }
 }

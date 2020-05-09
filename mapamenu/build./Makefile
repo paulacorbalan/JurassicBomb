@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fv2/Desktop/git/JurassicBomb/mapamenu
+CMAKE_SOURCE_DIR = /home/fv2/JurassicBomb/mapamenu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fv2/Desktop/git/JurassicBomb/mapamenu/build.
+CMAKE_BINARY_DIR = /home/fv2/JurassicBomb/mapamenu/build.
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/JurassicBomb/mapamenu/build./CMakeFiles /home/fv2/JurassicBomb/mapamenu/build./CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/Desktop/git/JurassicBomb/mapamenu/build./CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fv2/JurassicBomb/mapamenu/build./CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -135,6 +135,60 @@ libModulos: cmake_check_build_system
 libModulos/fast:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/build
 .PHONY : libModulos/fast
+
+IA/ia.o: IA/ia.cpp.o
+
+.PHONY : IA/ia.o
+
+# target to build an object file
+IA/ia.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.o
+.PHONY : IA/ia.cpp.o
+
+IA/ia.i: IA/ia.cpp.i
+
+.PHONY : IA/ia.i
+
+# target to preprocess a source file
+IA/ia.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.i
+.PHONY : IA/ia.cpp.i
+
+IA/ia.s: IA/ia.cpp.s
+
+.PHONY : IA/ia.s
+
+# target to generate assembly for a file
+IA/ia.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/IA/ia.cpp.s
+.PHONY : IA/ia.cpp.s
+
+adn/adn.o: adn/adn.cpp.o
+
+.PHONY : adn/adn.o
+
+# target to build an object file
+adn/adn.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.o
+.PHONY : adn/adn.cpp.o
+
+adn/adn.i: adn/adn.cpp.i
+
+.PHONY : adn/adn.i
+
+# target to preprocess a source file
+adn/adn.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.i
+.PHONY : adn/adn.cpp.i
+
+adn/adn.s: adn/adn.cpp.s
+
+.PHONY : adn/adn.s
+
+# target to generate assembly for a file
+adn/adn.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/adn/adn.cpp.s
+.PHONY : adn/adn.cpp.s
 
 bomba/bombas.o: bomba/bombas.cpp.o
 
@@ -551,6 +605,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... MiJuego"
 	@echo "... libModulos"
+	@echo "... IA/ia.o"
+	@echo "... IA/ia.i"
+	@echo "... IA/ia.s"
+	@echo "... adn/adn.o"
+	@echo "... adn/adn.i"
+	@echo "... adn/adn.s"
 	@echo "... bomba/bombas.o"
 	@echo "... bomba/bombas.i"
 	@echo "... bomba/bombas.s"

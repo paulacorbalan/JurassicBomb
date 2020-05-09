@@ -1,4 +1,4 @@
-# Install script for directory: /home/fv2/Desktop/git/JurassicBomb/mapamenu/bomba
+# Install script for directory: /home/fv2/JurassicBomb/mapamenu/bomba
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -119,6 +119,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window){
 void Menu::Draw(sf::RenderWindow &window) {
 
     //dibujar cosas
+    window.draw(backgroundImage);
       if (jugando && !gpause){
               window.draw(sprite);
       }else if(jugando && gpause){
@@ -142,8 +143,9 @@ void Menu::Draw(sf::RenderWindow &window) {
               window.draw(exitImage);
       }
       if(menus==3 && !jugando){
-
+        window.draw(ganarImage);
       }
+      
 }
 void Menu::lvltxt(){
             // Damos un valor a la cadena
@@ -167,9 +169,18 @@ void Menu::reinicio(){
 void Menu::Cargarecursos(){
                   //background
                   std::cout<<"menucargados";
-                    if ( !background.loadFromFile( "resources/background.jpg" ) )
+                    if ( !background.loadFromFile( "resources/fondo2.png" ) )
                       std::cout << "Error: Could not display background image" << std::endl;
                     backgroundImage.setTexture( background );
+                    backgroundImage.setOrigin(background.getSize().x*0.5, background.getSize().y*0.5);
+                    backgroundImage.setPosition(width/2, height/2); 
+
+
+                    if ( !ganar.loadFromFile( "resources/ganar2.png" ) )
+                    std::cout << "Error: Could not display ganar image" << std::endl;
+                    ganarImage.setTexture( ganar );
+                    ganarImage.setOrigin(ganar.getSize().x*0.5, ganar.getSize().y*0.5);
+                    ganarImage.setPosition(width/2, height/2); 
                   //Cargo la imagen donde reside la textura del sprite
                   //Y creo el spritesheet a partir de la imagen anterior
                       sf::Texture tex;

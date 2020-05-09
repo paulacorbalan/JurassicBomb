@@ -14,6 +14,8 @@ class Menu : public States {
   private:
   sf::Texture background;
   sf::Sprite backgroundImage;
+  sf::Texture ganar;
+  sf::Sprite ganarImage;
   sf::Texture pausa;
   sf::Sprite pausaImage;
   sf::Sprite playImage;

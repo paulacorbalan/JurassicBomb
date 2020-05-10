@@ -27,6 +27,8 @@ dinosaurio.h
 ../IA/dinosaurio.h
 colisiones.h
 ../IA/colisiones.h
+../mapa/Map.h
+../mapa/Map.h
 
 ../adn/adn.h
 tinyxml.h
@@ -51,12 +53,16 @@ Map.h
 ../bomba/Map.h
 ../dinosaurio/dinosaurio.h
 ../dinosaurio/dinosaurio.h
+adn.h
+../bomba/adn.h
 
 ../bomba/jugador.h
 SFML/Graphics.hpp
 -
 
 ../dinosaurio/dinosaurio.h
+../mapa/Map.h
+../mapa/Map.h
 
 ../ej_modulos/Tile.h
 SFML/Graphics.hpp
@@ -185,6 +191,8 @@ dinosaurio.h
 /home/fv2/JurassicBomb/mapamenu/IA/dinosaurio.h
 colisiones.h
 /home/fv2/JurassicBomb/mapamenu/IA/colisiones.h
+../mapa/Map.h
+/home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 
 /home/fv2/JurassicBomb/mapamenu/adn/adn.cpp
 adn.h
@@ -227,6 +235,8 @@ Map.h
 /home/fv2/JurassicBomb/mapamenu/bomba/Map.h
 ../dinosaurio/dinosaurio.h
 /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+adn.h
+/home/fv2/JurassicBomb/mapamenu/bomba/adn.h
 
 /home/fv2/JurassicBomb/mapamenu/bomba/jugador.cpp
 jugador.h
@@ -245,8 +255,12 @@ iostream
 -
 dinosaurio.h
 /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+math.h
+-
 
 /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+../mapa/Map.h
+/home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 
 /home/fv2/JurassicBomb/mapamenu/ej_modulos/Tile.cpp
 Tile.h

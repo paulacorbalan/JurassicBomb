@@ -28,6 +28,9 @@ class Sprite{
                          exit(0);
                 }
             }
+            void escalaSprite(int n1,int n2){
+                    spr->setScale(n1,n2);
+            }
             void estableceTextura(sf::Texture& t){//actualiza la textura a utilizar
                     spr->setTexture(t);
             }
@@ -42,6 +45,13 @@ class Sprite{
             }
             sf::FloatRect getHitbox(){   //captura la hitbox del sprite
                     spr->getGlobalBounds();
+            }
+
+            float getHitboxLeft(){   //captura la hitbox del sprite
+                    spr->getGlobalBounds().left;
+            }
+             float getHitboxTop(){   //captura la hitbox del sprite
+                    spr->getGlobalBounds().top;
             }
             bool colisiona(sf::Sprite* s){ //compueba si dos sprites colisionan
                     bool respuesta=false;
@@ -72,6 +82,7 @@ class Sprite{
                float getPosY(){                 //devuele la posicion y del sprite
                        return spr->getPosition().y;
                } 
+
                sf::Sprite* getSpr(){  //devuelve el sprite
                        return spr;
                }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/tinyxml-master
+# Install script for directory: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/tinyxml-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

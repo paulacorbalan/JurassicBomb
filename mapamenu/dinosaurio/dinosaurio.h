@@ -1,6 +1,7 @@
 #ifndef DINOSAURIO_H
 #define DINOSAURIO_H
 #include "sprite.h"
+#include "Map.h"
 class Dinosaurio 
 {
     public:
@@ -9,10 +10,10 @@ class Dinosaurio
       ~Dinosaurio(); // Destructor
 
       // Movimiento
-      int marriba(std::vector<Sprite*> &c);
-      int mabajo(std::vector<Sprite*> &c);
-      int mderecha(std::vector<Sprite*> &c);
-      int mizquierda(std::vector<Sprite*> &c);
+      int marriba(std::vector<Sprite*> &c,int numlayers, int height_map, int width_map,Sprite**** tilemapSprite, Map &mapas);
+      int mabajo(std::vector<Sprite*> &c,int numlayers, int height_map, int width_map,Sprite**** tilemapSprite, Map &mapas);
+      int mderecha(std::vector<Sprite*> &c,int numlayers, int height_map, int width_map,Sprite**** tilemapSprite, Map &mapas);
+      int mizquierda(std::vector<Sprite*> &c,int numlayers, int height_map, int width_map,Sprite**** tilemapSprite, Map &mapas);
 
       void salto(int pos_mirando);
 
@@ -74,6 +75,8 @@ class Dinosaurio
       sf::Texture _dino_texture_arriba;
       sf::Texture _dino_texture_derecha;
       sf::Texture _dino_texture_izquierda;
+      sf::Texture _bloque;
+      sf::Texture _camino;
       int _posdino; // Posicion a la que mira el dino ==> 0:Arriba | 1:Abajo | 2:Derecha | 3:Izquierda
       int _Vida; // Vida del dino
       int _Tipodino; // Indica el tipo de dinosaurio. 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops

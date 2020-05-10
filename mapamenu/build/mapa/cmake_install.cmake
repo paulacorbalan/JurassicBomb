@@ -1,4 +1,4 @@
-# Install script for directory: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/mapa
+# Install script for directory: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/mapa
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

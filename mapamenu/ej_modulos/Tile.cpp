@@ -1,6 +1,6 @@
 #include "Tile.h"
 #include <iostream>
-
+Motor* moto=Motor::Instance();
 Tile::Tile() {
 Cargarecursos();
 }
@@ -9,21 +9,14 @@ void Tile::Cargarecursos(){
 
   //Cargo la imagen donde reside la textura del sprite
 
-  if (!texvida.loadFromFile("resources/corazon rojo.png")) {
-    std::cerr << "Error cargando la imagen sprites.png";
-    exit(0);
-  }vida1.setTexture(texvida);vida2.setTexture(texvida);vida3.setTexture(texvida);
+  
+  vida1=new Sprite("resources/corazon rojo.png");
+  vida2=new Sprite("resources/corazon rojo.png");
+  vida3=new Sprite("resources/corazon rojo.png");
 
-  if (!texletranumero.loadFromFile("resources/letrasnumeros.png")) {
-    std::cerr << "Error cargando la imagen sprites.png";
-    exit(0);
-  }letranumero.setTexture(texletranumero);
+  letranumero=new Sprite("resources/letrasnumeros.png");
 
-
-  if (!texcontador.loadFromFile("resources/contador.png")) {
-    std::cerr << "Error cargando la imagen sprites.png";
-    exit(0);
-  }contador.setTexture(texcontador);
+  contador=new Sprite("resources/contador.png");
      
   //Y creo el spritesheet a partir de la imagen anterior
             if (!fuente.loadFromFile("resources/arial.ttf"))
@@ -32,62 +25,66 @@ void Tile::Cargarecursos(){
             }    
             // Damos un valor a la cadena
             cadena = "0"+std::to_string(min)+":"+std::to_string(seg);
-            // Asignamos la cadena al texto
-            texto.setString(cadena);
+            // Asignamos la cadena al 
+            moto->estableceCadena(texto,cadena);
+           
             // Asignamos la fuente que hemos cargado al texto
-            texto.setFont(fuente);
+             moto->estableceFuente(texto,fuente);
             // Tamaño de la fuente
-            texto.setCharacterSize(20);
+            moto->escalaTamanyoLetra(texto,20);
             // Posición del texto
-            texto.setPosition(295,20);
-            texto.setColor(sf::Color::Red);
+            moto->posicionaTexto(texto,295,20);
+            moto->seleccionaColor(texto,sf::Color::Red);
   
   //Le pongo el centroide donde corresponde
-  vida1.setOrigin(16 / 2, 16 / 2);
-  vida2.setOrigin(16 / 2, 16 / 2);
-  vida3.setOrigin(16 / 2, 16 / 2);
+  vida1->estableceOrigen(16,16);
+  vida2->estableceOrigen(16,16);
+  vida3->estableceOrigen(16,16);
+  
 
    /*
     //sf::Sprite gameover(tex3);
     gameover.setOrigin(8 / 2,15 / 2);
     */
   //barra de vida
-  vida1.setTextureRect(sf::IntRect( 0* 16, 3 * 16, 16, 16));
-  vida2.setTextureRect(sf::IntRect( 0* 16, 3 * 16, 16, 16));
-  vida3.setTextureRect(sf::IntRect( 0* 16, 3 * 16, 16, 16));
+  vida1->recortaSprite(0,3,16,16);
+  vida2->recortaSprite(0,3,16,16);
+  vida3->recortaSprite(0,3,16,16);
 
-  vida2.setScale(2,2);
-  vida3.setScale(2,2);
-  vida1.setScale(2,2);
+ vida2->escalaSprite(2,2);
+ vida3->escalaSprite(2,2);
+ vida1->escalaSprite(2,2);
+
+  
 
   // Lo dispongo en el centro de la panta
+  vida1->posiciona(40,40);
+  vida2->posiciona(71,40);
+  vida3->posiciona(102,40);
 
-  vida1.setPosition(40, 40);
-  vida2.setPosition(71, 40);
-  vida3.setPosition(102, 40);
  
 }
 void Tile::draw(sf::RenderWindow &window){
   if(vidas==1){
-    window.draw(vida1);
+    vida1->dibujaSprite(window);
   }else if(vidas==2){
-    window.draw(vida1);
-    window.draw(vida2);
+    vida1->dibujaSprite(window);
+    vida2->dibujaSprite(window);
   }else if(vidas==3){
-    window.draw(vida1);
-    window.draw(vida2);
-    window.draw(vida3);
+    vida1->dibujaSprite(window);
+    vida2->dibujaSprite(window);
+    vida3->dibujaSprite(window);
   }else if(vidas==0)
   {
     /* GAMEOVER HABER ESTUDIAO */
   }
-    window.draw(texto);
+    moto->dibujaText(texto,window);
 }
 void Tile::Update(Jugador* j){
     vidas=j->getVidas();
     if(!terminada){
         int s2=segundero;
-        segundero=temporizador.getElapsedTime().asSeconds();
+        segundero=moto->obtentiempoensegundos(temporizador);
         if(s2<segundero){             
             seg-=1;
                 std::cout<<seg<<"\n";

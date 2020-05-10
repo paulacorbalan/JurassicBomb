@@ -1,3 +1,5 @@
+#ifndef JUGADOR_H
+#define JUGADOR_H
 #pragma once
 #include "sprite.h"
 
@@ -16,7 +18,8 @@ class Jugador{
     void setVelocidad(int velocidad){kVel = velocidad;}
     void setVidas(int v){vidas = v;}
     void setInvencibilidad(float f){invencibilidad = f;}
-    void setInicio(){ matando=false; sprite->posiciona(160,113);  }
+    void setInicio(int a){ matando=false;
+       if(a==1){sprite->posiciona(160, 113); }else{sprite->posiciona(160+(32*10), 113+(32*8));  }}
     void mover(int direccion);
     void quitarVidas(){if(vidas > 0)vidas--;}
 
@@ -33,3 +36,5 @@ class Jugador{
     float invencibilidad = -1;
     bool matando;
 };
+
+#endif

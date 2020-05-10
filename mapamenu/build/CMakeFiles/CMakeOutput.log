@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is Clang, found in "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+The C compiler identification is Clang, found in "/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/clang++-3.8 
@@ -23,36 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is Clang, found in "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+The CXX compiler identification is Clang, found in "/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6f707/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_6f707.dir/build.make CMakeFiles/cmTC_6f707.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6f707.dir/testCCompiler.c.o
-/usr/bin/clang-3.8     -o CMakeFiles/cmTC_6f707.dir/testCCompiler.c.o   -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp/testCCompiler.c"
-Linking C executable cmTC_6f707
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f707.dir/link.txt --verbose=1
-/usr/bin/clang-3.8       CMakeFiles/cmTC_6f707.dir/testCCompiler.c.o  -o cmTC_6f707 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_0979b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0979b.dir/build.make CMakeFiles/cmTC_0979b.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0979b.dir/testCCompiler.c.o
+/usr/bin/clang-3.8     -o CMakeFiles/cmTC_0979b.dir/testCCompiler.c.o   -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_0979b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0979b.dir/link.txt --verbose=1
+/usr/bin/clang-3.8       CMakeFiles/cmTC_0979b.dir/testCCompiler.c.o  -o cmTC_0979b -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_dd37a/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_dd37a.dir/build.make CMakeFiles/cmTC_dd37a.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o
-/usr/bin/clang-3.8     -o CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_dd37a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd37a.dir/link.txt --verbose=1
-/usr/bin/clang-3.8      -v CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o  -o cmTC_dd37a -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_e030a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e030a.dir/build.make CMakeFiles/cmTC_e030a.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o
+/usr/bin/clang-3.8     -o CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_e030a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e030a.dir/link.txt --verbose=1
+/usr/bin/clang-3.8      -v CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o  -o cmTC_e030a -rdynamic  
 clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -64,24 +61,22 @@ Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/6.0.0
 Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_dd37a /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e030a /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_dd37a/fast"]
-  ignore line: [make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_dd37a.dir/build.make CMakeFiles/cmTC_dd37a.dir/build]
-  ignore line: [make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/clang-3.8     -o CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_dd37a]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd37a.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/clang-3.8      -v CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o  -o cmTC_dd37a -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e030a/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e030a.dir/build.make CMakeFiles/cmTC_e030a.dir/build]
+  ignore line: [make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/clang-3.8     -o CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_e030a]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e030a.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang-3.8      -v CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o  -o cmTC_e030a -rdynamic  ]
   ignore line: [clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -95,7 +90,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_dd37a /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e030a /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/bin/ld] ==> ignore
     arg [-export-dynamic] ==> ignore
     arg [-zrelro] ==> ignore
@@ -107,7 +102,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_dd37a] ==> ignore
+    arg [cmTC_e030a] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o] ==> ignore
@@ -120,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/llvm-3.8/bin/../lib] ==> dir [/usr/lib/llvm-3.8/bin/../lib]
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
-    arg [CMakeFiles/cmTC_dd37a.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_e030a.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -153,19 +148,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_369bc/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_369bc.dir/build.make CMakeFiles/cmTC_369bc.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_369bc.dir/feature_tests.c.o
-/usr/bin/clang-3.8    -std=c11 -o CMakeFiles/cmTC_369bc.dir/feature_tests.c.o   -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_369bc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_369bc.dir/link.txt --verbose=1
-/usr/bin/clang-3.8       CMakeFiles/cmTC_369bc.dir/feature_tests.c.o  -o cmTC_369bc -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_20345/fast"
+/usr/bin/make -f CMakeFiles/cmTC_20345.dir/build.make CMakeFiles/cmTC_20345.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_20345.dir/feature_tests.c.o
+/usr/bin/clang-3.8    -std=c11 -o CMakeFiles/cmTC_20345.dir/feature_tests.c.o   -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_20345
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20345.dir/link.txt --verbose=1
+/usr/bin/clang-3.8       CMakeFiles/cmTC_20345.dir/feature_tests.c.o  -o cmTC_20345 -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -175,19 +168,17 @@ make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/Juras
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b4516/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_b4516.dir/build.make CMakeFiles/cmTC_b4516.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b4516.dir/feature_tests.c.o
-/usr/bin/clang-3.8    -std=c99 -o CMakeFiles/cmTC_b4516.dir/feature_tests.c.o   -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_b4516
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4516.dir/link.txt --verbose=1
-/usr/bin/clang-3.8       CMakeFiles/cmTC_b4516.dir/feature_tests.c.o  -o cmTC_b4516 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_4070f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4070f.dir/build.make CMakeFiles/cmTC_4070f.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4070f.dir/feature_tests.c.o
+/usr/bin/clang-3.8    -std=c99 -o CMakeFiles/cmTC_4070f.dir/feature_tests.c.o   -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4070f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4070f.dir/link.txt --verbose=1
+/usr/bin/clang-3.8       CMakeFiles/cmTC_4070f.dir/feature_tests.c.o  -o cmTC_4070f -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -197,19 +188,17 @@ make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/Juras
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1ec84/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_1ec84.dir/build.make CMakeFiles/cmTC_1ec84.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1ec84.dir/feature_tests.c.o
-/usr/bin/clang-3.8    -std=c90 -o CMakeFiles/cmTC_1ec84.dir/feature_tests.c.o   -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_1ec84
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ec84.dir/link.txt --verbose=1
-/usr/bin/clang-3.8       CMakeFiles/cmTC_1ec84.dir/feature_tests.c.o  -o cmTC_1ec84 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_9866f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9866f.dir/build.make CMakeFiles/cmTC_9866f.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9866f.dir/feature_tests.c.o
+/usr/bin/clang-3.8    -std=c90 -o CMakeFiles/cmTC_9866f.dir/feature_tests.c.o   -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9866f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9866f.dir/link.txt --verbose=1
+/usr/bin/clang-3.8       CMakeFiles/cmTC_9866f.dir/feature_tests.c.o  -o cmTC_9866f -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -217,33 +206,30 @@ make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/Juras
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9ef59/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_9ef59.dir/build.make CMakeFiles/cmTC_9ef59.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9ef59.dir/testCXXCompiler.cxx.o
-/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_9ef59.dir/testCXXCompiler.cxx.o -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
-Linking CXX executable cmTC_9ef59
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ef59.dir/link.txt --verbose=1
-/usr/bin/clang++-3.8        CMakeFiles/cmTC_9ef59.dir/testCXXCompiler.cxx.o  -o cmTC_9ef59 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fa1af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa1af.dir/build.make CMakeFiles/cmTC_fa1af.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fa1af.dir/testCXXCompiler.cxx.o
+/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_fa1af.dir/testCXXCompiler.cxx.o -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_fa1af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa1af.dir/link.txt --verbose=1
+/usr/bin/clang++-3.8        CMakeFiles/cmTC_fa1af.dir/testCXXCompiler.cxx.o  -o cmTC_fa1af -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e99db/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_e99db.dir/build.make CMakeFiles/cmTC_e99db.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_e99db
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e99db.dir/link.txt --verbose=1
-/usr/bin/clang++-3.8       -v CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e99db -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_19fb8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_19fb8.dir/build.make CMakeFiles/cmTC_19fb8.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_19fb8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19fb8.dir/link.txt --verbose=1
+/usr/bin/clang++-3.8       -v CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19fb8 -rdynamic  
 clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -255,24 +241,22 @@ Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/6.0.0
 Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e99db /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_19fb8 /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e99db/fast"]
-  ignore line: [make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e99db.dir/build.make CMakeFiles/cmTC_e99db.dir/build]
-  ignore line: [make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_e99db]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e99db.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/clang++-3.8       -v CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e99db -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_19fb8/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_19fb8.dir/build.make CMakeFiles/cmTC_19fb8.dir/build]
+  ignore line: [make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/clang++-3.8      -o CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_19fb8]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19fb8.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang++-3.8       -v CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19fb8 -rdynamic  ]
   ignore line: [clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -286,7 +270,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e99db /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_19fb8 /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../.. -L/usr/lib/llvm-3.8/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/bin/ld] ==> ignore
     arg [-export-dynamic] ==> ignore
     arg [-zrelro] ==> ignore
@@ -298,7 +282,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_e99db] ==> ignore
+    arg [cmTC_19fb8] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o] ==> ignore
@@ -311,7 +295,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/llvm-3.8/bin/../lib] ==> dir [/usr/lib/llvm-3.8/bin/../lib]
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
-    arg [CMakeFiles/cmTC_e99db.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_19fb8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -342,19 +326,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bad01/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_bad01.dir/build.make CMakeFiles/cmTC_bad01.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_bad01.dir/feature_tests.cxx.o
-/usr/bin/clang++-3.8     -std=c++14 -o CMakeFiles/cmTC_bad01.dir/feature_tests.cxx.o -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_bad01
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bad01.dir/link.txt --verbose=1
-/usr/bin/clang++-3.8        CMakeFiles/cmTC_bad01.dir/feature_tests.cxx.o  -o cmTC_bad01 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_1f13c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1f13c.dir/build.make CMakeFiles/cmTC_1f13c.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1f13c.dir/feature_tests.cxx.o
+/usr/bin/clang++-3.8     -std=c++14 -o CMakeFiles/cmTC_1f13c.dir/feature_tests.cxx.o -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1f13c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1f13c.dir/link.txt --verbose=1
+/usr/bin/clang++-3.8        CMakeFiles/cmTC_1f13c.dir/feature_tests.cxx.o  -o cmTC_1f13c -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -417,19 +399,17 @@ make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/Juras
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1ff47/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_1ff47.dir/build.make CMakeFiles/cmTC_1ff47.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1ff47.dir/feature_tests.cxx.o
-/usr/bin/clang++-3.8     -std=c++11 -o CMakeFiles/cmTC_1ff47.dir/feature_tests.cxx.o -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_1ff47
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ff47.dir/link.txt --verbose=1
-/usr/bin/clang++-3.8        CMakeFiles/cmTC_1ff47.dir/feature_tests.cxx.o  -o cmTC_1ff47 -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_d4cf6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d4cf6.dir/build.make CMakeFiles/cmTC_d4cf6.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d4cf6.dir/feature_tests.cxx.o
+/usr/bin/clang++-3.8     -std=c++11 -o CMakeFiles/cmTC_d4cf6.dir/feature_tests.cxx.o -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d4cf6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d4cf6.dir/link.txt --verbose=1
+/usr/bin/clang++-3.8        CMakeFiles/cmTC_d4cf6.dir/feature_tests.cxx.o  -o cmTC_d4cf6 -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -492,19 +472,17 @@ make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/Juras
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp
+Change Dir: /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c9f4e/fast"
-make[1]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_c9f4e.dir/build.make CMakeFiles/cmTC_c9f4e.dir/build
-make[2]: se entra en el directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c9f4e.dir/feature_tests.cxx.o
-/usr/bin/clang++-3.8     -std=c++98 -o CMakeFiles/cmTC_c9f4e.dir/feature_tests.cxx.o -c "/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_c9f4e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9f4e.dir/link.txt --verbose=1
-/usr/bin/clang++-3.8        CMakeFiles/cmTC_c9f4e.dir/feature_tests.cxx.o  -o cmTC_c9f4e -rdynamic 
-make[2]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
-make[1]: se sale del directorio '/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_61102/fast"
+/usr/bin/make -f CMakeFiles/cmTC_61102.dir/build.make CMakeFiles/cmTC_61102.dir/build
+make[1]: se entra en el directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_61102.dir/feature_tests.cxx.o
+/usr/bin/clang++-3.8     -std=c++98 -o CMakeFiles/cmTC_61102.dir/feature_tests.cxx.o -c /home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_61102
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61102.dir/link.txt --verbose=1
+/usr/bin/clang++-3.8        CMakeFiles/cmTC_61102.dir/feature_tests.cxx.o  -o cmTC_61102 -rdynamic 
+make[1]: se sale del directorio '/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

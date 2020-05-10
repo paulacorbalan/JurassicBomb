@@ -5,18 +5,16 @@
 #include "mapa/Map.h"
 #include "menu/menu.h"
 #include "bomba/bombas.h"
-#include "motor/motor.h"
 #include "bomba/colisiones.h"
 #include "maquina/contexto.h"
 #include "SFML/Graphics.hpp"
 #include <time.h>
-
+#define UPDATETIME 1000/30
 int main() {
 
-  Motor* m=Motor::Instance();
 
-  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundjjjgos. DCCIA");
-  m->estableceFPS(window,60);
+  sf::RenderWindow window(sf::VideoMode(640, 480),"Jurassic Bomb");
+  window.setFramerateLimit(60);
   //Creamos una ventana
     std::cout<<"window";
     Contexto* game=Contexto::Instance();
@@ -25,22 +23,26 @@ int main() {
     game->ChangeState(Menu::Instance());   
 
     sf::Clock clock;
+    sf::Clock clock2;
+    sf::Time timeStartUpdate=clock.getElapsedTime();
     std::cout<<"clock";
-    sf::Time timeStartUpdate=m->obtenerInstante(clock);
+    std::cout<<"clock2";
     std::cout<<"timestart\n";
      
     //Bucle del juego
-      while (m->compruebaVentana(window)) {
+      while (window.isOpen()) {
+        if((clock.getElapsedTime().asMilliseconds()-timeStartUpdate.asMilliseconds())>UPDATETIME){
           while (game->Running()){
                       sf::Event event;
-                        while(m->compruebaEvento(window,event)){
-                          game->Event(event,window);
+                        while(window.pollEvent(event)){
+                          game->Event(event,window, clock2.restart().asSeconds());
                         }
-                      game->Update(window);  
+                      game->Update(window, clock2.restart().asSeconds());  
                       game->Draw(window);              
-            if(!m->compruebaVentana(window))game->Quit();
-            }
-          
+            if(!window.isOpen())game->Quit();
+          }
+          timeStartUpdate=clock.getElapsedTime();
+        }  
       }
     return 0;
 }

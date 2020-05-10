@@ -1,5 +1,6 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
+#include "motor.h"
 #include "jugador.h"
 
 class Tile{
@@ -14,17 +15,17 @@ class Tile{
     bool getTerminada(){return terminada;}
 private:
 
-    sf::Sprite vida1;
-    sf::Sprite vida2;
-    sf::Sprite vida3;
+    Sprite* vida1;
+    Sprite* vida2;
+    Sprite* vida3;
     sf::Texture texvida;
-    sf::Sprite letranumero;
+    Sprite* letranumero;
     sf::Texture texletranumero;
-    sf::Sprite contador;
+    Sprite* contador;
     sf::Texture texcontador;
     sf::Clock temporizador;
     int segundero;
-    std::vector<sf::Sprite> sprites;
+    std::vector<Sprite*> sprites;
 
 
     sf::Font fuente;

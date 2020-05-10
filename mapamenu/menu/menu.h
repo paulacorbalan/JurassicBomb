@@ -5,9 +5,6 @@
 #include <string>
 #include <iostream>
 #include "states.h"
-#include "sprite.h"
-
-//
 
 using namespace std;
 #define width 640
@@ -16,37 +13,39 @@ using namespace std;
 class Menu : public States {
   private:
   sf::Texture background;
-  Sprite* backgroundImage;
-  sf::Texture pausa;
-  Sprite* pausaImage;
-  Sprite* playImage;
-  sf::Texture play;
-  Sprite* atrasImage;
-  sf::Texture atras;
-  Sprite* ganarImage;
+  sf::Sprite backgroundImage;
   sf::Texture ganar;
-  Sprite* nivelesImage;
+  sf::Sprite ganarImage;
+  sf::Texture perder;
+  sf::Sprite perderImage;
+  sf::Texture pausa;
+  sf::Sprite pausaImage;
+  sf::Sprite playImage;
+  sf::Texture play;
+  sf::Sprite atrasImage;
+  sf::Texture atras;
+  sf::Sprite nivelesImage;
   sf::Texture niveles;
   sf::Texture menos;
-  Sprite* menosImage;
+  sf::Sprite menosImage;
   sf::Texture plus;
-  Sprite* plusImage;
+  sf::Sprite plusImage;
   sf::Font fuente;
   sf::String cadena;
   sf::Text texto;
   sf::Texture facil;
-  Sprite* facilImage;
+  sf::Sprite facilImage;
   sf::Texture normal;
-  Sprite* normalImage;
+  sf::Sprite normalImage;
   sf::Texture dificil;
-  Sprite* dificilImage;
+  sf::Sprite dificilImage;
   sf::Texture splayer;
-  Sprite* splayerImage;
+  sf::Sprite splayerImage;
   sf::Texture mplayer;
-  Sprite* mplayerImage;
+  sf::Sprite mplayerImage;
   sf::Texture exit;
-  Sprite* exitImage;                
-  Sprite* sprite;
+  sf::Sprite exitImage;                
+  sf::Sprite sprite;
 
     bool gpause=false;
     bool jugando=false;
@@ -59,10 +58,10 @@ class Menu : public States {
 
   public:
     void Inicializar();
-    void reinicio();
+    void reinicio(int a);
     static Menu* Instance();
-    void Event(sf::Event event,sf::RenderWindow &window);
-    void Update(sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window, float time);
+    void Update(sf::RenderWindow &window, float time);
     void Draw(sf::RenderWindow &window);
     int GetLvls();
     int GetDif();

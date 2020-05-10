@@ -1,6 +1,8 @@
 #include "colisiones.h"
 #include <iostream>
 
+Motor* mot=Motor::Instance();
+
 void Colisiones::crearColisiones(Sprite* jugador,std::vector<Sprite*> objetos, int direccion, int velocidad)
 {
       for(unsigned int i = 0;i < objetos.size();i++)
@@ -78,7 +80,7 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
 }
 
 
-void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<Sprite*> &totalExplosiones,Map &mapa,  std::vector<Sprite*> &todoSprites)
+void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<Sprite*> &totalExplosiones,Map &mapa,  std::vector<Sprite*> &todoSprites, std::vector<Sprite*> &adnSprites,std::vector<Adn*> &adns)
 {
   Sprite**** mpSprite = mapa.gettilemapSprite();
   int*** tilemap= mapa.gettilemap();
@@ -88,14 +90,28 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
 
   for(unsigned int i = 0;i < totalExplosiones.size();i++)
   {
+    if(jugador.getSprite()->colisiona(adns[i]->getSprite()))
+    {
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();                     
+    }
+  }
     //EXPLOSION DINOSAURIOS
+    for(unsigned int i = 0;i < totalExplosiones.size();i++)
+  {
     for(unsigned int j = 0;j < dinosaurios.size();j++)
     {
+      if(dinosaurios[j]->getactivo()){
       if(dinosaurios[j]->getSprite()->colisiona(totalExplosiones[i]))
       {
-        if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
+        if(dinosaurios[j]->getInvencibilidad() == -1 || mot->obtentiempoensegundos(temporizador) - dinosaurios[j]->getInvencibilidad() > 1)
         {
-          dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+          dinosaurios[j]->setInvencibilidad(mot->obtentiempoensegundos(temporizador));
           dinosaurios[j]->modifyVida();
           if(dinosaurios[j]->getVida() == 0)
           {
@@ -105,19 +121,21 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
               }
             }
             dinosaurios.erase(dinosaurios.begin() + j);
+            jugador.setmatando(true);
           }
         }
+      }
       }
     }
     //EXPLOSION JUGADOR
     if(jugador.getSprite()->colisiona(totalExplosiones[i]))
     {
       //El jugador tiene invencibilidad de un segundo cuando colisiona con una explosion.
-      if(jugador.getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - jugador.getInvencibilidad() > 1)
+      if(jugador.getInvencibilidad() == -1 || mot->obtentiempoensegundos(temporizador) - jugador.getInvencibilidad() > 1)
       {
         jugador.quitarVidas();
         std::cout << jugador.getVidas() << std::endl;
-        jugador.setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+        jugador.setInvencibilidad(mot->obtentiempoensegundos(temporizador));
       }
     }
     //EXPLOSION CON ROCAS
@@ -125,7 +143,7 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
         for( unsigned int y=0; y<hei;y++){
           for(unsigned int x=0; x<wid;x++){
             int gid=tilemap [l][y][x]-1;
-            if(gid==2 && mpSprite[l][y][x]->colisiona(totalExplosiones[i])){//GID = PIEDRAS
+            if(gid==2 && mpSprite[l][y][x]->colisiona(totalExplosiones[i])){//GID = PIEDRAS COMPRUEBA SI EL ID DE CADA POSICION DE LA MATRIZ = PIEDRAS
               std::cout << "Rompo una piedra" << std::endl;
               mapa.setTileMapa(l,y,x,2);
                   for(unsigned int a = 0;a < todoSprites.size();a++){
@@ -134,6 +152,12 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
                     }
                   }
               mapa.gettilemapSprite()[l][y][x]->recortaSprite(32,32,32,32);
+              for (unsigned int i = 0; i < adns.size(); i++)//HACER VISIBLE ADNS EN EL LUGAR DE LA PIEDRA
+              {
+                if(adns[i]->getposx()==x && adns[i]->getposy()==y){
+                  adns[i]->hacervisible();
+                }
+              }
             }
           }
         }

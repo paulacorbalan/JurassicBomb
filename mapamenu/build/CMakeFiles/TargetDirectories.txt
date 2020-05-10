@@ -1,30 +1,30 @@
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/MiJuego.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/CMakeFiles/libModulos.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/ej_modulos/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/ej_modulos/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/mapa/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/mapa/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/maquina/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/maquina/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/menu/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/menu/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/mundo/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/mundo/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/juego/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/juego/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/bomba/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/bomba/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/dinosaurio/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/dinosaurio/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/adn/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/adn/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/IA/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/IA/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/sprite/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/sprite/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/motor/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/motor/CMakeFiles/rebuild_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/tinyxml-master/CMakeFiles/edit_cache.dir
-/home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/build/tinyxml-master/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/MiJuego.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/ej_modulos/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/ej_modulos/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/mapa/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/mapa/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/maquina/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/maquina/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/menu/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/menu/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/mundo/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/mundo/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/juego/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/juego/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/bomba/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/bomba/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/dinosaurio/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/dinosaurio/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/adn/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/adn/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/IA/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/IA/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/sprite/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/sprite/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/motor/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/motor/CMakeFiles/rebuild_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/tinyxml-master/CMakeFiles/edit_cache.dir
+/home/damian/Escritorio/repositorio/JurassicBomb/mapamenu/build/tinyxml-master/CMakeFiles/rebuild_cache.dir

@@ -18,6 +18,8 @@ public:
   int getpuntos(){return puntos;}
   bool getvisible(){return visible;}
   void hacervisible(){visible=true;}
+  int getposx(){return posx;}
+  int getposy(){return posy;}
   Sprite* getSprite(){
     return adnsprite;
   }

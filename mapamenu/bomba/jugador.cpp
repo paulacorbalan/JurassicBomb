@@ -24,7 +24,7 @@ Jugador::Jugador(int numero)
 
     setInicio(numero);
     identificador = numero;
-    kVel = 2;
+    kVel = 100;
 }
 
 
@@ -33,7 +33,7 @@ void Jugador::draw(sf::RenderWindow &window)
     window.draw(*sprite);
 }
 
-void Jugador::mover(int direccion)
+void Jugador::mover(int direccion,float times)
 {
     switch (direccion)
     {
@@ -41,26 +41,26 @@ void Jugador::mover(int direccion)
     //Arriba
     case 0:
         sprite->setTextureRect(sf::IntRect(0 * 75, 3 * 75, 75, 75));
-        sprite->move(0, -kVel);
+        sprite->move(0, -kVel*times);
         break;
     //Abajo
     case 1:
         sprite->setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
-        sprite->move(0, kVel);
+        sprite->move(0, kVel*times);
         break;
     //Derecha
     case 2:
         sprite->setTextureRect(sf::IntRect(0 * 75, 2 * 75, 75, 75));
         //Escala por defecto
         sprite->setScale(0.35,0.35);
-        sprite->move(kVel, 0);
+        sprite->move(kVel*times, 0);
         break;
     //Izquierda
     case 3:
         sprite->setTextureRect(sf::IntRect(0 * 75, 2 * 75, 75, 75));
         //Reflejo vertical
         sprite->setScale(-0.35, 0.35);
-        sprite->move(-kVel, 0);
+        sprite->move(-kVel*times, 0);
         break;
     }
 

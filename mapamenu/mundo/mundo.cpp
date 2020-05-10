@@ -91,7 +91,7 @@ void Mundo::crearDinos(Map* m,int tot){
               if(gid==1 && gid2==-1 && v1<400){//COMPRUEBO QUE LA POSICION SEA CORRECTA
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
-              dino1->setTipodino(1); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+              dino1->setTipodino(2); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1);
               std::cout<<"DINO METIDO"<<std::endl; // Guardar en el vector de dinosaurios
@@ -108,7 +108,7 @@ void Mundo::crearDinos(Map* m,int tot){
         //if(!todos){crearDinos(m,tot-cont);} 
 }
 
-void Mundo::Event(sf::Event event,sf::RenderWindow &window, float time){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
+void Mundo::Event(sf::Event event,sf::RenderWindow &window, float times){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
@@ -166,27 +166,27 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window, float time){ //COSAS
             }
             //Arriba
             case 73:
-              jugador1->mover(0);//MOVER
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad());//CREAR NUEVA COLISION
-              Colisiones::colisionesBombas(*jugador1,totalBombas,0);//COMPROBAR COLISION CON BOMBAS COLOCADAS
+              jugador1->mover(0,times);//MOVER
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad(),times);//CREAR NUEVA COLISION
+              Colisiones::colisionesBombas(*jugador1,totalBombas,0,times);//COMPROBAR COLISION CON BOMBAS COLOCADAS
               break;
             //Abajo
             case 74:
-              jugador1->mover(1);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,1);
+              jugador1->mover(1,times);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad(),times);
+              Colisiones::colisionesBombas(*jugador1,totalBombas,1,times);
               break;
             //Derecha
             case 72:
-              jugador1->mover(2);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,2);
+              jugador1->mover(2,times);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad(),times);
+              Colisiones::colisionesBombas(*jugador1,totalBombas,2,times);
               break;
             //Izquierda
             case 71:
-              jugador1->mover(3);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,3);
+              jugador1->mover(3,times);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad(),times);
+              Colisiones::colisionesBombas(*jugador1,totalBombas,3,times);
               break;
 
           //Cualquier tecla desconocida se imprime por pantalla su código
@@ -255,7 +255,7 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 }else{
                     // Mover los dinosaurios con la IA
                     IA ia; // Genera una ia con cada iteracion
-                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual]); // Permite mover a los dinosaurios
+                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual],time); // Permite mover a los dinosaurios 
                       _cont++; // Contador de iteraciones del programa
                     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
 
@@ -279,7 +279,7 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 }else{
                     // Mover los dinosaurios con la IA
                     IA ia; // Genera una ia con cada iteracion
-                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual]); // Permite mover a los dinosaurios
+                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual],time); // Permite mover a los dinosaurios
                       _cont++; // Contador de iteraciones del programa
                     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
                   if(adns.size()==0){//SI NO QUEDAN ADNS SE TERMINA EL NIVEL

@@ -1,7 +1,7 @@
 #include "colisiones.h"
 #include <iostream>
 
-void Colisiones::crearColisiones(sf::Sprite &jugador,std::vector<sf::Sprite*> objetos, int direccion, int velocidad)
+void Colisiones::crearColisiones(sf::Sprite &jugador,std::vector<sf::Sprite*> objetos, int direccion, int velocidad,float times)
 {
       for(unsigned int i = 0;i < objetos.size();i++)
       {
@@ -13,26 +13,26 @@ void Colisiones::crearColisiones(sf::Sprite &jugador,std::vector<sf::Sprite*> ob
                 {
                   //Arriba
                   case 0:
-                    jugador.move(0,velocidad);
+                    jugador.move(0,velocidad*times);
                     break;
                   //Abajo
                   case 1:
-                    jugador.move(0,-velocidad);
+                    jugador.move(0,-velocidad*times);
                     break;
                   //Derecha
                   case 2:
-                    jugador.move(-velocidad, 0);
+                    jugador.move(-velocidad*times, 0);
                     break;
                   //Izquierda
                   case 3:
-                  jugador.move(velocidad, 0);
+                  jugador.move(velocidad*times, 0);
                     break;
                 }
             }
       }
 }
 
-void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, int direccion)
+void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, int direccion,float times)
 {
   for(unsigned int i = 0;i < bombas.size();i++)
   {
@@ -47,19 +47,19 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
               {
                 //Arriba
                 case 0:
-                  jugador.mover(1);
+                  jugador.mover(1,times);
                   break;
                 //Abajo
                 case 1:
-                  jugador.mover(0);
+                  jugador.mover(0,times);
                   break;
                 //Izquierda
                 case 2:
-                  jugador.mover(3);
+                  jugador.mover(3,times);
                   break;
                 //Derecha
                 case 3:
-                  jugador.mover(2);
+                  jugador.mover(2,times);
                   break;
               }
       }

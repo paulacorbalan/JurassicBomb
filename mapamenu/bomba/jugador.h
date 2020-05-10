@@ -21,7 +21,7 @@ class Jugador{
        if(a==1){sprite->setPosition(160, 113); }else{sprite->setPosition(160+(32*10), 113+(32*8)); }
        
    }
-    void mover(int direccion);
+    void mover(int direccion,float times);
     void quitarVidas(){if(vidas > 0)vidas--;}
 
     void draw(sf::RenderWindow &window);

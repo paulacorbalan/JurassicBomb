@@ -11,12 +11,11 @@ class Dinosaurio
       ~Dinosaurio(); // Destructor
 
       // Movimiento
-      int marriba(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas);
-      int mabajo(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas);
-      int mderecha(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas);
-      int mizquierda(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas);
+      int marriba(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float time);
+      int mabajo(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float time);
+      int mderecha(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float time);
+      int mizquierda(std::vector<sf::Sprite*> &c, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float time);
 
-      void salto(int pos_mirando);
 
       // Cambiar velocidad
       void setSpeed();
@@ -83,6 +82,8 @@ class Dinosaurio
       int _Vida; // Vida del dino
       int _Tipodino; // Indica el tipo de dinosaurio. 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
       float invencibilidad = -1; 
+      float cambio = 5; 
+      float control = 0; 
       bool activo=false;
 };
 

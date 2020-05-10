@@ -6,9 +6,9 @@
 using namespace std;
 
 // Velocidades
-float velocidad_normal = 0.0015;
-float velocidad_trex = 0.00075;
-float velocidad_velociraptor = 0.00225;
+float velocidad_normal = 75;
+float velocidad_trex = 50;
+float velocidad_velociraptor = 100;
 
 
 
@@ -145,17 +145,18 @@ sf::FloatRect Dinosaurio::getHitbox(){ // FloatRect devuelve coordenada superior
 }
 
 // Funciones de movimiento (salto y movimientos)
-int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas){ // Movimiento arriba
+int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float times){ // Movimiento arriba
     bool colision = false; // Comprueba si ha habido choque. Si ha habido, se intenta salto
     sf::Sprite clon;
     _Sprite->setTexture(_dino_texture_arriba);
-    for(int i = 0; i < 160; i++){
+
+        _Sprite->move(0, -(_Speed)*times);
         for(unsigned int j = 0;j < todo.size();j++){
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j]){
                 //std::cout<<"dino no mueve arriba"<<std::endl;
                 _posdino = 0;
-                 _Sprite->move(0, _Speed);
-                 if(_Tipodino==2){
+                 control+=times;
+                 if(_Tipodino==2 && control>=cambio){
                     srand (time(NULL));
                     int probabilidad = rand()%4; // 25% de posibilidades de saltar
                     if(probabilidad==1){ 
@@ -163,8 +164,12 @@ int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo, int numlayers, int heigh
                         sf::FloatRect posicion_bloque = todo[j]->getGlobalBounds();
                         clon.setPosition(posicion_dino.x, posicion_dino.y - posicion_bloque.height);
                         colision = true;
+                        control=0;
                     }
+                }if(!colision){
+                    _Sprite->move(0, _Speed*times);
                 }
+                
             }
         }
         // Recorre los posibles saltos
@@ -177,33 +182,38 @@ int Dinosaurio::marriba(std::vector<sf::Sprite*> &todo, int numlayers, int heigh
             }
                 
         }
-        _Sprite->move(0, -(_Speed));
-    }
+    
     _posdino = 0;
     return 0; // Posicion arriba
 }
 
-int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas){ // Movimiento abajo
+int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float times){ // Movimiento abajo
     bool colision = false; // Comprueba si ha habido choque. Si ha habido, se intenta salto
     bool test = false;
     sf::Sprite clon;
-    for(int i = 0; i < 160; i++){
+
+
+        _Sprite->move(0, _Speed*times);
         for(unsigned int j = 0;j < todo.size();j++){
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j]){ // Intersecta con bloque
                 //std::cout<<"dino no mueve abajo"<<std::endl;
                 _posdino = 1;
-                _Sprite->move(0, -(_Speed));
-                if(_Tipodino==2){
+               
+                control+=times;
+                if(_Tipodino==2 && control>=cambio){
                     srand (time(NULL));
                     int probabilidad = rand()%4; // 25% de posibilidades de saltar
                     if(probabilidad==1){ 
                         sf::Vector2f posicion_dino = _Sprite->getPosition();
                         sf::FloatRect posicion_bloque = todo[j]->getGlobalBounds();
                         clon.setPosition(posicion_dino.x, posicion_dino.y + posicion_bloque.height);
-                        
                         colision = true;
+                        control=0;
                     }
+                }if(!colision){
+                     _Sprite->move(0, -(_Speed)*times);
                 }
+                
 
             }
         }
@@ -218,24 +228,23 @@ int Dinosaurio::mabajo(std::vector<sf::Sprite*> &todo, int numlayers, int height
             }
                 
         }
-        
-        
-        _Sprite->move(0, _Speed);
-    }
+    
     _posdino = 1;
     return 1; // Posicion abajo
 }
 
-int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas){ // Movimiento derecha
+int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float times){ // Movimiento derecha
     bool colision = false; // Comprueba si ha habido choque. Si ha habido, se intenta salto
     sf::Sprite clon;
-    for(int i = 0; i < 160; i++){
+
+
+        _Sprite->move(_Speed*times, 0);
         for(unsigned int j = 0;j < todo.size();j++){
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j]){
                 //std::cout<<"dino no mueve dre"<<std::endl;
                 _posdino = 2;
-                _Sprite->move(-(_Speed),0);
-                if(_Tipodino==2){
+                control+=times;
+                if(_Tipodino==2 && control>=cambio){
                     srand (time(NULL));
                     int probabilidad = rand()%4; // 25% de posibilidades de saltar
                     if(probabilidad==1){ 
@@ -243,8 +252,13 @@ int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo, int numlayers, int heig
                         sf::FloatRect posicion_bloque = todo[j]->getGlobalBounds();
                         clon.setPosition(posicion_dino.x + posicion_bloque.width, posicion_dino.y);
                         colision = true;
+                        control=0;
                     }
+                }if(!colision){
+  
+                _Sprite->move(-(_Speed)*times,0);
                 }
+                
             }
         }
         // Recorre los posibles saltos
@@ -257,22 +271,22 @@ int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo, int numlayers, int heig
             }
                 
         }
-        _Sprite->move(_Speed, 0);
-    }
+    
     _posdino = 2;
     return 2; // Posicion derecha
 }
 
-int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas){ // Movimiento izquierda
+int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo, int numlayers, int height_map, int width_map, sf::Sprite**** tilemapSprite, Map &mapas,float times){ // Movimiento izquierda
     bool colision = false; // Comprueba si ha habido choque. Si ha habido, se intenta salto
     sf::Sprite clon;
-    for(int i = 0; i < 160; i++){
+
+        _Sprite->move(-(_Speed)*times,0);
         for(unsigned int j = 0;j < todo.size();j++){
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j]){
                 //std::cout<<"dino no mueve izq"<<std::endl;
                 _posdino = 3;
-                _Sprite->move(_Speed, 0);
-                if(_Tipodino==2){
+                control+=times;
+                if(_Tipodino==2 && control>=cambio){
                     srand (time(NULL));
                     int probabilidad = rand()%4; // 25% de posibilidades de saltar
                     if(probabilidad==1){ 
@@ -280,22 +294,26 @@ int Dinosaurio::mizquierda(std::vector<sf::Sprite*> &todo, int numlayers, int he
                         sf::FloatRect posicion_bloque = todo[j]->getGlobalBounds();
                         clon.setPosition(posicion_dino.x - posicion_bloque.width, posicion_dino.y);
                         colision = true;
+                        control=0;
                     }
                 }
+                if(!colision){
+                _Sprite->move(_Speed*times, 0);
+                }
+                
             }
         }
         // Recorre los posibles saltos
         for(unsigned int j=0; j < todo.size() && colision; j++){
             int clon_left = ceil(clon.getGlobalBounds().left);
+            std::cout<<clon_left<<std::endl;
             int clon_top = ceil(clon.getGlobalBounds().top); 
             if(!(clon.getGlobalBounds().intersects(todo[j]->getGlobalBounds())) && clon_left>150){ // Comprueba que no se sale por la pantalla y el camino esta despejado
                 _Sprite->setPosition(clon.getGlobalBounds().left-20 ,clon.getGlobalBounds().top);
                 return 3;
-            }
-                
+            }       
         }
-        _Sprite->move(-(_Speed),0);
-    }
+    
     _posdino = 3;
     return 3; // Posicion izquierda
 }
@@ -315,26 +333,7 @@ int Dinosaurio::getDireccion(){
     return _Direccion;
 }
 
-// Hacer que el dinosaurio salte
-void Dinosaurio::salto(int pos_mirando){
-    if(_Tipodino == 2){ // Solo puede saltar el pterodactilo
-        switch (pos_mirando){
-        case 0: // Mirando arriba
-            _Sprite->move(0, -(_Speed)*800);
-            break;
-        case 1: // Mirando abajo
-            _Sprite->move(0, (_Speed)*800);
-            break;
-        case 2: // Mirando derecha
-            _Sprite->move((_Speed)*800,0);
-            break;
-        case 3: // Mirando izquierda
-            _Sprite->move((-_Speed)*800,0);
-        default:
-            break;
-        }
-    }
-}
+
 
 
 

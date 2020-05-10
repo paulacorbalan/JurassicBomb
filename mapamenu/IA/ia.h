@@ -23,7 +23,7 @@ class IA
         void izquierda(Dinosaurio *dino, int max);
         void quieto(Dinosaurio *dino, int max);
         void anda(Dinosaurio *dino);
-        void movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<sf::Sprite*> &todoSprite, Map &mapa);
+        void movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<sf::Sprite*> &todoSprite, Map &mapa,float times);
 };
 
 #endif

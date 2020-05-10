@@ -47,8 +47,12 @@ class Mundo : public States {
     std::vector<float> tiemposExplosiones;
     //Vector que almacena todos los sprites para comprobar las colisiones.
     std::vector<Sprite*> todoSprites;
-
+    std::vector<Sprite*> adnSprites;
     int _cont = 0; // Contador de iteraciones del juego
+    sf::Texture background;
+    Sprite* backgroundImage;
+    float waiteo=3;
+    float control=0;
   public:
     void Inicializar();
     static Mundo* Instance();
@@ -60,6 +64,29 @@ class Mundo : public States {
     bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);
+     void setControl(float a){control=a;}
+     void todosno(float times){
+      int activados=0;
+      control+=times;
+      for (unsigned int i = 0; i < dinosaurios.size(); i++)
+      {
+        std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
+          if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
+            dinosaurios[i]->setactivo(true);
+            todoSprites.push_back(dinosaurios[i]->getSprite()); //Lo añadimos al vector de colisiones.
+            control=0;
+          }
+          if(dinosaurios[i]->getactivo()){
+            activados++;
+          }
+
+          if(activados==2){
+            std::cout<<"matafalso";
+            jugador1->setmatando(false);
+            control=0;
+          }
+      }  
+    }
 
     void borraradns(){
         for(unsigned int i=0;i<adns.size();i++){

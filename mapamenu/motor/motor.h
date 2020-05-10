@@ -37,6 +37,14 @@ class Motor{
                    t.setScale(x,y);
             }
 
+            float obtentiempoensegundos(sf::Clock& c){
+                   float respuesta;
+
+                      respuesta=c.getElapsedTime().asSeconds();
+
+                     return respuesta;
+            }
+
 
 };
 

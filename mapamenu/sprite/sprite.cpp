@@ -2,7 +2,9 @@
 #include <iostream>
 Sprite::Sprite(string s){
    
-        t.loadFromFile(s);
+       if(!t.loadFromFile(s)){
+           cout<<"Error al cargar la textura"<<endl;
+       }
         spr->setTexture(t);
     
 }

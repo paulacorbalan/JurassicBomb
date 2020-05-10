@@ -62,6 +62,8 @@ class Dinosaurio
       void sumaPasos();
       void setDireccion(int i);
       int getDireccion();
+       void setactivo(bool a){activo=a;}
+      bool getactivo(){return activo;}
 
 
     private:
@@ -76,6 +78,7 @@ class Dinosaurio
       int _Vida; // Vida del dino
       int _Tipodino; // Indica el tipo de dinosaurio. 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
       float invencibilidad = -1; 
+      bool activo=false;
 };
 
 #endif

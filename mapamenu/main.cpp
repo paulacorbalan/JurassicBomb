@@ -15,7 +15,7 @@ int main() {
 
   Motor* m=Motor::Instance();
 
-  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundgos. DCCIA");
+  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundjjjgos. DCCIA");
   m->estableceFPS(window,60);
   //Creamos una ventana
     std::cout<<"window";

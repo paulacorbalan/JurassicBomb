@@ -4,6 +4,8 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include "stdlib.h"
 
 using namespace std;
 class Sprite{

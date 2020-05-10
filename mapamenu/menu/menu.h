@@ -23,6 +23,8 @@ class Menu : public States {
   sf::Texture play;
   Sprite* atrasImage;
   sf::Texture atras;
+  Sprite* ganarImage;
+  sf::Texture ganar;
   Sprite* nivelesImage;
   sf::Texture niveles;
   sf::Texture menos;

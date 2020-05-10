@@ -18,6 +18,9 @@ public:
   int getpuntos(){return puntos;}
   bool getvisible(){return visible;}
   void hacervisible(){visible=true;}
+  Sprite* getSprite(){
+    return adnsprite;
+  }
 
 private:
   int puntos;

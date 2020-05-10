@@ -7,6 +7,7 @@ Motor* Motor::minstance=0;
          minstance=new Motor;
 
      }
+     
 
      return minstance;
  }

@@ -106,6 +106,12 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window){
                             }
 
                 } 
+                else if(menus==3 && !jugando){	
+	                  //GANADO	108	                }
+	                  std::cout<<"has ganado"<<std::endl;		
+	                  menus=0;		
+	                  lvls=1;		
+                }
                     std::cout << "clic izq" << std::endl;
               }
             //////////Se pulsó una tecla, imprimo su codigo
@@ -127,7 +133,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window){
 }
 void Menu::Draw(sf::RenderWindow &window) {
     //dibujar cosas
-    
+    backgroundImage->dibujaSprite(window);
       if (jugando && !gpause){
         sprite->dibujaSprite(window);
       }else if(jugando && gpause){
@@ -156,6 +162,9 @@ void Menu::Draw(sf::RenderWindow &window) {
 
   
         }
+        if(menus==3 && !jugando){
+          ganarImage->dibujaSprite(window);
+          }
 }
 void Menu::lvltxt(){
 
@@ -174,7 +183,7 @@ void Menu::lvltxt(){
 }
 void Menu::reinicio(){
 lvls=1;
-menus=0;
+menus=3;//PONER EN 3 PARA LA PANTALLA DE VICTORIA
 dificulty=0;
 
 lvltxt();
@@ -183,13 +192,17 @@ lvltxt();
 void Menu::Cargarecursos(){
    //background
    std::cout<<"menucargados";
-   backgroundImage->cargaTextura(background,"resources/background.jpg");
-            
-            backgroundImage->estableceTextura( background );
-
+  // backgroundImage->cargaTextura(background,"resources/fondo2.png");
+            backgroundImage=new Sprite("resources/fondo2.png");
+            backgroundImage->estableceOrigen(backgroundImage->texturaX(background)*0.5,backgroundImage->texturaY(background)*0.5);
+            backgroundImage->posiciona(width/2,height/2);
           //Cargo la imagen donde reside la textura del sprite
            //Y creo el spritesheet a partir de la imagen anterior
-              
+              //ganarImage->cargaTextura(ganar,"resources/ganar2.png");
+             // ganarImage->estableceTextura(ganar);
+             ganarImage=new Sprite("resources/ganar2.png");
+              ganarImage->estableceOrigen(ganarImage->texturaX(ganar)*0.5,ganarImage->texturaY(ganar)*0.5);
+              ganarImage->posiciona(width/2,height/2);
             Sprite* aux=new Sprite("resources/sprites.png");
             //Le pongo el centroide donde corresponde
             aux->estableceOrigen(75,75);

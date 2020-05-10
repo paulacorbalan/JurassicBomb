@@ -16,12 +16,13 @@ class Jugador{
     void setVelocidad(int velocidad){kVel = velocidad;}
     void setVidas(int v){vidas = v;}
     void setInvencibilidad(float f){invencibilidad = f;}
-    void setInicio(){  sprite->posiciona(160,113);  }
+    void setInicio(){ matando=false; sprite->posiciona(160,113);  }
     void mover(int direccion);
     void quitarVidas(){if(vidas > 0)vidas--;}
 
     void draw(sf::RenderWindow &window);
-
+    void setmatando(bool a){matando=a;}
+       bool getmatando(){return matando;}
  private:
     sf::Texture textura;
     Sprite* sprite;
@@ -30,4 +31,5 @@ class Jugador{
     int kVel;
     int vidas = 3;
     float invencibilidad = -1;
+    bool matando;
 };

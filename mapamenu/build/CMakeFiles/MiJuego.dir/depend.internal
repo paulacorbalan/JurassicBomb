@@ -10,13 +10,13 @@ CMakeFiles/MiJuego.dir/main.cpp.o
  ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/bomba/bombas.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/bomba/colisiones.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/ej_modulos/Tile.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/include/config.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/main.cpp
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/mapa/Map.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/maquina/contexto.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/menu/menu.h
- /home/damian/Escritorio/respositoriolocal/JurassicBomb/mapamenu/motor/motor.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/bomba/bombas.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/bomba/colisiones.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/dinosaurio/dinosaurio.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/ej_modulos/Tile.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/include/config.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/main.cpp
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/mapa/Map.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/maquina/contexto.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/menu/menu.h
+ /home/damian/Escritorio/respositoriolocal/JurassicBomb /mapamenu/motor/motor.h

@@ -89,7 +89,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
                                   texto.setString(cadena);
                             }
                             if(plusImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                              if(lvls<9 && lvls>1){
+                              if(lvls<9 && lvls>0){
                               lvls++;
                               }
                               std::cout << "+1 "<< lvls << std::endl;
@@ -110,7 +110,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
               switch (event.key.code) {
               //Cualquier tecla desconocida se imprime por pantalla su código
               default:
-                std::cout << " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
+                std::cout <<"lvl"<<lvls<< " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
                 break;
               }
             }
@@ -161,6 +161,7 @@ void Menu::lvltxt(){
             // Posición del texto
             texto.setPosition(-15+(plusImage.getPosition().x+menosImage.getPosition().x)/2,-50+(plusImage.getPosition().y+menosImage.getPosition().y)/2);
             texto.setColor(sf::Color::Red);
+            
 }
 void Menu::reinicio(int a){
   lvls=1;

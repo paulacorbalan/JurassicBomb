@@ -79,7 +79,7 @@ class Mundo : public States {
     void crearAdns(Map* m,int tot);
     void crearDinos(Map* m,int tot);
     void setControl(float a){control=a;}
-    void todosno(float times){
+    void todosno(float times, Jugador* j){//CONTROL PARA APARECER DINOSAURIOS AL MATAR A UNO
       int activados=0;
       control+=times;
       for (unsigned int i = 0; i < dinosaurios.size(); i++)
@@ -87,16 +87,14 @@ class Mundo : public States {
         std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
           if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
             dinosaurios[i]->setactivo(true);
-            todoSprites.push_back(dinosaurios[i]->getSprite()); //Lo añadimos al vector de colisiones.
             control=0;
           }
           if(dinosaurios[i]->getactivo()){
             activados++;
           }
-
           if(activados==2){
             std::cout<<"matafalso";
-            jugador1->setmatando(false);
+            j->setmatando(false);
             control=0;
           }
       }  

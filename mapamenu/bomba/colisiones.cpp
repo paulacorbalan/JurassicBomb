@@ -97,7 +97,7 @@ for(unsigned int i = 0;i < adns.size();i++)
                         }
                       }
                     adns.erase(adns.begin() + 0);
-                    //jugador1->sumaPuntos();                     
+                    std::cout<<"adn borrado"<<std::endl;               
     }
   }
 
@@ -163,5 +163,27 @@ for(unsigned int i = 0;i < adns.size();i++)
           }
         }
       }
+      
   }
+
+  //JUGADOR TOCA UN ENEMIGO
+      //Mientras que el jugador no este en modo invencibilidad, podrá ser dañado por un enemigo.
+      for(unsigned int j = 0;j < dinosaurios.size();j++)
+      {
+        //Si es un dinosaurio que esta en el mapa.
+        if(dinosaurios[j]->getactivo())
+        {
+          //Y colisiona con el jugador.
+          if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(jugador.getSprite()->getGlobalBounds()))
+          {
+            std::cout<<"se tocan dino y jugador"<<std::endl;
+            //Y el jugador no esta en modo invencible.
+            if(jugador.getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - jugador.getInvencibilidad() > 3)
+            {
+              jugador.quitarVidas();
+              jugador.setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+            }
+          }
+        }
+      }
 }

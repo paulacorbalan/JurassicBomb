@@ -13,11 +13,25 @@ float velocidad_velociraptor = 100;
 
 
 Dinosaurio::Dinosaurio(){ // Constructor por defecto
+ 
+    _posdino = 1; // Posicion inicial por defecto hacia abajo
+    _Direccion = _Tipodino;
+}
+
+Dinosaurio::~Dinosaurio(){ // Destructor
+  _Sprite=NULL;
+  delete _Sprite; 
+}
+
+void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
+    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
+    _Direccion = _Tipodino; 
     // Texturas de todos los movimientos del dinosaurio.
     // Se crean aqui porque asi, nada mas llamar al constructor, estan dentro de la clase 
     sf::Texture dino_abajo, dino_derecha, dino_izquierda, dino_arriba, camino, bloque;
-    _Sprite->setScale(0.5,0.5);
-    
+    _Sprite->setScale(0.8,0.8);
+
+if(tipodino==0){
     if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
         std::cerr << "Error cargando dino_abajo.png";
         exit(0);
@@ -34,39 +48,72 @@ Dinosaurio::Dinosaurio(){ // Constructor por defecto
         std::cerr << "Error cargando dino_arriba.png";
         exit(0);
     }        
-    if(!bloque.loadFromFile("resources/bloque.png")){
-        std::cerr << "Error cargando bloque.png";
-        exit(0);
-    }  
-    if(!camino.loadFromFile("resources/camino.png")){
-        std::cerr << "Error cargando camino.png";
-        exit(0);
-    }  
 
+}else if(tipodino==1)
+{
+        if(!dino_abajo.loadFromFile("resources/vel-abajo.png")){
+        std::cerr << "Error cargando dino_abajo.png";
+        exit(0);
+    }
+    if(!dino_derecha.loadFromFile("resources/vel-derecha.png")){
+        std::cerr << "Error cargando dino_derecha.png";
+        exit(0);
+    }
+    if(!dino_izquierda.loadFromFile("resources/vel-izquierda.png")){
+        std::cerr << "Error cargando dino_izquierda.png";
+        exit(0);
+    }     
+    if(!dino_arriba.loadFromFile("resources/vel-arriba.png")){
+        std::cerr << "Error cargando dino_arriba.png";
+        exit(0);
+    }    
+}else if(tipodino==2)
+{
+     _Sprite->setScale(0.5,0.5);
+        if(!dino_abajo.loadFromFile("resources/pterodactiloabajo.png")){
+        std::cerr << "Error cargando dino_abajo.png";
+        exit(0);
+    }
+    if(!dino_derecha.loadFromFile("resources/pterodactiloderecha.png")){
+        std::cerr << "Error cargando dino_derecha.png";
+        exit(0);
+    }
+    if(!dino_izquierda.loadFromFile("resources/pterodactiloizquierda.png")){
+        std::cerr << "Error cargando dino_izquierda.png";
+        exit(0);
+    }     
+    if(!dino_arriba.loadFromFile("resources/pterodactilodetras.png")){
+        std::cerr << "Error cargando dino_arriba.png";
+        exit(0);
+    }    
+}else
+{
+    if(!dino_abajo.loadFromFile("resources/tric-abajo.png")){
+        std::cerr << "Error cargando dino_abajo.png";
+        exit(0);
+    }
+    if(!dino_derecha.loadFromFile("resources/tric-derecha.png")){
+        std::cerr << "Error cargando dino_derecha.png";
+        exit(0);
+    }
+    if(!dino_izquierda.loadFromFile("resources/tric-izquierda.png")){
+        std::cerr << "Error cargando dino_izquierda.png";
+        exit(0);
+    }     
+    if(!dino_arriba.loadFromFile("resources/tric-arriba.png")){
+        std::cerr << "Error cargando dino_arriba.png";
+        exit(0);
+    }    
+}
+
+
+//ASIGNACION SPRITE DIRECCION
     _dino_texture_abajo=dino_abajo;
     _dino_texture_arriba=dino_arriba;
     _dino_texture_derecha=dino_derecha;
-    _dino_texture_izquierda=dino_izquierda;    
-    _bloque = bloque;
-    _camino = camino;   
-    _posdino = 1; // Posicion inicial por defecto hacia abajo
-    _Direccion = _Tipodino;
-}
+    _dino_texture_izquierda=dino_izquierda; 
 
-Dinosaurio::~Dinosaurio(){ // Destructor
-  _Sprite=NULL;
-  delete _Sprite; 
-}
 
-Dinosaurio::Dinosaurio(sf::Texture& textura_dino){ // Constructor con textura (no se usa)
-    _Sprite->setTexture(textura_dino);
-    _Sprite->setScale(0.5,0.5);
-    _Sprite->setPosition(320, 320);
-}
-
-void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
-    _Tipodino = tipodino; // 0: T-Rex | 1: Velociraptor | 2: Pterodactilo | 3: Triceratops
-    _Direccion = _Tipodino; 
 
     setSpeed(); // Poner velocidad del dinosaurio
     setVida(); // Poner vida del dinosaurio
@@ -74,7 +121,6 @@ void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
 
 void Dinosaurio::modifyTexture(sf::Texture& textura){ // Establecer textura del dinosaurio
     _Sprite->setTexture(textura);
-    
 }
 
 void Dinosaurio::modifyVida(){ // Quitar un punto de vida si toca la bomba

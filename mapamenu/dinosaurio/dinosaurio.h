@@ -7,7 +7,6 @@ class Dinosaurio
 {
     public:
       Dinosaurio(); // Constructor por defecto
-      Dinosaurio(sf::Texture&); // Constructor con textura
       ~Dinosaurio(); // Destructor
 
       // Movimiento

@@ -46,9 +46,16 @@ void Mundo::Inicializar() {
                     backgroundImage.setTexture( background );
                     backgroundImage.setOrigin(background.getSize().x*0.5, background.getSize().y*0.5);
                     backgroundImage.setPosition(width/2, height/2); 
+                    
+    borrarcolisiones();//DESTRUYE COLISIONES
+    borraradns();//DESTRUYE ADNS
+    borrardinos();//DESTRUYE DINOS
+    adnscreados=false;
+    dinoscreados=false;
+    colisiones=false;
     /*Controles jugador 1*/
-   flechaArriba = false;
-   flechaAbajo = false;
+    flechaArriba = false;
+    flechaAbajo = false;
      flechaIzquierda = false;
      flechaDerecha = false;
      teclaEspacio = false;
@@ -73,6 +80,7 @@ void Mundo::crearAdns(Map* m,int tot){//CREA LOS ADNS A RECOGER
               Adn* prueba=new Adn(1,x,y);
               adns.push_back(prueba);//AÑADE AL VECTOR ADNS
               adnSprites.push_back(prueba->getSprite());//AÑADE AL VECTOR DE SPRITES ADNS
+              std::cout<<"adn creado"<<std::endl;
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
             }
@@ -102,14 +110,13 @@ void Mundo::crearDinos(Map* m,int tot){
               if(gid==1 && gid2==-1 && v1<400){//COMPRUEBO QUE LA POSICION SEA CORRECTA
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
-              dino1->setTipodino(1); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+              dino1->setTipodino(cont%4); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1);
               std::cout<<"DINO METIDO"<<std::endl; // Guardar en el vector de dinosaurios
               if (cont<2)//los dos primeros snow bees los crea activos
               {
                 dino1->setactivo(true);
-                /*todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.*/
               }
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
@@ -387,146 +394,7 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window, float time){ //COSAS
 
         break;
 
-            /*
-
-              ///Verifico si se pulsa alguna tecla de movimiento
-          switch (event.key.code) {
-            case 60:
-              if(lvlactual<mapas.size()){//TERMINAR EL MAPA ACTUAL
-                  mapas[lvlactual]->terminar();
-              }
-            case 15://p matar un dino
-                if(dinosaurios.size()>0){
-                    dinosaurios[0]->modifyVida();
-                    if(dinosaurios[0]->getVida() == 0){
-                      /*
-                      for(unsigned int a = 0;a < todoSprites.size();a++){
-                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
-                          todoSprites.erase(todoSprites.begin() + a);
-                        }
-                      }
-                      */
-                     /*
-                    dinosaurios.erase(dinosaurios.begin() + 0);
-                    //jugador1->sumaPuntos();
-                    jugador1->setmatando(true);
-                    }
-            }
-             case 16:// q eliminar un adn
-                if(adns.size()>0){
-                      for(unsigned int a = 0;a < adnSprites.size();a++){
-                        if(adnSprites[a]==adns[0]->getSprite()){
-                          adnSprites.erase(adnSprites.begin() + a);
-                        }
-                      }
-                    adns.erase(adns.begin() + 0);
-                    //jugador1->sumaPuntos();                    
-            }
-
-            /*Controles jugador 1*/
-
-            //Colocacion de una bomba pulsando tecla ESPACIO.
-            /*
-            case 57:
-            {
-              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
-              if(jugador1->getPuesta() == false)
-              {
-                //Nos guardamos el segundo exacto en el que se pone la bomba.
-                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
-                //Creamos una instancia de bomba.
-                Bomba bomba(jugador1->getSprite()->getPosition().x, jugador1->getSprite()->getPosition().y);
-                bomba.setPropietario(jugador1->getIdentificador());
-                //Lo añadimos al vector de bombas.
-                totalBombas.push_back(bomba);
-
-                jugador1->setPuesta(true);
-              }
-              break;
-            }
-            //Flecha arriba
-            case 73:
-              jugador1->mover(0);//MOVER
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad());//CREAR NUEVA COLISION
-              Colisiones::colisionesBombas(*jugador1,totalBombas,0);//COMPROBAR COLISION CON BOMBAS COLOCADAS
-              
-            //Flecha abajo
-            case 74:
-              jugador1->mover(1);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,1);
-              break;
-            //Flecha derecha
-            case 72:
-              jugador1->mover(2);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,2);
-              break;
-            //Flecha izquierda
-            case 71:
-              jugador1->mover(3);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad());
-              Colisiones::colisionesBombas(*jugador1,totalBombas,3);
-              break;
-            
-            /*Controles jugador 2*/
-            
-            /*
-            if(play == 2)
-            {
-              //Colocacion de una bomba pulsando tecla E.
-            case 4:
-            {
-              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
-              if(jugador2->getPuesta() == false)
-              {
-                //Nos guardamos el segundo exacto en el que se pone la bomba.
-                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
-                //Creamos una instancia de bomba.
-                Bomba bomba(jugador2->getSprite()->getPosition().x, jugador2->getSprite()->getPosition().y);
-                bomba.setPropietario(jugador2->getIdentificador());
-                //Lo añadimos al vector de bombas.
-                totalBombas.push_back(bomba);
-
-                jugador2->setPuesta(true);
-              }
-              break;
-            }
-            //W arriba
-            case 22:
-              jugador2->mover(0);//MOVER
-              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,0,jugador2->getVelocidad());//CREAR NUEVA COLISION
-              Colisiones::colisionesBombas(*jugador2,totalBombas,0);//COMPROBAR COLISION CON BOMBAS COLOCADAS
-              break;
-            //S abajo
-            case 18:
-              jugador2->mover(1);
-              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,1,jugador2->getVelocidad());
-              Colisiones::colisionesBombas(*jugador2,totalBombas,1);
-              break;
-
-            //D derecha
-            case 3:
-              jugador2->mover(2);
-              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,2,jugador2->getVelocidad());
-              Colisiones::colisionesBombas(*jugador2,totalBombas,2);
-              break;
-
-            //A izquierda
-            case 0:
-              jugador2->mover(3);
-              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,3,jugador2->getVelocidad());
-              Colisiones::colisionesBombas(*jugador2,totalBombas,3);
-              break;
-            }
-
-          //Cualquier tecla desconocida se imprime por pantalla su código
-          default:
-            std::cout << " code " << event.key.code << std::endl;
-          break;
-        }
-      }
-      */
+           
       }
 }
 
@@ -577,7 +445,7 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
                 {
                   std::cout<<"matao"<<std::endl;
-                  todosno(time);//CONTROLA LA APARICION DE LOS DINOSAURIOS
+                  todosno(time,jugador1);//CONTROLA LA APARICION DE LOS DINOSAURIOS
                 }
                 hud1->Update(jugador1);
                     Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
@@ -603,12 +471,12 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
                 {
                   std::cout<<"matao"<<std::endl;
-                  todosno(time);//METER TIME
+                  todosno(time,jugador1);//METER TIME
                 }
                 if (jugador2->getmatando())//comprueba los enemigos muertos y los reemplaza
                 {
                   std::cout<<"matao"<<std::endl;
-                  todosno(time);//METER TIME
+                  todosno(time,jugador2);//METER TIME
                 }
                 hud1->Update(jugador1);
                     Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
@@ -701,7 +569,8 @@ void Mundo::finjuego(int a){//CUANDO TERMINO PRIMERO REINICIO EL MUNDO Y LUEGO M
         ChangeState(Contexto::Instance(),Menu::Instance());
 }
 
-void Mundo::renicio(){ //reiniciar el mundo, TODO A 0 Y BORRAR MAPAS
+void Mundo::renicio(){
+      //reiniciar el mundo, TODO A 0 Y BORRAR MAPAS
       nueva=false;
       std::cout<<"reinicio"<<dif<<lvls<<lvlactual<<"\n";
       dif=0;

@@ -9,7 +9,7 @@
    <terrain name="New Terrain" tile="-1"/>
   </terraintypes>
  </tileset>
- <layer name="base" width="13" height="11" visible="0">
+ <layer name="base" width="13" height="11">
   <data>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -286,7 +286,7 @@
    <tile gid="0"/>
    <tile gid="3"/>
    <tile gid="0"/>
-   <tile gid="3"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

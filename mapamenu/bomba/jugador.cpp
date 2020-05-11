@@ -67,4 +67,3 @@ void Jugador::mover(int direccion,float times)
 }
 
 
-

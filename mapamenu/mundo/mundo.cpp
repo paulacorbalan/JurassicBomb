@@ -46,7 +46,18 @@ void Mundo::Inicializar() {
                     backgroundImage.setTexture( background );
                     backgroundImage.setOrigin(background.getSize().x*0.5, background.getSize().y*0.5);
                     backgroundImage.setPosition(width/2, height/2); 
-
+    /*Controles jugador 1*/
+   flechaArriba = false;
+   flechaAbajo = false;
+     flechaIzquierda = false;
+     flechaDerecha = false;
+     teclaEspacio = false;
+    /*Controles jugador 2*/
+     teclaW = false;
+     teclaS = false;
+     teclaA = false;
+     teclaD = false;
+     teclaE = false;
 
 }
 void Mundo::crearAdns(Map* m,int tot){//CREA LOS ADNS A RECOGER
@@ -91,38 +102,331 @@ void Mundo::crearDinos(Map* m,int tot){
               if(gid==1 && gid2==-1 && v1<400){//COMPRUEBO QUE LA POSICION SEA CORRECTA
               Dinosaurio *dino1 = new Dinosaurio(); // Constructor del dinosaurio
               dino1->modifyTexture(dino_abajo); // Cambia la textura del dinosaurio
-              dino1->setTipodino(2); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
+              dino1->setTipodino(1); // Establece el tipo de dinosario, la vida y la velocidad en funcion de su tipo
               dino1->modifyPosition(117+(x*32),69+(y*32)); // Punto de spawn. Debe estar dentro del mapa
               dinosaurios.push_back(dino1);
               std::cout<<"DINO METIDO"<<std::endl; // Guardar en el vector de dinosaurios
               if (cont<2)//los dos primeros snow bees los crea activos
               {
                 dino1->setactivo(true);
-                todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.
+                /*todoSprites.push_back(dino1->getSprite()); //Lo añadimos al vector de colisiones.*/
               }
               cont++;
               if (tot==cont) { todos=true; } //CONTROLA QUE NO FALTEN ADNS
             }
           }
         }
-        //if(!todos){crearDinos(m,tot-cont);} 
 }
 
-void Mundo::Event(sf::Event event,sf::RenderWindow &window, float times){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
+void Mundo::Event(sf::Event event,sf::RenderWindow &window, float time){ //COSAS DEL MUNDO CUANDO PULSAS ALGO
       switch (event.type) {
         case sf::Event::Closed:
           Contexto::Instance()->Quit();
           window.close();
         break;
-        //case sf::Event::MouseButtonPressed:
+        //AL PULSAR LA TECLA
         case sf::Event::KeyPressed:
+
+          if(event.key.code == 60)
+          {
+            if(lvlactual<mapas.size()){//TERMINAR EL MAPA ACTUAL
+                  mapas[lvlactual]->terminar();
+              }
+          }
+
+          if(event.key.code == 15)
+          {
+            if(dinosaurios.size()>0){
+                    dinosaurios[0]->modifyVida();
+                    if(dinosaurios[0]->getVida() == 0){
+                      /*
+                      for(unsigned int a = 0;a < todoSprites.size();a++){
+                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
+                          todoSprites.erase(todoSprites.begin() + a);
+                        }
+                      }
+                      */
+                    dinosaurios.erase(dinosaurios.begin() + 0);
+                    //jugador1->sumaPuntos();
+                    jugador1->setmatando(true);
+                    }
+            }
+          }
+
+          if(event.key.code == 16)
+          {
+                if(adns.size()>0){
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();   
+                }
+          }
+
+          /*Controles jugador 1*/
+
+            //Colocacion de una bomba pulsando tecla ESPACIO.
+            if(event.key.code == 57)
+            {
+              teclaEspacio = true;
+              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+              if(jugador1->getPuesta() == false)
+              {
+                //Nos guardamos el segundo exacto en el que se pone la bomba.
+                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                //Creamos una instancia de bomba.
+                Bomba bomba(jugador1->getSprite()->getPosition().x, jugador1->getSprite()->getPosition().y);
+                bomba.setPropietario(jugador1->getIdentificador());
+                //Lo añadimos al vector de bombas.
+                totalBombas.push_back(bomba);
+
+                jugador1->setPuesta(true);
+              }
+            }
+            //Flecha arriba
+            if(event.key.code == 73)
+            {
+              flechaArriba = true;
+            }
+              
+            //Flecha abajo
+            if(event.key.code == 74)
+            {
+              flechaAbajo = true;
+            }
+            //Flecha derecha
+            if(event.key.code == 72)
+            {
+              flechaDerecha = true;
+            }
+            //Flecha izquierda
+            if(event.key.code == 71)
+            {
+              flechaIzquierda = true;
+            }
+            
+            /*Controles jugador 2*/
+            
+            if(play == 2)
+            {
+                //Colocacion de una bomba pulsando tecla E.
+              if(event.key.code == 4)
+              {
+                teclaE = true;
+                //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+                if(jugador2->getPuesta() == false)
+                {
+                  //Nos guardamos el segundo exacto en el que se pone la bomba.
+                  tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                  //Creamos una instancia de bomba.
+                  Bomba bomba(jugador2->getSprite()->getPosition().x, jugador2->getSprite()->getPosition().y);
+                  bomba.setPropietario(jugador2->getIdentificador());
+                  //Lo añadimos al vector de bombas.
+                  totalBombas.push_back(bomba);
+
+                  jugador2->setPuesta(true);
+                }
+              }
+              //W arriba
+              if(event.key.code == 22)
+              {
+                teclaW = true;
+              }
+              //S abajo
+              if(event.key.code == 18)
+              {
+                teclaS = true;
+              }
+
+              //D derecha
+              if(event.key.code == 3)
+              {
+                teclaD = true;
+              }
+
+              //A izquierda
+              if(event.key.code == 0)
+              {
+                teclaA = true;
+              }
+            }
+
+            break;
+        //AL SOLTAR LA TECLA
+        case sf::Event::KeyReleased:
+
+          if(event.key.code == 60)
+          {
+            if(lvlactual<mapas.size()){//TERMINAR EL MAPA ACTUAL
+                  mapas[lvlactual]->terminar();
+              }
+          }
+
+          if(event.key.code == 15)
+          {
+            if(dinosaurios.size()>0){
+                    dinosaurios[0]->modifyVida();
+                    if(dinosaurios[0]->getVida() == 0){
+                      /*
+                      for(unsigned int a = 0;a < todoSprites.size();a++){
+                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
+                          todoSprites.erase(todoSprites.begin() + a);
+                        }
+                      }
+                      */
+                    dinosaurios.erase(dinosaurios.begin() + 0);
+                    //jugador1->sumaPuntos();
+                    jugador1->setmatando(true);
+                    }
+            }
+          }
+
+          if(event.key.code == 16)
+          {
+                if(adns.size()>0){
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();   
+                }
+          }
+
+          /*Controles jugador 1*/
+
+            //Colocacion de una bomba pulsando tecla ESPACIO.
+            if(event.key.code == 57)
+            {
+              teclaEspacio = false;
+              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+              if(jugador1->getPuesta() == false)
+              {
+                //Nos guardamos el segundo exacto en el que se pone la bomba.
+                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                //Creamos una instancia de bomba.
+                Bomba bomba(jugador1->getSprite()->getPosition().x, jugador1->getSprite()->getPosition().y);
+                bomba.setPropietario(jugador1->getIdentificador());
+                //Lo añadimos al vector de bombas.
+                totalBombas.push_back(bomba);
+
+                jugador1->setPuesta(true);
+              }
+            }
+            //Flecha arriba
+            if(event.key.code == 73)
+            {
+              flechaArriba = false;
+            }
+              
+            //Flecha abajo
+            if(event.key.code == 74)
+            {
+              flechaAbajo = false;
+            }
+            //Flecha derecha
+            if(event.key.code == 72)
+            {
+              flechaDerecha = false;
+            }
+            //Flecha izquierda
+            if(event.key.code == 71)
+            {
+              flechaIzquierda = false;
+            }
+            
+            /*Controles jugador 2*/
+            
+            if(play == 2)
+            {
+                //Colocacion de una bomba pulsando tecla E.
+              if(event.key.code == 4)
+              {
+                teclaE = false;
+                //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+                if(jugador2->getPuesta() == false)
+                {
+                  //Nos guardamos el segundo exacto en el que se pone la bomba.
+                  tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                  //Creamos una instancia de bomba.
+                  Bomba bomba(jugador2->getSprite()->getPosition().x, jugador2->getSprite()->getPosition().y);
+                  bomba.setPropietario(jugador2->getIdentificador());
+                  //Lo añadimos al vector de bombas.
+                  totalBombas.push_back(bomba);
+
+                  jugador2->setPuesta(true);
+                }
+              }
+              //W arriba
+              if(event.key.code == 22)
+              {
+                teclaW = false;
+              }
+              //S abajo
+              if(event.key.code == 18)
+              {
+                teclaS = false;
+              }
+
+              //D derecha
+              if(event.key.code == 3)
+              {
+                teclaD = false;
+              }
+
+              //A izquierda
+              if(event.key.code == 0)
+              {
+                teclaA = false;
+              }
+            }
+
+        break;
+
+            /*
+
               ///Verifico si se pulsa alguna tecla de movimiento
           switch (event.key.code) {
             case 60:
               if(lvlactual<mapas.size()){//TERMINAR EL MAPA ACTUAL
                   mapas[lvlactual]->terminar();
               }
-              //Colocacion de una bomba pulsando tecla ESPACIO.
+            case 15://p matar un dino
+                if(dinosaurios.size()>0){
+                    dinosaurios[0]->modifyVida();
+                    if(dinosaurios[0]->getVida() == 0){
+                      /*
+                      for(unsigned int a = 0;a < todoSprites.size();a++){
+                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
+                          todoSprites.erase(todoSprites.begin() + a);
+                        }
+                      }
+                      */
+                     /*
+                    dinosaurios.erase(dinosaurios.begin() + 0);
+                    //jugador1->sumaPuntos();
+                    jugador1->setmatando(true);
+                    }
+            }
+             case 16:// q eliminar un adn
+                if(adns.size()>0){
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();                    
+            }
+
+            /*Controles jugador 1*/
+
+            //Colocacion de una bomba pulsando tecla ESPACIO.
+            /*
             case 57:
             {
               //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
@@ -140,54 +444,81 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window, float times){ //COSA
               }
               break;
             }
-            case 15://p matar un dino
-                if(dinosaurios.size()>0){
-                    dinosaurios[0]->modifyVida();
-                    if(dinosaurios[0]->getVida() == 0){
-                      for(unsigned int a = 0;a < todoSprites.size();a++){
-                        if(todoSprites[a]==dinosaurios[0]->getSprite()){
-                          todoSprites.erase(todoSprites.begin() + a);
-                        }
-                      }
-                    dinosaurios.erase(dinosaurios.begin() + 0);
-                    //jugador1->sumaPuntos();
-                    jugador1->setmatando(true);
-                    }
-            }
-             case 16:// q eliminar un adn
-                if(adns.size()>0){
-                      for(unsigned int a = 0;a < adnSprites.size();a++){
-                        if(adnSprites[a]==adns[0]->getSprite()){
-                          adnSprites.erase(adnSprites.begin() + a);
-                        }
-                      }
-                    adns.erase(adns.begin() + 0);
-                    //jugador1->sumaPuntos();                    
-            }
-            //Arriba
+            //Flecha arriba
             case 73:
-              jugador1->mover(0,times);//MOVER
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad(),times);//CREAR NUEVA COLISION
-              Colisiones::colisionesBombas(*jugador1,totalBombas,0,times);//COMPROBAR COLISION CON BOMBAS COLOCADAS
-              break;
-            //Abajo
+              jugador1->mover(0);//MOVER
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad());//CREAR NUEVA COLISION
+              Colisiones::colisionesBombas(*jugador1,totalBombas,0);//COMPROBAR COLISION CON BOMBAS COLOCADAS
+              
+            //Flecha abajo
             case 74:
-              jugador1->mover(1,times);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad(),times);
-              Colisiones::colisionesBombas(*jugador1,totalBombas,1,times);
+              jugador1->mover(1);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,1);
               break;
-            //Derecha
+            //Flecha derecha
             case 72:
-              jugador1->mover(2,times);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad(),times);
-              Colisiones::colisionesBombas(*jugador1,totalBombas,2,times);
+              jugador1->mover(2);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,2);
               break;
-            //Izquierda
+            //Flecha izquierda
             case 71:
-              jugador1->mover(3,times);
-              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad(),times);
-              Colisiones::colisionesBombas(*jugador1,totalBombas,3,times);
+              jugador1->mover(3);
+              Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad());
+              Colisiones::colisionesBombas(*jugador1,totalBombas,3);
               break;
+            
+            /*Controles jugador 2*/
+            
+            /*
+            if(play == 2)
+            {
+              //Colocacion de una bomba pulsando tecla E.
+            case 4:
+            {
+              //Si el jugador no tiene una bomba ya puesta, le permitimos poner una.
+              if(jugador2->getPuesta() == false)
+              {
+                //Nos guardamos el segundo exacto en el que se pone la bomba.
+                tiemposBomba.push_back(temporizador.getElapsedTime().asSeconds());
+                //Creamos una instancia de bomba.
+                Bomba bomba(jugador2->getSprite()->getPosition().x, jugador2->getSprite()->getPosition().y);
+                bomba.setPropietario(jugador2->getIdentificador());
+                //Lo añadimos al vector de bombas.
+                totalBombas.push_back(bomba);
+
+                jugador2->setPuesta(true);
+              }
+              break;
+            }
+            //W arriba
+            case 22:
+              jugador2->mover(0);//MOVER
+              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,0,jugador2->getVelocidad());//CREAR NUEVA COLISION
+              Colisiones::colisionesBombas(*jugador2,totalBombas,0);//COMPROBAR COLISION CON BOMBAS COLOCADAS
+              break;
+            //S abajo
+            case 18:
+              jugador2->mover(1);
+              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,1,jugador2->getVelocidad());
+              Colisiones::colisionesBombas(*jugador2,totalBombas,1);
+              break;
+
+            //D derecha
+            case 3:
+              jugador2->mover(2);
+              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,2,jugador2->getVelocidad());
+              Colisiones::colisionesBombas(*jugador2,totalBombas,2);
+              break;
+
+            //A izquierda
+            case 0:
+              jugador2->mover(3);
+              Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,3,jugador2->getVelocidad());
+              Colisiones::colisionesBombas(*jugador2,totalBombas,3);
+              break;
+            }
 
           //Cualquier tecla desconocida se imprime por pantalla su código
           default:
@@ -195,7 +526,8 @@ void Mundo::Event(sf::Event event,sf::RenderWindow &window, float times){ //COSA
           break;
         }
       }
-
+      */
+      }
 }
 
 void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE SE ACTUALIZAN SIEMPRE
@@ -240,12 +572,12 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
             mapas[lvlactual]->anadirVector(todoSprites);
             colisiones=true;
           }   
-// UN JUGADOR O DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
+// UN JUGADOR UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
               if(play==1){
                 if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
                 {
                   std::cout<<"matao"<<std::endl;
-                  todosno(0.015);//METER TIME
+                  todosno(time);//CONTROLA LA APARICION DE LOS DINOSAURIOS
                 }
                 hud1->Update(jugador1);
                     Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
@@ -255,7 +587,7 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                 }else{
                     // Mover los dinosaurios con la IA
                     IA ia; // Genera una ia con cada iteracion
-                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual],time); // Permite mover a los dinosaurios 
+                    ia.movimientoDinos(dinosaurios, _cont,todoSprites, *mapas[lvlactual],time); // Permite mover a los dinosaurios
                       _cont++; // Contador de iteraciones del programa
                     //Detecta si le tiene que quitar vida a jugadores y dinosaurios si colisionan con una explosion.
 
@@ -266,8 +598,18 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
                     }
                   }
                 }
-              }else if(play==2)
+              }else if(play==2)// DOS JUGADORES UPDATEAN ELLOS SUS COLISIONES Y SUS HUDS
               {
+                if (jugador1->getmatando())//comprueba los enemigos muertos y los reemplaza
+                {
+                  std::cout<<"matao"<<std::endl;
+                  todosno(time);//METER TIME
+                }
+                if (jugador2->getmatando())//comprueba los enemigos muertos y los reemplaza
+                {
+                  std::cout<<"matao"<<std::endl;
+                  todosno(time);//METER TIME
+                }
                 hud1->Update(jugador1);
                     Bomba::update(temporizador,*jugador1,totalBombas,totalExplosiones,tiemposBomba,tiemposExplosiones);
                     Colisiones::update(temporizador,dinosaurios,*jugador1,totalExplosiones,*mapas[lvlactual],todoSprites,adnSprites,adns); 
@@ -292,6 +634,60 @@ void Mundo::Update(sf::RenderWindow &window, float time) {//COSAS DEL MUNDO QUE 
               }
                 
             }  
+        }
+
+        //MOVIMIENTO DE LOS PERSONAJES
+
+        //J1
+        if(flechaArriba)
+        {
+          jugador1->mover(0,time);
+          Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,0,jugador1->getVelocidad(),time);//CREAR NUEVA COLISION
+          Colisiones::colisionesBombas(*jugador1,totalBombas,0,time);//COMPROBAR COLISION CON BOMBAS COLOCADAS
+        }
+        if(flechaAbajo)
+        {
+          jugador1->mover(1,time);
+          Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,1,jugador1->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador1,totalBombas,1,time);
+        }
+        if(flechaDerecha)
+        {
+          jugador1->mover(2,time);
+          Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,2,jugador1->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador1,totalBombas,2,time);
+        }
+        if(flechaIzquierda)
+        {
+          jugador1->mover(3,time);
+          Colisiones::crearColisiones(*jugador1->getSprite(),todoSprites,3,jugador1->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador1,totalBombas,3,time);
+        }
+        
+        //J2
+        if(teclaW)
+        {
+          jugador2->mover(0,time);//MOVER
+          Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,0,jugador2->getVelocidad(),time);//CREAR NUEVA COLISION
+          Colisiones::colisionesBombas(*jugador2,totalBombas,0,time);//COMPROBAR COLISION CON BOMBAS COLOCADAS
+        }
+        if(teclaS)
+        {
+          jugador2->mover(1,time);
+          Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,1,jugador2->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador2,totalBombas,1,time);
+        }
+        if(teclaD)
+        {
+          jugador2->mover(2,time);
+          Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,2,jugador2->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador2,totalBombas,2,time);
+        }
+        if(teclaA)
+        {
+          jugador2->mover(3,time);
+          Colisiones::crearColisiones(*jugador2->getSprite(),todoSprites,3,jugador2->getVelocidad(),time);
+          Colisiones::colisionesBombas(*jugador2,totalBombas,3,time);
         }
 }
 

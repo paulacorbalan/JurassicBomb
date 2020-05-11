@@ -104,12 +104,13 @@ void Bomba::update(sf::Clock &temporizador,Jugador &jugador,std::vector<Bomba> &
       //Si la bomba que se va a borrar es del jugador actual, le habilitamos para pueda volver a poner una bomba.
       if(totalBombas[0].getPropietario() == jugador.getIdentificador())
       {
+        std::cout << "Ya puedo poner una bomba soy: " << jugador.getIdentificador() << std::endl;
         jugador.setPuesta(false);
+        //Borramos la bomba que lleva mas tiempo puesta.
+        totalBombas.erase(totalBombas.begin());
+        //Borramos el tiempo que controla la primera bomba.
+        tiemposBomba.erase(tiemposBomba.begin());
       }
-      //Borramos la bomba que lleva mas tiempo puesta.
-      totalBombas.erase(totalBombas.begin());
-      //Borramos el tiempo que controla la primera bomba.
-      tiemposBomba.erase(tiemposBomba.begin());
     }
 
     

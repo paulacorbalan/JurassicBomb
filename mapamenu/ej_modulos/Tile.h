@@ -10,7 +10,7 @@ class Tile{
     void Cargarecursos(int a);
     void Update(Jugador* j);
     void draw(sf::RenderWindow &window);
-    void reiniciocrono(){min=5;seg=59;terminada=false;}
+    void reiniciocrono(){min=4;seg=59;terminada=false;}
     bool getTerminada(){return terminada;}
 private:
 
@@ -32,8 +32,8 @@ private:
     sf::Text texto;
     int vidas=3;
     bool terminada=false;
-    int min=2;
-    int seg=12;
+    int min=4;
+    int seg=59;
 
 
 

@@ -89,7 +89,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
                                   texto.setString(cadena);
                             }
                             if(plusImage.getGlobalBounds().contains(mousePos.x,mousePos.y)){
-                              if(lvls<9 && lvls>0){
+                              if(lvls<9 && lvls>1){
                               lvls++;
                               }
                               std::cout << "+1 "<< lvls << std::endl;

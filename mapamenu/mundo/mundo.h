@@ -34,6 +34,18 @@ class Mundo : public States {
     bool adnscreados=false;
     bool dinoscreados=false;
     bool colisiones=false;
+    /*Controles jugador 1*/
+    bool flechaArriba = false;
+    bool flechaAbajo = false;
+    bool flechaIzquierda = false;
+    bool flechaDerecha = false;
+    bool teclaEspacio = false;
+    /*Controles jugador 2*/
+    bool teclaW = false;
+    bool teclaS = false;
+    bool teclaA = false;
+    bool teclaD = false;
+    bool teclaE = false;
     std::vector<Dinosaurio*> dinosaurios;
     std::vector<Adn*> adns;//array de adns(seguramente modificcable)
     sf::Clock temporizador;

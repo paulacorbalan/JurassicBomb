@@ -7,6 +7,8 @@ CMakeFiles/MiJuego.dir/main.cpp.o
  ../mapa/Map.h
  ../maquina/contexto.h
  ../maquina/states.h
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/bomba/bombas.h

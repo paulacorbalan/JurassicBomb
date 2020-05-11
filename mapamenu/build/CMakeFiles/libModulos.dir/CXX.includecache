@@ -87,6 +87,10 @@ string
 -
 SFML/Graphics.hpp
 ../mapa/SFML/Graphics.hpp
+motor.h
+../mapa/motor.h
+sprite.h
+../mapa/sprite.h
 
 ../maquina/contexto.h
 SFML/Graphics.hpp
@@ -111,6 +115,12 @@ iostream
 -
 states.h
 ../menu/states.h
+
+../motor/motor.h
+SFML/Graphics.hpp
+../motor/SFML/Graphics.hpp
+string
+-
 
 ../mundo/mundo.h
 string
@@ -137,6 +147,18 @@ ia.h
 ../mundo/ia.h
 adn.h
 ../mundo/adn.h
+
+../sprite/sprite.h
+SFML/Graphics.hpp
+../sprite/SFML/Graphics.hpp
+iostream
+-
+string
+-
+cstdlib
+-
+stdlib.h
+../sprite/stdlib.h
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -301,6 +323,10 @@ string
 -
 SFML/Graphics.hpp
 /home/fv2/JurassicBomb/mapamenu/mapa/SFML/Graphics.hpp
+motor.h
+/home/fv2/JurassicBomb/mapamenu/mapa/motor.h
+sprite.h
+/home/fv2/JurassicBomb/mapamenu/mapa/sprite.h
 
 /home/fv2/JurassicBomb/mapamenu/maquina/contexto.cpp
 contexto.h
@@ -338,6 +364,16 @@ iostream
 states.h
 /home/fv2/JurassicBomb/mapamenu/menu/states.h
 
+/home/fv2/JurassicBomb/mapamenu/motor/motor.cpp
+motor.h
+/home/fv2/JurassicBomb/mapamenu/motor/motor.h
+
+/home/fv2/JurassicBomb/mapamenu/motor/motor.h
+SFML/Graphics.hpp
+/home/fv2/JurassicBomb/mapamenu/motor/SFML/Graphics.hpp
+string
+-
+
 /home/fv2/JurassicBomb/mapamenu/mundo/mundo.cpp
 mundo.h
 /home/fv2/JurassicBomb/mapamenu/mundo/mundo.h
@@ -367,6 +403,24 @@ ia.h
 /home/fv2/JurassicBomb/mapamenu/mundo/ia.h
 adn.h
 /home/fv2/JurassicBomb/mapamenu/mundo/adn.h
+
+/home/fv2/JurassicBomb/mapamenu/sprite/sprite.cpp
+sprite.h
+/home/fv2/JurassicBomb/mapamenu/sprite/sprite.h
+iostream
+-
+
+/home/fv2/JurassicBomb/mapamenu/sprite/sprite.h
+SFML/Graphics.hpp
+/home/fv2/JurassicBomb/mapamenu/sprite/SFML/Graphics.hpp
+iostream
+-
+string
+-
+cstdlib
+-
+stdlib.h
+/home/fv2/JurassicBomb/mapamenu/sprite/stdlib.h
 
 /home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
 tinystr.h

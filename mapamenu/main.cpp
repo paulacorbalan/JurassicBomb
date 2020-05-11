@@ -9,39 +9,41 @@
 #include "maquina/contexto.h"
 #include "SFML/Graphics.hpp"
 #include <time.h>
+#include "motor.h"
 #define UPDATETIME 1000/30
 int main() {
 
+    Motor* motor=Motor::Instance();
+
 
   sf::RenderWindow window(sf::VideoMode(640, 480),"Jurassic Bomb");
-  window.setFramerateLimit(60);
+  motor->estableceFPS(window,60);
+
   //Creamos una ventana
-    std::cout<<"window";
     Contexto* game=Contexto::Instance();
-    std::cout<<"game";
+    //Iniciamos el juego
     game->Inicializar();
+    //Empezamos en el stado menu
     game->ChangeState(Menu::Instance());   
 
     sf::Clock clock;
     sf::Clock clock2;
-    sf::Time timeStartUpdate=clock.getElapsedTime();
-    std::cout<<"clock";
-    std::cout<<"clock2";
-    std::cout<<"timestart\n";
+    sf::Time timeStartUpdate=motor->obtenerInstante(clock);
+
      
     //Bucle del juego
-      while (window.isOpen()) {
-        if((clock.getElapsedTime().asMilliseconds()-timeStartUpdate.asMilliseconds())>UPDATETIME){
+      while (motor->compruebaVentana(window)) {
+        if((motor->obtenerInstante(clock).asMilliseconds()-timeStartUpdate.asMilliseconds())>UPDATETIME){
           while (game->Running()){
                       sf::Event event;
-                        while(window.pollEvent(event)){
+                        while(motor->compruebaEvento(window,event)){
                           game->Event(event,window, clock2.restart().asSeconds());
                         }
                       game->Update(window, clock2.restart().asSeconds());  
                       game->Draw(window);              
-            if(!window.isOpen())game->Quit();
+            if(!motor->compruebaVentana(window))game->Quit();
           }
-          timeStartUpdate=clock.getElapsedTime();
+          timeStartUpdate=motor->obtenerInstante(clock);
         }  
       }
     return 0;

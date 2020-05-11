@@ -12,6 +12,8 @@ CMakeFiles/libModulos.dir/IA/ia.cpp.o
  ../maquina/contexto.h
  ../maquina/states.h
  ../menu/menu.h
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/IA/ia.cpp
@@ -29,6 +31,8 @@ CMakeFiles/libModulos.dir/bomba/bombas.cpp.o
 CMakeFiles/libModulos.dir/bomba/colisiones.cpp.o
  ../adn/adn.h
  ../mapa/Map.h
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/bomba/bombas.h
@@ -41,6 +45,8 @@ CMakeFiles/libModulos.dir/bomba/jugador.cpp.o
  /home/fv2/JurassicBomb/mapamenu/bomba/jugador.cpp
  /home/fv2/JurassicBomb/mapamenu/bomba/jugador.h
 CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/dinosaurio/dinosaurio.cpp
@@ -62,12 +68,16 @@ CMakeFiles/libModulos.dir/juego/juego.cpp.o
  ../maquina/contexto.h
  ../maquina/states.h
  ../menu/menu.h
+ ../motor/motor.h
  ../mundo/mundo.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/juego/juego.cpp
  /home/fv2/JurassicBomb/mapamenu/juego/juego.h
 CMakeFiles/libModulos.dir/mapa/Map.cpp.o
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/mapa/Map.cpp
@@ -88,11 +98,16 @@ CMakeFiles/libModulos.dir/menu/menu.cpp.o
  ../mapa/Map.h
  ../maquina/contexto.h
  ../maquina/states.h
+ ../motor/motor.h
  ../mundo/mundo.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/menu/menu.cpp
  /home/fv2/JurassicBomb/mapamenu/menu/menu.h
+CMakeFiles/libModulos.dir/motor/motor.cpp.o
+ /home/fv2/JurassicBomb/mapamenu/motor/motor.cpp
+ /home/fv2/JurassicBomb/mapamenu/motor/motor.h
 CMakeFiles/libModulos.dir/mundo/mundo.cpp.o
  ../IA/ia.h
  ../adn/adn.h
@@ -105,10 +120,15 @@ CMakeFiles/libModulos.dir/mundo/mundo.cpp.o
  ../maquina/contexto.h
  ../maquina/states.h
  ../menu/menu.h
+ ../motor/motor.h
+ ../sprite/sprite.h
  ../tinyxml-master/tinystr.h
  ../tinyxml-master/tinyxml.h
  /home/fv2/JurassicBomb/mapamenu/mundo/mundo.cpp
  /home/fv2/JurassicBomb/mapamenu/mundo/mundo.h
+CMakeFiles/libModulos.dir/sprite/sprite.cpp.o
+ /home/fv2/JurassicBomb/mapamenu/sprite/sprite.cpp
+ /home/fv2/JurassicBomb/mapamenu/sprite/sprite.h
 CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o
  /home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp
  /home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinystr.h

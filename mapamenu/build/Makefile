@@ -460,6 +460,33 @@ menu/menu.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/menu/menu.cpp.s
 .PHONY : menu/menu.cpp.s
 
+motor/motor.o: motor/motor.cpp.o
+
+.PHONY : motor/motor.o
+
+# target to build an object file
+motor/motor.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/motor/motor.cpp.o
+.PHONY : motor/motor.cpp.o
+
+motor/motor.i: motor/motor.cpp.i
+
+.PHONY : motor/motor.i
+
+# target to preprocess a source file
+motor/motor.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/motor/motor.cpp.i
+.PHONY : motor/motor.cpp.i
+
+motor/motor.s: motor/motor.cpp.s
+
+.PHONY : motor/motor.s
+
+# target to generate assembly for a file
+motor/motor.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/motor/motor.cpp.s
+.PHONY : motor/motor.cpp.s
+
 mundo/mundo.o: mundo/mundo.cpp.o
 
 .PHONY : mundo/mundo.o
@@ -486,6 +513,33 @@ mundo/mundo.s: mundo/mundo.cpp.s
 mundo/mundo.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/mundo/mundo.cpp.s
 .PHONY : mundo/mundo.cpp.s
+
+sprite/sprite.o: sprite/sprite.cpp.o
+
+.PHONY : sprite/sprite.o
+
+# target to build an object file
+sprite/sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sprite/sprite.cpp.o
+.PHONY : sprite/sprite.cpp.o
+
+sprite/sprite.i: sprite/sprite.cpp.i
+
+.PHONY : sprite/sprite.i
+
+# target to preprocess a source file
+sprite/sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sprite/sprite.cpp.i
+.PHONY : sprite/sprite.cpp.i
+
+sprite/sprite.s: sprite/sprite.cpp.s
+
+.PHONY : sprite/sprite.s
+
+# target to generate assembly for a file
+sprite/sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/sprite/sprite.cpp.s
+.PHONY : sprite/sprite.cpp.s
 
 tinyxml-master/tinystr.o: tinyxml-master/tinystr.cpp.o
 
@@ -641,9 +695,15 @@ help:
 	@echo "... menu/menu.o"
 	@echo "... menu/menu.i"
 	@echo "... menu/menu.s"
+	@echo "... motor/motor.o"
+	@echo "... motor/motor.i"
+	@echo "... motor/motor.s"
 	@echo "... mundo/mundo.o"
 	@echo "... mundo/mundo.i"
 	@echo "... mundo/mundo.s"
+	@echo "... sprite/sprite.o"
+	@echo "... sprite/sprite.i"
+	@echo "... sprite/sprite.s"
 	@echo "... tinyxml-master/tinystr.o"
 	@echo "... tinyxml-master/tinystr.i"
 	@echo "... tinyxml-master/tinystr.s"

@@ -25,6 +25,10 @@ string
 -
 SFML/Graphics.hpp
 ../mapa/SFML/Graphics.hpp
+motor.h
+../mapa/motor.h
+sprite.h
+../mapa/sprite.h
 
 ../maquina/contexto.h
 SFML/Graphics.hpp
@@ -41,6 +45,24 @@ SFML/Graphics.hpp
 ../maquina/SFML/Graphics.hpp
 contexto.h
 ../maquina/contexto.h
+
+../motor/motor.h
+SFML/Graphics.hpp
+../motor/SFML/Graphics.hpp
+string
+-
+
+../sprite/sprite.h
+SFML/Graphics.hpp
+../sprite/SFML/Graphics.hpp
+iostream
+-
+string
+-
+cstdlib
+-
+stdlib.h
+../sprite/stdlib.h
 
 ../tinyxml-master/tinystr.h
 assert.h
@@ -121,6 +143,8 @@ SFML/Graphics.hpp
 /home/fv2/JurassicBomb/mapamenu/SFML/Graphics.hpp
 time.h
 -
+motor.h
+/home/fv2/JurassicBomb/mapamenu/motor.h
 
 /home/fv2/JurassicBomb/mapamenu/mapa/Map.h
 tinyxml.h
@@ -129,6 +153,10 @@ string
 -
 SFML/Graphics.hpp
 /home/fv2/JurassicBomb/mapamenu/mapa/SFML/Graphics.hpp
+motor.h
+/home/fv2/JurassicBomb/mapamenu/mapa/motor.h
+sprite.h
+/home/fv2/JurassicBomb/mapamenu/mapa/sprite.h
 
 /home/fv2/JurassicBomb/mapamenu/maquina/contexto.h
 SFML/Graphics.hpp

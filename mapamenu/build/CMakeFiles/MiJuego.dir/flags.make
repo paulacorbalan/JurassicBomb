@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++1y -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fv2/JurassicBomb/mapamenu/ej_modulos -I/home/fv2/JurassicBomb/mapamenu/mapa -I/home/fv2/JurassicBomb/mapamenu/maquina -I/home/fv2/JurassicBomb/mapamenu/menu -I/home/fv2/JurassicBomb/mapamenu/mundo -I/home/fv2/JurassicBomb/mapamenu/juego -I/home/fv2/JurassicBomb/mapamenu/bomba -I/home/fv2/JurassicBomb/mapamenu/dinosaurio -I/home/fv2/JurassicBomb/mapamenu/adn -I/home/fv2/JurassicBomb/mapamenu/IA -I/home/fv2/JurassicBomb/mapamenu/tinyxml-master 
+CXX_INCLUDES = -I/home/fv2/JurassicBomb/mapamenu/ej_modulos -I/home/fv2/JurassicBomb/mapamenu/mapa -I/home/fv2/JurassicBomb/mapamenu/maquina -I/home/fv2/JurassicBomb/mapamenu/menu -I/home/fv2/JurassicBomb/mapamenu/mundo -I/home/fv2/JurassicBomb/mapamenu/juego -I/home/fv2/JurassicBomb/mapamenu/bomba -I/home/fv2/JurassicBomb/mapamenu/dinosaurio -I/home/fv2/JurassicBomb/mapamenu/adn -I/home/fv2/JurassicBomb/mapamenu/IA -I/home/fv2/JurassicBomb/mapamenu/motor -I/home/fv2/JurassicBomb/mapamenu/sprite -I/home/fv2/JurassicBomb/mapamenu/tinyxml-master 
 

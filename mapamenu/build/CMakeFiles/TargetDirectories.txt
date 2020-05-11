@@ -22,5 +22,9 @@
 /home/fv2/JurassicBomb/mapamenu/build/adn/CMakeFiles/rebuild_cache.dir
 /home/fv2/JurassicBomb/mapamenu/build/IA/CMakeFiles/edit_cache.dir
 /home/fv2/JurassicBomb/mapamenu/build/IA/CMakeFiles/rebuild_cache.dir
+/home/fv2/JurassicBomb/mapamenu/build/motor/CMakeFiles/edit_cache.dir
+/home/fv2/JurassicBomb/mapamenu/build/motor/CMakeFiles/rebuild_cache.dir
+/home/fv2/JurassicBomb/mapamenu/build/sprite/CMakeFiles/edit_cache.dir
+/home/fv2/JurassicBomb/mapamenu/build/sprite/CMakeFiles/rebuild_cache.dir
 /home/fv2/JurassicBomb/mapamenu/build/tinyxml-master/CMakeFiles/edit_cache.dir
 /home/fv2/JurassicBomb/mapamenu/build/tinyxml-master/CMakeFiles/rebuild_cache.dir

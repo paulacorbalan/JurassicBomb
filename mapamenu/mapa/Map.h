@@ -4,6 +4,8 @@
 #include "tinyxml.h"
 #include <string>
 #include "SFML/Graphics.hpp"
+#include "motor.h"
+#include "sprite.h"
 
 using namespace std;
 class Map {

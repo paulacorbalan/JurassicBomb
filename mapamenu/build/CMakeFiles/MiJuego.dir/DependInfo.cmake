@@ -20,6 +20,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../dinosaurio"
   "../adn"
   "../IA"
+  "../motor"
+  "../sprite"
   "../tinyxml-master"
   )
 

@@ -15,6 +15,8 @@ add_subdirectory(bomba)
 add_subdirectory(dinosaurio)
 add_subdirectory(adn)
 add_subdirectory(IA)
+add_subdirectory(motor)
+add_subdirectory(sprite)
 add_subdirectory(tinyxml-master)
 
 #Opciones a pasar al compilador de C++

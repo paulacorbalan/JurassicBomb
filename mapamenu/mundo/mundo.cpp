@@ -1,7 +1,5 @@
 #include "mundo.h"
 
-
-
 Mundo* Mundo::jinstance=0;
 
 Mundo* Mundo::Instance() {
@@ -75,7 +73,7 @@ void Mundo::crearAdns(Map* m,int tot){//CREA LOS ADNS A RECOGER
         for( unsigned int y=0; y<m->getheight() && !todos;y++){
           for(unsigned int x=0; x<m->getwidth() && !todos;x++){ //ELIGE POSICION
             int gid=m->gettilemap()[l][y][x]-1;
-              v1 = rand() % 600;
+              v1 = rand() % 500;
             if(gid==2 && v1<150){//COMPRUEBA QUE ES GID = PIEDRAS
               Adn* prueba=new Adn(1,x,y);
               adns.push_back(prueba);//AÑADE AL VECTOR ADNS

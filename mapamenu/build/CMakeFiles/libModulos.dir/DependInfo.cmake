@@ -15,7 +15,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fv2/JurassicBomb/mapamenu/mapa/Map.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/mapa/Map.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/maquina/contexto.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/maquina/contexto.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/menu/menu.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/menu/menu.cpp.o"
+  "/home/fv2/JurassicBomb/mapamenu/motor/motor.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/motor/motor.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/mundo/mundo.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/mundo/mundo.cpp.o"
+  "/home/fv2/JurassicBomb/mapamenu/sprite/sprite.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/sprite/sprite.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinystr.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/tinyxml-master/tinystr.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinyxml.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
   "/home/fv2/JurassicBomb/mapamenu/tinyxml-master/tinyxmlerror.cpp" "/home/fv2/JurassicBomb/mapamenu/build/CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
@@ -35,6 +37,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../dinosaurio"
   "../adn"
   "../IA"
+  "../motor"
+  "../sprite"
   "../tinyxml-master"
   )
 

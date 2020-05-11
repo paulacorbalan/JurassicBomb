@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/dinosaurio/dinosaurio.cpp.o"
   "CMakeFiles/libModulos.dir/adn/adn.cpp.o"
   "CMakeFiles/libModulos.dir/IA/ia.cpp.o"
+  "CMakeFiles/libModulos.dir/motor/motor.cpp.o"
+  "CMakeFiles/libModulos.dir/sprite/sprite.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxml.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlerror.cpp.o"
   "CMakeFiles/libModulos.dir/tinyxml-master/tinyxmlparser.cpp.o"

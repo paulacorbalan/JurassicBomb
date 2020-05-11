@@ -283,7 +283,6 @@ int Dinosaurio::mderecha(std::vector<sf::Sprite*> &todo, int numlayers, int heig
     bool colision = false; // Comprueba si ha habido choque. Si ha habido, se intenta salto
     sf::Sprite clon;
 
-
         _Sprite->move(_Speed*times, 0);
         for(unsigned int j = 0;j < todo.size();j++){
             if(_Sprite->getGlobalBounds().intersects(todo[j]->getGlobalBounds()) && _Sprite!=todo[j]){

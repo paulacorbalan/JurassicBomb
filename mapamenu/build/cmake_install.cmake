@@ -44,6 +44,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/fv2/JurassicBomb/mapamenu/build/dinosaurio/cmake_install.cmake")
   include("/home/fv2/JurassicBomb/mapamenu/build/adn/cmake_install.cmake")
   include("/home/fv2/JurassicBomb/mapamenu/build/IA/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build/motor/cmake_install.cmake")
+  include("/home/fv2/JurassicBomb/mapamenu/build/sprite/cmake_install.cmake")
   include("/home/fv2/JurassicBomb/mapamenu/build/tinyxml-master/cmake_install.cmake")
 
 endif()

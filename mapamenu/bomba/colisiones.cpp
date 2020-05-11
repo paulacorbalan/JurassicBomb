@@ -78,7 +78,7 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
 }
 
 
-void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones,Map &mapa)
+void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosaurios,Jugador &jugador,std::vector<sf::Sprite> &totalExplosiones,Map &mapa,  std::vector<sf::Sprite*> &todoSprites, std::vector<sf::Sprite*> &adnSprites,    std::vector<Adn*> &adns)
 {
   sf::Sprite**** mpSprite = mapa.gettilemapSprite();
   int*** tilemap= mapa.gettilemap();
@@ -86,20 +86,43 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
   int hei=mapa.getheight();
   int wid=mapa.getwidth();
 
+
+for(unsigned int i = 0;i < adns.size();i++)
+  {
+    if(jugador.getSprite()->getGlobalBounds().intersects(adns[i]->getSprite()->getGlobalBounds()))
+    {
+                      for(unsigned int a = 0;a < adnSprites.size();a++){
+                        if(adnSprites[a]==adns[0]->getSprite()){
+                          adnSprites.erase(adnSprites.begin() + a);
+                        }
+                      }
+                    adns.erase(adns.begin() + 0);
+                    //jugador1->sumaPuntos();                     
+    }
+  }
+
   for(unsigned int i = 0;i < totalExplosiones.size();i++)
   {
     //EXPLOSION DINOSAURIOS
     for(unsigned int j = 0;j < dinosaurios.size();j++)
     {
-      if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
-      {
-        if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
+      if(dinosaurios[j]->getactivo()){
+        if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds()))
         {
-          dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
-          dinosaurios[j]->modifyVida();
-          if(dinosaurios[j]->getVida() == 0)
+          if(dinosaurios[j]->getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - dinosaurios[j]->getInvencibilidad() > 1)
           {
-            dinosaurios.erase(dinosaurios.begin() + j);
+            dinosaurios[j]->setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+            dinosaurios[j]->modifyVida();
+            if(dinosaurios[j]->getVida() == 0)
+            {
+              for(unsigned int a = 0;a < todoSprites.size();a++){
+                if(todoSprites[a]==dinosaurios[j]->getSprite()){
+                  todoSprites.erase(todoSprites.begin() + a);
+                }
+              }
+              dinosaurios.erase(dinosaurios.begin() + j);
+              jugador.setmatando(true);
+            }
           }
         }
       }
@@ -120,13 +143,45 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
         for( unsigned int y=0; y<hei;y++){
           for(unsigned int x=0; x<wid;x++){
             int gid=tilemap [l][y][x]-1;
-            if(gid==2 && mpSprite[l][y][x]->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds())){//GID = PIEDRAS
+            if(gid==2 && mpSprite[l][y][x]->getGlobalBounds().intersects(totalExplosiones[i].getGlobalBounds())){//COMPRUEBA SI EL ID DE CADA POSICION DE LA MATRIZ = PIEDRAS
               std::cout << "Rompo una piedra" << std::endl;
-              mapa.setTileMapa(l,y,x,2);
+              mapa.setTileMapa(l,y,x,0);
+                  for(unsigned int a = 0;a < todoSprites.size();a++){
+                    if(todoSprites[a]==mpSprite[l][y][x]){
+                      todoSprites.erase(todoSprites.begin()+a);
+                    }
+                  }
               mapa.gettilemapSprite()[l][y][x]->setTextureRect(sf::IntRect(32,32,32,32));
+              for (unsigned int i = 0; i < adns.size(); i++)//HACER VISIBLE ADNS EN EL LUGAR DE LA PIEDRA
+              {
+                if(adns[i]->getposx()==x && adns[i]->getposy()==y){
+                  adns[i]->hacervisible();
+                }
+              }
+              
             }
           }
         }
       }
   }
+  //JUGADOR TOCA UN ENEMIGO
+      //Mientras que el jugador no este en modo invencibilidad, podrá ser dañado por un enemigo.
+      for(unsigned int j = 0;j < dinosaurios.size();j++)
+      {
+        //Si es un dinosaurio que esta en el mapa.
+        if(dinosaurios[j]->getactivo())
+        {
+          //Y colisiona con el jugador.
+          if(dinosaurios[j]->getSprite()->getGlobalBounds().intersects(jugador.getSprite()->getGlobalBounds()))
+          {
+            //Y el jugador no esta en modo invencible.
+            if(jugador.getInvencibilidad() == -1 || temporizador.getElapsedTime().asSeconds() - jugador.getInvencibilidad() > 3)
+            {
+              jugador.quitarVidas();
+              std::cout << jugador.getVidas() << std::endl;
+              jugador.setInvencibilidad(temporizador.getElapsedTime().asSeconds());
+            }
+          }
+        }
+      }
 }

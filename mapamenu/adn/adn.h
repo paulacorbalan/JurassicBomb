@@ -16,7 +16,10 @@ public:
   void Update();
   int getpuntos(){return puntos;}
   bool getvisible(){return visible;}
-  void hacervisible(){visible=true;}
+  void hacervisible(){visible=true;std::cout<<"visible"<<std::endl;}
+  sf::Sprite* getSprite(){return adnsprite;}
+  int getposx(){return posx;}
+  int getposy(){return posy;}
 
 private:
   int puntos;

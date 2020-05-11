@@ -12,7 +12,8 @@
 #include "bombas.h"
 #include "dinosaurio.h"
 #include "colisiones.h"
-#include "../IA/ia.h"
+#include "ia.h"
+#include "adn.h"
 
 using namespace std;
 
@@ -20,17 +21,37 @@ class Mundo : public States {
 
   private:    
     static Mundo* jinstance;
-    int dif=0;
-    int lvls=0;
-    int lvlactual=0;
-    int play=0;
-    int numjugadores = 1;
-    std::vector<Map*> mapas;
+    int dif=0;//dificultad
+    int lvls=0;//numero de niveles
+    int lvlactual=0;//nivel en el que estamos
+    int play=0;//numero de jugadores
+    int modo=0;//modo de juego
+    std::vector<Map*> mapas;//vector de mapas para jugar
+    Tile* hud1;//el hud
+    Tile* hud2;//el hud
+
+    bool nueva=false;//controla la nueva partida
+    bool adnscreados=false;
+    bool dinoscreados=false;
+    bool colisiones=false;
+    /*Controles jugador 1*/
+    bool flechaArriba = false;
+    bool flechaAbajo = false;
+    bool flechaIzquierda = false;
+    bool flechaDerecha = false;
+    bool teclaEspacio = false;
+    /*Controles jugador 2*/
+    bool teclaW = false;
+    bool teclaS = false;
+    bool teclaA = false;
+    bool teclaD = false;
+    bool teclaE = false;
     std::vector<Dinosaurio*> dinosaurios;
-    Tile* hud;
+    std::vector<Adn*> adns;//array de adns(seguramente modificcable)
     sf::Clock temporizador;
     //Jugador//
-    Jugador* jugador;
+    Jugador* jugador1;
+    Jugador* jugador2;
     /////Control de las bombas y explosiones/////
     std::vector<Bomba> totalBombas;
     std::vector<sf::Sprite> totalExplosiones;
@@ -38,21 +59,91 @@ class Mundo : public States {
     std::vector<float> tiemposExplosiones;
     //Vector que almacena todos los sprites para comprobar las colisiones.
     std::vector<sf::Sprite*> todoSprites;
-
-    std::vector<sf::Sprite*> adns;
+    
+    std::vector<sf::Sprite*> adnSprites;//almacena sprites adns
 
     int _cont = 0; // Contador de iteraciones del juego
-
-
+  sf::Texture background;
+  sf::Sprite backgroundImage;
+    float waiteo=3;
+    float control=0;
   public:
     void Inicializar();
     static Mundo* Instance();
-    void Event(sf::Event event,sf::RenderWindow &window);
-    void Update(sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window, float time);
+    void Update(sf::RenderWindow &window, float time);
     void Draw(sf::RenderWindow &window);
     void renicio();
-    bool saleADN();
-    void finjuego();
+    void finjuego(int a);
+    bool saleADN(int *** _tilemap,int _numlayers, int _height,int  _width);
+    void crearAdns(Map* m,int tot);
+    void crearDinos(Map* m,int tot);
+    void setControl(float a){control=a;}
+    void todosno(float times){
+      int activados=0;
+      control+=times;
+      for (unsigned int i = 0; i < dinosaurios.size(); i++)
+      {
+        std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
+          if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
+            dinosaurios[i]->setactivo(true);
+            todoSprites.push_back(dinosaurios[i]->getSprite()); //Lo añadimos al vector de colisiones.
+            control=0;
+          }
+          if(dinosaurios[i]->getactivo()){
+            activados++;
+          }
+
+          if(activados==2){
+            std::cout<<"matafalso";
+            jugador1->setmatando(false);
+            control=0;
+          }
+      }  
+    }
+    void borraradns(){
+      std::cout<<"adn delete"<<endl;
+        for(unsigned int i=0;i<adns.size();i++){
+          
+          delete adns[i];
+          adns[i]=NULL;
+        }
+        adns.clear();
+
+
+        for(unsigned int i=0;i<adnSprites.size();i++){
+          
+          delete adnSprites[i];
+          adnSprites[i]=NULL;
+        }
+        adnSprites.clear();
+    }
+    void borrardinos(){
+      std::cout<<"dino delete"<<endl;
+        for(unsigned int i=0;i<dinosaurios.size();i++){
+          
+          delete dinosaurios[i];
+          dinosaurios[i]=NULL;
+        }
+        dinosaurios.clear();
+    }
+    void borrarcolisiones(){
+      std::cout<<"colisiones delete"<<endl;
+        for(unsigned int i=0;i<todoSprites.size();i++){
+          
+          delete todoSprites[i];
+          todoSprites[i]=NULL;
+        }
+        todoSprites.clear();
+    }
+    void borrarmapas(){
+      std::cout<<"mapa delete"<<endl;
+      for(unsigned int i=0;i<mapas.size();i++){
+        delete mapas[i];
+        mapas[i]=NULL;
+      }
+      mapas.clear();
+    }
     void move_dinos();
 
 

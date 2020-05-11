@@ -14,6 +14,10 @@ class Menu : public States {
   private:
   sf::Texture background;
   sf::Sprite backgroundImage;
+  sf::Texture ganar;
+  sf::Sprite ganarImage;
+  sf::Texture perder;
+  sf::Sprite perderImage;
   sf::Texture pausa;
   sf::Sprite pausaImage;
   sf::Sprite playImage;
@@ -54,10 +58,10 @@ class Menu : public States {
 
   public:
     void Inicializar();
-    void reinicio();
+    void reinicio(int a);
     static Menu* Instance();
-    void Event(sf::Event event,sf::RenderWindow &window);
-    void Update(sf::RenderWindow &window);
+    void Event(sf::Event event,sf::RenderWindow &window, float time);
+    void Update(sf::RenderWindow &window, float time);
     void Draw(sf::RenderWindow &window);
     int GetLvls();
     int GetDif();

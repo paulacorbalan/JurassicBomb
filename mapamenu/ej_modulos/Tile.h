@@ -1,16 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "jugador.h"
 
 class Tile{
 
    
     public:
-    Tile();
-    void Cargarecursos();
-    void Update();
+    Tile(int a);
+    void Cargarecursos(int a);
+    void Update(Jugador* j);
     void draw(sf::RenderWindow &window);
-    void reiniciocrono(){min=0;seg=15;}
+    void reiniciocrono(){min=5;seg=59;terminada=false;}
+    bool getTerminada(){return terminada;}
 private:
 
     sf::Sprite vida1;
@@ -31,7 +32,7 @@ private:
     sf::Text texto;
     int vidas=3;
     bool terminada=false;
-    int min=0;
+    int min=2;
     int seg=12;
 
 

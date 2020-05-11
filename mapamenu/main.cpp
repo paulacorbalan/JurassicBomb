@@ -9,11 +9,11 @@
 #include "maquina/contexto.h"
 #include "SFML/Graphics.hpp"
 #include <time.h>
-
+#define UPDATETIME 1000/30
 int main() {
 
 
-  sf::RenderWindow window(sf::VideoMode(640, 480),"P0. Fundamentos de los Videojuegos. DCCIA");
+  sf::RenderWindow window(sf::VideoMode(640, 480),"Jurassic Bomb");
   window.setFramerateLimit(60);
   //Creamos una ventana
     std::cout<<"window";
@@ -23,22 +23,26 @@ int main() {
     game->ChangeState(Menu::Instance());   
 
     sf::Clock clock;
-    std::cout<<"clock";
+    sf::Clock clock2;
     sf::Time timeStartUpdate=clock.getElapsedTime();
+    std::cout<<"clock";
+    std::cout<<"clock2";
     std::cout<<"timestart\n";
      
     //Bucle del juego
       while (window.isOpen()) {
+        if((clock.getElapsedTime().asMilliseconds()-timeStartUpdate.asMilliseconds())>UPDATETIME){
           while (game->Running()){
                       sf::Event event;
                         while(window.pollEvent(event)){
-                          game->Event(event,window);
+                          game->Event(event,window, clock2.restart().asSeconds());
                         }
-                      game->Update(window);  
+                      game->Update(window, clock2.restart().asSeconds());  
                       game->Draw(window);              
             if(!window.isOpen())game->Quit();
-            }
-          
+          }
+          timeStartUpdate=clock.getElapsedTime();
+        }  
       }
     return 0;
 }

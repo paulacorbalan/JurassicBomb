@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../adn/adn.h
+tinyxml.h
+../adn/tinyxml.h
+string
+-
+SFML/Graphics.hpp
+../adn/SFML/Graphics.hpp
+
+../bomba/jugador.h
+SFML/Graphics.hpp
+-
+
 ../mapa/Map.h
 tinyxml.h
 ../mapa/tinyxml.h
@@ -71,16 +83,18 @@ Map.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/Map.h
 ../dinosaurio/dinosaurio.h
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
-
-/home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/jugador.h
-SFML/Graphics.hpp
--
+adn.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/bomba/adn.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/dinosaurio/dinosaurio.h
+../mapa/Map.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/mapa/Map.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/ej_modulos/Tile.h
 SFML/Graphics.hpp
 -
+jugador.h
+/home/gabriel/Escritorio/JurassicBomb/mapamenu/ej_modulos/jugador.h
 
 /home/gabriel/Escritorio/JurassicBomb/mapamenu/include/config.h
 

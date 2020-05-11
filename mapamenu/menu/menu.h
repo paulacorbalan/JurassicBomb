@@ -55,7 +55,7 @@ class Menu : public States {
     bool gpause=false;
     bool jugando=false;
     int players=0;
-    int lvls=1;
+    int lvls=0;
     int dificulty=0;//0 facil 1 normal 2 dificil
     int menus=5;//0 principal, 1 un jugador, 2 multijugador, 3 opciones
     

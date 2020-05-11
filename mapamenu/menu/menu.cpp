@@ -14,6 +14,7 @@ Menu* Menu::pinstance=0;
 
 void Menu::Inicializar() {
   std::cout<<"menuiniciado\n";
+  
   Cargarecursos(); 
 }
 
@@ -98,7 +99,8 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
                             }
                 }else if((menus==3 || menus==4 || menus==5) && !jugando){
                   menus=0;
-                  lvls=1;
+                  lvls=0;
+                  lvltxt();
                 }
               }
             //////////Se pulsó una tecla, imprimo su codigo
@@ -152,8 +154,9 @@ void Menu::Draw(sf::RenderWindow &window) {
       
 }
 void Menu::lvltxt(){
+  lvls++;
             // Damos un valor a la cadena
-            cadena = std::to_string(1);
+            cadena = std::to_string(lvls);
             // Asignamos la cadena al texto
             texto.setString(cadena);
             // Asignamos la fuente que hemos cargado al texto
@@ -166,7 +169,7 @@ void Menu::lvltxt(){
             
 }
 void Menu::reinicio(int a){
-  lvls=1;
+  lvls=0;
   menus=a;//PONER EN 3 PARA LA PANTALLA DE VICTORIA 4 PARA LA DE DERROTA
   dificulty=0;
   lvltxt();

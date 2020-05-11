@@ -9,7 +9,7 @@ class Tile{
     Tile(int a);
     void Cargarecursos(int a);
     void Update(Jugador* j);
-    void draw(sf::RenderWindow &window);
+    void draw(sf::RenderWindow &window,Jugador* j);
     void reiniciocrono(){min=4;seg=59;terminada=false;}
     bool getTerminada(){return terminada;}
 private:

@@ -26,7 +26,7 @@ void Tile::Cargarecursos(int a){
   }contador.setTexture(texcontador);
      
   //Y creo el spritesheet a partir de la imagen anterior
-            if (!fuente.loadFromFile("resources/arial.ttf"))
+            if (!fuente.loadFromFile("resources/fuente.otf"))
             {              
                   std::cout << "Error: Could not display font" << std::endl;
             }    
@@ -61,7 +61,9 @@ void Tile::Cargarecursos(int a){
   vida1.setScale(2,2);
 
   // Lo dispongo en el centro de la panta
-if(a==1){
+
+
+if(a==1){//depende de cuantos jugadores
   vida1.setPosition(30, 40);
   vida2.setPosition(61, 40);
   vida3.setPosition(92, 40);
@@ -73,7 +75,7 @@ if(a==1){
 }
 
 }
-void Tile::draw(sf::RenderWindow &window){
+void Tile::draw(sf::RenderWindow &window,Jugador* j){
   if(vidas==1){
     window.draw(vida1);
   }else if(vidas==2){
@@ -87,7 +89,7 @@ void Tile::draw(sf::RenderWindow &window){
   {
     /* GAMEOVER HABER ESTUDIAO */
   }
-    window.draw(texto);
+  if(j->getIdentificador()==1)window.draw(texto);
 }
 void Tile::Update(Jugador* j){
     vidas=j->getVidas();

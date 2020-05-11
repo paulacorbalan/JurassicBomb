@@ -11,6 +11,7 @@ Bomba::Bomba(float x, float y)
 
     //Cargo la textura de las explosiones para usarlas posteriormente.
     texplosiones = new sf::Texture();
+    sbomba = new sf::Sprite();
 
     if (!texplosiones->loadFromFile("resources/explosion.png")) {
         std::cerr << "Error cargando la imagen explosion.png";
@@ -19,16 +20,33 @@ Bomba::Bomba(float x, float y)
 
     //Cargo la textura y creo el sprite de la bomba.
     tbomba = new sf::Texture();
-    if (!tbomba->loadFromFile("resources/bomba.png")) {
+    if (!tbomba->loadFromFile("resources/boom.png")) {
+        std::cerr << "Error cargando la imagen bomba.png";
+        exit(0);
+    }    
+    tbomba2 = new sf::Texture();
+    if (!tbomba2->loadFromFile("resources/boom2.png")) {
+        std::cerr << "Error cargando la imagen bomba.png";
+        exit(0);
+    }    
+    tbomba3 = new sf::Texture();
+    if (!tbomba3->loadFromFile("resources/boom3.png")) {
+        std::cerr << "Error cargando la imagen bomba.png";
+        exit(0);
+    }    
+    tbomba4 = new sf::Texture();
+    if (!tbomba4->loadFromFile("resources/boom4.png")) {
         std::cerr << "Error cargando la imagen bomba.png";
         exit(0);
     }
 
-    sbomba.setTexture(*tbomba);
-    sbomba.setTextureRect(sf::IntRect(0, 0, 410, 370));
-    sbomba.setOrigin(410/2,370/2);
-    sbomba.setPosition(x,y);
-    sbomba.scale(0.10,0.10);
+    sbomba->setTexture(*tbomba);
+    sbomba->setTextureRect(sf::IntRect(0, 0, 410, 370));
+    sbomba->setOrigin(410/2,370/2);
+    sbomba->setPosition(x,y);
+    sbomba->scale(0.10,0.10);
+
+
 }
 
 std::vector<sf::Sprite> Bomba::GenerarExplosion()
@@ -89,6 +107,24 @@ std::vector<sf::Sprite> Bomba::GenerarExplosion()
 
 void Bomba::update(sf::Clock &temporizador,Jugador &jugador,std::vector<Bomba> &totalBombas,std::vector<sf::Sprite> &totalExplosiones,std::vector<float> &tiemposBomba,std::vector<float> &tiemposExplosiones)
 {
+    
+    for(unsigned int i=0;i<totalBombas.size();i++){
+
+        if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[i] >= 1)
+        {           
+            totalBombas[i].getBomba()->setTexture(*totalBombas[i].getTexture2());
+        }
+        if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[i] >= 2)
+        {           
+            totalBombas[i].getBomba()->setTexture(*totalBombas[i].getTexture3());
+        }
+        if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[i] >= 3)
+        {           
+            totalBombas[i].getBomba()->setTexture(*totalBombas[i].getTexture4());
+        }
+        
+    }
+    
     //Detectamos si ya ha pasado la cantidad de tiempo suficiente para que explote una bomba.
     if(tiemposBomba.size() > 0 && temporizador.getElapsedTime().asSeconds() - tiemposBomba[0] >= 3)
     {
@@ -125,7 +161,7 @@ void Bomba::update(sf::Clock &temporizador,Jugador &jugador,std::vector<Bomba> &
 
 //GETTERS
 
-sf::Sprite Bomba::getBomba()
+sf::Sprite* Bomba::getBomba()
 {
     return sbomba;
 }
@@ -172,6 +208,6 @@ void Bomba::setPropietario(int identificador)
 
 void Bomba::draw(sf::RenderWindow &window)
 {
-    window.draw(sbomba);
+    window.draw(*sbomba);
 }
 

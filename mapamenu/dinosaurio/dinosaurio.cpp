@@ -30,21 +30,22 @@ void Dinosaurio::setTipodino(int tipodino){ // Tipo dinosaurio
     // Se crean aqui porque asi, nada mas llamar al constructor, estan dentro de la clase 
     sf::Texture dino_abajo, dino_derecha, dino_izquierda, dino_arriba, camino, bloque;
     _Sprite->setScale(0.8,0.8);
+    std::cout<<"trex"<<std::endl;
 
 if(tipodino==0){
-    if(!dino_abajo.loadFromFile("resources/dino_abajo.png")){
-        std::cerr << "Error cargando dino_abajo.png";
+    if(!dino_abajo.loadFromFile("resources/trex-recto.png")){
+        std::cerr << "Error cargando 2.png";
         exit(0);
     }
-    if(!dino_derecha.loadFromFile("resources/dino_derecha.png")){
+    if(!dino_derecha.loadFromFile("resources/trex-derecha.png")){
         std::cerr << "Error cargando dino_derecha.png";
         exit(0);
     }
-    if(!dino_izquierda.loadFromFile("resources/dino_izquierda.png")){
+    if(!dino_izquierda.loadFromFile("resources/trex-izquierda.png")){
         std::cerr << "Error cargando dino_izquierda.png";
         exit(0);
     }     
-    if(!dino_arriba.loadFromFile("resources/dino_arriba.png")){
+    if(!dino_arriba.loadFromFile("resources/trex-arriba.png")){
         std::cerr << "Error cargando dino_arriba.png";
         exit(0);
     }        
@@ -88,7 +89,7 @@ if(tipodino==0){
     }    
 }else
 {
-    if(!dino_abajo.loadFromFile("resources/tric-abajo.png")){
+    if(!dino_abajo.loadFromFile("resources/tric-recto.png")){
         std::cerr << "Error cargando dino_abajo.png";
         exit(0);
     }

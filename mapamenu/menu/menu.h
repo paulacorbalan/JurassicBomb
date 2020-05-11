@@ -14,6 +14,8 @@ class Menu : public States {
   private:
   sf::Texture background;
   sf::Sprite backgroundImage;
+    sf::Texture titulo;
+  sf::Sprite tituloImage;
   sf::Texture ganar;
   sf::Sprite ganarImage;
   sf::Texture perder;
@@ -46,6 +48,9 @@ class Menu : public States {
   sf::Texture exit;
   sf::Sprite exitImage;                
   sf::Sprite sprite;
+
+    sf::Texture controles;
+  sf::Sprite controlesImage;   
 
     bool gpause=false;
     bool jugando=false;

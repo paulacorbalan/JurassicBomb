@@ -96,13 +96,10 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
                                 cadena = std::to_string(lvls);
                                   texto.setString(cadena);
                             }
-                }else if((menus==3 || menus==4 ) && !jugando){
-                  //GANADO
-                  std::cout<<"has terminado"<<std::endl;
+                }else if((menus==3 || menus==4 || menus==5) && !jugando){
                   menus=0;
                   lvls=1;
                 }
-                    std::cout << "clic izq" << std::endl;
               }
             //////////Se pulsó una tecla, imprimo su codigo
             case sf::Event::KeyPressed:
@@ -110,7 +107,7 @@ void Menu::Event(sf::Event event,sf::RenderWindow &window, float time){
               switch (event.key.code) {
               //Cualquier tecla desconocida se imprime por pantalla su código
               default:
-                std::cout <<"lvl"<<lvls<< " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
+                std::cout <<" lvl "<<lvls<< " menu " << menus << " players " << players << " dificultad "<< dificulty << " jugando " << jugando << " code " << event.key.code << std::endl;
                 break;
               }
             }
@@ -137,6 +134,7 @@ void Menu::Draw(sf::RenderWindow &window) {
               window.draw(texto);
       }
       if(menus==0 && !jugando){
+              window.draw(tituloImage);
               window.draw(splayerImage);
               window.draw(mplayerImage);
               window.draw(exitImage);
@@ -146,6 +144,10 @@ void Menu::Draw(sf::RenderWindow &window) {
       }
       if(menus==4 && !jugando){
         window.draw(perderImage);
+      }
+            
+      if(menus==5 && !jugando){
+        window.draw(controlesImage);
       }
       
 }
@@ -178,6 +180,11 @@ void Menu::Cargarecursos(){
                     backgroundImage.setOrigin(background.getSize().x*0.5, background.getSize().y*0.5);
                     backgroundImage.setPosition(width/2, height/2); 
 
+                    if ( !controles.loadFromFile( "resources/controles.png" ) )
+                      std::cout << "Error: Could not display controles image" << std::endl;
+                    controlesImage.setTexture( controles );
+                    controlesImage.setOrigin(controles.getSize().x*0.5, controles.getSize().y*0.5);
+                    controlesImage.setPosition(width/2, height/2); 
 
                     if ( !ganar.loadFromFile( "resources/ganar2.png" ) )
                     std::cout << "Error: Could not display ganar image" << std::endl;
@@ -243,11 +250,20 @@ void Menu::Cargarecursos(){
                   //texto niveles
                   // Creamos un objeto fuente
                   // Intentamos cargarla
-                  if (!fuente.loadFromFile("resources/arial.ttf"))
+                  if (!fuente.loadFromFile("resources/fuente.otf"))
                   {
                     std::cout << "Error: Could not display font" << std::endl;
                   }
                   lvltxt();
+
+
+                  if ( !titulo.loadFromFile( "resources/titulo.png" ) )
+                  std::cout << "Error: Could not display titulo image" << std::endl;
+                  tituloImage.setTexture( titulo );
+                  tituloImage.setOrigin(titulo.getSize().x*0.5, titulo.getSize().y*0.5);
+                  tituloImage.setPosition(width/2, height*1/6);
+
+
                   //facil
                   if ( !facil.loadFromFile( "resources/facil.png" ) )
                   std::cout << "Error: Could not display facil image" << std::endl;
@@ -261,7 +277,7 @@ void Menu::Cargarecursos(){
                   normalImage.setOrigin(normal.getSize().x*0.5, normal.getSize().y*0.5);
                   normalImage.setPosition(width*1/3, height*3/6);
                   //dificil
-                  if ( !dificil.loadFromFile( "resources/dificil.png" ) )
+                  if ( !dificil.loadFromFile( "resources/dificil2.png" ) )
                   std::cout << "Error: Could not display dificil image" << std::endl;
                   dificilImage.setTexture( dificil );
                   dificilImage.setOrigin(dificil.getSize().x*0.5, dificil.getSize().y*0.5);
@@ -271,19 +287,19 @@ void Menu::Cargarecursos(){
                   std::cout << "Error: Could not display splayer image" << std::endl;
                   splayerImage.setTexture( splayer );
                   splayerImage.setOrigin(splayer.getSize().x*0.5, splayer.getSize().y*0.5);
-                  splayerImage.setPosition(width/2, height*2/6);
+                  splayerImage.setPosition(width/2, height*3/6);
                   //multijugador
                   if ( !mplayer.loadFromFile( "resources/mplayer.png" ) )
                   std::cout << "Error: Could not display mplayer image" << std::endl;
                   mplayerImage.setTexture( mplayer );
                   mplayerImage.setOrigin(mplayer.getSize().x*0.5, mplayer.getSize().y*0.5);
-                  mplayerImage.setPosition(width/2, height*3/6);
+                  mplayerImage.setPosition(width/2, height*4/6);
                   //salir
                   if ( !exit.loadFromFile( "resources/exit.png" ) )
                   std::cout << "Error: Could not display exit image" << std::endl;
                   exitImage.setTexture( exit );
                   exitImage.setOrigin(exit.getSize().x*0.5, exit.getSize().y*0.5);
-                  exitImage.setPosition(width/2, height*4/6);
+                  exitImage.setPosition(width/2, height*5/6);
 }
 
 int Menu::GetLvls(){

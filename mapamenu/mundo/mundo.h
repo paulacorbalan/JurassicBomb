@@ -85,14 +85,14 @@ class Mundo : public States {
       for (unsigned int i = 0; i < dinosaurios.size(); i++)
       {
         std::cout<<control<<" "<<activados<<" "<<dinosaurios.size();
-          if(activados<2 && control>=waiteo && !dinosaurios[i]->getactivo()){
+          if(activados<dif+2 && control>=waiteo && !dinosaurios[i]->getactivo()){
             dinosaurios[i]->setactivo(true);
             control=0;
           }
           if(dinosaurios[i]->getactivo()){
             activados++;
           }
-          if(activados==2){
+          if(activados==dif+2){
             std::cout<<"matafalso";
             j->setmatando(false);
             control=0;

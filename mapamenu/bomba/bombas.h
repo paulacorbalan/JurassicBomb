@@ -9,11 +9,16 @@ class Bomba{
 	std::vector<sf::Sprite> GenerarExplosion();
 	float getCoordenadaX();
 	float getCoordenadaY();
-	sf::Sprite getBomba();
+	sf::Sprite* getBomba();
 	void setExplosion(std::vector<sf::Sprite>);
 	int getPropietario();
 	bool getColision();
 	bool setColision();
+	sf::Texture* getTexture2(){return tbomba2;}
+
+	sf::Texture* getTexture3(){return tbomba3;}
+
+	sf::Texture* getTexture4(){return tbomba4;}
 	void setPropietario(int identificador);
 
 	void draw(sf::RenderWindow &window);
@@ -21,8 +26,11 @@ class Bomba{
 
  private:
 	sf::Texture* tbomba;
+	sf::Texture* tbomba2;
+	sf::Texture* tbomba3;
+	sf::Texture* tbomba4;
 	sf::Texture* texplosiones;
-	sf::Sprite sbomba;
+	sf::Sprite* sbomba;
 	std::vector<sf::Sprite> explosiones;
 	bool activarColision;
 	int propietario;

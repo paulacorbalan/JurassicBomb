@@ -37,7 +37,7 @@ void Colisiones::colisionesBombas(Jugador &jugador,std::vector<Bomba> &bombas, i
   for(unsigned int i = 0;i < bombas.size();i++)
   {
     //Ha encontrado la bomba con la que esta colisionando.
-    if(bombas[i].getBomba().getGlobalBounds().intersects(jugador.getSprite()->getGlobalBounds()))
+    if(bombas[i].getBomba()->getGlobalBounds().intersects(jugador.getSprite()->getGlobalBounds()))
     {
       std::cout << "He entrado 1" << std::endl;
       if(bombas[i].getColision() == true)
@@ -87,16 +87,16 @@ void Colisiones::update(sf::Clock &temporizador,std::vector<Dinosaurio*> &dinosa
   int wid=mapa.getwidth();
 
 
-for(unsigned int i = 0;i < adns.size();i++)
+for(unsigned int i = 0;i < adns.size();i++)//jugador con adn
   {
     if(jugador.getSprite()->getGlobalBounds().intersects(adns[i]->getSprite()->getGlobalBounds()))
     {
                       for(unsigned int a = 0;a < adnSprites.size();a++){
-                        if(adnSprites[a]==adns[0]->getSprite()){
+                        if(adnSprites[a]==adns[i]->getSprite()){
                           adnSprites.erase(adnSprites.begin() + a);
                         }
                       }
-                    adns.erase(adns.begin() + 0);
+                    adns.erase(adns.begin() + i);
                     std::cout<<"adn borrado"<<std::endl;               
     }
   }
@@ -151,7 +151,7 @@ for(unsigned int i = 0;i < adns.size();i++)
                       todoSprites.erase(todoSprites.begin()+a);
                     }
                   }
-              mapa.gettilemapSprite()[l][y][x]->setTextureRect(sf::IntRect(32,32,32,32));
+              mapa.gettilemapSprite()[l][y][x]->setTextureRect(sf::IntRect(32,0,32,32));
               for (unsigned int i = 0; i < adns.size(); i++)//HACER VISIBLE ADNS EN EL LUGAR DE LA PIEDRA
               {
                 if(adns[i]->getposx()==x && adns[i]->getposy()==y){

@@ -6,7 +6,7 @@
  */
 
 void IA::movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<sf::Sprite*> &todoSprite, Map &mapas,float times){
-    int tam_dinos = dinosaurios.size();
+
 
     sf::Sprite**** tilemapSprite = mapas.gettilemapSprite();
     int numlayers, height_map, width_map, ***tilemap;
@@ -16,7 +16,8 @@ void IA::movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<
     width_map = mapas.getwidth();
 
 
-        for(int i=0; i < tam_dinos; i++){
+        for(int i=0; i <  dinosaurios.size(); i++){
+            if(dinosaurios[i]->getactivo()){
             int cosas [5] = { 0, 1, 2, 3, 4 };
             int meh = cosas[i];
             dinosaurios[i]->setDireccion(meh);
@@ -42,6 +43,7 @@ void IA::movimientoDinos(vector<Dinosaurio*> dinosaurios, int _cont,std::vector<
             else{
                 dinosaurios[i]->sumaPasos();
             }
+        }
         }
     
 }

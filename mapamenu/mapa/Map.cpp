@@ -33,7 +33,7 @@ Map::Map(string s,int puntos) {
     value->QueryStringAttribute("value",&_nombremapa);
           std::cout<<_nombremapa<<endl;
 
-              if (!fuente.loadFromFile("resources/arial.ttf"))
+              if (!fuente.loadFromFile("resources/fuente.otf"))
               {              
                     std::cout << "Error: Could not display font" << std::endl;
               }    
